@@ -11,7 +11,23 @@
     transition: all 0.5s ease;
 }
 
+.header-box-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-nav .dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
 #hero {
-    background-size: cover;
     background: linear-gradient(rgba(255, 255, 255, 0.51), rgba(205, 209, 211, 0.01)), url(../assets/img/hero.png) no-repeat center;
+    background-size: cover;
+    height: 30em;
 }
