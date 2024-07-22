@@ -5,16 +5,13 @@
     --c-brand-rgb: 78,87,212;
     --c-body: #727272;
     --font-base: "ClashDisplay", sans-serif;
-    --box-shadow: 0px 4px 20px #0f5132;
-    --transition: all 0.5s ease;
 }
-
 
 .header {
-    transition: var(--transition);
-    box-shadow: var(--box-shadow);
+    transition: all 0.5s ease;
 }
 
-
-
-
+#hero {
+    background-size: cover;
+    background: linear-gradient(rgba(255, 255, 255, 0.51), rgba(205, 209, 211, 0.01)), url(../assets/img/hero.png) no-repeat center;
+}
