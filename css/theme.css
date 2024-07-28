@@ -1,12 +1,15 @@
+/* Global Styles */
 body {
     position: relative;
     font-family: Arial, sans-serif;
 }
 
+/* Utility Classes */
 .spacer {
     padding: 2em 0;
 }
 
+/* Navbar Styles */
 .nav {
     transition: all 0.5s ease;
 }
@@ -37,13 +40,7 @@ body {
 }
 
 .navbar-nav .dropdown-menu {
-    transform: translateX(-50%) !important;
-    left: 50% !important;
     text-align: center;
-}
-
-.navbar-nav .dropdown-menu.show {
-    position: absolute;
 }
 
 .navbar-nav .dropdown:hover .dropdown-menu {
@@ -63,6 +60,16 @@ body {
     background-color: rgba(150, 150, 150, 0.3);
 }
 
+.dropdown-toggle img, .dropdown-item img {
+    padding-bottom: 0.2em;
+}
+
+.center-dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Hero Section Styles */
 #hero {
     background: linear-gradient(rgba(255, 255, 255, 0.51), rgba(205, 209, 211, 0.01)), url(../assets/img/hero.png) no-repeat center;
     background-size: cover;

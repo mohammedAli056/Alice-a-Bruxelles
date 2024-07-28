@@ -8,6 +8,7 @@
         <title>Home | Title</title>
     </head>
     <body>
+        <!-- Navbar Section -->
         <div class="nav container-fluid fixed-top">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
@@ -20,7 +21,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link active"  aria-current="page" href="#hero">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#hero">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
                             <li class="nav-item dropdown">
@@ -29,16 +30,22 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="./pages/videos.html">Videos</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="./pages/videos.html">Documents</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="./pages/documents.html">Documents</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Credits</a></li>
+                                    <li><a class="dropdown-item" href="#credits">Credits</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Localization</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="#" onclick="setLanguage('en')">English</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#" onclick="setLanguage('it')">Italian</a></li>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="./assets/img/en.svg" alt="English" width="20">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                    <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                                        <img src="./assets/img/en.svg" alt="English" width="20"> - English
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                                        <img src="./assets/img/it.svg" alt="Italian" width="20"> - Italiano
+                                    </a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -46,54 +53,35 @@
                 </nav>
             </div>
         </div>
+        <!-- Content Section -->
         <div class="content" data-bs-spy="scroll">
+            <!-- Hero Section -->
             <div id="hero" class="container-fluid d-flex align-items-center text-center">
                 <div class="container">
                     <div class="col-12">
                         <h1 class="text-uppercase fw-semibold text-black display-1">Alice a Bruxelles</h1>
-                        <h5 class="text-black mt-3 mb-4">Exihibition</h5>
+                        <h5 class="text-black mt-3 mb-4">Exhibition</h5>
                     </div>
                 </div>
             </div>
+            <!-- About Section -->
             <div class="container" id="about">
                 <div class="spacer"></div>
                 <h2>About</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque. In hac habitasse platea dictumst. Sed faucibus turpis in eu mi bibendum neque egestas. Semper auctor neque vitae tempus quam pellentesque nec nam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Etiam tempor orci eu lobortis elementum nibh tellus. Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget velit aliquet sagittis id. Enim ut tellus elementum sagittis vitae et leo duis. Nisl purus in mollis nunc sed id. Blandit aliquam etiam erat velit scelerisque in dictum. Consectetur lorem donec massa sapien faucibus et molestie. In ante metus dictum at tempor commodo.
-
-                    In metus vulputate eu scelerisque. Vulputate mi sit amet mauris commodo quis. Posuere urna nec tincidunt praesent. Sapien pellentesque habitant morbi tristique senectus et netus et. Orci dapibus ultrices in iaculis. Sit amet tellus cras adipiscing enim eu turpis. At consectetur lorem donec massa. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique. Lectus arcu bibendum at varius. Suspendisse sed nisi lacus sed viverra. Nunc lobortis mattis aliquam faucibus. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis. Nisl pretium fusce id velit ut. Enim neque volutpat ac tincidunt vitae semper quis lectus nulla. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Sed vulputate odio ut enim blandit volutpat maecenas volutpat. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Ipsum consequat nisl vel pretium lectus quam.
-
-                    Morbi blandit cursus risus at ultrices. Iaculis nunc sed augue lacus viverra vitae congue eu consequat. Turpis cursus in hac habitasse platea dictumst quisque sagittis. Cum sociis natoque penatibus et magnis dis parturient. Quis ipsum suspendisse ultrices gravida dictum. Egestas sed tempus urna et pharetra pharetra massa. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at. Nec tincidunt praesent semper feugiat nibh. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Sit amet purus gravida quis blandit turpis cursus.
-
-                    Sit amet nulla facilisi morbi tempus iaculis urna id. Aliquam malesuada bibendum arcu vitae elementum curabitur. Tortor consequat id porta nibh venenatis cras sed felis eget. Elementum nibh tellus molestie nunc non blandit massa. Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Aliquet nec ullamcorper sit amet risus nullam eget felis eget. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim.
-
-                    Id diam maecenas ultricies mi eget mauris pharetra et ultrices. Quam elementum pulvinar etiam non quam lacus. Ornare arcu dui vivamus arcu felis. Scelerisque purus semper eget duis at tellus at. Ullamcorper a lacus vestibulum sed. Turpis tincidunt id aliquet risus feugiat in ante metus dictum. Eu lobortis elementum nibh tellus molestie. Vel eros donec ac odio tempor orci. Urna cursus eget nunc scelerisque. Sed felis eget velit aliquet sagittis. Mauris ultrices eros in cursus turpis. Fringilla ut morbi tincidunt augue interdum velit. Dui faucibus in ornare quam viverra orci. Pellentesque elit eget gravida cum sociis. Et tortor at risus viverra adipiscing at in tellus. Vel risus commodo viverra maecenas accumsan lacus vel facilisis. Eget sit amet tellus cras adipiscing enim eu. Adipiscing tristique risus nec feugiat in. Velit dignissim sodales ut eu sem integer vitae justo. Id consectetur purus ut faucibus.
-
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque. In hac habitasse platea dictumst. Sed faucibus turpis in eu mi bibendum neque egestas. Semper auctor neque vitae tempus quam pellentesque nec nam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Etiam tempor orci eu lobortis elementum nibh tellus. Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget velit aliquet sagittis id. Enim ut tellus elementum sagittis vitae et leo duis. Nisl purus in mollis nunc sed id. Blandit aliquam etiam erat velit scelerisque in dictum. Consectetur lorem donec massa sapien faucibus et molestie. In ante metus dictum at tempor commodo.
-
-                    In metus vulputate eu scelerisque. Vulputate mi sit amet mauris commodo quis. Posuere urna nec tincidunt praesent. Sapien pellentesque habitant morbi tristique senectus et netus et. Orci dapibus ultrices in iaculis. Sit amet tellus cras adipiscing enim eu turpis. At consectetur lorem donec massa. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique. Lectus arcu bibendum at varius. Suspendisse sed nisi lacus sed viverra. Nunc lobortis mattis aliquam faucibus. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis. Nisl pretium fusce id velit ut. Enim neque volutpat ac tincidunt vitae semper quis lectus nulla. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Sed vulputate odio ut enim blandit volutpat maecenas volutpat. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Ipsum consequat nisl vel pretium lectus quam.
-
-                    Morbi blandit cursus risus at ultrices. Iaculis nunc sed augue lacus viverra vitae congue eu consequat. Turpis cursus in hac habitasse platea dictumst quisque sagittis. Cum sociis natoque penatibus et magnis dis parturient. Quis ipsum suspendisse ultrices gravida dictum. Egestas sed tempus urna et pharetra pharetra massa. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at. Nec tincidunt praesent semper feugiat nibh. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Sit amet purus gravida quis blandit turpis cursus.
-
-                    Sit amet nulla facilisi morbi tempus iaculis urna id. Aliquam malesuada bibendum arcu vitae elementum curabitur. Tortor consequat id porta nibh venenatis cras sed felis eget. Elementum nibh tellus molestie nunc non blandit massa. Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Aliquet nec ullamcorper sit amet risus nullam eget felis eget. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim.
-
-                    Id diam maecenas ultricies mi eget mauris pharetra et ultrices. Quam elementum pulvinar etiam non quam lacus. Ornare arcu dui vivamus arcu felis. Scelerisque purus semper eget duis at tellus at. Ullamcorper a lacus vestibulum sed. Turpis tincidunt id aliquet risus feugiat in ante metus dictum. Eu lobortis elementum nibh tellus molestie. Vel eros donec ac odio tempor orci. Urna cursus eget nunc scelerisque. Sed felis eget velit aliquet sagittis. Mauris ultrices eros in cursus turpis. Fringilla ut morbi tincidunt augue interdum velit. Dui faucibus in ornare quam viverra orci. Pellentesque elit eget gravida cum sociis. Et tortor at risus viverra adipiscing at in tellus. Vel risus commodo viverra maecenas accumsan lacus vel facilisis. Eget sit amet tellus cras adipiscing enim eu. Adipiscing tristique risus nec feugiat in. Velit dignissim sodales ut eu sem integer vitae justo. Id consectetur purus ut faucibus.
                 </p>
             </div>
+            <!-- Contact Section -->
             <div class="container" id="contact">
                 <div class="spacer"></div>
                 <h2>Contact Us</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque. In hac habitasse platea dictumst. Sed faucibus turpis in eu mi bibendum neque egestas. Semper auctor neque vitae tempus quam pellentesque nec nam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Etiam tempor orci eu lobortis elementum nibh tellus. Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget velit aliquet sagittis id. Enim ut tellus elementum sagittis vitae et leo duis. Nisl purus in mollis nunc sed id. Blandit aliquam etiam erat velit scelerisque in dictum. Consectetur lorem donec massa sapien faucibus et molestie. In ante metus dictum at tempor commodo.
-
-                    In metus vulputate eu scelerisque. Vulputate mi sit amet mauris commodo quis. Posuere urna nec tincidunt praesent. Sapien pellentesque habitant morbi tristique senectus et netus et. Orci dapibus ultrices in iaculis. Sit amet tellus cras adipiscing enim eu turpis. At consectetur lorem donec massa. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique. Lectus arcu bibendum at varius. Suspendisse sed nisi lacus sed viverra. Nunc lobortis mattis aliquam faucibus. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis. Nisl pretium fusce id velit ut. Enim neque volutpat ac tincidunt vitae semper quis lectus nulla. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Sed vulputate odio ut enim blandit volutpat maecenas volutpat. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Ipsum consequat nisl vel pretium lectus quam.
-
-                    Morbi blandit cursus risus at ultrices. Iaculis nunc sed augue lacus viverra vitae congue eu consequat. Turpis cursus in hac habitasse platea dictumst quisque sagittis. Cum sociis natoque penatibus et magnis dis parturient. Quis ipsum suspendisse ultrices gravida dictum. Egestas sed tempus urna et pharetra pharetra massa. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at. Nec tincidunt praesent semper feugiat nibh. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Sit amet purus gravida quis blandit turpis cursus.
-
-                    Sit amet nulla facilisi morbi tempus iaculis urna id. Aliquam malesuada bibendum arcu vitae elementum curabitur. Tortor consequat id porta nibh venenatis cras sed felis eget. Elementum nibh tellus molestie nunc non blandit massa. Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Aliquet nec ullamcorper sit amet risus nullam eget felis eget. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim.
                 </p>
             </div>
         </div>
+        <!-- Footer Section -->
         <div class="container">
             <footer class="py-5">
                 <div class="row">
