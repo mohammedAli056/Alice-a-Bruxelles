@@ -14,7 +14,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand" href="#">
                         <img src="./assets/img/italy.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                        Name
+                        Alice a Bruxelles
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -48,6 +48,12 @@
                                     </a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="switchTheme">
+                                    <label class="form-check-label" for="switchTheme"></label>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -71,14 +77,72 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque. In hac habitasse platea dictumst. Sed faucibus turpis in eu mi bibendum neque egestas. Semper auctor neque vitae tempus quam pellentesque nec nam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Etiam tempor orci eu lobortis elementum nibh tellus. Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget velit aliquet sagittis id. Enim ut tellus elementum sagittis vitae et leo duis. Nisl purus in mollis nunc sed id. Blandit aliquam etiam erat velit scelerisque in dictum. Consectetur lorem donec massa sapien faucibus et molestie. In ante metus dictum at tempor commodo.
                 </p>
+                <div class="spacer"></div>
             </div>
             <!-- Contact Section -->
-            <div class="container" id="contact">
-                <div class="spacer"></div>
-                <h2>Contact Us</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque. In hac habitasse platea dictumst. Sed faucibus turpis in eu mi bibendum neque egestas. Semper auctor neque vitae tempus quam pellentesque nec nam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Etiam tempor orci eu lobortis elementum nibh tellus. Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget velit aliquet sagittis id. Enim ut tellus elementum sagittis vitae et leo duis. Nisl purus in mollis nunc sed id. Blandit aliquam etiam erat velit scelerisque in dictum. Consectetur lorem donec massa sapien faucibus et molestie. In ante metus dictum at tempor commodo.
-                </p>
+            <div class="div-fluid" id="contact">
+                <div class="container">
+                    <div class="spacer"></div>
+                    <div class="row">
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+                            <h2>Contact Us</h2>
+                            <form>
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="nameFirst" placeholder="Enter first name" name="inputNameFirst">
+                                            <label for="nameFirst">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="nameLast" placeholder="Enter last name" name="inputNameLast">
+                                            <label for="nameLast">Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-floating mt-2 mb-2">
+                                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="inputEmail">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="purpose" aria-label="selectPurpose">
+                                                <option selected></option>
+                                                <option value="1">Question</option>
+                                                <option value="2">-</option>
+                                                <option value="3">-</option>
+                                            </select>
+                                            <label for="purpose">Purpose of Inquiry</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-floating mt-2 mb-2">
+                                            <textarea class="form-control" id="comment" name="text" placeholder="Comment" style="height: 12em"></textarea>
+                                            <label for="comment">Comments</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
             </div>
         </div>
         <!-- Footer Section -->
@@ -141,5 +205,6 @@
         <script src="./js/bootstrap.bundle.min.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/localization.js"></script>
+        <script src="./js/theme.js"></script>
     </body>
 </html>

@@ -7,7 +7,6 @@ $(document).ready(function() {
             $('#about h2').text('About');
             $('#about p').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.');
             $('#contact h2').text('Contact Us');
-            $('#contact p').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.');
 
             // Update navigation items
             $('a.nav-link[aria-current="page"]').text('Home');
@@ -29,7 +28,6 @@ $(document).ready(function() {
             $('#about h2').text('Informazioni');
             $('#about p').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.');
             $('#contact h2').text('Contattaci');
-            $('#contact p').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.');
 
             // Update navigation items
             $('a.nav-link[aria-current="page"]').text('Inizio');
