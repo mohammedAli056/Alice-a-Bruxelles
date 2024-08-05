@@ -86,6 +86,11 @@ body {
     transform: translateX(-50%);
 }
 
+.form-switch {
+    padding-top: 0.45em;
+}
+
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
