@@ -86,11 +86,42 @@ body {
     transform: translateX(-50%);
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes parallax {
+    0% { background-position: center; }
+    50% { background-position: center 10%; }
+    100% { background-position: center; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.video-container video {
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translate(-40%, 50%);
+}
+
+.video2-container {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-120%, 50%);
+}
+
 /* Hero Section Styles */
 #hero {
     background: linear-gradient(rgba(255, 255, 255, 0.51), rgba(205, 209, 211, 0.01)), url(../assets/img/hero.png) no-repeat center;
     background-size: cover;
     height: 30em;
+    animation: fadeIn 2s ease-in-out,parallax 10s infinite,zoomIn 10s ease-in-out infinite alternate;
 }
 
 /* Contact Section Styles */
