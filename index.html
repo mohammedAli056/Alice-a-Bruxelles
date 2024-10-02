@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/custom.css" rel="stylesheet">
         <link href="./css/theme.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <title>Home | Title</title>
     </head>
     <body>
@@ -22,18 +22,18 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#hero">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#hero" id="navhome">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#about" id="navabout">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact" id="navcontact">Contact Us</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="more">
                                     More
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="./pages/videos.html">Videos</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="./pages/documents.html">Documents</a></li>
+                                    <li class="nav-item"><a class="dropdown-item" href="./pages/videos.html">Videos</a></li>
+                                    <li class="nav-item"><a class="dropdown-item" href="./pages/documents.html">Documents</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#credits">Credits</a></li>
+                                    <li><a class="dropdown-item" href="./pages/credits.html">Credits</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -49,11 +49,19 @@
                                     </a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="switchTheme">
-                                    <label class="form-check-label" for="switchTheme"></label>
-                                </div>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-gear"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item d-flex justify-content-between align-items-center" id="darkmode">
+                                        <span class="me-auto">Dark Mode</span>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="switchTheme">
+                                            <label class="form-check-label" for="switchTheme"></label>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -64,23 +72,19 @@
         <div class="content" data-bs-spy="scroll">
             <!-- Hero Section -->
             <div id="hero" class="container-fluid d-flex align-items-center text-center">
-                <div class="container">
-                    <div class="col-12">
-                        <h1 class="text-uppercase fw-semibold text-black display-1">Alice a Bruxelles</h1>
-                        <h5 class="text-black mt-3 mb-4">Exhibition</h5>
-                    </div>
+                <div class="content">
+                    <h1 class="text-uppercase fw-semibold text-black display-1">Alice a Bruxelles</h1>
+                    <h5 class="text-black mt-3 mb-4">Exhibition</h5>
+                    <a href="#about" class="btn btn-primary btn-lg mt-4">Explore</a>
                 </div>
             </div>
             <!-- About Section -->
             <div class="container" id="about">
                 <div class="spacer"></div>
                 <h2>About</h2>
-                <div class="col-lg-6">
-                    <img src="./assets/img/Alice.jpeg">
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque. In hac habitasse platea dictumst. Sed faucibus turpis in eu mi bibendum neque egestas. Semper auctor neque vitae tempus quam pellentesque nec nam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Etiam tempor orci eu lobortis elementum nibh tellus. Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget velit aliquet sagittis id. Enim ut tellus elementum sagittis vitae et leo duis. Nisl purus in mollis nunc sed id. Blandit aliquam etiam erat velit scelerisque in dictum. Consectetur lorem donec massa sapien faucibus et molestie. In ante metus dictum at tempor commodo.
-                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.</p>
+                <div class="spacer"></div>
+                <a href="./pages/videos.html" class="btn btn-primary">Read More</a>
                 <div class="spacer"></div>
             </div>
             <!-- Contact Section -->
@@ -88,8 +92,8 @@
                 <div class="container">
                     <div class="spacer"></div>
                     <div class="row">
-                        <div class="col">
-
+                        <div class="col d-none d-md-flex justify-content-center align-items-center">
+                            <i class="fa-duotone fa-solid fa-id-card fa-shake" style="color: #20c997; font-size: 250px;"></i>
                         </div>
                         <div class="col">
                             <h2>Contact Us</h2>

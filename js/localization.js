@@ -1,5 +1,9 @@
 $(document).ready(function() {
     function setLanguage(language) {
+        // Determine the base path for assets
+        const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
+        const basePath = isIndexPage ? './' : '../';
+
         // Update text based on the selected language
         if (language === 'en') {
             $('#hero h1').text('Alice in Brussels');
@@ -9,19 +13,14 @@ $(document).ready(function() {
             $('#contact h2').text('Contact Us');
 
             // Update navigation items
-            $('a.nav-link[aria-current="page"]').text('Home');
-            $('a.nav-link[href="#about"]').text('About');
-            $('a.nav-link[href="#contact"]').text('Contact Us');
-            $('a.nav-link[href="./pages/videos.html"]').each(function(index) {
-                if (index === 0) $(this).text('Videos');
-                else $(this).text('Documents');
-            });
-            $('a.dropdown-item[href="#credits"]').text('Credits');
-
-            // Update "More" dropdown text
-            $('a.nav-link.dropdown-toggle').filter(function() {
-                return $(this).text() === 'Altro';
-            }).text('More');
+            $('#navhome').text('Home');
+            $('#navabout').text('About');
+            $('#navcontact').text('Contact Us');
+            $('a.dropdown-item[href="' + basePath + 'pages/videos.html"]').text('Videos');
+            $('a.dropdown-item[href="' + basePath + 'pages/documents.html"]').text('Documents');
+            $('a.dropdown-item[href="' + basePath + 'pages/credits.html"]').text('Credits');
+            $('#more').text('More');
+            $('#darkmode span').text('Theme');
         } else if (language === 'it') {
             $('#hero h1').text('Alice a Bruxelles');
             $('#hero h5').text('Mostra');
@@ -30,23 +29,18 @@ $(document).ready(function() {
             $('#contact h2').text('Contattaci');
 
             // Update navigation items
-            $('a.nav-link[aria-current="page"]').text('Inizio');
-            $('a.nav-link[href="#about"]').text('Informazioni');
-            $('a.nav-link[href="#contact"]').text('Contattaci');
-            $('a.nav-link[href="./pages/videos.html"]').each(function(index) {
-                if (index === 0) $(this).text('Video');
-                else $(this).text('Documenti');
-            });
-            $('a.dropdown-item[href="#credits"]').text('Crediti');
-
-            // Update "More" dropdown text
-            $('a.nav-link.dropdown-toggle').filter(function() {
-                return $(this).text() === 'More';
-            }).text('Altro');
+            $('#navhome').text('Inizio');
+            $('#navabout').text('Informazioni');
+            $('#navcontact').text('Contattaci');
+            $('a.dropdown-item[href="' + basePath + 'pages/videos.html"]').text('Video');
+            $('a.dropdown-item[href="' + basePath + 'pages/documents.html"]').text('Documenti');
+            $('a.dropdown-item[href="' + basePath + 'pages/credits.html"]').text('Crediti');
+            $('#more').text('Altro');
+            $('#darkmode span').text('Tema');
         }
 
         // Update the dropdown button with the selected language flag only
-        const flagPath = `./assets/img/${language}.svg`;
+        const flagPath = basePath + `assets/img/${language}.svg`;
         $('#languageDropdown').html(`<img src="${flagPath}" alt="${language}" width="20"> <span class="visually-hidden">${language}</span>`);
 
         // Store the selected language in localStorage
