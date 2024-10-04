@@ -9,7 +9,6 @@ $(document).ready(function() {
             $('#hero h1').text('Alice in Brussels');
             $('#hero h5').text('Exhibition');
             $('#about h2').text('About');
-            $('#about p').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.');
             $('#contact h2').text('Contact Us');
 
             // Update navigation items
@@ -25,7 +24,6 @@ $(document).ready(function() {
             $('#hero h1').text('Alice a Bruxelles');
             $('#hero h5').text('Mostra');
             $('#about h2').text('Informazioni');
-            $('#about p').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu mi bibendum neque egestas congue quisque.');
             $('#contact h2').text('Contattaci');
 
             // Update navigation items
