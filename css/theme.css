@@ -184,6 +184,11 @@ body, html {
     right: 2%;
 }
 
+/* Silhouettes Section */
+#silhouettes img {
+    width: 100%;
+}
+
 /* Video Section */
 #video {
     background-color: var(--bs-secondary-bg);
