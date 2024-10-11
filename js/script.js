@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
     const dropdowns = document.querySelectorAll('.navbar-nav .dropdown');
+    const backToTopButton = document.getElementById('back-to-top');
 
     const checkScroll = () => {
         if (window.scrollY >= 56 || toggleButton.getAttribute('aria-expanded') === 'true') {
@@ -10,6 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             navEl.classList.remove('nav-scrolled');
         }
+
+        if (window.scrollY > 100) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    };
+
+    backToTopButton.onclick = function() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
     };
 
     window.addEventListener('scroll', checkScroll);

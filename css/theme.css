@@ -16,6 +16,28 @@ body, html {
     padding: 2em 0;
 }
 
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px; /* Adjust as needed */
+    right: 30px; /* Adjust as needed */
+    background-color: var(--bs-primary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: var(--bs-success);
+}
+
 /* Navbar Section */
 .nav {
     transition: all 0.5s ease;
