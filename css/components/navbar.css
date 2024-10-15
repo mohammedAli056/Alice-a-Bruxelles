@@ -10,7 +10,7 @@
     background: rgba(150,150,150,0.5);
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 3px 10px;
 }
 
 .navbar-nav .nav-link.active::after {

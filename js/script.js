@@ -59,4 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show the selected language content
         document.getElementById(lang).classList.add('active');
     }
+
+    document.addEventListener('scroll', function() {
+        const heroSection = document.querySelector('#hero');
+        const scrollPosition = window.scrollY;
+
+        // Adjust background position to create parallax effect
+        heroSection.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    });
+
 });
