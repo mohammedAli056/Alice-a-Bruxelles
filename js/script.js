@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkScroll = () => {
         if (window.scrollY >= 56 || toggleButton.getAttribute('aria-expanded') === 'true') {
             navEl.classList.add('nav-scrolled');
+            navEl.setAttribute('data-bs-theme', 'dark');
         } else {
             navEl.classList.remove('nav-scrolled');
+            navEl.setAttribute('data-bs-theme', 'light');
         }
 
         if (window.scrollY > 100) {
@@ -46,4 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleCentering();
     window.addEventListener('resize', toggleCentering);
+
+    function setLanguage(lang) {
+        // Hide all language-specific content
+        var elements = document.querySelectorAll('.lang');
+        elements.forEach(function(el) {
+            el.classList.remove('active');
+        });
+
+        // Show the selected language content
+        document.getElementById(lang).classList.add('active');
+    }
 });
