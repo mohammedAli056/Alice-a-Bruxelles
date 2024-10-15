@@ -1,0 +1,77 @@
+/* Carousel Section */
+.floating-alert {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 600px;
+}
+
+.carousel {
+    position: relative;
+    margin-top: 70px;
+    max-height: 100vh;
+}
+
+.carousel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--carousel-bg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(40px);
+    z-index: 0;
+    transform: scale(1.1);
+}
+
+.carousel-item img {
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - 70px);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    z-index: 1;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+    left: 2%;
+}
+
+.carousel-control-next {
+    right: 2%;
+}
+
+/* Silhouettes Section */
+#silhouettes {
+    padding: 0;
+    margin: 0;
+}
+
+#silhouettes img {
+    width: 100%;
+}
+
+/* Video Section */
+#video {
+    background-color: var(--bs-secondary-bg);
+    align-content: center;
+}
+
+#video video {
+    width: 100%;
+}

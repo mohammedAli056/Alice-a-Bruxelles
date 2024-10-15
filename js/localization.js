@@ -6,8 +6,6 @@ $(document).ready(function() {
 
         // Update text based on the selected language
         if (language === 'en') {
-            $('#hero h1').text('Alice in Brussels');
-            $('#hero h5').text('Exhibition');
             $('#about h2').text('About');
             $('#contact h2').text('Contact Us');
 
@@ -21,8 +19,6 @@ $(document).ready(function() {
             $('#more').text('More');
             $('#darkmode span').text('Theme');
         } else if (language === 'it') {
-            $('#hero h1').text('Alice a Bruxelles');
-            $('#hero h5').text('Mostra');
             $('#about h2').text('Informazioni');
             $('#contact h2').text('Contattaci');
 

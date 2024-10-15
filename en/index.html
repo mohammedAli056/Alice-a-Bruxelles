@@ -3,8 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./css/custom.css" rel="stylesheet">
-        <link href="./css/theme.css" rel="stylesheet">
+        <meta name="theme-color" content="#20c997">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-navbutton-color" content="#20c997">
+        <link href="../css/theme.css" rel="stylesheet">
+        <link href="../css/pages/index.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <title>Home | Title</title>
     </head>
@@ -12,9 +15,9 @@
         <!-- Navbar Section -->
         <div class="nav container-fluid fixed-top">
             <div class="container">
-                <nav class="navbar navbar-expand-lg">
+                <nav class="navbar navbar-expand-lg" data-bs-theme="light">
                     <a class="navbar-brand" href="#">
-                        <img src="./assets/img/italy.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        <img src="../assets/img/italy.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                         Alice a Bruxelles
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,22 +33,22 @@
                                     More
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="dropdown-item" href="./pages/videos.html">Videos</a></li>
-                                    <li class="nav-item"><a class="dropdown-item" href="./pages/documents.html">Documents</a></li>
+                                    <li class="nav-item"><a class="dropdown-item" href="./videos.html">Videos</a></li>
+                                    <li class="nav-item"><a class="dropdown-item" href="./documents.html">Documents</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="./pages/credits.html">Credits</a></li>
+                                    <li><a class="dropdown-item" href="./credits.html">Credits</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="./assets/img/en.svg" alt="English" width="20">
+                                    <img src="../assets/img/en.svg" alt="English" width="20">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="languageDropdown">
                                     <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
-                                        <img src="./assets/img/en.svg" alt="English" width="20"> - English
+                                        <img src="../assets/img/en.svg" alt="English" width="20"> - English
                                     </a></li>
                                     <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
-                                        <img src="./assets/img/it.svg" alt="Italian" width="20"> - Italiano
+                                        <img src="../assets/img/it.svg" alt="Italian" width="20"> - Italiano
                                     </a></li>
                                 </ul>
                             </li>
@@ -73,8 +76,8 @@
             <!-- Hero Section -->
             <div id="hero" class="container-fluid d-flex align-items-center text-center">
                 <div class="content">
-                    <h1 class="text-uppercase fw-semibold text-black display-1">Alice a Bruxelles</h1>
-                    <h5 class="text-black mt-3 mb-4">Exhibition</h5>
+                    <h2 class="text-uppercase fw-semibold">Le scuole Hallgarten-Franchetti all'Esposizione Universale del 1910</h2>
+                    <h5 class="text-uppercase">dalle origini a Maria Montessori</h5>
                     <a href="#about" class="btn btn-primary btn-lg mt-4">Explore</a>
                 </div>
             </div>
@@ -82,12 +85,14 @@
             <div class="container text-center" id="about">
                 <div class="spacer"></div>
                 <h2>About</h2>
+                <div class="spacer-small"></div>
                 <p>Immerse yourself in a journey through history as we explore the captivating tales of influential figures. This exhibition showcases a blend of artifacts, insightful documents, and engaging multimedia that bring to life the stories of those who left an indelible mark on Western education. Experience the essence of their contributions and discover the connections that shaped generations to come.</p>
-                <a href="./pages/videos.html" class="btn btn-primary">Read More</a>
+                <div class="spacer-small"></div>
+                <a href="./videos.html" class="btn btn-primary">Read More</a>
                 <div class="spacer"></div>
             </div>
             <!-- Contact Section -->
-            <div class="div-fluid" id="contact">
+            <div class="container-fluid" id="contact">
                 <div class="container">
                     <div class="spacer"></div>
                     <div class="row">
@@ -156,7 +161,7 @@
         <div class="container" id="footer">
             <footer class="py-5">
                 <div class="row">
-                    <div class="col-6 col-md-2 mb-3">
+                    <div class="col-6 col-md-3 mb-3">
                         <h5>Section</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
@@ -166,7 +171,7 @@
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-md-2 mb-3">
+                    <div class="col-6 col-md-3 mb-3">
                         <h5>Section</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
@@ -176,17 +181,7 @@
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
                         </ul>
                     </div>
-                    <div class="col-6 col-md-2 mb-3">
-                        <h5>Section</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-5 offset-md-1 mb-3">
+                    <div class="col-md-6 mb-3">
                         <form>
                             <h5>Subscribe to our newsletter</h5>
                             <p>Monthly digest of what's new and exciting from us.</p>
@@ -209,13 +204,13 @@
             </footer>
         </div>
         <!-- Back to Top Button -->
-        <div id="back-to-top" class="back-to-top" style="display: none;">
+        <div id="back-to-top" class="back-to-top">
             &#8679;
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="./js/bootstrap.bundle.min.js"></script>
-        <script src="./js/script.js"></script>
-        <script src="./js/localization.js"></script>
-        <script src="./js/theme.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/localization.js"></script>
+        <script src="../js/theme.js"></script>
     </body>
 </html>
