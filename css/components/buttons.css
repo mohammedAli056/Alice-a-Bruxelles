@@ -4,6 +4,7 @@
     bottom: 30px;
     right: 30px;
     background-color: var(--bs-primary);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 3px 10px;
     color: white;
     border: none;
     border-radius: 25px;
