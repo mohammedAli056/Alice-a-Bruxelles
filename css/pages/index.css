@@ -1,66 +1,25 @@
-/* Hero Section */
-#hero {
-    position: relative;
+body {
+    background: linear-gradient(170deg, #20c997, #20c997 30%, #a0d8e8 60%, #f8b3d0 100%);
     height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1;
-    background: url(../../assets/img/hero.png) no-repeat center;
-    background-size: cover;
+    margin: 0;
 }
 
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.container {
+    background: var(--bs-body-bg);
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 3px 10px;
+}
+
+.container h1 {
+    padding: 0 5em;
+}
+
+.container a {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0.51), rgba(205, 209, 211, 0.01));
-    z-index: 1;
-    animation: zoomIn 10s ease-in-out infinite alternate;
+    padding: 1em 0;
+    margin-bottom: 1em;
 }
 
-#hero .content {
-    position: relative;
-    z-index: 2;
-    color: black;
-}
-
-#about, #contact, #footer {
-    position: relative;
-    z-index: 10;
-}
-
-@keyframes zoomIn {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
-}
-
-#hero .btn {
-    z-index: 2;
-    transition: background-color 0.3s ease;
-}
-
-/* About Section */
-#about {
-    background-color: var(--bs-tertiary-bg);
-    border-radius: 2em 2em 0 0;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 -3px 10px;
-}
-
-#about img {
-    width: 100%;
-}
-
-/* Contact Section */
-#contact {
-    background-color: var(--bs-secondary-bg);
-}
-
-#contact button {
-    width: 100%;
+.container a img {
+    padding-bottom: 0.2em;
 }
