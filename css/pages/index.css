@@ -14,10 +14,54 @@ body {
     padding: 0 5em;
 }
 
-.container a {
+.btn-group {
     width: 100%;
-    padding: 1em 0;
     margin-bottom: 1em;
+}
+
+.btn-group a {
+    padding: 1em 0;
+}
+
+#set-english:hover {
+    background-color: #B22234;
+}
+
+#set-italian:hover {
+    background-color: #009246;
+}
+
+#set-english:hover::before, #set-italian:hover::before {
+    content: '';
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+#set-english:hover::before {
+    background-image: url('../../assets/img/en.svg');
+}
+
+#set-italian:hover::before {
+    background-image: url('../../assets/img/it.svg');
+}
+
+#set-english:hover span, #set-italian:hover span {
+    visibility: hidden;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding: 0.75em 1.5em;
+    height: 50px;
+    text-align: center;
 }
 
 .container a img {
