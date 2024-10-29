@@ -69,3 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
+function openPDF() {
+    window.open("../../assets/document/CATALOGUE.pdf", "_blank");
+}
