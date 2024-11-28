@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#20c997">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-navbutton-color" content="#20c997">
+        <link href="./css/theme.css" rel="stylesheet">
+        <link href="./css/pages/index.css" rel="stylesheet">
+        <title>Welcome | Alice a Bruxelles</title>
+    </head>
+    <body class="d-flex justify-content-center align-items-center vh-100">
+        <div class="content">
+            <div class="container">
+                <div class="spacer"></div>
+                <h1>Welcome.</h1>
+                <div class="spacer-small"></div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-language fa-flip" style="color: #20c997; font-size: 200px;"></i>
+                </div>
+                <div class="spacer-small"></div>
+                <hr>
+                <div class="btn-group">
+                    <a href="./en/index.html" class="btn btn-primary" id="set-english"><span>English</span></a>
+                    <a href="./it/index.html" class="btn btn-primary" id="set-italian"><span>Italiano</span></a>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./js/bootstrap.bundle.min.js"></script>
+        <script src="./js/script.js"></script>
+        <script src="./js/theme.js"></script>
+        <script>
+            document.getElementById('set-english').addEventListener('click', function() {
+                localStorage.setItem('preferredLanguage', 'en');
+                window.location.reload(true);
+            });
+            document.getElementById('set-italian').addEventListener('click', function() {
+                localStorage.setItem('preferredLanguage', 'it');
+                window.location.reload(true);
+            });
+        </script>
+    </body>
+</html>
