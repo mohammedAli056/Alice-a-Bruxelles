@@ -60,22 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(lang).classList.add('active');
     }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                document.getElementById('silhouettes').classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    });
-
-    const trigger = document.querySelector('.trigger-visible');
-    if (trigger) {
-        observer.observe(trigger);
-    }
-});
     document.addEventListener('scroll', function() {
         const heroSection = document.querySelector('#hero');
         const scrollPosition = window.scrollY;
