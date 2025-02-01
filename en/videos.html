@@ -138,37 +138,37 @@
         <div class="container-fluid" id="silhouettes">
             <div class="container-fluid" style="background: linear-gradient(315deg, #F7E6A5,  var(--bs-secondary-bg))">
                 <div class="container">
-                    <img src="../assets/img/silhouette-1.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-1.png" alt="">
                 </div>
             </div>
             <div class="container-fluid" style="background: linear-gradient(45deg, #A3C1D4,  var(--bs-secondary-bg));">
                 <div class="container">
-                    <img src="../assets/img/silhouette-2.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-2.png" alt="">
                 </div>
             </div>
             <div class="container-fluid" style="background: linear-gradient(315deg, #FFB3C1,  var(--bs-secondary-bg))">
                 <div class="container">
-                    <img src="../assets/img/silhouette-3.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-3.png" alt="">
                 </div>
             </div>
             <div class="container-fluid" style="background: linear-gradient(45deg, #FFDAB9,  var(--bs-secondary-bg))">
                 <div class="container">
-                    <img src="../assets/img/silhouette-4.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-4.png" alt="">
                 </div>
             </div>
             <div class="container-fluid" style="background: linear-gradient(315deg, #B2E2D7,  var(--bs-secondary-bg))">
                 <div class="container">
-                    <img src="../assets/img/silhouette-5.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-5.png" alt="">
                 </div>
             </div>
             <div class="container-fluid" style="background: linear-gradient(45deg, #E6C5E5,  var(--bs-secondary-bg))">
                 <div class="container">
-                    <img src="../assets/img/silhouette-6.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-6.png" alt="">
                 </div>
             </div>
             <div class="container-fluid" style="background: linear-gradient(45deg, #D9E7D9,  var(--bs-secondary-bg));">
                 <div class="container">
-                    <img src="../assets/img/silhouette-7.png" alt="">
+                    <img class="silhouette" src="../assets/img/silhouette-7.png" alt="">
                 </div>
             </div>
         </div>
@@ -265,6 +265,25 @@
 
                     carousel.addEventListener('slid.bs.carousel', updateBackground);
                 }
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const silhouettes = document.querySelectorAll(".silhouette");
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            observer.unobserve(entry.target); // Prevent repeated triggers
+                        }
+                    });
+                }, { threshold: 0.3 }); // Trigger animation when 30% of element is visible
+
+                silhouettes.forEach(silhouette => {
+                    observer.observe(silhouette);
+                });
+
+                console.log("Scroll animation script loaded."); // Debugging
             });
         </script>
     </body>

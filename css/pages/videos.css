@@ -93,3 +93,14 @@
     transform: scale(1.1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+.silhouette {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.silhouette.show {
+    opacity: 1;
+    transform: translateY(0);
+}
