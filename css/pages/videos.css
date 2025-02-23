@@ -104,3 +104,62 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Image Accordion Section */
+#image-accordion {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bs-secondary-bg);
+}
+
+.accordion {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 400px; /* ✅ Increased height so all images are as big as the previous expanded one */
+    overflow: hidden;
+    border-radius: 20px;
+    gap: 5px; /* ✅ Adds space between images */
+}
+
+.accordion .panel {
+    flex: 1;
+    min-width: 80px; /* ✅ Controls visibility of unexpanded images */
+    cursor: pointer;
+    overflow: hidden;
+    transition: flex 0.5s ease-in-out;
+    position: relative;
+    border-radius: 20px;
+    background-color: white; /* ✅ White background */
+    display: flex;
+    align-items: center; /* ✅ Centers images vertically */
+    justify-content: center;
+}
+
+/* All images should be fully visible vertically but cut off horizontally */
+.accordion .panel img {
+    height: 100%; /* ✅ Ensures all images maintain full height */
+    width: auto;  /* ✅ Prevents distortion */
+    object-fit: cover;
+    background-color: white;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 20px;
+}
+
+/* Expanded image should only stretch horizontally */
+.accordion .panel:hover,
+.accordion .panel.active {
+    flex: 4; /* ✅ Expands horizontally only */
+}
+
+/* Hide all silhouettes initially */
+.silhouette-container {
+    display: none; /* ✅ Hide all silhouette sections by default */
+}
+
+/* Show the selected silhouette */
+.silhouette-container.active {
+    display: block; /* ✅ Only the clicked silhouette will be visible */
+}

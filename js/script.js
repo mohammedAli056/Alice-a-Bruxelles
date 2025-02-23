@@ -68,9 +68,49 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSection.style.transform = `translateY(${scrollPosition * 0.5}px)`;
     });
 
+    // Image Accordion Hover Effect
+    const panels = document.querySelectorAll(".accordion .panel");
+
+    panels.forEach(panel => {
+        panel.addEventListener("mouseenter", () => {
+            panels.forEach(p => p.classList.remove("active"));
+            panel.classList.add("active");
+        });
+    });
+
+    // Silhouette Visibility Control
+    const silhouettes = document.querySelectorAll(".silhouette-container");
+
+    // Initially show the first silhouette (or none if preferred)
+    silhouettes.forEach(silhouette => silhouette.classList.remove("active"));
+    document.getElementById("silhouette-1").classList.add("active");
+
+    panels.forEach((panel, index) => {
+        panel.addEventListener("click", () => {
+            // Remove active class from all silhouette sections
+            silhouettes.forEach(silhouette => silhouette.classList.remove("active"));
+    
+            // Show only the corresponding silhouette
+            const selectedSilhouette = document.getElementById(`silhouette-${index + 1}`);
+            if (selectedSilhouette) {
+                selectedSilhouette.classList.add("active");
+    
+                // Scroll smoothly to align the bottom of the silhouettes section with the bottom of the viewport
+                const silhouettesSection = document.getElementById("silhouettes");
+                const viewportHeight = window.innerHeight;
+                const silhouettesBottom = silhouettesSection.getBoundingClientRect().bottom + window.scrollY;
+                
+                window.scrollTo({
+                    top: silhouettesBottom - viewportHeight,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });    
+
 });
 
-
+// Open PDF Function
 function openPDF() {
     window.open("../assets/document/CATALOGUE.pdf", "_blank");
 }
