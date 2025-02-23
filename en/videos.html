@@ -116,6 +116,43 @@
                 <area target="" alt="" title="" href="" coords="643,886,630,946,631,995,680,995,712,1010,764,1010,767,993,787,985,799,982,801,886" shape="poly">
             </map>
         </div>
+
+        <div class="slider-container" style="position: relative">
+            <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 300px">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            <div class="slider" id="slider">
+                <div class="slide-image"><img src="/assets/img/slider-7.jpeg" alt="Image 1"></div>
+                <div class="slide-image"><img src="/assets/img/slider-6.jpeg" alt="Image 2"></div>
+                <div class="slide-image active"><img src="/assets/img/slider-1.jpeg" alt="Image 3"></div>
+                <div class="slide-image"><img src="/assets/img/slider-5.jpeg" alt="Image 4"></div>
+                <div class="slide-image"><img src="/assets/img/slider-4.jpeg" alt="Image 5"></div>
+                <div class="slide-image"><img src="/assets/img/slider-3.jpeg" alt="Image 6"></div>
+                <div class="slide-image"><img src="/assets/img/slider-2.jpeg" alt="Image 7"></div>
+            </div>
+        </div>
+        <script>
+            let index = 2;
+            function moveSlide(direction) {
+                const slides = document.querySelectorAll('.slide-image');
+                slides[index].classList.remove('active');
+
+                if (index + direction == slides.length && direction == 1) {
+                    for (let i = 0; i < slides.length - 1; i++) {
+                        setTimeout(()=> moveSlide(-1), i * 100);
+                    }
+                } else if (index + direction == -1 && direction == -1){
+                    for (let i = 0; i < slides.length - 1; i++) {
+                        setTimeout(()=> moveSlide(1), i * 100);
+                    }
+                } else {
+                    index = (index + direction + slides.length) % slides.length;
+                    slides[index].classList.add('active');
+                }
+            }
+        </script>
+
         <!-- Video Section -->
         <div class="container-fluid" id="video">
             <div class="container">

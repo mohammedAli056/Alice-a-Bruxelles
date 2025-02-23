@@ -105,61 +105,68 @@
     transform: translateY(0);
 }
 
-/* Image Accordion Section */
-#image-accordion {
-    width: 100%;
-    padding: 20px 0;
+.slider {
     display: flex;
+    transition: transform 0.3s ease-in-out;
     justify-content: center;
-    background-color: var(--bs-secondary-bg);
+    align-items: center;
+}
+.slider .active + .slide-image {
+    scale: 1;
+    margin: 10px;
+}
+.slide-image:has(+ .active) {
+    margin: 10px;
+    scale: 1;
 }
 
-.accordion {
-    display: flex;
-    width: 90%;
-    max-width: 1000px;
-    height: 400px; /* ✅ Increased height so all images are as big as the previous expanded one */
-    overflow: hidden;
-    border-radius: 20px;
-    gap: 5px; /* ✅ Adds space between images */
+.slider .active + .slide-image > img{
+    height: 150px;
+    width: auto;
+}
+.slide-image:has(+ .active) > img{
+    height: 150px;
+    width: auto;
 }
 
-.accordion .panel {
-    flex: 1;
-    min-width: 80px; /* ✅ Controls visibility of unexpanded images */
-    cursor: pointer;
-    overflow: hidden;
-    transition: flex 0.5s ease-in-out;
-    position: relative;
-    border-radius: 20px;
-    background-color: white; /* ✅ White background */
-    display: flex;
-    align-items: center; /* ✅ Centers images vertically */
-    justify-content: center;
+.slide-image {
+    flex: none;
+    /*margin: 10px;*/
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5;
+    scale: 0;
 }
-
-/* All images should be fully visible vertically but cut off horizontally */
-.accordion .panel img {
-    height: 100%; /* ✅ Ensures all images maintain full height */
-    width: auto;  /* ✅ Prevents distortion */
+.slide-image img {
+    width: 0;
+    height: 0;
     object-fit: cover;
-    background-color: white;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 20px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
 }
-
-/* Expanded image should only stretch horizontally */
-.accordion .panel:hover,
-.accordion .panel.active {
-    flex: 4; /* ✅ Expands horizontally only */
+.slide-image.active {
+    flex: 0 0 500px;
+    opacity: 1;
+    margin: 10px;
+    scale: 1;
 }
-
-/* Hide all silhouettes initially */
-.silhouette-container {
-    display: none; /* ✅ Hide all silhouette sections by default */
+.slide-image.active img {
+    width: auto;
+    height: 500px;
 }
-
-/* Show the selected silhouette */
-.silhouette-container.active {
-    display: block; /* ✅ Only the clicked silhouette will be visible */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+.prev {
+    left: 150px;
+}
+.next {
+    right: 150px;
 }
