@@ -11,6 +11,27 @@
         <title>Welcome | Alice a Bruxelles</title>
     </head>
     <body class="d-flex justify-content-center align-items-center vh-100">
+        <!-- Theme Toggle Button -->
+        <div class="theme-toggle">
+            <label for="switchTheme">Dark Mode</label>
+            <input type="checkbox" id="switchTheme" aria-label="Toggle dark mode">
+
+        </div>
+
+        <!-- Hidden Background for Blur Effect -->
+        <div class="background">
+            <!-- Add some content if needed -->
+        </div>
+        <!-- Accessible Navigation Menu -->
+<nav role="navigation" aria-label="Main Navigation">
+    <ul class="nav-list">
+        <li><a href="#home" aria-label="Home">Home</a></li>
+        <li><a href="#about" aria-label="About">About</a></li>
+        <li><a href="#contact" aria-label="Contact">Contact</a></li>
+    </ul>
+</nav>
+
+
         <div class="content">
             <div class="container">
                 <div class="spacer"></div>
@@ -22,20 +43,25 @@
                 <div class="spacer-small"></div>
                 <hr>
                 <div class="btn-group">
-                    <a href="./en/index.html" class="btn btn-primary" id="set-english"><span>English</span></a>
-                    <a href="./it/index.html" class="btn btn-primary" id="set-italian"><span>Italiano</span></a>
+                    <a href="./en/index.html" class="btn btn-primary" id="set-english" aria-label="Switch to English language"><span>English</span></a>
+                    <a href="./it/index.html" class="btn btn-primary" id="set-italian" aria-label="Switch to Italian language"><span>Italiano</span></a>
                 </div>
             </div>
         </div>
+
+        <!-- JavaScript Files -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="./js/bootstrap.bundle.min.js"></script>
-        <script src="./js/script.js"></script>
-        <script src="./js/theme.js"></script>
+        <script src="./js/theme.js"></script> <!-- Theme-specific JS -->
+        <script src="./js/script.js"></script> <!-- Main JS file -->
+
+        <!-- Language Preference Script -->
         <script>
             document.getElementById('set-english').addEventListener('click', function() {
                 localStorage.setItem('preferredLanguage', 'en');
                 window.location.reload(true);
             });
+
             document.getElementById('set-italian').addEventListener('click', function() {
                 localStorage.setItem('preferredLanguage', 'it');
                 window.location.reload(true);

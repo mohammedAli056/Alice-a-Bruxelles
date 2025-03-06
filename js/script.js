@@ -114,3 +114,42 @@ document.addEventListener('DOMContentLoaded', () => {
 function openPDF() {
     window.open("../assets/document/CATALOGUE.pdf", "_blank");
 }
+// Dynamic Background Blur Effect
+const bgElement = document.querySelector('.background');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        bgElement.classList.add('blur-background');
+    } else {
+        bgElement.classList.remove('blur-background');
+    }
+});
+
+// Dark Mode Toggle
+const toggleDarkMode = document.getElementById('dark-mode-toggle');
+toggleDarkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+});
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+}
+
+// Theme Integration
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('siteTheme', newTheme);
+});
+const savedTheme = localStorage.getItem('siteTheme');
+if (savedTheme) {
+    document.body.setAttribute('data-theme', savedTheme);
+}
+
+// Fallback Image for Broken Links
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', () => {
+        img.src = 'fallback-image.png';
+    });
+});
