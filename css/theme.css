@@ -6,3 +6,24 @@
 @import url('./components/buttons.css');
 @import url('./components/navbar.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+/* Dynamic Background Blur */
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
+}
+
+.clear-background {
+    filter: none;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
