@@ -117,22 +117,29 @@
             </map>
         </div>
 
-        <div class="slider-container" style="position: relative">
-            <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 300px">
+        <div class="slider-container" style="position: relative; margin-top: 40px">
+            <div class="slider" id="slider">
+                <div class="slide-image"><img src="/assets/img/slider-7.jpeg" alt="Image 1"></div>
+                <div class="slide-image"><img src="/assets/img/slider-6.jpeg" alt="Image 2"></div>
+                <div class="slide-image"><img src="/assets/img/slider-1.jpeg" alt="Image 3"></div>
+                <div class="slide-image active"><img src="/assets/img/slider-5.jpeg" alt="Image 4"></div>
+                <div class="slide-image"><img src="/assets/img/slider-3.jpeg" alt="Image 5"></div>
+                <div class="slide-image"><img src="/assets/img/slider-4.jpeg" alt="Image 6"></div>
+                <div class="slide-image"><img src="/assets/img/slider-2.jpeg" alt="Image 7"></div>
+            </div>
+
+            <div style=" position: absolute; width: 100vw; display: flex; justify-content: center;">
                 <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="explore-btn" onclick="exploreMore()" >Explore More</button>
                 <button class="next" onclick="moveSlide(1)">&#10095;</button>
             </div>
-            <div class="slider" id="slider">
-                <div class="slide-image"><img src="/assets/img/slider-6.jpeg" alt="Image 1"></div>
-                <div class="slide-image"><img src="/assets/img/slider-5.jpeg" alt="Image 2"></div>
-                <div class="slide-image active"><img src="/assets/img/slider-1.jpeg" alt="Image 3"></div>
-                <div class="slide-image"><img src="/assets/img/slider-4.jpeg" alt="Image 4"></div>
-                <div class="slide-image"><img src="/assets/img/slider-3.jpeg" alt="Image 5"></div>
-                <div class="slide-image"><img src="/assets/img/slider-2.jpeg" alt="Image 6"></div>
-            </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <script>
-            let index = 2;
+            let index = 3;
             function moveSlide(direction) {
                 const slides = document.querySelectorAll('.slide-image');
                 slides[index].classList.remove('active');
@@ -148,6 +155,16 @@
                 } else {
                     index = (index + direction + slides.length) % slides.length;
                     slides[index].classList.add('active');
+                }
+            }
+
+            function exploreMore() {
+                const targetId = `explore-${index + 1}`;
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                } else {
+                    alert("Explore section not found for this image.");
                 }
             }
         </script>
@@ -169,6 +186,11 @@
                 </div>
                 <div class="spacer"></div>
             </div>
+        </div>
+
+        <div id="explore-5" style="text-align:center; margin: 30px">
+            <img src="../assets/img/front-wall.png" style="width:80%; display: inline-block;">
+            <p style="width: 70%; margin: 0 auto; text-align: center;"> Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussel’s World Fair all’Esposizione Universale e Internazionale di Bruxelles del 1910. (Private Collection, Rosamund Bance –  Mary Hamilton’s Heirs)  </p>
         </div>
 
         <!-- Image Accordion Section -->

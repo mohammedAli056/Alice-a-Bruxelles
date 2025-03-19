@@ -105,54 +105,6 @@
     transform: translateY(0);
 }
 
-.slider {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-    justify-content: center;
-    align-items: center;
-}
-.slider .active + .slide-image {
-    scale: 1;
-    margin: 10px;
-}
-.slide-image:has(+ .active) {
-    margin: 10px;
-    scale: 1;
-}
-
-.slider .active + .slide-image > img{
-    height: 150px;
-    width: auto;
-}
-.slide-image:has(+ .active) > img{
-    height: 150px;
-    width: auto;
-}
-
-.slide-image {
-    flex: none;
-    /*margin: 10px;*/
-    transition: all 0.2s ease-in-out;
-    opacity: 0.5;
-    scale: 0;
-}
-.slide-image img {
-    width: 0;
-    height: 0;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: all 0.2s ease-in-out;
-}
-.slide-image.active {
-    flex: 0 0 500px;
-    opacity: 1;
-    margin: 10px;
-    scale: 1;
-}
-.slide-image.active img {
-    width: auto;
-    height: 500px;
-}
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -165,8 +117,65 @@
     z-index: 10;
 }
 .prev {
-    left: 150px;
+    left: 450px;
 }
 .next {
-    right: 150px;
+    right: 450px;
+}
+
+.explore-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #52b69a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.explore-btn:hover {
+    background-color: #52b69a;
+}
+
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    transition: transform 0.1s ease-in-out;
+}
+
+.slide-image {
+    flex: 0 0 auto;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: all 0.3s ease-in-out;
+    scroll-snap-align: center;
+    margin: 0;
+}
+
+.slide-image img {
+    height: 150px;
+    width: auto;
+    transition: all 0.1s ease-in-out;
+}
+
+
+.slide-image.active {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+
+.slide-image.active img {
+    height: 250px;
 }
