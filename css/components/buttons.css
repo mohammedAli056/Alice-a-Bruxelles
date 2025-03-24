@@ -26,7 +26,7 @@
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: #ff6f61; /* Change this color if it doesn’t match the theme */
+    background-color: #20c997; /* Change this color if it doesn’t match the theme */
 }
 
 /* Keeping .back-to-top hover effect */

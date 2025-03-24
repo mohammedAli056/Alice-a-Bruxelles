@@ -173,9 +173,16 @@
     opacity: 1;
 }
 
-
 .slide-image.active img {
     height: 250px;
+}
+
+.explore-btn{
+    transition: transform 0.4s;
+}
+
+.explore-btn:hover{
+    transform: scale(1.1);
 }
 
 #image-accordion {
