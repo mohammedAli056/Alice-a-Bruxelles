@@ -56,6 +56,13 @@
     right: 2%;
 }
 
+/* Slider Section */
+.slider-container .slider {
+    position: relative;
+    margin-top: 40px;
+    height: 400px;
+}
+
 /* Silhouettes Section */
 #silhouettes {
     padding: 0;
