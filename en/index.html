@@ -105,15 +105,14 @@
                 <area target="" alt="woman3" title="woman3" href="#image-accordion" coords="704,497,704,467,711,441,701,427,703,362,723,343,740,340,738,331,732,317,729,305,740,290,759,288,772,299,775,314,773,328,764,333,775,348,795,358,808,426,790,447,793,500" shape="poly">
                 <area target="" alt="woman4" title="woman4" href="#image-accordion" coords="1242,703,1246,693,1249,571,1260,505,1257,468,1266,435,1263,398,1269,371,1285,363,1300,354,1295,342,1288,326,1286,313,1289,301,1300,288,1318,285,1330,297,1340,314,1333,333,1333,348,1356,354,1364,362,1384,413,1385,441,1388,458,1376,508,1370,523,1372,630,1367,685,1367,711,1365,722,1297,718" shape="poly">
             </map>
+            <!-- Back wall section -->
             <map name="carousel-2-map">
-                <area target="" alt="" title="" href="" coords="599,538,588,812,926,816,929,540" shape="poly">
-                <area target="" alt="" title="" href="" coords="442,325,437,506,660,508,665,325" shape="poly">
-                <area target="" alt="" title="" href="" coords="674,262,663,514,863,516,869,265" shape="poly">
-                <area target="" alt="" title="" href="" coords="872,329,866,525,1049,526,1053,328" shape="poly">
-                <area target="" alt="" title="" href="" coords="1356,264,1692,262,1695,610,1355,607" shape="poly">
-                <area target="" alt="" title="" href="" coords="1356,625,1695,628,1706,999,1373,995,1353,889" shape="poly">
-                <area target="" alt="" title="" href="" coords="1178,895,1185,1013,1373,1014,1353,892" shape="poly">
-                <area target="" alt="" title="" href="" coords="643,886,630,946,631,995,680,995,712,1010,764,1010,767,993,787,985,799,982,801,886" shape="poly">
+                <area target="" alt="Frame 1" title="Frame 1" href="#" coords="599,538,588,812,926,816,929,540" shape="poly" onclick="showEnlargedFrame(1); return false;">
+                <area target="" alt="Frame 2" title="Frame 2" href="#" coords="674,262,663,514,863,516,869,265" shape="poly" onclick="showEnlargedFrame(2); return false;">
+                <area target="" alt="Frame 3" title="Frame 3" href="#" coords="442,325,437,506,660,508,665,325" shape="poly" onclick="showEnlargedFrame(3); return false;">
+                <area target="" alt="Frame 4" title="Frame 4" href="#" coords="872,329,866,525,1049,526,1053,328" shape="poly" onclick="showEnlargedFrame(4); return false;">
+                <area target="" alt="Frame 5" title="Frame 5" href="#" coords="1178,895,1185,1013,1373,1014,1353,892" shape="poly" onclick="showEnlargedFrame(5); return false;">
+                <area target="" alt="Frame 8" title="Frame 8" href="#" coords="643,886,630,946,631,995,680,995,712,1010,764,1010,767,993,787,985,799,982,801,886" shape="poly" onclick="showEnlargedFrame(8); return false;">
             </map>
         </div>
 
@@ -245,6 +244,45 @@
             </div>
         </div>
 
+        <!-- Popup Frame section -->
+
+        <div id="popup-frame1" class="popup">
+            <div class="popup-content">
+                <img src="../assets/img/enlarged-frame-1.png" alt="Popup Image 1" class="popup-image">
+                <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+            </div>
+        </div>
+
+        <div id="popup-frame2" class="popup">
+            <div class="popup-content">
+                <img src="../assets/img/enlarged-frame-2.png" alt="Popup Image 2" class="popup-image">
+                <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+            </div>
+        </div>
+
+        <div id="popup-frame3" class="popup">
+            <div class="popup-content">
+                <img src="../assets/img/enlarged-frame-3.png" alt="Popup Image 3" class="popup-image">
+                <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+            </div>
+        </div>
+
+        <div id="popup-frame4" class="popup">
+            <div class="popup-content">
+                <img src="../assets/img/enlarged-frame-4.png" alt="Popup Image 4" class="popup-image">
+                <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+            </div>
+        </div>
+
+        <div id="popup-frame5" class="popup">
+            <div class="popup-content">
+                <img src="../assets/img/enlarged-frame-5.png" alt="Popup Image 5" class="popup-image">
+                <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+            </div>
+        </div>
+
+
+
 
         <!-- Footer Section -->
         <div class="container" id="footer">
@@ -358,6 +396,27 @@
                 });
 
                 console.log("Scroll animation script loaded."); // Debugging
+            });
+        </script>
+        <script>
+            function showEnlargedFrame(frameNumber) {
+                // Construct the popup element ID from the frame number.
+                var popupId = 'popup-frame' + frameNumber;
+                document.getElementById(popupId).style.display = 'flex';
+            }
+
+            function closePopup(popupId) {
+                document.getElementById(popupId).style.display = 'none';
+            }
+
+            // Optional: Close the popup if the user clicks outside the popup-content.
+            window.addEventListener('click', function(event) {
+                var popups = document.querySelectorAll('.popup');
+                popups.forEach(function(popup) {
+                    if (event.target === popup) {
+                        popup.style.display = 'none';
+                    }
+                });
             });
         </script>
     </body>

@@ -153,3 +153,5 @@ document.querySelectorAll('img').forEach(img => {
         img.src = 'fallback-image.png';
     });
 });
+
+
