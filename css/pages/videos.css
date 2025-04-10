@@ -8,6 +8,23 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Ensure image map areas are always interactive */
+#back-wall-image {
+    pointer-events: auto !important;
+}
+
+map area {
+    cursor: pointer;
+    outline: none;
+    /* Visual feedback for debugging */
+    transition: all 0.2s;
+}
+
+/* Optional: Visual feedback for debugging */
+map area:hover {
+    outline: 2px solid rgba(255, 0, 0, 0.5);
+}
+
 /* Styled slider section */
 #slider-section {
     margin: 30px auto;

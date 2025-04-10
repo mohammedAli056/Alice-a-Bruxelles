@@ -11,6 +11,7 @@
         <title>Videos | Alice a Bruxelles</title>
     </head>
     <body>
+    
         <!-- Navbar Section -->
         <div class="nav container-fluid fixed-top">
             <div class="container">
@@ -34,9 +35,9 @@
                 </nav>
             </div>
         </div>
-   
-
-         <!-- Landing Section -->
+  
+ 
+   <!-- Landing Section -->
          <div class="container-fluid" id="landing-section">
             <div class="container">
                 <div class="row align-items-center">
@@ -65,6 +66,8 @@
                 </div>
             </div>
         </div>
+      
+      
    <!-- 3D Environment Section -->
    <div class="container" id="environment-3d">
     <div class="container">
@@ -104,34 +107,28 @@
 </div>
 
 <!-- Back Wall Image Section -->
-<div id="back-wall" class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-            <img src="../assets/img/carousel-3.jpeg" class="d-block w-100 rounded" style="border-radius: 15px;" alt="Back Wall" usemap="#back-wall-map">
-        </div>
-    </div>
-</div>
-
-        <!-- Back Wall Section (End of Website) -->
-        <div id="back-wall" class="container-fluid py-5 mb-5">
-            <div class="container">
-                <h2 class="text-center mb-4">The Back Wall</h2>
-                <div class="row justify-content-center">
-                    <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-                        <div class="card shadow">
-                            <img src="../assets/img/carousel-3.jpeg" class="d-block w-100 rounded" alt="Back Wall" usemap="#back-wall-map-end">
-                            <div class="card-body text-center">
-                                <p class="card-text">
-                                    Interactive display of the Montesca and Rovigliano Schools' exhibition back wall at the 1910 Brussels Universal and International Exposition.
-                                    <br><small class="text-muted">Click on any framed item to see an enlarged version.</small>
-                                </p>
-                            </div>
-                        </div>
+<div id="back-wall" class="container-fluid py-5 mb-5">
+    <div class="container">
+        <h2 class="text-center mb-4">The Back Wall</h2>
+        <div class="row justify-content-center">
+            <div class="col-12" style="max-width: 80%; margin: 0 auto;">
+                <div class="card shadow">
+                    <!-- Add ID and loading attribute -->
+                    <img id="back-wall-image" src="../assets/img/carousel-3.jpeg" 
+                         class="d-block w-100 rounded" alt="Back Wall" 
+                         usemap="#back-wall-map" loading="eager">
+                    <div class="card-body text-center">
+                        <p class="card-text">
+                            Interactive display...
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+</div>
+
+
 <!-- Image Map for Back Wall -->
 <map name="back-wall-map">
     <area target="" alt="Frame 1" title="Frame 1" href="#" coords="1022,1070,1613,1067,1608,1576,1026,1572" shape="poly" onclick="showEnlargedFrame(1); return false;">
@@ -320,10 +317,8 @@
         </div>
 
 
-
-
         <!-- Footer Section -->
-        <div class="container" id="footer">
+          <div class="container" id="footer">
             <footer class="py-5">
 
                 <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
@@ -338,91 +333,17 @@
         </div>
 
 
+<!-- Add this code just before the Footer section in your HTML -->
+
         <!-- Back to Top Button -->
         <div id="back-to-top" class="back-to-top">
             &#8679;
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/imageMapResizer.min.js"></script> 
         <script src="../js/script.js"></script>
         <script src="../js/theme.js"></script>
-        <script src="../js/imageMapResizer.min.js"></script>
-        <script>
-
-            $(window).on('load', function () {
-                setTimeout(function () {
-                    $('map').imageMapResize();
-                }, 500);
-            });
-
-            $('#carousel').on('slid.bs.carousel', function () {
-                $('map').imageMapResize();
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                var carousel = document.querySelector('#carousel');
-
-                if (carousel) {
-                    function updateBackground() {
-                        var activeItem = carousel.querySelector('.carousel-item.active img');
-                        if (activeItem) {
-                            var imageUrl = activeItem.getAttribute('src');
-                            console.log(imageUrl);
-                            carousel.style.setProperty('--carousel-bg', `url(${imageUrl})`);
-                        }
-                    }
-
-                    updateBackground();
-
-                    carousel.addEventListener('slid.bs.carousel', updateBackground);
-                }
-            });
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const silhouettes = document.querySelectorAll(".silhouette");
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                            observer.unobserve(entry.target); // Prevent repeated triggers
-                        }
-                    });
-                }, { threshold: 0.3 }); // Trigger animation when 30% of element is visible
-
-                silhouettes.forEach(silhouette => {
-                    observer.observe(silhouette);
-                });
-
-                console.log("Scroll animation script loaded."); // Debugging
-            });
-        </script>
-        <script>
-            function showEnlargedFrame(frameNumber) {
-                // Construct the popup element ID from the frame number.
-                var popupId = 'popup-frame' + frameNumber;
-                document.getElementById(popupId).style.display = 'flex';
-            }
-
-            function closePopup(popupId) {
-                document.getElementById(popupId).style.display = 'none';
-            }
-
-            // Optional: Close the popup if the user clicks outside the popup-content.
-            window.addEventListener('click', function(event) {
-                var popups = document.querySelectorAll('.popup');
-                popups.forEach(function(popup) {
-                    if (event.target === popup) {
-                        popup.style.display = 'none';
-                    }
-                });
-            });
-
-
-            
-            
-        </script>
+     
     </body>
 </html>
-
-
