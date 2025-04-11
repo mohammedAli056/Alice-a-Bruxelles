@@ -12,53 +12,53 @@
         <style>
             .about-hero {
                 background-color: #f8f9fa;
-                padding: 5rem 0 2rem; /* Reduced padding */
-                margin-bottom: 1rem; /* Reduced bottom margin */
+                padding: 5rem 0 2rem;
+                margin-bottom: 1rem;
             }
             
             .about-title {
                 font-size: 2.5rem;
                 font-weight: 700;
                 text-align: center;
-                margin-bottom: 1.5rem; /* Reduced margin */
+                margin-bottom: 1.5rem;
             }
             
             .about-images {
                 display: flex;
                 justify-content: center;
-                margin-bottom: 2rem; /* Reduced bottom margin */
+                margin-bottom: 2rem;
                 flex-wrap: wrap;
             }
             
             .about-image {
                 border-radius: 8px;
                 overflow: hidden;
-                margin: 0 8px 15px; /* Reduced margins */
+                margin: 0 8px 15px;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                height: 180px; /* Slightly smaller height */
+                height: 180px;
             }
             
             .about-image.left {
-                max-width: 250px; /* Smaller width for left image */
+                max-width: 250px;
             }
             
             .about-image.middle {
-                max-width: 350px; /* Larger width for middle image */
+                max-width: 350px;
             }
             
             .about-image.right {
-                max-width: 250px; /* Smaller width for right image */
+                max-width: 250px;
             }
             
             .about-image img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover; /* Makes images cover the container while maintaining aspect ratio */
+                object-fit: cover;
                 display: block;
             }
             
             .credits-section {
-                padding: 1rem 0 3rem; /* Reduced padding to show developers earlier */
+                padding: 1rem 0 3rem;
             }
             
             .credits-title {
@@ -134,7 +134,7 @@
         <div class="nav container-fluid fixed-top">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="../en/index.html">
                         <img src="../assets/img/italy.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                         ALICE A BRUXELLES
                     </a>
@@ -143,11 +143,26 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.html#environment-3d">VISIT 3D</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index.html#slider-section">EXHIBIT IMAGES</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../en/index.html">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../en/index.html#environment-3d">VISIT 3D</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../en/index.html#slider-section">EXHIBIT IMAGES</a></li>
                             <li class="nav-item"><a class="nav-link" href="#" onclick="openPDF()">CATALOGUE</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="about-us.html">ABOUT US</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="../en/about-us.html">ABOUT US</a></li>
+                            
+                            <!-- Language Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <img src="../assets/img/en.svg" alt="English" width="20" id="currentLanguageFlag">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                                        <img src="../assets/img/en.svg" width="20" class="me-2"> English
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                                        <img src="../assets/img/it.svg" width="20" class="me-2"> Italiano
+                                    </a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -240,7 +255,6 @@
                         <h5>Alice a Bruxelles</h5>
                         <p class="text-body-secondary">The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition.</p>
                     </div>
-                
                 </div>
                 <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
                     <p>&copy; 2024 Alice a Bruxelles. All rights reserved.</p>
@@ -260,7 +274,7 @@
         <script>
             // Function to open PDF (catalog)
             function openPDF() {
-                window.open('../assets/pdf/catalog.pdf', '_blank');
+                window.open('../assets/document/CATALOGUE.pdf', '_blank');
             }
             
             // Back to top functionality
@@ -276,6 +290,18 @@
                 $('html, body').animate({scrollTop : 0}, 800);
                 return false;
             });
+            
+            // Language switching function
+            function setLanguage(lang) {
+                const flagElement = document.getElementById('currentLanguageFlag');
+                if (lang === 'it') {
+                    window.location.href = '../it/about-us.html'; // Italian version
+                    flagElement.src = '../assets/img/it.svg';
+                } else {
+                    window.location.href = '../en/about-us.html'; // English version
+                    flagElement.src = '../assets/img/en.svg';
+                }
+            }
         </script>
     </body>
 </html>
