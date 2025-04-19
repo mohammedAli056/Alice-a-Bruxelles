@@ -80,10 +80,22 @@
                 </div>
             </div>
         </div>
-      <!-- Unity WebGL Embedded 3D Model -->
-<div id="unityContainer" style="width: 960px; height: 600px; margin: 40px auto;">
-    <iframe src="../WebGLBuild/index.html" width="960" height="600" frameborder="0" allowfullscreen></iframe>
-</div>
+      <!-- Unity 3D Interactive Triggered Section -->
+<div class="container text-center" id="environment-3d">
+    <h2 class="section-title mb-4">3D Environment</h2>
+  
+    <div id="thumbnailWrapper">
+      <img id="env-thumbnail" src="../assets/img/slider-1.jpeg" alt="3D Environment Thumbnail" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px;">
+      <div class="overlay mt-3">
+        <button class="btn btn-outline-success" onclick="show3D()">Explore 3D Environment</button>
+      </div>
+    </div>
+  
+    <div id="unityContainer" style="display: none; margin-top: 20px;">
+      <iframe src="../WebGLBuild/index.html" width="960" height="600" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  
 
       
    <!-- 3D Environment Section -->
@@ -363,15 +375,24 @@
     </body>
 
     <script>
-    function setLanguage(lang) {
-        const flagElement = document.getElementById('currentLanguageFlag');
-        if (lang === 'it') {
-            window.location.href = '../it/index1.html'; // Italian version
-            flagElement.src = '../assets/img/it.svg';
-        } else {
-            window.location.href = '../en/index.html'; // English version
-            flagElement.src = '../assets/img/en.svg';
+        function setLanguage(lang) {
+            const flagElement = document.getElementById('currentLanguageFlag');
+            if (lang === 'it') {
+                window.location.href = '../it/index1.html'; // Italian version
+                flagElement.src = '../assets/img/it.svg';
+            } else {
+                window.location.href = '../en/index.html'; // English version
+                flagElement.src = '../assets/img/en.svg';
+            }
         }
-    }
-    </script>
-</html>
+        </script>
+    
+        <script>
+        function show3D() {
+            document.getElementById("thumbnailWrapper").style.display = "none";
+            document.getElementById("unityContainer").style.display = "block";
+        }
+        </script>
+    </body>
+    </html>
+    
