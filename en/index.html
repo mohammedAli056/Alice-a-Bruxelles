@@ -85,16 +85,18 @@
                 </div>
             </div>
         </div>
-      <!-- Unity 3D Interactive Triggered Section -->
+    <!-- Unity 3D Interactive Triggered Section -->
 <div class="container text-center" id="environment-3d">
     <h2 class="section-title mb-4">Explore the Exhibition in 3D</h2>
-
   
-    <div id="thumbnailWrapper">
-      <img id="env-thumbnail" src="../assets/img/slider-1.jpeg" alt="3D Environment Thumbnail" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 10px;">
-      <div class="overlay mt-3">
-        <button class="btn btn-outline-success" onclick="show3D()">Explore 3D Environment</button>
-      </div>
+    <div id="thumbnailWrapper" style="position: relative;">
+      <img id="env-thumbnail" src="../assets/img/slider-1.jpeg" alt="3D Environment Thumbnail"
+           class="img-fluid" style="max-width: 100%; border-radius: 10px;">
+      <button class="btn btn-outline-success"
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+              onclick="show3D()">
+        Explore 3D Environment
+      </button>
     </div>
   
     <div id="unityContainer" style="display: none; margin-top: 20px;">
@@ -102,24 +104,7 @@
     </div>
   </div>
   
-
-      
-   <!-- 3D Environment Section -->
-   <div class="container" id="environment-3d">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="section-title text-center mb-4">3D Environment</h2>
-                <div class="environment-container">
-                    <img src="../assets/img/slider-1.jpeg" alt="3D Environment" class="img-fluid">
-                    <div class="overlay">
-                        <a href="#" class="btn btn-light">Explore 3D Environment</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  
 <!--sliderrrr-->
 
 <!-- Updated Slider Section with no data attributes needed -->
