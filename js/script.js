@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             3: null,
             4: 'front-wall',
             5: 'back-wall',
-            6: null
+            6: 'ceiling'
         };
         
         function hideAllSections() {
@@ -214,6 +214,119 @@ document.addEventListener('DOMContentLoaded', () => {
 
     silhouettes.forEach(silhouette => {
         observer.observe(silhouette);
+    });
+
+    /*===========================================
+    PANEL LOGIC - Flip in normal mode, Zoom icon
+    ===========================================*/
+    const ceilingPanels = document.querySelectorAll('.ceiling-panel');
+
+    // Flip in normal mode by clicking panel
+    ceilingPanels.forEach((panel) => {
+        panel.addEventListener('click', (event) => {
+            // If user clicked the zoom icon, do not flip; we'll enlarge instead
+            if (event.target.closest('.zoom-icon')) return;
+            panel.classList.toggle('flipped');
+        });
+    });
+
+    // Enlarge logic: open modal only if zoom icon is clicked
+    const ceilingModal = document.getElementById('ceiling-modal');
+    const ceilingModalClose = document.getElementById('ceiling-modal-close');
+    const ceilingModalPrev = document.getElementById('ceiling-modal-prev');
+    const ceilingModalNext = document.getElementById('ceiling-modal-next');
+    const modalFlipBtn = document.getElementById('ceiling-modal-flip-btn');
+
+    const flipContainer = document.getElementById('modal-flip-container');
+    const flipInner = flipContainer.querySelector('.flip-inner');
+    const modalImageFront = document.getElementById('ceiling-modal-image-front');
+    const modalImageBack = document.getElementById('ceiling-modal-image-back');
+
+    // Desired order: 4 → 1 → 5 → 2 → 6 → 3
+    const panelOrder = [4, 1, 5, 2, 6, 3];
+    const panelImages = {
+        1: {
+            front: '../assets/img/ceiling-1f.png',
+            back: '../assets/img/ceiling-1r-en.png',
+        },
+        2: {
+            front: '../assets/img/ceiling-2f.png',
+            back: '../assets/img/ceiling-2r-en.png',
+        },
+        3: {
+            front: '../assets/img/ceiling-3f.png',
+            back: '../assets/img/ceiling-3r-en.png',
+        },
+        4: {
+            front: '../assets/img/ceiling-4f.png',
+            back: '../assets/img/ceiling-4r-en.png',
+        },
+        5: {
+            front: '../assets/img/ceiling-5f.png',
+            back: '../assets/img/ceiling-5r-en.png',
+        },
+        6: {
+            front: '../assets/img/ceiling-6f.png',
+            back: '../assets/img/ceiling-6r-en.png',
+        },
+    };
+
+    let currentIndex = 0;
+
+    function openCeilingModal(panelNumber) {
+        currentIndex = panelOrder.indexOf(panelNumber);
+        if (currentIndex < 0) currentIndex = 0;
+        flipContainer.classList.remove('flipped');
+        updateCeilingModal();
+        ceilingModal.style.display = 'flex';
+    }
+
+    function updateCeilingModal() {
+        const panelNum = panelOrder[currentIndex];
+        modalImageFront.src = panelImages[panelNum].front;
+        modalImageBack.src = panelImages[panelNum].back;
+    }
+
+    function closeModal() {
+        ceilingModal.style.display = 'none';
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % panelOrder.length;
+        flipContainer.classList.remove('flipped');
+        updateCeilingModal();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + panelOrder.length) % panelOrder.length;
+        flipContainer.classList.remove('flipped');
+        updateCeilingModal();
+    }
+
+    // Enlarge only on zoom icon
+    ceilingPanels.forEach((panel) => {
+        const zoomIcon = panel.querySelector('.zoom-icon');
+        zoomIcon.addEventListener('click', (event) => {
+            event.stopPropagation(); // prevent panel flip
+            const panelNumber = parseInt(panel.getAttribute('data-panel'), 10);
+            openCeilingModal(panelNumber);
+        });
+    });
+
+    // Close modal if X is clicked
+    ceilingModalClose.addEventListener('click', closeModal);
+    // Close modal if outside content is clicked
+    ceilingModal.addEventListener('click', (event) => {
+        if (event.target === ceilingModal) closeModal();
+    });
+
+    // Navigation arrows
+    ceilingModalNext.addEventListener('click', showNext);
+    ceilingModalPrev.addEventListener('click', showPrev);
+
+    // Flip in the enlarged modal only via button
+    modalFlipBtn.addEventListener('click', () => {
+        flipContainer.classList.toggle('flipped');
     });
 });
 

@@ -364,6 +364,164 @@
             </div>
         </div>
 
+    <!-- Ceiling Panels Section -->
+    <div class="container-fluid component-section" id="ceiling" style="display: none;">
+      <div class="container">
+        <div class="ceiling-grid">
+          <!-- Row 1 -->
+          <div class="ceiling-row top-row">
+            <div class="ceiling-panel tall" data-panel="4">
+              <!-- Zoom icon (for enlarging) -->
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <!-- Flip text overlay on hover -->
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-4f.png"
+                  class="panel-front"
+                  alt="Panel 4 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-4r-en.png"
+                  class="panel-back"
+                  alt="Panel 4 Back"
+                />
+              </div>
+            </div>
+            <div class="ceiling-panel short" data-panel="1">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-1f.png"
+                  class="panel-front"
+                  alt="Panel 1 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-1r-en.png"
+                  class="panel-back"
+                  alt="Panel 1 Back"
+                />
+              </div>
+            </div>
+            <div class="ceiling-panel tall" data-panel="5">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-5f.png"
+                  class="panel-front"
+                  alt="Panel 5 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-5r-en.png"
+                  class="panel-back"
+                  alt="Panel 5 Back"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="ceiling-row bottom-row">
+            <div class="ceiling-panel short" data-panel="2">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-2f.png"
+                  class="panel-front"
+                  alt="Panel 2 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-2r-en.png"
+                  class="panel-back"
+                  alt="Panel 2 Back"
+                />
+              </div>
+            </div>
+            <div class="ceiling-panel tall" data-panel="6">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-6f.png"
+                  class="panel-front"
+                  alt="Panel 6 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-6r-en.png"
+                  class="panel-back"
+                  alt="Panel 6 Back"
+                />
+              </div>
+            </div>
+            <div class="ceiling-panel short" data-panel="3">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-3f.png"
+                  class="panel-front"
+                  alt="Panel 3 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-3r-en.png"
+                  class="panel-back"
+                  alt="Panel 3 Back"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Overlay (Enlarged View) -->
+    <div id="ceiling-modal" class="ceiling-modal">
+      <div class="ceiling-modal-content">
+        <!-- Close button -->
+        <span class="ceiling-modal-close" id="ceiling-modal-close">&times;</span>
+
+        <!-- Left/Right arrows -->
+        <div id="ceiling-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
+        <div id="ceiling-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
+
+        <!-- Flip container -->
+        <div id="modal-flip-container" class="flip-container">
+          <div class="flip-inner">
+            <img
+              id="ceiling-modal-image-front"
+              class="flip-front"
+              src=""
+              alt="Ceiling Panel Front"
+            />
+            <img
+              id="ceiling-modal-image-back"
+              class="flip-back"
+              src=""
+              alt="Ceiling Panel Back"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Flip button in modal -->
+      <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
+    </div>
+    <!-- End Modal -->
+
 
         <!-- Footer Section -->
           <div class="container" id="footer">
