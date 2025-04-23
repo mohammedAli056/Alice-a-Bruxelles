@@ -114,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
             5: 'back-wall',
             6: 'ceiling'
         };
-        
+
         function hideAllSections() {
-            ['video', 'front-wall', 'back-wall', 'image-accordion', 'silhouettes'].forEach(id => {
+            ['video', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling'].forEach(id => {
                 const section = document.getElementById(id);
                 if (section) section.style.display = 'none';
             });
@@ -147,6 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.querySelector('#image-accordion .panel')?.classList.add('active');
                     
                     imageAccordion?.scrollIntoView({ behavior: 'smooth' });
+                } else if (sectionId === 'back-wall') {
+                    const backWall = document.getElementById('back-wall');
+                    const backWallPanels = document.getElementById('back-wall-panels');
+
+                    if (backWall) backWall.style.display = 'block';
+                    if (backWallPanels) backWallPanels.style.display = 'block';
+
+                    backWall?.scrollIntoView({ behavior: 'smooth' });
                 } else if (sectionId) {
                     const section = document.getElementById(sectionId);
                     if (section) {
@@ -154,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         section.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
+
             });
         });
     }
@@ -327,6 +336,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Flip in the enlarged modal only via button
     modalFlipBtn.addEventListener('click', () => {
         flipContainer.classList.toggle('flipped');
+    });
+
+    // BACK WALL ZOOM-ONLY PANELS
+    document.querySelectorAll('.back-wall-panel .zoom-icon').forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const panel = icon.closest('.back-wall-panel');
+            const panelNumber = parseInt(panel.getAttribute('data-panel'), 10);
+            showEnlargedFrame(panelNumber);
+        });
     });
 });
 
