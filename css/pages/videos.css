@@ -102,6 +102,27 @@ map area:hover {
     border-radius: 8px;
 }
 
+/* Slider panel caption */
+#slider-section .panel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show caption on hover or when panel is active */
+#slider-section .panel:hover .panel-caption,
+#slider-section .panel.active .panel-caption {
+    opacity: 1;
+}
+
 #slider-section .slider-nav {
     text-align: right;
     padding: 10px 30px;
