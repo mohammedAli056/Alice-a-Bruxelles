@@ -1,63 +1,14 @@
-function initImageMap() {
-    const img = document.querySelector('#back-wall img[usemap]');
-    if (!img) return;
-
-    // Multiple initialization attempts
-    const initAttempts = [
-        () => $('map').imageMapResize(), // Immediate try
-        () => img.complete && $('map').imageMapResize(), // If image already loaded
-        () => setTimeout(() => $('map').imageMapResize(), 300), // Short delay
-        () => setTimeout(() => $('map').imageMapResize(), 1000) // Longer delay
-    ];
-
-    // Run all attempts
-    initAttempts.forEach(attempt => {
-        try {
-            if (typeof $ !== 'undefined' && $.fn.imageMapResize) {
-                attempt();
-            }
-        } catch (e) {
-            console.error('ImageMapResizer attempt failed:', e);
-        }
-    });
-
-    // Click handler for areas
-    document.querySelectorAll('map area').forEach(area => {
-        area.addEventListener('click', function(e) {
-            e.preventDefault();
-            const frameNum = this.getAttribute('title').match(/\d+/)?.[0];
-            if (frameNum) showEnlargedFrame(parseInt(frameNum));
-        });
-    });
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-      // 1. Initialize image map first
-      initImageMap();
-    
-      // 2. Set up intersection observer for back wall (renamed to backWallObserver)
-      const backWallObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  initImageMap();
-              }
-          });
-      }, { threshold: 0.1 });
-      
-      const backWall = document.getElementById('back-wall');
-      if (backWall) backWallObserver.observe(backWall);
-  
-    // Navbar and scroll functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements
     const navEl = document.querySelector('.nav');
-    const toggleButton = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    const dropdowns = document.querySelectorAll('.navbar-nav .dropdown');
     const backToTopButton = document.getElementById('back-to-top');
+    const toggleButton = document.querySelector('.navbar-toggler');
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
 
+    // Check page scroll for navbar style changes
     const checkScroll = () => {
-        if (window.scrollY >= 56 || toggleButton.getAttribute('aria-expanded') === 'true') {
+        if (window.scrollY > 100) {
             navEl.classList.add('nav-scrolled');
             navEl.setAttribute('data-bs-theme', 'dark');
         } else {
@@ -109,14 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
             0: 'video',
             1: null,
             2: 'silhouettes-accordion',
-            3: null,
+            3: 'right-wall', // Right Wall Panels
             4: 'front-wall',
             5: 'back-wall',
             6: 'ceiling'
         };
 
         function hideAllSections() {
-            ['video', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling'].forEach(id => {
+            ['video', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
                 const section = document.getElementById(id);
                 if (section) section.style.display = 'none';
             });
@@ -155,6 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (backWallPanels) backWallPanels.style.display = 'block';
 
                     backWall?.scrollIntoView({ behavior: 'smooth' });
+                } else if (sectionId === 'right-wall') {
+                    const rightWall = document.getElementById('right-wall');
+                    if (rightWall) {
+                        rightWall.style.display = 'block';
+                        rightWall.scrollIntoView({ behavior: 'smooth' });
+                    }
                 } else if (sectionId) {
                     const section = document.getElementById(sectionId);
                     if (section) {
@@ -162,9 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         section.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
-
             });
         });
+        
+        // Activate "Right Wall Panels" by default (index 3)
+        const rightWallPanel = sliderPanels[3];
+        if (rightWallPanel) {
+            rightWallPanel.click();
+        }
     }
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
@@ -347,6 +309,21 @@ document.addEventListener('DOMContentLoaded', () => {
             showEnlargedFrame(panelNumber);
         });
     });
+    
+    // RIGHT WALL PANEL DROPDOWN SELECTOR
+    const rightWallSelector = document.getElementById('right-wall-selector');
+    if (rightWallSelector) {
+        rightWallSelector.addEventListener('change', function() {
+            const selectedPanel = this.value;
+            const selectedText = this.options[this.selectedIndex].text;
+            
+            document.querySelectorAll('.right-wall-panel').forEach(panel => {
+                panel.style.display = 'none';
+            });
+            
+            document.getElementById(selectedPanel).style.display = 'block';
+        });
+    }
 });
 
 // IMAGE MAP FUNCTIONS

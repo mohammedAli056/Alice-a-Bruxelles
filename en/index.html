@@ -179,6 +179,41 @@
     </div>
 </div>
 
+<!-- Right Wall Section -->
+<div id="right-wall" class="container-fluid py-5" style="display: none;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12" style="max-width: 90%; margin: 0 auto;">
+                <div class="row mb-4 justify-content-center">
+                    <div class="col-12" style="max-width: 90%;">
+                        <select id="right-wall-selector" class="form-select">
+                            <option value="" selected disabled>Select the panel you would like to read</option>
+                            <option value="panel-1">Panel 1</option>
+                            <option value="panel-2">Panel 2</option>
+                            <option value="credits">Credits</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card shadow">
+                    <!-- PDF container for right wall panels -->
+                    <div id="right-wall-content">
+                        <!-- The iframe will be loaded here via JavaScript -->
+                        <div id="panel-1" class="right-wall-panel" style="display: none;">
+                            <iframe src="../assets/document/panel-1-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
+                        </div>
+                        <div id="panel-2" class="right-wall-panel" style="display: none;">
+                            <iframe src="../assets/document/panel-2-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
+                        </div>
+                        <div id="credits" class="right-wall-panel" style="display: none;">
+                            <iframe src="../assets/document/credits.pdf" width="100%" height="800px" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Back Wall Image Panels Section -->
 <div id="back-wall-panels" class="container-fluid py-3" style="display: none;">
     <div class="container">

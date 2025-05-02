@@ -135,7 +135,7 @@ map area:hover {
 }
 
 /* Hidden content sections */
-#video, #front-wall, #back-wall {
+#video, #front-wall, #back-wall, #right-wall {
     display: none;
     transition: opacity 0.3s ease;
 }
@@ -1029,4 +1029,49 @@ map area:hover {
 /* Space between sections */
 .spacer {
     height: 2rem;
+}
+
+/* Right Wall Panels Section */
+#right-wall {
+    padding: 3rem 0;
+    background-color: transparent;
+}
+
+#right-wall .container {
+    max-width: 90%;
+}
+
+#right-wall-selector {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    border: 1px solid #007a3d;
+    background-color: white;
+    color: #007a3d;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+#right-wall-selector:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.right-wall-panel {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.right-wall-panel iframe {
+    border: none;
+    width: 100%;
+    height: 800px;
 }
