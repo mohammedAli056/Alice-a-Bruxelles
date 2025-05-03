@@ -121,12 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-        
-        // Activate "Right Wall Panels" by default (index 3)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        /* // Activate "Right Wall Panels" by default (index 3)
         const rightWallPanel = sliderPanels[3];
         if (rightWallPanel) {
             rightWallPanel.click();
         }
+        */
     }
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
@@ -408,4 +410,11 @@ function playLandingVideo() {
     video.style.display = "block";
     video.play();
 }
+function scrollToVideo() {
+    const target = document.getElementById("landing-video-element");
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
 
