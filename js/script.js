@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sliderPanels.length > 0) {
         const sectionMap = {
             0: 'video',
-            1: null,
+            1: 'stand',
             2: 'silhouettes-accordion',
             3: 'right-wall', // Right Wall Panels
             4: 'front-wall',
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         function hideAllSections() {
-            ['video', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
+            ['video', 'stand', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
                 const section = document.getElementById(id);
                 if (section) section.style.display = 'none';
             });
@@ -399,3 +399,13 @@ if (themeToggle) {
         document.body.setAttribute('data-theme', savedTheme);
     }
 }
+
+//Landing Page Video
+function playLandingVideo() {
+    const image = document.getElementById("previewImage");
+    const video = document.getElementById("landingVideo");
+    image.style.display = "none";
+    video.style.display = "block";
+    video.play();
+}
+
