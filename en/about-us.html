@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#20c997">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-navbutton-color" content="#20c997">
+        <link href="../css/theme.css" rel="stylesheet">
+        <link href="../css/pages/about.css" rel="stylesheet">
+        <title>About Us | Alice a Bruxelles</title>
+        <style>
+            .about-hero {
+                background-color: #f8f9fa;
+                padding: 5rem 0 2rem; /* Reduced padding */
+                margin-bottom: 1rem; /* Reduced bottom margin */
+            }
+            
+            .about-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                text-align: center;
+                margin-bottom: 1.5rem; /* Reduced margin */
+            }
+            
+            .about-images {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2rem; /* Reduced bottom margin */
+                flex-wrap: wrap;
+            }
+            
+            .about-image {
+                border-radius: 8px;
+                overflow: hidden;
+                margin: 0 8px 15px; /* Reduced margins */
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                height: 180px; /* Slightly smaller height */
+            }
+            
+            .about-image.left {
+                max-width: 250px; /* Smaller width for left image */
+            }
+            
+            .about-image.middle {
+                max-width: 350px; /* Larger width for middle image */
+            }
+            
+            .about-image.right {
+                max-width: 250px; /* Smaller width for right image */
+            }
+            
+            .about-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Makes images cover the container while maintaining aspect ratio */
+                display: block;
+            }
+            
+            .credits-section {
+                padding: 1rem 0 3rem; /* Reduced padding to show developers earlier */
+            }
+            
+            .credits-title {
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin-bottom: 1.5rem;
+            }
+            
+            .credits-category {
+                margin-bottom: 2rem;
+            }
+            
+            .credits-category-title {
+                font-size: 1.3rem;
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                color: #007a3d;
+            }
+            
+            .team-members {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .team-member {
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                flex: 1 1 200px;
+            }
+            
+            .team-member-name {
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+            
+            .team-member-role {
+                font-size: 0.9rem;
+                color: #666;
+            }
+            
+            .faculty-section {
+                margin-top: 2rem;
+            }
+            
+            .faculty-member {
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+            
+            .faculty-name {
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+            
+            .faculty-title {
+                font-size: 0.9rem;
+                color: #666;
+                margin-bottom: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar Section -->
+        <div class="nav container-fluid fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="../assets/img/italy.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        ALICE A BRUXELLES
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#environment-3d">VISIT 3D</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#slider-section">EXHIBIT IMAGES</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" onclick="openPDF()">CATALOGUE</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="about-us.html">ABOUT US</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- About Hero Section -->
+        <div class="container-fluid about-hero">
+            <div class="container">
+                <h1 class="about-title">ABOUT US</h1>
+                
+                <div class="about-images">
+                    <div class="about-image left">
+                        <img src="../assets/img/AB1.jpg" alt="Exhibition display" onerror="this.src='https://via.placeholder.com/250x180?text=Exhibition+Photo'">
+                    </div>
+                    <div class="about-image middle">
+                        <img src="../assets/img/AB2.jpg" alt="Museum exhibit" onerror="this.src='https://via.placeholder.com/350x180?text=Museum+Exhibit'">
+                    </div>
+                    <div class="about-image right">
+                        <img src="../assets/img/AB3.jpeg" alt="Historical documents" onerror="this.src='https://via.placeholder.com/250x180?text=Historical+Documents'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Credits Section -->
+        <div class="container credits-section">
+            <h2 class="credits-title">Credits</h2>
+            
+            <div class="credits-category">
+                <h3 class="credits-category-title">Website Developers</h3>
+                <div class="team-members">
+                    <div class="team-member">
+                        <div class="team-member-name">Sabina Radhi</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-name">Shahed Bitar</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-name">Gayitha Dammiya Arachchilage</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-name">Ali Mohamed</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-name">Riad Chahla</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-name">Yuting Pan</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-name">Maanya Joshi</div>
+                        <div class="team-member-role">Web Development</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="credits-category faculty-section">
+                <h3 class="credits-category-title">Faculty Advisors</h3>
+                
+                <div class="faculty-member">
+                    <div class="faculty-name">Dr. Cristina Caracchini</div>
+                    <div class="faculty-title">Undergraduate Chair, Department of Languages and Cultures</div>
+                    <div class="faculty-title">Associate Professor, Italian Studies</div>
+                </div>
+                
+                <div class="faculty-member">
+                    <div class="faculty-name">[Additional Faculty Member]</div>
+                    <div class="faculty-title">Position/Title</div>
+                </div>
+            </div>
+            
+            <div class="credits-category">
+                <h3 class="credits-category-title">Special Thanks</h3>
+                <p>We would like to extend our gratitude to everyone who supported the development of this exhibit and website, including the Department of Languages and Cultures at Western University.</p>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="container" id="footer">
+            <footer class="py-5">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h5>Alice a Bruxelles</h5>
+                        <p class="text-body-secondary">The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition.</p>
+                    </div>
+                
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                    <p>&copy; 2024 Alice a Bruxelles. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div id="back-to-top" class="back-to-top">
+            &#8679;
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/theme.js"></script>
+        <script>
+            // Function to open PDF (catalog)
+            function openPDF() {
+                window.open('../assets/pdf/catalog.pdf', '_blank');
+            }
+            
+            // Back to top functionality
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            
+            $('#back-to-top').click(function() {
+                $('html, body').animate({scrollTop : 0}, 800);
+                return false;
+            });
+        </script>
+    </body>
+</html>

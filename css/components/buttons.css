@@ -16,20 +16,3 @@
     z-index: 1000;
     transition: opacity 0.3s ease;
 }
-
-.back-to-top:hover {
-    background-image: linear-gradient(0deg, #20c997, #28987a);
-}/* General Button Hover Animations */
-.btn {
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    background-color: #20c997; /* Change this color if it doesn’t match the theme */
-}
-
-/* Keeping .back-to-top hover effect */
-.back-to-top:hover {
-    background-image: linear-gradient(0deg, #20c997, #28987a);
-}
