@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="light">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#20c997">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="msapplication-navbutton-color" content="#20c997">
@@ -31,9 +31,9 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">VIDEOS</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../assets/videos/Video%201%20Baronessa%20translated%20to%20english%201.0.mp4" target="_blank">Alice in Brussels: the Exhibit</a></li>
-                                    <li><a class="dropdown-item" href="../assets/videos/Video%202%20World%20Fair%20Translated%20To%20English.mp4" target="_blank">The Baroness and the Barefoot Children</a></li>
-                                    <li><a class="dropdown-item" href="#" target="_blank">The Montesca Schools at the 1910 World Fair</a></li>
+                                    <li><a class="dropdown-item" href="#landing-video-element">Alice in Brussels: the Exhibit</a></li>
+                                    <li><a class="dropdown-item" href="#video2-container">The Baroness and the Barefoot Children</a></li>
+                                    <li><a class="dropdown-item" href="#">The Montesca Schools at the 1910 World Fair</a></li>
                                     <li><a class="dropdown-item" href="#" target="_blank">Symposium - Excerpts</a></li>
                                 </ul>
                             </li>
@@ -66,7 +66,6 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <br>
-                     
                         <h1 class="landing-title">The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition</h1>
                         <p class="landing-subtitle">From their Origins to Maria Montessori</p>
                         <div class="landing-buttons">
@@ -75,255 +74,271 @@
                             <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOG</a>
                             <a href="#video" class="btn btn-outline-secondary">WATCH THE VIDEOS</a>
                         </div>
-                        
+                        <br>
                     </div>
                     <div class="col-lg-6">
-                        <br>
-                        
-                        <div class="landing-image-container">
-                            <img src="../assets/img/landing3.jpg" alt="Historical building" class="landing-image">
-                            <video class="landing-video" src="../assets/videos/Video%201%20Baronessa%20translated%20to%20english%201.0.mp4" preload="metadata" controls></video>
-                            <button class="video-play-btn"><i class="fa fa-play"></i></button>
+                        <div id="landing-video-container">
+                            <video id="landing-video-element" controls style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
+                                src="../assets/video/Video4.mp4" type="video/mp4"
+                                poster="../assets/img/AB2.jpg">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="caption">
                             <em>Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.</em><br>
                             <span style="font-size: 0.9em;">Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910. (Cr. Biblioteca Ariostea, Ferrara)</span>
                         </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
-    <!-- Unity 3D Interactive Triggered Section -->
-<div class="container text-center" id="environment-3d">
-    <h2 class="section-title mb-4">Explore the Exhibition in 3D</h2>
-  
-    <div id="thumbnailWrapper" style="position: relative;">
-      <img id="env-thumbnail" src="../assets/img/slider-1.jpeg" alt="3D Environment Thumbnail"
-           class="img-fluid" style="max-width: 100%; border-radius: 10px;">
-      <button class="btn btn-outline-success"
-              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-              onclick="show3D()">
-        Explore 3D Environment
-      </button>
-    </div>
-  
-    <div id="unityContainer" style="display: none; margin-top: 20px;">
-      <iframe src="../WebGLBuild/index.html" width="960" height="600" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-  
-<!--sliderrrr-->
+            <!-- Unity 3D Interactive Triggered Section -->
+        <div class="container text-center" id="environment-3d">
+            <h2 class="section-title mb-4">Explore the Exhibition in 3D</h2>
 
-<!-- Updated Slider Section with no data attributes needed -->
-<div class="container-fluid bg-light py-5" id="slider-section">
-    <div class="slider-header">
-        <h2>Explore the exhibition by subject</h2>
-        <div class="slider-instructions">CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION</div>
-    </div>
-    <div class="accordion">
-        <div class="panel">
-            <img src="../assets/img/slider-7.jpeg" alt="Videos">
-            <div class="panel-caption">Videos</div>
-        </div>
-        <div class="panel">
-            <img src="../assets/img/slider-6.jpeg" alt="Stand">
-            <div class="panel-caption">Stand</div>
-        </div>
-        <div class="panel">
-            <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
-            <div class="panel-caption">Silhouettes</div>
-        </div>
-        <div class="panel active">
-            <img src="../assets/img/slider-5.jpeg" alt="Image 4">
-            <div class="panel-caption">Right Wall Panels</div>
-        </div>
-        <div class="panel">
-            <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
-            <div class="panel-caption">Front Wall</div>
-        </div>
-        <div class="panel">
-            <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
-            <div class="panel-caption">Back Wall</div>
-        </div>
-        <div class="panel">
-            <img src="../assets/img/slider-2.jpeg" alt="Image 7">
-            <div class="panel-caption">Ceiling Panels</div>
-        </div>
-    </div>
-    <div class="slider-nav">
-        <!-- No button needed -->
-    </div>
-</div>
+            <div id="thumbnailWrapper" style="position: relative;">
+              <img id="env-thumbnail" src="../assets/img/slider-1.jpeg" alt="3D Environment Thumbnail"
+                   class="img-fluid" style="max-width: 100%; border-radius: 10px;">
+              <button class="btn btn-outline-success"
+                      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                      onclick="show3D()">
+                Explore 3D Environment
+              </button>
+            </div>
 
-<!-- Back Wall Image Section -->
-<div id="back-wall" class="container-fluid py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">The Back Wall</h2>
-        <div class="row justify-content-center">
-            <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-                <div class="card shadow">
-                    <!-- Add ID and loading attribute -->
-                    <img id="back-wall-image" src="../assets/img/carousel-3.jpeg" 
-                         class="d-block w-100 rounded" alt="Back Wall" 
-                         usemap="#back-wall-map" loading="eager">
-                    <div class="card-body text-center">
-                        <p class="card-text">
-                            Interactive display...
-                        </p>
-                    </div>
+            <div id="unityContainer" style="display: none; margin-top: 20px;">
+              <iframe src="../WebGLBuild/index.html" width="960" height="600" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+        <!--sliderrrr-->
+
+        <!-- Updated Slider Section with no data attributes needed -->
+        <div class="container-fluid bg-light py-5" id="slider-section">
+            <div class="slider-header">
+                <h2>Explore the exhibition by subject</h2>
+                <div class="slider-instructions">CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION</div>
+            </div>
+            <div class="accordion">
+                <div class="panel">
+                    <img src="../assets/img/slider-7.jpeg" alt="Videos">
+                    <div class="panel-caption">Videos</div>
+                </div>
+                <div class="panel">
+                    <img src="../assets/img/slider-6.jpeg" alt="Stand">
+                    <div class="panel-caption">Stand</div>
+                </div>
+                <div class="panel">
+                    <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
+                    <div class="panel-caption">Silhouettes</div>
+                </div>
+                <div class="panel active">
+                    <img src="../assets/img/slider-5.jpeg" alt="Image 4">
+                    <div class="panel-caption">Right Wall Panels</div>
+                </div>
+                <div class="panel">
+                    <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
+                    <div class="panel-caption">Front Wall</div>
+                </div>
+                <div class="panel">
+                    <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
+                    <div class="panel-caption">Back Wall</div>
+                </div>
+                <div class="panel">
+                    <img src="../assets/img/slider-2.jpeg" alt="Image 7">
+                    <div class="panel-caption">Ceiling Panels</div>
                 </div>
             </div>
+            <div class="slider-nav">
+                <!-- No button needed -->
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- Right Wall Section -->
-<div id="right-wall" class="container-fluid py-5" style="display: none;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12" style="max-width: 90%; margin: 0 auto;">
-                <div class="row mb-4 justify-content-center">
-                    <div class="col-12" style="max-width: 90%;">
-                        <select id="right-wall-selector" class="form-select">
-                            <option value="" selected disabled>Select the panel you would like to read</option>
-                            <option value="panel-1">Panel 1</option>
-                            <option value="panel-2">Panel 2</option>
-                            <option value="credits">Credits</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="card shadow">
-                    <!-- PDF container for right wall panels -->
-                    <div id="right-wall-content">
-                        <!-- The iframe will be loaded here via JavaScript -->
-                        <div id="panel-1" class="right-wall-panel" style="display: none;">
-                            <iframe src="../assets/document/panel-1-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                        </div>
-                        <div id="panel-2" class="right-wall-panel" style="display: none;">
-                            <iframe src="../assets/document/panel-2-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                        </div>
-                        <div id="credits" class="right-wall-panel" style="display: none;">
-                            <iframe src="../assets/document/credits.pdf" width="100%" height="800px" frameborder="0"></iframe>
+        <!-- Back Wall Image Section -->
+        <div id="back-wall" class="container-fluid py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">The Back Wall</h2>
+                <div class="row justify-content-center">
+                    <div class="col-12" style="max-width: 80%; margin: 0 auto;">
+                        <div class="card shadow">
+                            <!-- Add ID and loading attribute -->
+                            <img id="back-wall-image" src="../assets/img/carousel-3.jpeg"
+                                 class="d-block w-100 rounded" alt="Back Wall"
+                                 usemap="#back-wall-map" loading="eager">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    Interactive display...
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Back Wall Image Panels Section -->
-<div id="back-wall-panels" class="container-fluid py-3" style="display: none;">
-    <div class="container">
-        <h2 class="text-center mb-4">Explore the Back Wall Frames</h2>
-        <div class="back-wall-grid">
-            <div class="back-wall-panel" data-panel="1">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-1.png" alt="Frame 1 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="5">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-5.png" alt="Frame 5 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="3">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-3.png" alt="Frame 3 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="4">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-4.png" alt="Frame 4 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="2">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-2.png" alt="Frame 2 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="6">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-6.jpeg" alt="Frame 6 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="7">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-7.jpeg" alt="Frame 7 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="8">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-8.png" alt="Frame 8 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="9">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-9.JPG" alt="Frame 9 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="10">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-10.png" alt="Frame 10 Front" />
-            </div>
-            <div class="back-wall-panel" data-panel="11">
-                <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
-                <div class="hover-flip-text">Click to enlarge</div>
-                <img src="../assets/img/enlarged-frame-11.png" alt="Frame 11 Front" />
+        <!-- Right Wall Section -->
+        <div id="right-wall" class="container-fluid py-5" style="display: none;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12" style="max-width: 90%; margin: 0 auto;">
+                        <div class="row mb-4 justify-content-center">
+                            <div class="col-12" style="max-width: 90%;">
+                                <select id="right-wall-selector" class="form-select">
+                                    <option value="" selected disabled>Select the panel you would like to read</option>
+                                    <option value="panel-1">Panel 1</option>
+                                    <option value="panel-2">Panel 2</option>
+                                    <option value="credits">Credits</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card shadow">
+                            <!-- PDF container for right wall panels -->
+                            <div id="right-wall-content">
+                                <!-- The iframe will be loaded here via JavaScript -->
+                                <div id="panel-1" class="right-wall-panel" style="display: none;">
+                                    <iframe src="../assets/document/panel-1-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
+                                </div>
+                                <div id="panel-2" class="right-wall-panel" style="display: none;">
+                                    <iframe src="../assets/document/panel-2-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
+                                </div>
+                                <div id="credits" class="right-wall-panel" style="display: none;">
+                                    <iframe src="../assets/document/credits.pdf" width="100%" height="800px" frameborder="0"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
+        <!-- Back Wall Image Panels Section -->
+        <div id="back-wall-panels" class="container-fluid py-3" style="display: none;">
+            <div class="container">
+                <h2 class="text-center mb-4">Explore the Back Wall Frames</h2>
+                <div class="back-wall-grid">
+                    <div class="back-wall-panel" data-panel="1">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-1.png" alt="Frame 1 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="5">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-5.png" alt="Frame 5 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="3">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-3.png" alt="Frame 3 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="4">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-4.png" alt="Frame 4 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="2">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-2.png" alt="Frame 2 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="6">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-6.jpeg" alt="Frame 6 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="7">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-7.jpeg" alt="Frame 7 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="8">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-8.png" alt="Frame 8 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="9">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-9.JPG" alt="Frame 9 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="10">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-10.png" alt="Frame 10 Front" />
+                    </div>
+                    <div class="back-wall-panel" data-panel="11">
+                        <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
+                        <div class="hover-flip-text">Click to enlarge</div>
+                        <img src="../assets/img/enlarged-frame-11.png" alt="Frame 11 Front" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-<!-- Image Map for Back Wall -->
-<map name="back-wall-map">
-    <area target="" alt="Frame 1" title="Frame 1" href="#" coords="1022,1070,1613,1067,1608,1576,1026,1572" shape="poly" onclick="showEnlargedFrame(1); return false;">
-    <area target="" alt="Frame 2" title="Frame 2" href="#" coords="1141,530,1485,525,1485,1025,1133,1025" shape="poly" onclick="showEnlargedFrame(2); return false;">
-    <area target="" alt="Frame 3" title="Frame 3" href="#" coords="735,659,1119,659,1125,1011,743,1006" shape="poly" onclick="showEnlargedFrame(3); return false;">
-    <area target="" alt="Frame 4" title="Frame 4" href="#" coords="1501,649,1818,647,1818,1020,1501,1023" shape="poly" onclick="showEnlargedFrame(4); return false;">
-    <area target="" alt="Frame 5" title="Frame 5" href="#" coords="2049,1705,2352,1697,2379,1904,2076,1910" shape="poly" onclick="showEnlargedFrame(5); return false;">
-    <area target="" alt="Frame 6" title="Frame 6" href="#" coords="2000,1145,2253,1153,2258,1483,2000,1489" shape="poly" onclick="showEnlargedFrame(6); return false;">
-    <area target="" alt="Frame 7" title="Frame 7" href="#" coords="1904,632,2269,635,2258,1119,1904,1119" shape="poly" onclick="showEnlargedFrame(7); return false;">
-    <area target="" alt="Frame 8" title="Frame 8" href="#" coords="1694,1154,1917,1156,1928,1519,1689,1514" shape="poly" onclick="showEnlargedFrame(8); return false;">
-    <area target="" alt="Frame 9" title="Frame 9" href="#" coords="324,1122,630,1114,628,1579,327,1571" shape="poly" onclick="showEnlargedFrame(9); return false;">
-    <area target="" alt="Frame 10" title="Frame 10" href="#" coords="1452,1593,1756,1576,1786,1931,1458,1931" shape="poly" onclick="showEnlargedFrame(10); return false;">
-    <area target="" alt="Frame 11" title="Frame 11" href="#" coords="437,1600,665,1610,660,1796,429,1793" shape="poly" onclick="showEnlargedFrame(11); return false;">
-</map>
+        <!-- Image Map for Back Wall -->
+        <map name="back-wall-map">
+            <area target="" alt="Frame 1" title="Frame 1" href="#" coords="1022,1070,1613,1067,1608,1576,1026,1572" shape="poly" onclick="showEnlargedFrame(1); return false;">
+            <area target="" alt="Frame 2" title="Frame 2" href="#" coords="1141,530,1485,525,1485,1025,1133,1025" shape="poly" onclick="showEnlargedFrame(2); return false;">
+            <area target="" alt="Frame 3" title="Frame 3" href="#" coords="735,659,1119,659,1125,1011,743,1006" shape="poly" onclick="showEnlargedFrame(3); return false;">
+            <area target="" alt="Frame 4" title="Frame 4" href="#" coords="1501,649,1818,647,1818,1020,1501,1023" shape="poly" onclick="showEnlargedFrame(4); return false;">
+            <area target="" alt="Frame 5" title="Frame 5" href="#" coords="2049,1705,2352,1697,2379,1904,2076,1910" shape="poly" onclick="showEnlargedFrame(5); return false;">
+            <area target="" alt="Frame 6" title="Frame 6" href="#" coords="2000,1145,2253,1153,2258,1483,2000,1489" shape="poly" onclick="showEnlargedFrame(6); return false;">
+            <area target="" alt="Frame 7" title="Frame 7" href="#" coords="1904,632,2269,635,2258,1119,1904,1119" shape="poly" onclick="showEnlargedFrame(7); return false;">
+            <area target="" alt="Frame 8" title="Frame 8" href="#" coords="1694,1154,1917,1156,1928,1519,1689,1514" shape="poly" onclick="showEnlargedFrame(8); return false;">
+            <area target="" alt="Frame 9" title="Frame 9" href="#" coords="324,1122,630,1114,628,1579,327,1571" shape="poly" onclick="showEnlargedFrame(9); return false;">
+            <area target="" alt="Frame 10" title="Frame 10" href="#" coords="1452,1593,1756,1576,1786,1931,1458,1931" shape="poly" onclick="showEnlargedFrame(10); return false;">
+            <area target="" alt="Frame 11" title="Frame 11" href="#" coords="437,1600,665,1610,660,1796,429,1793" shape="poly" onclick="showEnlargedFrame(11); return false;">
+        </map>
 
 
 
-<!-- Video Section -->
-<div class="container-fluid" id="video">
-    <div class="container">
-        <div class="row align-items-start">
-            <!-- Video 2 -->
-            <div class="col-md-6">
-                <h3 class="text-center mb-3">The Baroness and the Barefoot Children</h3>
-                <p class="text-center mb-4"><em>Una baronessa tra i bambini scalzi</em></p>
-                <div class="video-container" id="video2">
-                    <video controls style="width: 100%;">
-                        <source src="../assets/videos/Video%202%20World%20Fair%20Translated%20To%20English.mp4" type="video/mp4">
+        <!-- Video Section -->
+        <div class="container-fluid" id="video">
+            <div class="container">
+                <div class="row align-items-start">
+                    <!-- Video 1 -->
+                    <div class="col-md-6">
+                        <h3 class="text-center mb-3">The Baroness and the Barefoot Children</h3>
+                        <p class="text-center mb-4"><em>Una baronessa tra i bambini scalzi</em></p>
+                        <div class="video-container" id="video2-container">
+                            <video  controls style="width: 100%;">
+                                <source src="../assets/video/Video1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="col-md-6">
+                        <h3 class="text-center mb-3">The Montesca Schools at the 1910 World Fair</h3>
+                        <p class="text-center mb-4"><em>Le scuole della Montesca all'Esposizione Universale del 1910</em></p>
+                        <div class="video-container" id="panel-video2-element">
+                            <video  controls style="width: 100%;">
+                                <source src="../assets/video/Video2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stand Section -->
+        <div id="stand" class="panel-section" style="display: none;">
+            <div class="container md-6">
+                <h3 class="text-center mb-3 stand-title">Montessori Material, Multilingual Learning Resources, World Fair Documents</h3>
+                <p class="text-center mb-4"><em>The Display</em></p>
+                <div id="stand-video-container">
+                    <video controls
+                           src="../assets/video/Video3.mov"
+                           type="video/mp4"
+                           poster="../assets/img/thubnail-stand2.jpeg"
+                           style="width: 70%; max-height: 50%; border-radius: 10px;">
+                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
-            
-            <!-- Video 3 -->
-            <div class="col-md-6">
-                <h3 class="text-center mb-3">The Montesca Schools at the 1910 World Fair</h3>
-                <p class="text-center mb-4"><em>Le scuole della Montesca all'Esposizione Universale del 1910</em></p>
-                <div class="video-container" id="video3">
-                    <video controls style="width: 100%;">
-                        <source src="#" type="video/mp4">
-                    </video>
-                </div>
-            </div>
         </div>
-    </div>
-</div>
 
 
 
@@ -373,24 +388,24 @@
                 </div>
             </div>
             <div class="container-fluid silhouette-container" id="silhouette-7" style="background: linear-gradient(45deg, #D9E7D9, var(--bs-secondary-bg));">
-                <div class="container"> 
+                <div class="container">
                     <img class="silhouette" src="../assets/img/silhouette-7.png" alt="">
                 </div>
             </div>
         </div>
 
-        <!-- Front Wall Section -->
-<div id="front-wall" class="container-fluid">
-    <div class="row justify-content-center mt-5">
-        <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-            <h2 class="text-center mb-4">Front Wall</h2>
-            <img src="../assets/img/front-wall.png" class="d-block w-100 rounded" style="border-radius: 15px;" alt="Front Wall">
-            <p class="text-left mt-3">
-                Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
-            </p>
+                <!-- Front Wall Section -->
+        <div id="front-wall" class="container-fluid">
+            <div class="row justify-content-center mt-5">
+                <div class="col-12" style="max-width: 60%; margin: 0 auto;">
+                    <h2 class="text-center mb-4">Front Wall</h2>
+                    <img src="../assets/img/front-wall.png" class="d-block w-100 rounded" style="border-radius: 15px;" alt="Front Wall">
+                    <p class="text-left mt-3">
+                        Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <!-- Popup Frame section -->
 
@@ -471,130 +486,130 @@
             </div>
         </div>
 
-    <!-- Ceiling Panels Section -->
-    <div class="container-fluid component-section" id="ceiling" style="display: none;">
-      <div class="container">
-        <div class="ceiling-grid">
-          <!-- Row 1 -->
-          <div class="ceiling-row top-row">
-            <div class="ceiling-panel tall" data-panel="4">
-              <!-- Zoom icon (for enlarging) -->
-              <div class="zoom-icon">
-                <img src="../assets/img/zoom.png" alt="Zoom" />
+        <!-- Ceiling Panels Section -->
+        <div class="container-fluid component-section" id="ceiling" style="display: none;">
+          <div class="container">
+            <div class="ceiling-grid">
+              <!-- Row 1 -->
+              <div class="ceiling-row top-row">
+                <div class="ceiling-panel tall" data-panel="4">
+                  <!-- Zoom icon (for enlarging) -->
+                  <div class="zoom-icon">
+                    <img src="../assets/img/zoom.png" alt="Zoom" />
+                  </div>
+                  <!-- Flip text overlay on hover -->
+                  <div class="hover-flip-text">Click to flip</div>
+                  <div class="panel-inner">
+                    <img
+                      src="../assets/img/ceiling-4f.png"
+                      class="panel-front"
+                      alt="Panel 4 Front"
+                    />
+                    <img
+                      src="../assets/img/ceiling-4r-en.png"
+                      class="panel-back"
+                      alt="Panel 4 Back"
+                    />
+                  </div>
+                </div>
+                <div class="ceiling-panel short" data-panel="1">
+                  <div class="zoom-icon">
+                    <img src="../assets/img/zoom.png" alt="Zoom" />
+                  </div>
+                  <div class="hover-flip-text">Click to flip</div>
+                  <div class="panel-inner">
+                    <img
+                      src="../assets/img/ceiling-1f.png"
+                      class="panel-front"
+                      alt="Panel 1 Front"
+                    />
+                    <img
+                      src="../assets/img/ceiling-1r-en.png"
+                      class="panel-back"
+                      alt="Panel 1 Back"
+                    />
+                  </div>
+                </div>
+                <div class="ceiling-panel tall" data-panel="5">
+                  <div class="zoom-icon">
+                    <img src="../assets/img/zoom.png" alt="Zoom" />
+                  </div>
+                  <div class="hover-flip-text">Click to flip</div>
+                  <div class="panel-inner">
+                    <img
+                      src="../assets/img/ceiling-5f.png"
+                      class="panel-front"
+                      alt="Panel 5 Front"
+                    />
+                    <img
+                      src="../assets/img/ceiling-5r-en.png"
+                      class="panel-back"
+                      alt="Panel 5 Back"
+                    />
+                  </div>
+                </div>
               </div>
-              <!-- Flip text overlay on hover -->
-              <div class="hover-flip-text">Click to flip</div>
-              <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-4f.png"
-                  class="panel-front"
-                  alt="Panel 4 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-4r-en.png"
-                  class="panel-back"
-                  alt="Panel 4 Back"
-                />
-              </div>
-            </div>
-            <div class="ceiling-panel short" data-panel="1">
-              <div class="zoom-icon">
-                <img src="../assets/img/zoom.png" alt="Zoom" />
-              </div>
-              <div class="hover-flip-text">Click to flip</div>
-              <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-1f.png"
-                  class="panel-front"
-                  alt="Panel 1 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-1r-en.png"
-                  class="panel-back"
-                  alt="Panel 1 Back"
-                />
-              </div>
-            </div>
-            <div class="ceiling-panel tall" data-panel="5">
-              <div class="zoom-icon">
-                <img src="../assets/img/zoom.png" alt="Zoom" />
-              </div>
-              <div class="hover-flip-text">Click to flip</div>
-              <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-5f.png"
-                  class="panel-front"
-                  alt="Panel 5 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-5r-en.png"
-                  class="panel-back"
-                  alt="Panel 5 Back"
-                />
-              </div>
-            </div>
-          </div>
 
-          <!-- Row 2 -->
-          <div class="ceiling-row bottom-row">
-            <div class="ceiling-panel short" data-panel="2">
-              <div class="zoom-icon">
-                <img src="../assets/img/zoom.png" alt="Zoom" />
-              </div>
-              <div class="hover-flip-text">Click to flip</div>
-              <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-2f.png"
-                  class="panel-front"
-                  alt="Panel 2 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-2r-en.png"
-                  class="panel-back"
-                  alt="Panel 2 Back"
-                />
-              </div>
-            </div>
-            <div class="ceiling-panel tall" data-panel="6">
-              <div class="zoom-icon">
-                <img src="../assets/img/zoom.png" alt="Zoom" />
-              </div>
-              <div class="hover-flip-text">Click to flip</div>
-              <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-6f.png"
-                  class="panel-front"
-                  alt="Panel 6 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-6r-en.png"
-                  class="panel-back"
-                  alt="Panel 6 Back"
-                />
-              </div>
-            </div>
-            <div class="ceiling-panel short" data-panel="3">
-              <div class="zoom-icon">
-                <img src="../assets/img/zoom.png" alt="Zoom" />
-              </div>
-              <div class="hover-flip-text">Click to flip</div>
-              <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-3f.png"
-                  class="panel-front"
-                  alt="Panel 3 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-3r-en.png"
-                  class="panel-back"
-                  alt="Panel 3 Back"
-                />
+              <!-- Row 2 -->
+              <div class="ceiling-row bottom-row">
+                <div class="ceiling-panel short" data-panel="2">
+                  <div class="zoom-icon">
+                    <img src="../assets/img/zoom.png" alt="Zoom" />
+                  </div>
+                  <div class="hover-flip-text">Click to flip</div>
+                  <div class="panel-inner">
+                    <img
+                      src="../assets/img/ceiling-2f.png"
+                      class="panel-front"
+                      alt="Panel 2 Front"
+                    />
+                    <img
+                      src="../assets/img/ceiling-2r-en.png"
+                      class="panel-back"
+                      alt="Panel 2 Back"
+                    />
+                  </div>
+                </div>
+                <div class="ceiling-panel tall" data-panel="6">
+                  <div class="zoom-icon">
+                    <img src="../assets/img/zoom.png" alt="Zoom" />
+                  </div>
+                  <div class="hover-flip-text">Click to flip</div>
+                  <div class="panel-inner">
+                    <img
+                      src="../assets/img/ceiling-6f.png"
+                      class="panel-front"
+                      alt="Panel 6 Front"
+                    />
+                    <img
+                      src="../assets/img/ceiling-6r-en.png"
+                      class="panel-back"
+                      alt="Panel 6 Back"
+                    />
+                  </div>
+                </div>
+                <div class="ceiling-panel short" data-panel="3">
+                  <div class="zoom-icon">
+                    <img src="../assets/img/zoom.png" alt="Zoom" />
+                  </div>
+                  <div class="hover-flip-text">Click to flip</div>
+                  <div class="panel-inner">
+                    <img
+                      src="../assets/img/ceiling-3f.png"
+                      class="panel-front"
+                      alt="Panel 3 Front"
+                    />
+                    <img
+                      src="../assets/img/ceiling-3r-en.png"
+                      class="panel-back"
+                      alt="Panel 3 Back"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <!-- Modal Overlay (Enlarged View) -->
     <div id="ceiling-modal" class="ceiling-modal">
@@ -651,10 +666,10 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../js/bootstrap.bundle.min.js"></script>
-        <script src="../js/imageMapResizer.min.js"></script> 
+        <script src="../js/imageMapResizer.min.js"></script>
         <script src="../js/script.js"></script>
         <script src="../js/theme.js"></script>
-     
+
     </body>
 
     <script>
@@ -669,13 +684,13 @@
                 flagElement.src = '../assets/img/en.svg';
             }
         }
-        
+
         // Function to show 3D environment
         function show3D() {
             document.getElementById("thumbnailWrapper").style.display = "none";
             document.getElementById("unityContainer").style.display = "block";
         }
-        
+
         // Function to handle landing video play button
         document.addEventListener('DOMContentLoaded', function() {
             const playBtn = document.querySelector('.video-play-btn');
@@ -691,11 +706,10 @@
                 });
             }
         });
-        
+
         // Function to open PDF
         function openPDF() {
             window.open('../assets/document/CATALOGUE.pdf', '_blank');
         }
         </script>
-    </body>
-    </html>
+</html>
