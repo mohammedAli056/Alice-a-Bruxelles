@@ -180,34 +180,64 @@
         <!-- Right Wall Section -->
         <div id="right-wall" class="container-fluid py-5" style="display: none;">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12" style="max-width: 90%; margin: 0 auto;">
-                        <div class="row mb-4 justify-content-center">
-                            <div class="col-12" style="max-width: 90%;">
-                                <select id="right-wall-selector" class="form-select">
-                                    <option value="" selected disabled>Select the panel you would like to read</option>
-                                    <option value="panel-1">Panel 1</option>
-                                    <option value="panel-2">Panel 2</option>
-                                    <option value="credits">Credits</option>
-                                </select>
+                <div class="right-wall-grid">
+                    <!-- Introduction Panel -->
+                    <div class="right-wall-panel-container">
+                        <h3 class="panel-title">Introduction</h3>
+                        <div class="right-wall-panel" data-panel="1">
+                            <div class="zoom-icon">
+                                <img src="../assets/img/zoom.png" alt="Zoom" />
                             </div>
-                        </div>
-                        <div class="card shadow">
-                            <!-- PDF container for right wall panels -->
-                            <div id="right-wall-content">
-                                <!-- The iframe will be loaded here via JavaScript -->
-                                <div id="panel-1" class="right-wall-panel" style="display: none;">
-                                    <iframe src="../assets/document/panel-1-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                                <div id="panel-2" class="right-wall-panel" style="display: none;">
-                                    <iframe src="../assets/document/panel-2-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                                <div id="credits" class="right-wall-panel" style="display: none;">
-                                    <iframe src="../assets/document/credits.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                            </div>
+                            <img src="../assets/img/panel-1-en.png" alt="Introduction Panel" />
                         </div>
                     </div>
+                    
+                    <!-- Visitor Guide Panel -->
+                    <div class="right-wall-panel-container">
+                        <h3 class="panel-title">Visitor Guide</h3>
+                        <div class="right-wall-panel" data-panel="2">
+                            <div class="zoom-icon">
+                                <img src="../assets/img/zoom.png" alt="Zoom" />
+                            </div>
+                            <img src="../assets/img/panel-2-en.png" alt="Visitor Guide Panel" />
+                        </div>
+                    </div>
+                    
+                    <!-- Credits Panel -->
+                    <div class="right-wall-panel-container">
+                        <h3 class="panel-title">Credits</h3>
+                        <div class="right-wall-panel" data-panel="3">
+                            <div class="zoom-icon">
+                                <img src="../assets/img/zoom.png" alt="Zoom" />
+                            </div>
+                            <img src="../assets/img/credits.png" alt="Credits Panel" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Wall Modal -->
+        <div id="right-wall-modal" class="ceiling-modal">
+            <div class="ceiling-modal-content">
+                <!-- Close button -->
+                <span class="right-wall-modal-close">&times;</span>
+                
+                <!-- Left/Right arrows -->
+                <div id="right-wall-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
+                <div id="right-wall-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
+                
+                <!-- Image container -->
+                <div class="right-wall-modal-image-container">
+                    <img id="right-wall-modal-image" src="" alt="Right Wall Panel" />
+                </div>
+                
+                <!-- Zoom controls -->
+                <div class="right-wall-zoom-controls">
+                    <div class="zoom-btn zoom-out">−</div>
+                    <div class="zoom-level">100%</div>
+                    <div class="zoom-btn zoom-in">+</div>
+                    <div class="zoom-reset">Reset</div>
                 </div>
             </div>
         </div>
