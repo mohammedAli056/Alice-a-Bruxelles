@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sliderPanels.length > 0) {
         const sectionMap = {
             0: 'video',
-            1: 'stand',
+            1: 'right-wall',
             2: 'silhouettes-accordion',
-            3: 'right-wall', // Right Wall Panels
+            3: 'stand', // Right Wall Panels
             4: 'front-wall',
             5: 'back-wall',
             6: 'ceiling'
