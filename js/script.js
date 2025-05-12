@@ -123,12 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        /* // Activate "Right Wall Panels" by default (index 3)
+        // Activate "Right Wall Panels" by default (index 3)
         const rightWallPanel = sliderPanels[3];
         if (rightWallPanel) {
             rightWallPanel.click();
         }
-        */
+
     }
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
