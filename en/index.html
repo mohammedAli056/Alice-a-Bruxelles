@@ -27,14 +27,25 @@
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="../en/index.html">HOME</a></li>
                             <li class="nav-item"><a class="nav-link" href="#environment-3d">VISIT 3D</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#slider-section">EXHIBIT IMAGES</a></li>
                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXHIBIT COMPONENTS</a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(2)">La Montesca school: A Story of Women</a>
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(6)">Montessori and International teaching materials</a>
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(5)">Photos and Alice’s letters to Maria Pasqui</a>
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(3)">Exhibition Project; Visitors’ Guide, Credits</a>
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(4)">The 1910 Exhibition</a>
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(1)">The Reconstructed Schools’ Stand</a>
+                                    <a class="dropdown-item" href="#" onclick="triggerPanel(0)">The History of the Schools in 2 videos</a>
+                                       
+                                </ul>
+                            </li>                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">VIDEOS</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#" onclick="scrollToVideo(); return false;">Alice in Brussels: the Exhibit</a></li>
-                                    <li><a class="dropdown-item" href="#videos-panel">The Baroness and the Barefoot Children</a></li>
-                                    <li><a class="dropdown-item" href="#">The Montesca Schools at the 1910 World Fair</a></li>
-                                    <li><a class="dropdown-item" href="#">Symposium - Excerpts</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel() ">The Baroness and the Barefoot Children</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">The Montesca Schools at the 1910 World Fair</a></li>
+                                    <li><a class="dropdown-item" href="#">Symposium - Excerpts</a></li> 
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#" onclick="openPDF()">CATALOGUE</a></li>
@@ -54,6 +65,8 @@
                                     </a></li>
                                 </ul>
                             </li>
+                 
+
                         </ul>
                     </div>
                 </nav>
@@ -72,7 +85,7 @@
                             <a href="about-us.html" class="btn btn-success">ABOUT US</a>
                             <a href="#environment-3d" class="btn btn-outline-success">EXPLORE EXHIBIT AND LEARN MORE</a>
                             <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOG</a>
-                            <a href="#video" class="btn btn-outline-secondary">WATCH THE VIDEOS</a>
+                            <a href="#" class="btn btn-outline-secondary" onclick="triggerVideosPanel()">WATCH THE VIDEOS</a>
                         </div>
                         <br>
                     </div>
@@ -91,25 +104,34 @@
                     </div>
                 </div>
             </div>
+            <br><br>
+
         </div>
-            <!-- Unity 3D Interactive Triggered Section -->
-        <div class="container text-center" id="environment-3d">
-            <h2 class="section-title mb-4">Explore the Exhibition in 3D</h2>
-
-            <div id="thumbnailWrapper" style="position: relative;">
-              <img id="env-thumbnail" src="../assets/img/slider-1.jpeg" alt="3D Environment Thumbnail"
-                   class="img-fluid" style="max-width: 100%; border-radius: 10px;">
-              <button class="btn btn-outline-success"
-                      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-                      onclick="show3D()">
-                Explore 3D Environment
-              </button>
-            </div>
-
-            <div id="unityContainer" style="display: none; margin-top: 20px;">
-              <iframe src="../WebGLBuild/index.html" width="960" height="600" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
+<!-- Unity 3D Interactive Triggered Section -->
+<div class="container text-center my-5" id="environment-3d">
+    <h2 class="section-title mb-4">3D Environment</h2>
+  
+<!-- Thumbnail preview with fixed size -->
+<div class="environment-container" id="env-preview" style="position: relative; width: 960px; height: 720px; margin: 0 auto;">
+    <img src="../assets/img/slider-1.jpeg" alt="3D Environment"
+         style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px;">
+  
+    <div class="overlay">
+      <button class="btn btn-light" onclick="showUnity()">Explore 3D Environment</button>
+    </div>
+  </div>
+  
+  
+    <!-- Unity iframe container -->
+    <div id="unityContainer" style="display: none; position: relative; width: 960px; height: 720px; margin: 0 auto;">
+      <!-- Close Button -->
+      <button onclick="hideUnity()" style="position: absolute; top: 35px; right: 10px; z-index: 10; background: white; border: none; font-size: 24px; cursor: pointer;">✖</button>
+  
+      <!-- Unity WebGL iframe -->
+      <iframe id="unityIframe" src="../WebGLBuild/index.html" width="960" height="720" frameborder="0" allowfullscreen style="border-radius: 8px;"></iframe>
+    </div>
+  </div>
+  
 
 
         <!--sliderrrr-->
@@ -123,31 +145,32 @@
             <div class="accordion">
                 <div id="videos-panel" class="panel">
                     <img src="../assets/img/slider-7.jpeg" alt="Videos">
-                    <div class="panel-caption">Videos</div>
-                </div>
-                <div class="panel">
-                    <img src="../assets/img/slider-6.jpeg" alt="Stand">
-                    <div class="panel-caption">Stand</div>
-                </div>
-                <div class="panel">
-                    <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
-                    <div class="panel-caption">Silhouettes</div>
+                    <div class="panel-caption">The History of the Schools in 2 videos</div>
                 </div>
                 <div class="panel active">
                     <img src="../assets/img/slider-5.jpeg" alt="Image 4">
-                    <div class="panel-caption">Right Wall Panels</div>
+                    <div class="panel-caption">Exhibition Project; Visitors’ Guide, Credits</div>
                 </div>
                 <div class="panel">
+                    <img src="../assets/img/slider-6.jpeg" alt="Stand">
+                    <div class="panel-caption">The Reconstructed Schools’ Stand</div>
+                </div>
+                <div class="panel">
+                    <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
+                    <div class="panel-caption">La Montesca school: A Story of Women</div>
+                </div>
+       
+                <div class="panel">
                     <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
-                    <div class="panel-caption">Front Wall</div>
+                    <div class="panel-caption">The 1910 Exhibition</div>
                 </div>
                 <div class="panel">
                     <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
-                    <div class="panel-caption">Back Wall</div>
+                    <div class="panel-caption">Photos and Alice’s letters to Maria Pasqui</div>
                 </div>
                 <div class="panel">
                     <img src="../assets/img/slider-2.jpeg" alt="Image 7">
-                    <div class="panel-caption">Ceiling Panels</div>
+                    <div class="panel-caption">Montessori and International teaching materials</div>
                 </div>
             </div>
             <div class="slider-nav">
@@ -158,7 +181,7 @@
         <!-- Back Wall Image Section -->
         <div id="back-wall" class="container-fluid py-5">
             <div class="container">
-                <h2 class="text-center mb-4">The Back Wall</h2>
+                <h2 class="text-center mb-4">Photos and Alice’s letters to Maria Pasqui</h2>
                 <div class="row justify-content-center">
                     <div class="col-12" style="max-width: 80%; margin: 0 auto;">
                         <div class="card shadow">
@@ -180,34 +203,64 @@
         <!-- Right Wall Section -->
         <div id="right-wall" class="container-fluid py-5" style="display: none;">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12" style="max-width: 90%; margin: 0 auto;">
-                        <div class="row mb-4 justify-content-center">
-                            <div class="col-12" style="max-width: 90%;">
-                                <select id="right-wall-selector" class="form-select">
-                                    <option value="" selected disabled>Select the panel you would like to read</option>
-                                    <option value="panel-1">Panel 1</option>
-                                    <option value="panel-2">Panel 2</option>
-                                    <option value="credits">Credits</option>
-                                </select>
+                <div class="right-wall-grid">
+                    <!-- Introduction Panel -->
+                    <div class="right-wall-panel-container">
+                        <h3 class="panel-title">Introduction</h3>
+                        <div class="right-wall-panel" data-panel="1">
+                            <div class="zoom-icon">
+                                <img src="../assets/img/zoom.png" alt="Zoom" />
                             </div>
-                        </div>
-                        <div class="card shadow">
-                            <!-- PDF container for right wall panels -->
-                            <div id="right-wall-content">
-                                <!-- The iframe will be loaded here via JavaScript -->
-                                <div id="panel-1" class="right-wall-panel" style="display: none;">
-                                    <iframe src="../assets/document/panel-1-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                                <div id="panel-2" class="right-wall-panel" style="display: none;">
-                                    <iframe src="../assets/document/panel-2-en.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                                <div id="credits" class="right-wall-panel" style="display: none;">
-                                    <iframe src="../assets/document/credits.pdf" width="100%" height="800px" frameborder="0"></iframe>
-                                </div>
-                            </div>
+                            <img src="../assets/img/panel-1-en.png" alt="Introduction Panel" />
                         </div>
                     </div>
+                    
+                    <!-- Visitor Guide Panel -->
+                    <div class="right-wall-panel-container">
+                        <h3 class="panel-title">Visitor Guide</h3>
+                        <div class="right-wall-panel" data-panel="2">
+                            <div class="zoom-icon">
+                                <img src="../assets/img/zoom.png" alt="Zoom" />
+                            </div>
+                            <img src="../assets/img/panel-2-en.png" alt="Visitor Guide Panel" />
+                        </div>
+                    </div>
+                    
+                    <!-- Credits Panel -->
+                    <div class="right-wall-panel-container">
+                        <h3 class="panel-title">Credits</h3>
+                        <div class="right-wall-panel" data-panel="3">
+                            <div class="zoom-icon">
+                                <img src="../assets/img/zoom.png" alt="Zoom" />
+                            </div>
+                            <img src="../assets/img/credits.png" alt="Credits Panel" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Wall Modal -->
+        <div id="right-wall-modal" class="ceiling-modal">
+            <div class="ceiling-modal-content">
+                <!-- Close button -->
+                <span class="right-wall-modal-close">&times;</span>
+                
+                <!-- Left/Right arrows -->
+                <div id="right-wall-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
+                <div id="right-wall-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
+                
+                <!-- Image container -->
+                <div class="right-wall-modal-image-container">
+                    <img id="right-wall-modal-image" src="" alt="Right Wall Panel" />
+                </div>
+                
+                <!-- Zoom controls -->
+                <div class="right-wall-zoom-controls">
+                    <div class="zoom-btn zoom-out">−</div>
+                    <div class="zoom-level">100%</div>
+                    <div class="zoom-btn zoom-in">+</div>
+                    <div class="zoom-reset">Reset</div>
                 </div>
             </div>
         </div>
@@ -215,7 +268,7 @@
         <!-- Back Wall Image Panels Section -->
         <div id="back-wall-panels" class="container-fluid py-3" style="display: none;">
             <div class="container">
-                <h2 class="text-center mb-4">Explore the Back Wall Frames</h2>
+                <h2 class="text-center mb-4">Explore the Frames</h2>
                 <div class="back-wall-grid">
                     <div class="back-wall-panel" data-panel="1">
                         <div class="zoom-icon"><img src="../assets/img/zoom.png" alt="Zoom" /></div>
@@ -398,11 +451,21 @@
         <div id="front-wall" class="container-fluid">
             <div class="row justify-content-center mt-5">
                 <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-                    <h2 class="text-center mb-4">Front Wall</h2>
+                    <h2 class="text-center mb-4"> The 1910 Exhibition</h2>
                     <img src="../assets/img/front-wall.png" class="d-block w-100 rounded" style="border-radius: 15px;" alt="Front Wall">
                     <p class="text-left mt-3">
                         Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
                     </p>
+
+
+                                        <!-- Embedded PDF Catalogue -->
+<div class="mt-5">
+    <h3 class="text-center">View the Full Catalogue</h3>
+    <iframe src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
+            width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
+</div>
+
+
                 </div>
             </div>
         </div>
@@ -684,12 +747,15 @@
                 flagElement.src = '../assets/img/en.svg';
             }
         }
+        function showUnity() {
+    document.getElementById("env-preview").style.display = "none";
+    document.getElementById("unityContainer").style.display = "block";
+  }
 
-        // Function to show 3D environment
-        function show3D() {
-            document.getElementById("thumbnailWrapper").style.display = "none";
-            document.getElementById("unityContainer").style.display = "block";
-        }
+  function hideUnity() {
+    document.getElementById("unityContainer").style.display = "none";
+    document.getElementById("env-preview").style.display = "block";
+  }
 
         // Function to handle landing video play button
         document.addEventListener('DOMContentLoaded', function() {
@@ -711,5 +777,12 @@
         function openPDF() {
             window.open('../assets/document/CATALOGUE.pdf', '_blank');
         }
+
+
+        function triggerVideosPanel() {
+    const panel = document.getElementById('videos-panel');
+    if (panel) panel.click();
+  }
+  
         </script>
 </html>
