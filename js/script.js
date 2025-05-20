@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+
     // Enlarge logic: open modal only if zoom icon is clicked
     const ceilingModal = document.getElementById('ceiling-modal');
     const ceilingModalClose = document.getElementById('ceiling-modal-close');
