@@ -46,36 +46,42 @@
                 color: black;
             }
             .about-subtitle {
-                font-size: 1.4rem;  /* <== Subtitle size, adjust as needed */
+                font-size: 1.8rem;  /* <== Subtitle size, adjust as needed */
+                font-weight: bold;
                 font-style: italic;
                 text-align: center;
                 white-space: pre-line; /* allows multi-line if needed */
-                margin-bottom: 2rem;   /* spacing below subtitle */
                 color: black;
             }
-
+            .about-description {
+                font-size: 1.4rem;  /* <== Description size, adjust as needed */
+                font-style: italic;
+                text-align: center;
+                margin-bottom: 2rem;   
+                color: black;
+            }
+            
             /******************************************************
             * IMAGES (All in one row, center is bigger, truly centered)
             ******************************************************/
             .image-row {
                 display: flex;
-                justify-content: center; /* center them in the row */
+                justify-content: center;
                 align-items: center;
                 gap: 10px;
-                flex-wrap: wrap; /* stack if screen too narrow */
-                margin-bottom: 40px; /* space below the row */
+                flex-wrap: nowrap;      
+                margin-bottom: 40px;
             }
-            /* Left & right images are smaller */
+
+            /* Left & right images share 25% of the row each and shrink as needed */
             .img-side {
-                height: 300px; /* <== EDIT side image height here */
-                width: auto;
+                max-width: 325px;
                 object-fit: cover;
                 border-radius: 10px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
-            /* Middle image is bigger */
             .img-center {
-                height: 500px; /* <== EDIT center image height here */
+                height: 500px; /* <== EDIT center image height here */          
                 width: auto;
                 object-fit: cover;
                 border-radius: 10px;
@@ -117,7 +123,19 @@
                 height: 120px; /* <== EDIT DIDA's logo size here */
                 width: auto;
             }
-
+            .credits-logos {
+                display: flex;
+                justify-content: left;  
+                align-items: center;      
+                gap: 3rem;               
+                margin: 2rem 0 2rem; 
+            }                       
+            .logo-sshrc {
+                width: 500px;
+            }
+            .logo-montesca {
+                height: 50px;
+            }
             .credits-button {
                 padding: 14px 32px;         /* Bigger button */
                 font-size: 1.1rem;          /* Slightly larger text */
@@ -174,10 +192,12 @@
         <!-- Title & Subtitle (centered) -->
         <h1 class="about-title">Website of the Documentary Exhibition</h1>
         <h2 class="about-subtitle">
-            Alice in Brussels<br>
-            The Rural Schools of Montesca and Rovigliano at the 1910 Universal Exposition.
-            From the Origins to Maria Montessori.
+            Alice in Brussels
         </h2>
+        <p class="about-description">
+            The Rural Schools of Montesca and Rovigliano at the 1910 Universal Exposition.<br>
+            From the Origins to Maria Montessori.
+        </p>
   
         <!-- 3 images row, center image truly in the center -->
         <div class="image-row">
@@ -192,7 +212,7 @@
             class="img-center"
           />
           <img
-            src="../assets/img/stand.jpeg"
+            src="../assets/img/stand.jpg"
             alt="Right Image"
             class="img-side"
           />
@@ -205,8 +225,8 @@
           <p><strong>Art Director:</strong><br />
             Giacomo Pirazzoli</p>
           <p><strong>Website Developers:</strong><br />
-            Shahed Bitar, Ali Mohamed, Yuting Pan, Sabina Radhi, 
-            Gayitha Dammiya, Riad Chahla, Maanya Joshi
+            Shahed Bitar, Akshita B, Sarah Chiang, Riad Chahla, Gayitha Dammiya, Maanya Joshi, 
+            Ali Mohamed, Sabina Radhi, Yuting Pan, Karim Youssef
           </p>
         </div>
           <!-- Logos row (bigger spacing above, separate classes for each logo size) -->
@@ -239,8 +259,10 @@
             with the collaboration of Lisa Viviani and Kaja Jovanovic,<br />
             and with the support of the Social Sciences and Humanities Research Council of Canada (SSHRC)
           </p>
-          <img src="../assets/img/sshrc-logo.png" alt="SSHRC Logo" width="500px"/>
-          <br /><br /><br />
+          <div class="credits-logos">
+            <img src="../assets/img/sshrc-logo.png" alt="SSHRC Logo" class="logo-sshrc">
+            <img src="../assets/img/montesca-logo.jpg" alt="Montesca Logo" class="logo-montesca">
+          </div>          
           <a href="../assets/document/credits.pdf"
             target="_blank"
             class="btn btn-outline-success credits-button">
