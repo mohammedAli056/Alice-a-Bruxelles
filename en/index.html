@@ -105,42 +105,6 @@
                           Your browser does not support the video tag.
                       </video>
                       </div>
-<<<<<<< Updated upstream
-                      
-                    <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
-                    <!-- Indicators -->
-                    <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-            <br><br>
-        </div>
-
-<!-- Unity 3D Interactive Triggered Section -->
-<div class="container text-center my-5" id="environment-3d">
-    <h2 class="section-title mb-4" style="color: white;">3D Environment</h2>
-  
-<!-- Thumbnail preview with fixed size -->
-<div class="environment-container" id="env-preview" style="position: relative; width: 960px; height: 720px; margin: 0 auto;">
-    <img src="../assets/img/slider-1.jpeg" alt="3D Environment"
-         style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px;">
-  
-    <div class="overlay">
-      <button class="btn btn-light" onclick="showUnity()">Explore 3D Environment</button>
-    </div>
-=======
                       <div class="landing-carousel-caption">
                       <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
                       </div>
@@ -180,7 +144,6 @@
       </div>
       </div>
       <br><br>
->>>>>>> Stashed changes
   </div>
   
   <!-- Tabs for Exhibition -->
@@ -195,49 +158,42 @@
   <div class="tab-content">
 
     <!-- 3D ENVIRONMENT PANEL -->
-    <div
-      class="tab-pane fade show active container text-center my-5"
-      id="environment-3d-pane"
-      role="tabpanel"
-      aria-labelledby="tab-3d"
-    >
-      <!-- Unity 3D Interactive Triggered Section -->
-      <div class="environment-container" id="env-preview"
-           style="position: relative; width: 960px; height: 720px; margin: 0 auto;">
-        <img src="../assets/img/slider-1.jpeg" alt="3D Environment"
-             style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
-        <div class="overlay">
-          <button class="btn btn-light" onclick="showUnity()">Explore 3D Environment</button>
+    <div class="tab-pane fade show active container text-center py-3" id="environment-3d-pane" role="tabpanel" aria-labelledby="tab-3d">
+    <div class="container text-center mb-4">
+        <div class="slider-header mx-auto" style="max-width: 960px;">
+        <h2>3D Exhibition</h2>
         </div>
-      </div>
-      <div id="unityContainer"
-           style="display:none; position:relative; width:960px; height:720px; margin:0 auto;">
+    </div>
+
+    <!-- Unity 3D Interactive Triggered Section -->
+    <div class="environment-container" id="env-preview"
+        style="position: relative; width: 960px; height: 720px; margin: 0 auto;">
+        <img src="../assets/img/slider-1.jpeg" alt="3D Environment"
+            style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        <div class="overlay">
+        <button class="btn btn-light" onclick="showUnity()">Explore 3D Environment</button>
+        </div>
+    </div>
+    <div id="unityContainer"
+        style="display:none; position:relative; width:960px; height:720px; margin:0 auto;">
         <button onclick="hideUnity()"
                 style="position:absolute; top:35px; right:10px; background:white; border:none; font-size:24px; cursor:pointer;">
-          ✖
         </button>
-        <iframe id="unityIframe"
-                src="../WebGLBuild/index.html"
-                width="960" height="720"
-                frameborder="0" allowfullscreen
-                style="border-radius:8px;">
+        <iframe id="unityIframe" src="../WebGLBuild/index.html" width="960" height="720" frameborder="0" allowfullscreen style="border-radius:8px;">
         </iframe>
-      </div>
+    </div>
     </div>
 
     <!-- EXPLORE BY SUBJECT PANEL -->
-    <div
-      class="tab-pane fade container-fluid bg-light py-5"
-      id="slider-section-pane"
-      role="tabpanel"
-      aria-labelledby="tab-subject"
-    >
-      <div class="slider-header">
-        <h2>Explore the exhibition by subject</h2>
+    <div class="tab-pane fade container-fluid py-3" id="slider-section-pane" role="tabpanel" aria-labelledby="tab-subject">
+    <div class="container text-center mb-4">
+        <div class="slider-header mx-auto" style="max-width: 960px;">
+        <h2>Explore the Exhibition by Subject</h2>
         <div class="slider-instructions">
-          CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION
+            CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION
         </div>
-      </div>
+        </div>
+    </div>
       <div class="accordion" id="slider-section">
         <div id="videos-panel" class="panel">
           <img src="../assets/img/slider-7.jpeg" alt="Videos">
