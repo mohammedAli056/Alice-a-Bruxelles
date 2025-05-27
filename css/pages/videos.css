@@ -626,34 +626,9 @@ map area:hover {
 }
 
 /* Carousel Section */
-#carousel {
-    --carousel-bg: none;
-    position: relative;
-    overflow: hidden;
-    margin-top: 3rem;
-}
+  
 
-#carousel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: var(--carousel-bg);
-    background-size: cover;
-    background-position: center;
-    filter: blur(10px);
-    opacity: 0.4;
-    z-index: -1;
-}
-
-.carousel-item img {
-    max-height: 80vh;
-    width: auto;
-    margin: 0 auto;
-    display: block;
-}
+  
 
 /* Exhibit Images Section */
 #exhibit-images {
