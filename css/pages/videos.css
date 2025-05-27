@@ -55,6 +55,10 @@ map area:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
+.tab-pane {
+    scroll-margin-top: 9rem;  
+} 
   
 /* Styled slider section */
 #slider-section {
