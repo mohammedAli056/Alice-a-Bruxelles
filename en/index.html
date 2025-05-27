@@ -72,41 +72,81 @@
                 </nav>
             </div>
         </div>
- 
-   <!-- Landing Section -->
-         <div class="container-fluid" id="landing-section">
+         
+        <!-- Landing Section -->
+        <div class="container-fluid" id="landing-section">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <br>
-                        <h1 class="landing-title">The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition</h1>
-                        <p class="landing-subtitle">From their Origins to Maria Montessori</p>
-                        <div class="landing-buttons">
-                            <a href="#environment-3d" class="btn btn-success">EXPLORE THE EXHIBITION</a>
-                            <a href="#" class="btn btn-outline-secondary" onclick="triggerVideosPanel()">WATCH THE VIDEOS</a>
-                            <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOG</a>
-                            <a href="about-us.html" class="btn btn-outline-success">ABOUT US</a>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="col-lg-6">
-                        <div id="landing-video-container">
-                            <video id="landing-video-element" controls style="width: 100%; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
-                                src="../assets/video/Video4.mp4" type="video/mp4"
-                                poster="../assets/img/AB2.jpg">
-                                Your browser does not support the video tag.
+            <div class="row align-items-center">
+                <!-- Left column: Title + Buttons -->
+                <div class="col-lg-6">
+                <br>
+                <h1 class="landing-title">
+                    The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition
+                </h1>
+                <p class="landing-subtitle">From their Origins to Maria Montessori</p>
+                <div class="landing-buttons">
+                    <a href="#environment-3d" class="btn btn-success">EXPLORE THE EXHIBITION</a>
+                    <a href="#" class="btn btn-outline-secondary" onclick="triggerVideosPanel()">WATCH THE VIDEOS</a>
+                    <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOG</a>
+                    <a href="about-us.html" class="btn btn-outline-success">ABOUT US</a>
+                </div>
+                <br><br>
+                </div>
+                <!-- Right column: Carousel with captions below -->
+                <div class="col-lg-6 text-center">
+                <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <!-- Slide 1: Video -->
+                        <div class="carousel-item active">
+                          <div class="landing-carousel-wrapper">
+                            <video controls
+                                   src="../assets/video/Video4.mp4"
+                                   poster="../assets/img/AB2.jpg">
+                              Your browser does not support the video tag.
                             </video>
+                          </div>
+                          <div class="landing-carousel-caption">
+                            <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
+                          </div>
                         </div>
-                        <div class="caption">
-                            <em>Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.</em><br>
-                            <span style="font-size: 0.9em;">Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910. (Cr. Biblioteca Ariostea, Ferrara)</span>
+                      
+                        <!-- Slide 2: Photo -->
+                        <div class="carousel-item">
+                          <div class="landing-carousel-wrapper">
+                            <img src="../assets/img/1910-exibition.jpg" alt="1910 exhibition">
+                          </div>
+                          <div class="landing-carousel-caption">
+                            <em>
+                              Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.
+                            </em><br>
+                            Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910. (Cr. Biblioteca Ariostea, Ferrara)
+                          </div>
                         </div>
+                      
+                      </div>
+                      
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     </div>
                 </div>
+                </div>
+            </div>
             </div>
             <br><br>
-
         </div>
+
 <!-- Unity 3D Interactive Triggered Section -->
 <div class="container text-center my-5" id="environment-3d">
     <h2 class="section-title mb-4">3D Environment</h2>
