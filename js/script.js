@@ -1,63 +1,14 @@
-function initImageMap() {
-    const img = document.querySelector('#back-wall img[usemap]');
-    if (!img) return;
-
-    // Multiple initialization attempts
-    const initAttempts = [
-        () => $('map').imageMapResize(), // Immediate try
-        () => img.complete && $('map').imageMapResize(), // If image already loaded
-        () => setTimeout(() => $('map').imageMapResize(), 300), // Short delay
-        () => setTimeout(() => $('map').imageMapResize(), 1000) // Longer delay
-    ];
-
-    // Run all attempts
-    initAttempts.forEach(attempt => {
-        try {
-            if (typeof $ !== 'undefined' && $.fn.imageMapResize) {
-                attempt();
-            }
-        } catch (e) {
-            console.error('ImageMapResizer attempt failed:', e);
-        }
-    });
-
-    // Click handler for areas
-    document.querySelectorAll('map area').forEach(area => {
-        area.addEventListener('click', function(e) {
-            e.preventDefault();
-            const frameNum = this.getAttribute('title').match(/\d+/)?.[0];
-            if (frameNum) showEnlargedFrame(parseInt(frameNum));
-        });
-    });
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-      // 1. Initialize image map first
-      initImageMap();
-    
-      // 2. Set up intersection observer for back wall (renamed to backWallObserver)
-      const backWallObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  initImageMap();
-              }
-          });
-      }, { threshold: 0.1 });
-      
-      const backWall = document.getElementById('back-wall');
-      if (backWall) backWallObserver.observe(backWall);
-  
-    // Navbar and scroll functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements
     const navEl = document.querySelector('.nav');
-    const toggleButton = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    const dropdowns = document.querySelectorAll('.navbar-nav .dropdown');
     const backToTopButton = document.getElementById('back-to-top');
+    const toggleButton = document.querySelector('.navbar-toggler');
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
 
+    // Check page scroll for navbar style changes
     const checkScroll = () => {
-        if (window.scrollY >= 56 || toggleButton.getAttribute('aria-expanded') === 'true') {
+        if (window.scrollY > 100) {
             navEl.classList.add('nav-scrolled');
             navEl.setAttribute('data-bs-theme', 'dark');
         } else {
@@ -107,16 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sliderPanels.length > 0) {
         const sectionMap = {
             0: 'video',
-            1: null,
+            1: 'right-wall',
             2: 'silhouettes-accordion',
-            3: null,
+            3: 'stand', // Right Wall Panels
             4: 'front-wall',
             5: 'back-wall',
-            6: null
+            6: 'ceiling'
         };
-        
+
         function hideAllSections() {
-            ['video', 'front-wall', 'back-wall', 'image-accordion', 'silhouettes'].forEach(id => {
+            ['video', 'stand', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
                 const section = document.getElementById(id);
                 if (section) section.style.display = 'none';
             });
@@ -147,6 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.querySelector('#image-accordion .panel')?.classList.add('active');
                     
                     imageAccordion?.scrollIntoView({ behavior: 'smooth' });
+                } else if (sectionId === 'back-wall') {
+                    const backWall = document.getElementById('back-wall');
+                    const backWallPanels = document.getElementById('back-wall-panels');
+
+                    if (backWall) backWall.style.display = 'block';
+                    if (backWallPanels) backWallPanels.style.display = 'block';
+
+                    backWall?.scrollIntoView({ behavior: 'smooth' });
+                } else if (sectionId === 'right-wall') {
+                    const rightWall = document.getElementById('right-wall');
+                    if (rightWall) {
+                        rightWall.style.display = 'block';
+                        rightWall.scrollIntoView({ behavior: 'smooth' });
+                    }
                 } else if (sectionId) {
                     const section = document.getElementById(sectionId);
                     if (section) {
@@ -156,6 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Activate "Right Wall Panels" by default (index 3)
+        const rightWallPanel = sliderPanels[3];
+        if (rightWallPanel) {
+            rightWallPanel.click();
+        }
+
     }
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
@@ -215,6 +188,360 @@ document.addEventListener('DOMContentLoaded', () => {
     silhouettes.forEach(silhouette => {
         observer.observe(silhouette);
     });
+
+    /*===========================================
+    PANEL LOGIC - Flip in normal mode, Zoom icon
+    ===========================================*/
+    const ceilingPanels = document.querySelectorAll('.ceiling-panel');
+
+    // Flip in normal mode by clicking panel
+    ceilingPanels.forEach((panel) => {
+        panel.addEventListener('click', (event) => {
+            // If user clicked the zoom icon, do not flip; we'll enlarge instead
+            if (event.target.closest('.zoom-icon')) return;
+            panel.classList.toggle('flipped');
+        });
+    });
+
+
+    // Enlarge logic: open modal only if zoom icon is clicked
+    const ceilingModal = document.getElementById('ceiling-modal');
+    const ceilingModalClose = document.getElementById('ceiling-modal-close');
+    const ceilingModalPrev = document.getElementById('ceiling-modal-prev');
+    const ceilingModalNext = document.getElementById('ceiling-modal-next');
+    const modalFlipBtn = document.getElementById('ceiling-modal-flip-btn');
+
+    const flipContainer = document.getElementById('modal-flip-container');
+    const flipInner = flipContainer.querySelector('.flip-inner');
+    const modalImageFront = document.getElementById('ceiling-modal-image-front');
+    const modalImageBack = document.getElementById('ceiling-modal-image-back');
+
+    // Desired order: 4 → 1 → 5 → 2 → 6 → 3
+    const panelOrder = [4, 1, 5, 2, 6, 3];
+    const panelImages = {
+        1: {
+            front: '../assets/img/ceiling-1f.png',
+            back: '../assets/img/ceiling-1r-en.png',
+        },
+        2: {
+            front: '../assets/img/ceiling-2f.png',
+            back: '../assets/img/ceiling-2r-en.png',
+        },
+        3: {
+            front: '../assets/img/ceiling-3f.png',
+            back: '../assets/img/ceiling-3r-en.png',
+        },
+        4: {
+            front: '../assets/img/ceiling-4f.png',
+            back: '../assets/img/ceiling-4r-en.png',
+        },
+        5: {
+            front: '../assets/img/ceiling-5f.png',
+            back: '../assets/img/ceiling-5r-en.png',
+        },
+        6: {
+            front: '../assets/img/ceiling-6f.png',
+            back: '../assets/img/ceiling-6r-en.png',
+        },
+    };
+
+    let currentIndex = 0;
+
+    function openCeilingModal(panelNumber) {
+        currentIndex = panelOrder.indexOf(panelNumber);
+        if (currentIndex < 0) currentIndex = 0;
+        flipContainer.classList.remove('flipped');
+        updateCeilingModal();
+        ceilingModal.style.display = 'flex';
+    }
+
+    function updateCeilingModal() {
+        const panelNum = panelOrder[currentIndex];
+        modalImageFront.src = panelImages[panelNum].front;
+        modalImageBack.src = panelImages[panelNum].back;
+    }
+
+    function closeModal() {
+        ceilingModal.style.display = 'none';
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % panelOrder.length;
+        flipContainer.classList.remove('flipped');
+        updateCeilingModal();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + panelOrder.length) % panelOrder.length;
+        flipContainer.classList.remove('flipped');
+        updateCeilingModal();
+    }
+
+    // Enlarge only on zoom icon
+    ceilingPanels.forEach((panel) => {
+        const zoomIcon = panel.querySelector('.zoom-icon');
+        zoomIcon.addEventListener('click', (event) => {
+            event.stopPropagation(); // prevent panel flip
+            const panelNumber = parseInt(panel.getAttribute('data-panel'), 10);
+            openCeilingModal(panelNumber);
+        });
+    });
+
+    // Close modal if X is clicked
+    ceilingModalClose.addEventListener('click', closeModal);
+    // Close modal if outside content is clicked
+    ceilingModal.addEventListener('click', (event) => {
+        if (event.target === ceilingModal) closeModal();
+    });
+
+    // Navigation arrows
+    ceilingModalNext.addEventListener('click', showNext);
+    ceilingModalPrev.addEventListener('click', showPrev);
+
+    // Flip in the enlarged modal only via button
+    modalFlipBtn.addEventListener('click', () => {
+        flipContainer.classList.toggle('flipped');
+    });
+
+    // BACK WALL ZOOM-ONLY PANELS
+    document.querySelectorAll('.back-wall-panel .zoom-icon').forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const panel = icon.closest('.back-wall-panel');
+            const panelNumber = parseInt(panel.getAttribute('data-panel'), 10);
+            showEnlargedFrame(panelNumber);
+        });
+    });
+    
+    // Right Wall Panel Modal functionality with zoom
+    const rightWallModal = document.getElementById('right-wall-modal');
+    const rightWallModalImage = document.getElementById('right-wall-modal-image');
+    const rightWallModalClose = document.querySelector('.right-wall-modal-close');
+    const rightWallModalPrev = document.getElementById('right-wall-modal-prev');
+    const rightWallModalNext = document.getElementById('right-wall-modal-next');
+    const rightWallImageContainer = document.querySelector('.right-wall-modal-image-container');
+    
+    const rightWallPanels = document.querySelectorAll('.right-wall-panel');
+    const rightWallPanelOrder = [1, 2, 3]; // Panel IDs in display order
+    
+    // Panel images mapping
+    const rightWallPanelImages = {
+        1: '../assets/img/panel-1-en.png',
+        2: '../assets/img/panel-2-en.png',
+        3: '../assets/img/credits.png'
+    };
+    
+    let rightWallCurrentIndex = 0;
+    
+    // Zoom functionality variables
+    let currentZoom = 1;
+    let maxZoom = 3;
+    let minZoom = 1;
+    let dragActive = false;
+    let startX, startY, initialX, initialY;
+    let translateX = 0;
+    let translateY = 0;
+    
+    // Update zoom level display
+    function updateZoomLevelDisplay() {
+        const zoomLevelDisplay = rightWallModal.querySelector('.zoom-level');
+        if (zoomLevelDisplay) {
+            zoomLevelDisplay.textContent = `${Math.round(currentZoom * 100)}%`;
+        }
+    }
+    
+    // Apply transform to image
+    function setImageTransform() {
+        rightWallModalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    }
+    
+    // Reset zoom and position
+    function resetZoom() {
+        currentZoom = 1;
+        translateX = 0;
+        translateY = 0;
+        updateZoomLevelDisplay();
+        setImageTransform();
+    }
+    
+    // Zoom in button click handler
+    if (rightWallModal) {
+        const zoomInBtn = rightWallModal.querySelector('.zoom-in');
+        if (zoomInBtn) {
+            zoomInBtn.addEventListener('click', () => {
+                if (currentZoom < maxZoom) {
+                    currentZoom += 0.25;
+                    updateZoomLevelDisplay();
+                    setImageTransform();
+                }
+            });
+        }
+        
+        // Zoom out button click handler
+        const zoomOutBtn = rightWallModal.querySelector('.zoom-out');
+        if (zoomOutBtn) {
+            zoomOutBtn.addEventListener('click', () => {
+                if (currentZoom > minZoom) {
+                    currentZoom -= 0.25;
+                    updateZoomLevelDisplay();
+                    setImageTransform();
+                }
+            });
+        }
+        
+        // Reset zoom button click handler
+        const resetBtn = rightWallModal.querySelector('.zoom-reset');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', resetZoom);
+        }
+    }
+    
+    // Mouse wheel zoom
+    if (rightWallImageContainer) {
+        rightWallImageContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            
+            // Calculate zoom
+            const delta = -Math.sign(e.deltaY) * 0.1;
+            const newZoom = Math.min(Math.max(currentZoom + delta, minZoom), maxZoom);
+            
+            // Apply zoom if changed
+            if (newZoom !== currentZoom) {
+                currentZoom = newZoom;
+                updateZoomLevelDisplay();
+                setImageTransform();
+            }
+        });
+        
+        // Drag to pan functionality - Mousedown on the image container
+        rightWallImageContainer.addEventListener('mousedown', (e) => {
+            // Only activate drag if zoomed in and it's a left-click
+            if (currentZoom > 1 && e.button === 0) { 
+                dragActive = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                initialX = translateX;
+                initialY = translateY;
+                rightWallImageContainer.style.cursor = 'grabbing';
+                e.preventDefault(); // Prevent default browser drag behavior
+            }
+        });
+        
+        // Mousemove on the image container
+        rightWallImageContainer.addEventListener('mousemove', (e) => {
+            if (dragActive) {
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                
+                translateX = initialX + dx;
+                translateY = initialY + dy;
+                
+                setImageTransform();
+            }
+        });
+        
+        // Mouseleave from the container - if dragging, stop it.
+        rightWallImageContainer.addEventListener('mouseleave', () => {
+            if (dragActive) {
+                dragActive = false;
+                rightWallImageContainer.style.cursor = 'grab';
+            }
+        });
+        
+        // Touch events for mobile
+        rightWallImageContainer.addEventListener('touchstart', (e) => {
+            if (currentZoom > 1 && e.touches.length === 1) {
+                dragActive = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                initialX = translateX;
+                initialY = translateY;
+            }
+        });
+        
+        rightWallImageContainer.addEventListener('touchmove', (e) => {
+            if (dragActive && e.touches.length === 1) {
+                const dx = e.touches[0].clientX - startX;
+                const dy = e.touches[0].clientY - startY;
+                
+                translateX = initialX + dx;
+                translateY = initialY + dy;
+                
+                setImageTransform();
+                e.preventDefault();
+            }
+        });
+        
+        rightWallImageContainer.addEventListener('touchend', () => {
+            dragActive = false;
+        });
+        
+        rightWallImageContainer.addEventListener('touchcancel', () => {
+            dragActive = false;
+        });
+    }
+    
+    // GLOBAL Mouseup handler - this is crucial for releasing the drag
+    window.addEventListener('mouseup', (e) => {
+        if (dragActive && e.button === 0) { // Check if drag was active and it's a left-click release
+            dragActive = false;
+            if (rightWallImageContainer) {
+                rightWallImageContainer.style.cursor = 'grab';
+            }
+        }
+    });
+    
+    // Open modal when zoom icon is clicked
+    rightWallPanels.forEach(panel => {
+        const zoomIcon = panel.querySelector('.zoom-icon');
+        if (zoomIcon) {
+            zoomIcon.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const panelNumber = parseInt(panel.getAttribute('data-panel'), 10);
+                openRightWallModal(panelNumber);
+            });
+        }
+    });
+    
+    function openRightWallModal(panelNumber) {
+        rightWallCurrentIndex = rightWallPanelOrder.indexOf(panelNumber);
+        if (rightWallCurrentIndex < 0) rightWallCurrentIndex = 0;
+        // Reset zoom when opening modal
+        resetZoom();
+        updateRightWallModal();
+        rightWallModal.style.display = 'flex';
+    }
+    
+    function updateRightWallModal() {
+        const panelNum = rightWallPanelOrder[rightWallCurrentIndex];
+        rightWallModalImage.src = rightWallPanelImages[panelNum];
+        // Reset zoom when changing panels
+        resetZoom();
+    }
+    
+    function closeRightWallModal() {
+        rightWallModal.style.display = 'none';
+    }
+    
+    function showRightWallNext() {
+        rightWallCurrentIndex = (rightWallCurrentIndex + 1) % rightWallPanelOrder.length;
+        updateRightWallModal();
+    }
+    
+    function showRightWallPrev() {
+        rightWallCurrentIndex = (rightWallCurrentIndex - 1 + rightWallPanelOrder.length) % rightWallPanelOrder.length;
+        updateRightWallModal();
+    }
+    
+    // Event listeners for modal controls
+    if (rightWallModalClose) rightWallModalClose.addEventListener('click', closeRightWallModal);
+    if (rightWallModal) {
+        rightWallModal.addEventListener('click', (event) => {
+            if (event.target === rightWallModal) closeRightWallModal();
+        });
+    }
+    if (rightWallModalNext) rightWallModalNext.addEventListener('click', showRightWallNext);
+    if (rightWallModalPrev) rightWallModalPrev.addEventListener('click', showRightWallPrev);
 });
 
 // IMAGE MAP FUNCTIONS
@@ -288,5 +615,20 @@ if (themeToggle) {
     const savedTheme = localStorage.getItem('siteTheme');
     if (savedTheme) {
         document.body.setAttribute('data-theme', savedTheme);
+    }
+}
+
+//Landing Page Video
+function playLandingVideo() {
+    const image = document.getElementById("previewImage");
+    const video = document.getElementById("landingVideo");
+    image.style.display = "none";
+    video.style.display = "block";
+    video.play();
+}
+function scrollToVideo() {
+    const target = document.getElementById("landing-video-element");
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
     }
 }

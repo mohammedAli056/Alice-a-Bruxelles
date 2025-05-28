@@ -10,124 +10,142 @@
         <link href="../css/pages/about.css" rel="stylesheet">
         <title>About Us | Alice a Bruxelles</title>
         <style>
-            .about-hero {
-                background-color: #f8f9fa;
-                padding: 5rem 0 2rem;
-                margin-bottom: 1rem;
+            /******************************************************
+            * CARD CONTAINER
+            * Everything sits inside this narrower "card" with
+            * a white background, slight shadow, etc.
+            ******************************************************/
+            .about-card {
+                max-width: 1100px; /* <== CHANGE THIS to make the card narrower/wider */
+                margin: 80px auto 30px auto; /* centers horizontally, with top margin for navbar */
+                padding: 30px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+                box-shadow: 6px 6px 6px 6px #ccc;
             }
-            
+
+            .second-about-card {
+                max-width: 1100px; /* <== CHANGE THIS to make the card narrower/wider */
+                margin: 30px auto; /* centers horizontally, with top margin for navbar */
+                padding: 30px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+                box-shadow: 6px 6px 6px 6px #ccc;
+            }
+
+            /******************************************************
+            * TITLES
+            ******************************************************/
             .about-title {
-                font-size: 2.5rem;
-                font-weight: 700;
+                font-size: 2.2rem; /* <== Title size, adjust as needed */
+                font-weight: bold;
                 text-align: center;
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
+                color: black;
+            }
+            .about-subtitle {
+                font-size: 1.8rem;  /* <== Subtitle size, adjust as needed */
+                font-weight: bold;
+                font-style: italic;
+                text-align: center;
+                white-space: pre-line; /* allows multi-line if needed */
+                color: black;
+            }
+            .about-description {
+                font-size: 1.4rem;  /* <== Description size, adjust as needed */
+                font-style: italic;
+                text-align: center;
+                margin-bottom: 2rem;   
+                color: black;
             }
             
-            .about-images {
+            /******************************************************
+            * IMAGES (All in one row, center is bigger, truly centered)
+            ******************************************************/
+            .image-row {
                 display: flex;
                 justify-content: center;
-                margin-bottom: 2rem;
-                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: nowrap;      
+                margin-bottom: 40px;
             }
-            
-            .about-image {
-                border-radius: 8px;
-                overflow: hidden;
-                margin: 0 8px 15px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                height: 180px;
-            }
-            
-            .about-image.left {
-                max-width: 250px;
-            }
-            
-            .about-image.middle {
-                max-width: 350px;
-            }
-            
-            .about-image.right {
-                max-width: 250px;
-            }
-            
-            .about-image img {
-                width: 100%;
-                height: 100%;
+
+            /* Left & right images share 25% of the row each and shrink as needed */
+            .img-side {
+                max-width: 325px;
                 object-fit: cover;
-                display: block;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
-            
-            .credits-section {
-                padding: 1rem 0 3rem;
+            .img-center {
+                height: 500px; /* <== EDIT center image height here */          
+                width: auto;
+                object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
-            
-            .credits-title {
-                font-size: 1.8rem;
-                font-weight: 600;
-                margin-bottom: 1.5rem;
-            }
-            
-            .credits-category {
+
+            /******************************************************
+            * TEXT STYLING
+            ******************************************************/
+            .about-text {
+            /* This part is left-justified but inside the card */
+                text-align: left;
+                line-height: 1.6;
                 margin-bottom: 2rem;
             }
-            
-            .credits-category-title {
-                font-size: 1.3rem;
-                font-weight: 500;
-                margin-bottom: 0.5rem;
-                color: #007a3d;
+            .about-text p {
+                color: black;
             }
-            
-            .team-members {
+            .about-text p strong {
+                color: black;
+            }
+
+            /******************************************************
+            * LOGOS
+            * Each logo has its own size class so you can change
+            * them separately.
+            ******************************************************/
+            .logos-row {
+                margin-top: 3rem; /* space above logos */
                 display: flex;
-                flex-wrap: wrap;
-                gap: 1.5rem;
-                margin-bottom: 2rem;
+                justify-content: flex-start; /* left aligned (or "center" if you prefer) */
+                gap: 40px;
             }
-            
-            .team-member {
-                background-color: #f8f9fa;
-                border-radius: 8px;
-                padding: 1.5rem;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-                flex: 1 1 200px;
+            .logo-western {
+                height: 80px; /* <== EDIT Western's logo size here */
+                width: auto;
             }
-            
-            .team-member-name {
-                font-weight: 600;
-                margin-bottom: 0.5rem;
-                color: #333;
+            .logo-dida {
+                height: 120px; /* <== EDIT DIDA's logo size here */
+                width: auto;
             }
-            
-            .team-member-role {
-                font-size: 0.9rem;
-                color: #666;
+            .credits-logos {
+                display: flex;
+                justify-content: left;  
+                align-items: center;      
+                gap: 3rem;               
+                margin: 2rem 0 2rem; 
+            }                       
+            .logo-sshrc {
+                width: 500px;
             }
-            
-            .faculty-section {
-                margin-top: 2rem;
+            .logo-montesca {
+                height: 50px;
             }
-            
-            .faculty-member {
-                background-color: #f8f9fa;
-                border-radius: 8px;
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            }
-            
-            .faculty-name {
-                font-weight: 600;
-                margin-bottom: 0.5rem;
-                color: #333;
-            }
-            
-            .faculty-title {
-                font-size: 0.9rem;
-                color: #666;
-                margin-bottom: 0.5rem;
-            }
-        </style>
+            .credits-button {
+                padding: 14px 32px;         /* Bigger button */
+                font-size: 1.1rem;          /* Slightly larger text */
+                text-transform: uppercase;  /* Optional for consistent styling */
+                border-radius: 0;           /* Sharp edges */
+                border-width: 2px;          /* Thicker border */
+                width: 400px; /* or use 100% for full width, or adjust to your liking */
+                text-align: center;
+            }        
+    </style>
     </head>
     <body>
         <!-- Navbar Section -->
@@ -169,104 +187,93 @@
             </div>
         </div>
 
-        <!-- About Hero Section -->
-        <div class="container-fluid about-hero">
-            <div class="container">
-                <h1 class="about-title">ABOUT US</h1>
-                
-                <div class="about-images">
-                    <div class="about-image left">
-                        <img src="../assets/img/AB1.jpg" alt="Exhibition display" onerror="this.src='https://via.placeholder.com/250x180?text=Exhibition+Photo'">
-                    </div>
-                    <div class="about-image middle">
-                        <img src="../assets/img/AB2.jpg" alt="Museum exhibit" onerror="this.src='https://via.placeholder.com/350x180?text=Museum+Exhibit'">
-                    </div>
-                    <div class="about-image right">
-                        <img src="../assets/img/AB3.jpeg" alt="Historical documents" onerror="this.src='https://via.placeholder.com/250x180?text=Historical+Documents'">
-                    </div>
-                </div>
-            </div>
+    <!-- ALL CONTENT INSIDE THE CARD -->
+    <div class="about-card">
+        <!-- Title & Subtitle (centered) -->
+        <h1 class="about-title">Website of the Documentary Exhibition</h1>
+        <h2 class="about-subtitle">
+            Alice in Brussels
+        </h2>
+        <p class="about-description">
+            The Rural Schools of Montesca and Rovigliano at the 1910 Universal Exposition.<br>
+            From the Origins to Maria Montessori.
+        </p>
+  
+        <!-- 3 images row, center image truly in the center -->
+        <div class="image-row">
+          <img
+            src="../assets/img/back-wall.png"
+            alt="Left Image"
+            class="img-side"
+          />
+          <img
+            src="../assets/img/exhibit-poster.png"
+            alt="Middle Image"
+            class="img-center"
+          />
+          <img
+            src="../assets/img/stand.jpg"
+            alt="Right Image"
+            class="img-side"
+          />
         </div>
-
-        <!-- Credits Section -->
-        <div class="container credits-section">
-            <h2 class="credits-title">Credits</h2>
-            
-            <div class="credits-category">
-                <h3 class="credits-category-title">Website Developers</h3>
-                <div class="team-members">
-                    <div class="team-member">
-                        <div class="team-member-name">Sabina Radhi</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-name">Shahed Bitar</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-name">Gayitha Dammiya Arachchilage</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-name">Ali Mohamed</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-name">Riad Chahla</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-name">Yuting Pan</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-name">Maanya Joshi</div>
-                        <div class="team-member-role">Web Development</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="credits-category faculty-section">
-                <h3 class="credits-category-title">Faculty Advisors</h3>
-                
-                <div class="faculty-member">
-                    <div class="faculty-name">Dr. Cristina Caracchini</div>
-                    <div class="faculty-title">Undergraduate Chair, Department of Languages and Cultures</div>
-                    <div class="faculty-title">Associate Professor, Italian Studies</div>
-                </div>
-                
-                <div class="faculty-member">
-                    <div class="faculty-name">[Additional Faculty Member]</div>
-                    <div class="faculty-title">Position/Title</div>
-                </div>
-            </div>
-            
-            <div class="credits-category">
-                <h3 class="credits-category-title">Special Thanks</h3>
-                <p>We would like to extend our gratitude to everyone who supported the development of this exhibit and website, including the Department of Languages and Cultures at Western University.</p>
-            </div>
+  
+        <!-- About text, left-justified -->
+        <div class="about-text">
+          <p><strong>Curator and Project Coordinator:</strong><br />
+            Cristina Caracchini</p>
+          <p><strong>Art Director:</strong><br />
+            Giacomo Pirazzoli</p>
+          <p><strong>Website Developers:</strong><br />
+            Shahed Bitar, Akshita B, Sarah Chiang, Riad Chahla, Gayitha Dammiya, Maanya Joshi, 
+            Ali Mohamed, Sabina Radhi, Yuting Pan, Karim Youssef
+          </p>
         </div>
-
-        <!-- Footer Section -->
-        <div class="container" id="footer">
-            <footer class="py-5">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <h5>Alice a Bruxelles</h5>
-                        <p class="text-body-secondary">The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition.</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                    <p>&copy; 2024 Alice a Bruxelles. All rights reserved.</p>
-                </div>
-            </footer>
+          <!-- Logos row (bigger spacing above, separate classes for each logo size) -->
+        <div class="logos-row">
+          <img
+            src="../assets/img/uwo-arts-logo.png"
+            alt="Western University Logo"
+            class="logo-western"
+          />
+          <img
+            src="../assets/img/dida.png"
+            alt="University of Florence Logo"
+            class="logo-dida"
+          />
         </div>
-
-        <!-- Back to Top Button -->
-        <div id="back-to-top" class="back-to-top">
-            &#8679;
+      </div><!-- 1st about-card -->
+  
+      <div class="second-about-card">
+        <div class="about-text">
+          <p><strong>Organization of the Documentary Exhibition:</strong><br />
+            Hallgarten–Franchetti Foundation, Villa Montesca
+          </p>
+          <p><strong>Installation Project:</strong><br />
+            Giacomo Pirazzoli (Architect and Professor of Architectural and Urban 
+            Design, <br />Department of Architecture (DiDA), University of Florence),<br />
+            with the collaboration of Gaia Bartoli
+          </p>
+          <p><strong>Curator and Project Coordinator:</strong><br />
+            Cristina Caracchini (University of Western Ontario),<br />
+            with the collaboration of Lisa Viviani and Kaja Jovanovic,<br />
+            and with the support of the Social Sciences and Humanities Research Council of Canada (SSHRC)
+          </p>
+          <div class="credits-logos">
+            <img src="../assets/img/sshrc-logo.png" alt="SSHRC Logo" class="logo-sshrc">
+            <img src="../assets/img/montesca-logo.jpg" alt="Montesca Logo" class="logo-montesca">
+          </div>          
+          <a href="../assets/document/credits.pdf"
+            target="_blank"
+            class="btn btn-outline-success credits-button">
+            Complete Credits List
+          </a>
         </div>
-        
+      </div><!-- 2nd about-card -->
+  
+      <!-- If you want a back-to-top or not -->
+      <div id="back-to-top" class="back-to-top">&#8679;</div>  
+      
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/script.js"></script>
