@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Elements
     const navEl = document.querySelector('.nav');
     const backToTopButton = document.getElementById('back-to-top');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    backToTopButton.onclick = function() {
+    backToTopButton.onclick = function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     };
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // SLIDER SECTION INTERACTION
     const sliderPanels = document.querySelectorAll('#slider-section .panel');
-    
+
     if (sliderPanels.length > 0) {
         const sectionMap = {
             0: 'video',
@@ -72,56 +72,61 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (section) section.style.display = 'none';
             });
         }
-        
+
         hideAllSections();
-        
+
         sliderPanels.forEach((panel, index) => {
-            panel.addEventListener('click', function(e) {
+            panel.addEventListener('click', function (e) {
                 e.stopPropagation();
                 sliderPanels.forEach(p => p.classList.remove('active'));
                 this.classList.add('active');
                 hideAllSections();
-                
+
                 const sectionId = sectionMap[index];
-                
+
                 if (sectionId === 'silhouettes-accordion') {
                     const imageAccordion = document.getElementById('image-accordion');
                     const silhouettesSection = document.getElementById('silhouettes');
-                    
+
                     if (imageAccordion) imageAccordion.style.display = 'flex';
                     if (silhouettesSection) silhouettesSection.style.display = 'block';
-                    
+
                     document.querySelectorAll('.silhouette-container').forEach(s => s.classList.remove('active'));
                     document.getElementById('silhouette-1')?.classList.add('active');
-                    
+
                     document.querySelectorAll('#image-accordion .panel').forEach(p => p.classList.remove('active'));
                     document.querySelector('#image-accordion .panel')?.classList.add('active');
-                    
-                    imageAccordion?.scrollIntoView({ behavior: 'smooth' });
+
+                    imageAccordion?.scrollIntoView({behavior: 'smooth'});
                 } else if (sectionId === 'back-wall') {
-                    const backWall = document.getElementById('back-wall');
-                    const backWallPanels = document.getElementById('back-wall-panels');
+                const backWall = document.getElementById('back-wall');
+                const backWallPanels = document.getElementById('back-wall-panels');
 
-                    if (backWall) backWall.style.display = 'block';
-                    if (backWallPanels) backWallPanels.style.display = 'block';
+                if (backWall) backWall.style.display = 'block';
+                if (backWallPanels) backWallPanels.style.display = 'block';
 
-                    backWall?.scrollIntoView({ behavior: 'smooth' });
+                // Fix: Reinitialize image map after display change
+                setTimeout(() => {
+                    initImageMap();
+                }, 100);
+
+                backWall?.scrollIntoView({ behavior: 'smooth' });
                 } else if (sectionId === 'right-wall') {
                     const rightWall = document.getElementById('right-wall');
                     if (rightWall) {
                         rightWall.style.display = 'block';
-                        rightWall.scrollIntoView({ behavior: 'smooth' });
+                        rightWall.scrollIntoView({behavior: 'smooth'});
                     }
                 } else if (sectionId) {
                     const section = document.getElementById(sectionId);
                     if (section) {
                         section.style.display = 'block';
-                        section.scrollIntoView({ behavior: 'smooth' });
+                        section.scrollIntoView({behavior: 'smooth'});
                     }
                 }
             });
         });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({top: 0, behavior: 'smooth'});
 
         // Activate "Right Wall Panels" by default (index 3)
         const rightWallPanel = sliderPanels[3];
@@ -133,31 +138,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
     const imageAccordionPanels = document.querySelectorAll('#image-accordion .panel');
-    
+
     if (imageAccordionPanels.length > 0) {
         const silhouettesSection = document.getElementById('silhouettes');
         if (silhouettesSection && window.location.hash !== '#silhouettes-accordion') {
             silhouettesSection.style.display = 'none';
         }
-        
+
         imageAccordionPanels.forEach((panel, index) => {
             panel.addEventListener('mouseenter', () => {
                 imageAccordionPanels.forEach(p => p.classList.remove('active'));
                 panel.classList.add('active');
             });
-            
+
             panel.addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (silhouettesSection) silhouettesSection.style.display = 'block';
-                
+
                 imageAccordionPanels.forEach(p => p.classList.remove('active'));
                 panel.classList.add('active');
-                
+
                 document.querySelectorAll('.silhouette-container').forEach(s => s.classList.remove('active'));
                 const selectedSilhouette = document.getElementById(`silhouette-${index + 1}`);
                 if (selectedSilhouette) {
                     selectedSilhouette.classList.add('active');
-                    
+
                     if (silhouettesSection) {
                         const viewportHeight = window.innerHeight;
                         const silhouettesBottom = silhouettesSection.getBoundingClientRect().bottom + window.scrollY;
@@ -183,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.3 });
+    }, {threshold: 0.3});
 
     silhouettes.forEach(silhouette => {
         observer.observe(silhouette);
@@ -312,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showEnlargedFrame(panelNumber);
         });
     });
-    
+
     // Right Wall Panel Modal functionality with zoom
     const rightWallModal = document.getElementById('right-wall-modal');
     const rightWallModalImage = document.getElementById('right-wall-modal-image');
@@ -320,19 +325,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const rightWallModalPrev = document.getElementById('right-wall-modal-prev');
     const rightWallModalNext = document.getElementById('right-wall-modal-next');
     const rightWallImageContainer = document.querySelector('.right-wall-modal-image-container');
-    
+
     const rightWallPanels = document.querySelectorAll('.right-wall-panel');
     const rightWallPanelOrder = [1, 2, 3]; // Panel IDs in display order
-    
+
     // Panel images mapping
     const rightWallPanelImages = {
         1: '../assets/img/panel-1-en.png',
         2: '../assets/img/panel-2-en.png',
         3: '../assets/img/credits.png'
     };
-    
+
     let rightWallCurrentIndex = 0;
-    
+
     // Zoom functionality variables
     let currentZoom = 1;
     let maxZoom = 3;
@@ -341,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let startX, startY, initialX, initialY;
     let translateX = 0;
     let translateY = 0;
-    
+
     // Update zoom level display
     function updateZoomLevelDisplay() {
         const zoomLevelDisplay = rightWallModal.querySelector('.zoom-level');
@@ -349,12 +354,12 @@ document.addEventListener('DOMContentLoaded', function() {
             zoomLevelDisplay.textContent = `${Math.round(currentZoom * 100)}%`;
         }
     }
-    
+
     // Apply transform to image
     function setImageTransform() {
         rightWallModalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
     }
-    
+
     // Reset zoom and position
     function resetZoom() {
         currentZoom = 1;
@@ -363,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateZoomLevelDisplay();
         setImageTransform();
     }
-    
+
     // Zoom in button click handler
     if (rightWallModal) {
         const zoomInBtn = rightWallModal.querySelector('.zoom-in');
@@ -376,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-        
+
         // Zoom out button click handler
         const zoomOutBtn = rightWallModal.querySelector('.zoom-out');
         if (zoomOutBtn) {
@@ -388,23 +393,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-        
+
         // Reset zoom button click handler
         const resetBtn = rightWallModal.querySelector('.zoom-reset');
         if (resetBtn) {
             resetBtn.addEventListener('click', resetZoom);
         }
     }
-    
+
     // Mouse wheel zoom
     if (rightWallImageContainer) {
         rightWallImageContainer.addEventListener('wheel', (e) => {
             e.preventDefault();
-            
+
             // Calculate zoom
             const delta = -Math.sign(e.deltaY) * 0.1;
             const newZoom = Math.min(Math.max(currentZoom + delta, minZoom), maxZoom);
-            
+
             // Apply zoom if changed
             if (newZoom !== currentZoom) {
                 currentZoom = newZoom;
@@ -412,11 +417,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 setImageTransform();
             }
         });
-        
+
         // Drag to pan functionality - Mousedown on the image container
         rightWallImageContainer.addEventListener('mousedown', (e) => {
             // Only activate drag if zoomed in and it's a left-click
-            if (currentZoom > 1 && e.button === 0) { 
+            if (currentZoom > 1 && e.button === 0) {
                 dragActive = true;
                 startX = e.clientX;
                 startY = e.clientY;
@@ -426,20 +431,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault(); // Prevent default browser drag behavior
             }
         });
-        
+
         // Mousemove on the image container
         rightWallImageContainer.addEventListener('mousemove', (e) => {
             if (dragActive) {
                 const dx = e.clientX - startX;
                 const dy = e.clientY - startY;
-                
+
                 translateX = initialX + dx;
                 translateY = initialY + dy;
-                
+
                 setImageTransform();
             }
         });
-        
+
         // Mouseleave from the container - if dragging, stop it.
         rightWallImageContainer.addEventListener('mouseleave', () => {
             if (dragActive) {
@@ -447,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 rightWallImageContainer.style.cursor = 'grab';
             }
         });
-        
+
         // Touch events for mobile
         rightWallImageContainer.addEventListener('touchstart', (e) => {
             if (currentZoom > 1 && e.touches.length === 1) {
@@ -458,29 +463,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 initialY = translateY;
             }
         });
-        
+
         rightWallImageContainer.addEventListener('touchmove', (e) => {
             if (dragActive && e.touches.length === 1) {
                 const dx = e.touches[0].clientX - startX;
                 const dy = e.touches[0].clientY - startY;
-                
+
                 translateX = initialX + dx;
                 translateY = initialY + dy;
-                
+
                 setImageTransform();
                 e.preventDefault();
             }
         });
-        
+
         rightWallImageContainer.addEventListener('touchend', () => {
             dragActive = false;
         });
-        
+
         rightWallImageContainer.addEventListener('touchcancel', () => {
             dragActive = false;
         });
     }
-    
+
     // GLOBAL Mouseup handler - this is crucial for releasing the drag
     window.addEventListener('mouseup', (e) => {
         if (dragActive && e.button === 0) { // Check if drag was active and it's a left-click release
@@ -490,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
+
     // Open modal when zoom icon is clicked
     rightWallPanels.forEach(panel => {
         const zoomIcon = panel.querySelector('.zoom-icon');
@@ -502,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
+
     function openRightWallModal(panelNumber) {
         rightWallCurrentIndex = rightWallPanelOrder.indexOf(panelNumber);
         if (rightWallCurrentIndex < 0) rightWallCurrentIndex = 0;
@@ -511,28 +516,28 @@ document.addEventListener('DOMContentLoaded', function() {
         updateRightWallModal();
         rightWallModal.style.display = 'flex';
     }
-    
+
     function updateRightWallModal() {
         const panelNum = rightWallPanelOrder[rightWallCurrentIndex];
         rightWallModalImage.src = rightWallPanelImages[panelNum];
         // Reset zoom when changing panels
         resetZoom();
     }
-    
+
     function closeRightWallModal() {
         rightWallModal.style.display = 'none';
     }
-    
+
     function showRightWallNext() {
         rightWallCurrentIndex = (rightWallCurrentIndex + 1) % rightWallPanelOrder.length;
         updateRightWallModal();
     }
-    
+
     function showRightWallPrev() {
         rightWallCurrentIndex = (rightWallCurrentIndex - 1 + rightWallPanelOrder.length) % rightWallPanelOrder.length;
         updateRightWallModal();
     }
-    
+
     // Event listeners for modal controls
     if (rightWallModalClose) rightWallModalClose.addEventListener('click', closeRightWallModal);
     if (rightWallModal) {
@@ -548,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initImageMap() {
     if (typeof $ !== 'undefined' && $.fn.imageMapResize) {
         $('map').imageMapResize();
-        
+
         // Modern event listeners for map areas
         document.querySelectorAll('area[coords]').forEach(area => {
             area.addEventListener('click', (e) => {
@@ -593,7 +598,7 @@ function openPDF() {
 // Initialize on full load
 window.addEventListener('load', () => {
     setTimeout(initImageMap, 300);
-    
+
     // Fallback image handling
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', () => {
@@ -611,7 +616,7 @@ if (themeToggle) {
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('siteTheme', newTheme);
     });
-    
+
     const savedTheme = localStorage.getItem('siteTheme');
     if (savedTheme) {
         document.body.setAttribute('data-theme', savedTheme);
@@ -626,9 +631,10 @@ function playLandingVideo() {
     video.style.display = "block";
     video.play();
 }
+
 function scrollToVideo() {
     const target = document.getElementById("landing-video-element");
     if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+        target.scrollIntoView({behavior: "smooth"});
     }
 }
