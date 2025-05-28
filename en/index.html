@@ -91,56 +91,58 @@
           </div>
           <br><br>
           </div>
-          <!-- Right column: Carousel with captions below -->
-          <div class="col-lg-6 text-center">
-          <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-
-                  <!-- Slide 1: Video -->
-                  <div class="carousel-item active">
-                      <div class="landing-carousel-wrapper">
-                      <video controls
-                              src="../assets/video/Video4.mp4"
-                              poster="../assets/img/AB2.jpg">
-                          Your browser does not support the video tag.
-                      </video>
-                      </div>
-                      <div class="landing-carousel-caption">
-                      <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
-                      </div>
-                  </div>
-                  
-                  <!-- Slide 2: Photo -->
-                  <div class="carousel-item">
-                      <div class="landing-carousel-wrapper">
-                      <img src="../assets/img/1910-exibition.jpg" alt="1910 exhibition">
-                      </div>
-                      <div class="landing-carousel-caption">
-                      <em>
-                          Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.
-                      </em><br>
-                      Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910. (Cr. Biblioteca Ariostea, Ferrara)
-                      </div>
-                  </div>
-                  
-                  </div>
-                  
-              <!-- Controls -->
-              <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-              </button>
-              <!-- Indicators -->
-              <div class="carousel-indicators">
-              <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              </div>
-          </div>
-          </div>
+    <!-- Right column: Carousel with captions below -->
+    <div class="col-lg-6 text-center">
+        <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+    
+            <!-- Slide 1: Video -->
+            <div class="carousel-item active">
+            <div class="landing-carousel-wrapper">
+                <video class="landing-carousel-media" controls
+                    src="../assets/video/Video4.mp4"
+                    poster="../assets/img/AB2.jpg">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            </div>
+    
+            <!-- Slide 2: Photo -->
+            <div class="carousel-item">
+            <div class="landing-carousel-wrapper">
+                <img src="../assets/img/1910-exibition.jpg" alt="1910 exhibition">
+            </div>
+            </div>
+    
+        </div><!-- /.carousel-inner -->
+    
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1"></button>
+        </div>
+    
+        <!-- Captions (outside of .carousel-item) -->
+        <div class="landing-carousel-caption" data-slide="0">
+            <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
+        </div>
+        <div class="landing-carousel-caption" data-slide="1">
+            <em>Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.</em><br>
+            Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910. (Cr. Biblioteca Ariostea, Ferrara)
+        </div>
+    
+        </div>
+        </div>
       </div>
       </div>
       <br><br>

@@ -16,16 +16,36 @@
 map area {
     cursor: pointer;
     outline: none;
-    /* Visual feedback for debugging */
     transition: all 0.2s;
 }
 
-/* Optional: Visual feedback for debugging */
 map area:hover {
     outline: 2px solid rgba(255, 0, 0, 0.5);
 }
 
-/* Carousel media container: fixed 16:9 aspect ratio */
+#landing-section {
+    min-height: calc(100vh);
+    display: flex;
+    align-items: center;
+}
+
+.tab-pane {
+    scroll-margin-top: 9rem;  
+}
+
+#landingCarousel {
+    position: relative;
+}
+
+/* hide pagination dots */
+#landingCarousel .carousel-indicators {
+    display: none;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .landing-carousel-wrapper {
     position: relative;
     width: 100%;
@@ -34,9 +54,9 @@ map area:hover {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
+}
 
-/* Video & img fill the wrapper */
+/* make video/img fill the wrapper */
 .landing-carousel-wrapper video,
 .landing-carousel-wrapper img {
     position: absolute;
@@ -45,8 +65,15 @@ map area:hover {
     height: 100%;
 }
 
-/* Landing‐section per‐slide captions below media */
+/* Next/Prev arrows (leave defaults) */
+#landingCarousel .carousel-control-prev,
+#landingCarousel .carousel-control-next {
+    /* nothing custom here */
+}
+
+/* captions below each slide, hidden by default */
 .landing-carousel-caption {
+    position: absolute;
     margin-top: 0.5rem;
     font-size: 0.8em;
     color: #555;
@@ -54,12 +81,16 @@ map area:hover {
     line-height: 1.3;
     margin-left: auto;
     margin-right: auto;
+    display: none;
 }
 
-.tab-pane {
-    scroll-margin-top: 9rem;  
-} 
-  
+/* show only the active slide’s caption */
+#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(1)) 
+    .landing-carousel-caption[data-slide="0"],
+#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(2)) 
+    .landing-carousel-caption[data-slide="1"] {
+    display: block;
+}
 /* Styled slider section */
 #slider-section {
     margin: 30px auto;
@@ -137,7 +168,6 @@ map area:hover {
     border-radius: 8px;
 }
 
-/* Slider panel caption */
 #slider-section .panel-caption {
     position: absolute;
     bottom: 0;
@@ -152,7 +182,6 @@ map area:hover {
     transition: opacity 0.3s;
 }
 
-/* Show caption on hover or when panel is active */
 #slider-section .panel:hover .panel-caption,
 #slider-section .panel.active .panel-caption {
     opacity: 1;
@@ -618,18 +647,35 @@ map area:hover {
     opacity: 1;
 }
 
-/* Floating Alert */
-.floating-alert {
-    position: relative;
-    z-index: 999;
-    margin-top: 5rem;
+/* Position the pagination dots just above the captions */
+#landingCarousel .carousel-indicators {
+    display: none;
 }
 
-/* Carousel Section */
-  
+/* Base setup for captions */
+.landing-carousel-caption {
+    position: absolute;       
+}
+
+/* Hide all captions by default */
+#landingCarousel .landing-carousel-caption {
+    display: none;
+}
+
+/* Show caption 0 when the first slide is active */
+#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(1)) 
+    .landing-carousel-caption[data-slide="0"] {
+    display: block;           /* ↳ only this caption becomes visible */
+}
+
+/* Show caption 1 when the second slide is active */
+#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(2)) 
+    .landing-carousel-caption[data-slide="1"] {
+    display: block;           /* ↳ and so on for each slide… */
+}
 
   
-
+  
 /* Exhibit Images Section */
 #exhibit-images {
     padding: 5rem 0;
@@ -1266,4 +1312,3 @@ map area:hover {
 }
 
 /* back wall flippppp*/
-
