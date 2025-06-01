@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <!-- Navbar Section (unchanged) -->
+  <!-- Navbar Section -->
   <div class="nav container-fluid fixed-top">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
@@ -82,89 +82,70 @@
   </div>
 
 
-  <!-- Landing Section (unchanged) -->
+ <!-- Landing Section -->
   <div class="container-fluid" id="landing-section">
     <div class="container">
       <div class="row align-items-center">
 
-        <!-- Left column: Title + Buttons -->
-        <div class="col-lg-6">
-          <br>
+        <!-- 1) LEFT COLUMN: Title + Subtitle + PHOTO beneath it -->
+        <div class="col-lg-6 text-left">
           <h1 class="landing-title">
             The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition
           </h1>
           <p class="landing-subtitle">From their Origins to Maria Montessori</p>
-          <div class="landing-buttons">
+
+          <!-- PHOTO BLOCK -->
+          <div class="landing-media-wrapper mt-4">
+            <img
+              src="../assets/img/1910-exibition.jpg"
+              alt="1910 exhibition"
+              class="landing-media-image"
+            >
+          </div>
+          <div class="landing-media-caption image-caption mt-2">
+            <em>
+              Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.
+            </em><br>
+            Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910.
+            (Cr. Biblioteca Ariostea, Ferrara)
+          </div>
+        </div>
+
+        <!-- 2) RIGHT COLUMN: VIDEO + BUTTONS under it -->
+        <div class="col-lg-6 text-center">
+
+          <!-- VIDEO BLOCK -->
+          <div class="landing-media-wrapper mb-4">
+            <video
+              class="landing-media-video"
+              controls
+              src="../assets/video/Video4.mp4"
+              poster="../assets/img/AB2.jpg"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="landing-media-caption video-caption mt-2">
+            <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
+          </div>
+
+          <!-- BUTTONS (directly under the video) -->
+          <div class="landing-buttons mt-3">
             <a href="#explore-by-subject" class="btn btn-success">EXPLORE THE EXHIBITION</a>
             <a href="#" class="btn btn-outline-secondary" onclick="triggerVideosPanel()">WATCH THE VIDEOS</a>
             <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOG</a>
             <a href="about-us.html" class="btn btn-outline-success">ABOUT US</a>
           </div>
-          <br><br>
-        </div>
 
-        <!-- Right column: Carousel with captions below -->
-        <div class="col-lg-6 text-center">
-          <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-
-              <!-- Slide 1: Video -->
-              <div class="carousel-item active">
-                <div class="landing-carousel-wrapper">
-                  <video class="landing-carousel-media" controls
-                         src="../assets/video/Video4.mp4"
-                         poster="../assets/img/AB2.jpg">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
-
-              <!-- Slide 2: Photo -->
-              <div class="carousel-item">
-                <div class="landing-carousel-wrapper">
-                  <img src="../assets/img/1910-exibition.jpg" alt="1910 exhibition">
-                </div>
-              </div>
-
-            </div><!-- /.carousel-inner -->
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-              <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1"></button>
-            </div>
-
-            <!-- Captions (outside of .carousel-item) -->
-            <div class="landing-carousel-caption" data-slide="0">
-              <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
-            </div>
-            <div class="landing-carousel-caption" data-slide="1">
-              <em>Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.</em><br>
-              Comitato nazionale per le esposizioni e le esportazioni italiane all’estero (Roma), 1910. (Cr. Biblioteca Ariostea, Ferrara)
-            </div>
-
-          </div>
         </div>
 
       </div>
     </div>
-    <br><br>
   </div>
 
 
-  <!-- ============================================================= -->
-  <!-- SECTION 1: EXPLORE BY SUBJECT (formerly slider-section-pane)    -->
-  <!-- ============================================================= -->
+  <!-- EXPLORE BY SUBJECT Section -->
+
   <div class="container-fluid" id="explore-by-subject">
     <div class="container text-center mb-4">
       <div class="slider-header mx-auto" style="max-width: 960px;">
@@ -206,11 +187,6 @@
       </div>
     </div>
   </div>
-
-
-  <!-- ============================================================= -->
-  <!-- BELOW: All content‐panels appear immediately after the slider -->
-  <!-- ============================================================= -->
 
   <!-- 1) YouTube‐embedded Video Section -->
   <div class="container-fluid" id="video" style="display: none;">
@@ -640,9 +616,8 @@
   <!-- End Modal -->
 
 
-  <!-- ============================================================= -->
-  <!-- SECTION 2: 3D EXHIBITION (formerly environment-3d-pane)         -->
-  <!-- ============================================================= -->
+  <!-- 3D EXHIBITION Section -->
+
   <div id="environment-3d-pane">
     <div class="container">
       <h2 class="section-title">3D Exhibition</h2>
@@ -706,7 +681,7 @@
   <!-- Back to Top Button -->
   <div id="back-to-top" class="back-to-top">&#8679;</div>
 
-  <!-- Scripts (unchanged) -->
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
@@ -739,25 +714,17 @@
       }
       hideAllContentPanes();
 
-      // 4) Attach click‐handler to each .panel
       panels.forEach((panelEl, idx) => {
         panelEl.addEventListener("click", () => {
-          // a) Remove 'active' from all panels
           panels.forEach(p => p.classList.remove("active"));
-
-          // b) Add 'active' to the clicked one
           panelEl.classList.add("active");
-
-          // c) Hide all content panes
           hideAllContentPanes();
 
-          // d) Show the corresponding content pane
           const contentId = panelToContentId[idx];
           if (contentId) {
             const contentEl = document.getElementById(contentId);
             if (contentEl) {
               contentEl.style.display = "block";
-              // Scroll smoothly so the pane appears right below the slider
               contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           }
