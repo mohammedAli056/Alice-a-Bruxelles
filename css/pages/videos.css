@@ -1,9 +1,17 @@
+/*───────────────────────────────────────────────────────────────────────────────
+  1. GLOBAL TRANSITIONS & POINTER‐EVENTS
+───────────────────────────────────────────────────────────────────────────────*/
+
 /* Global transitions and hover effects */
-.btn.btn-primary, .back-to-top, .explore-btn {
+.btn.btn-primary,
+.back-to-top,
+.explore-btn {
     transition: transform 0.4s;
 }
 
-.btn.btn-primary:hover, .back-to-top:hover, .explore-btn:hover {
+.btn.btn-primary:hover,
+.back-to-top:hover,
+.explore-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -23,450 +31,14 @@ map area:hover {
     outline: 2px solid rgba(255, 0, 0, 0.5);
 }
 
+/*───────────────────────────────────────────────────────────────────────────────
+  2. LANDING SECTION (HERO)
+───────────────────────────────────────────────────────────────────────────────*/
+
 #landing-section {
     min-height: calc(100vh);
     display: flex;
     align-items: center;
-}
-
-.tab-pane {
-    scroll-margin-top: 9rem;  
-}
-
-#landingCarousel {
-    position: relative;
-}
-
-/* hide pagination dots */
-#landingCarousel .carousel-indicators {
-    display: none;
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.landing-carousel-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    aspect-ratio: 16 / 9;       
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* make video/img fill the wrapper */
-.landing-carousel-wrapper video,
-.landing-carousel-wrapper img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Next/Prev arrows (leave defaults) */
-#landingCarousel .carousel-control-prev,
-#landingCarousel .carousel-control-next {
-    /* nothing custom here */
-}
-
-/* captions below each slide, hidden by default */
-.landing-carousel-caption {
-    position: absolute;
-    margin-top: 0.5rem;
-    font-size: 0.8em;
-    color: #555;
-    max-width: 800px;
-    line-height: 1.3;
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
-}
-
-/* show only the active slide’s caption */
-#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(1)) 
-    .landing-carousel-caption[data-slide="0"],
-#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(2)) 
-    .landing-carousel-caption[data-slide="1"] {
-    display: block;
-}
-/* Styled slider section */
-#slider-section {
-    margin: 30px auto;
-    max-width: 1500px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-#slider-section .slider-header {
-    text-align: left;
-    padding: 0 30px;
-    margin-bottom: 10px;
-}
-
-#slider-section .slider-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-#slider-section .slider-instructions {
-    font-size: 14px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#slider-section .slider-instructions::after {
-    content: '→';
-    margin-left: 5px;
-    font-size: 18px;
-}
-
-#slider-section .accordion {
-    height: 250px;
-    max-width: 75%;
-    width: 100%;
-    margin: 0 auto;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-}
-
-#slider-section .panel {
-    flex: 0.3;
-    border-radius: 6px;
-    box-shadow: none;
-    transition: flex 0.4s ease-in-out;
-    position: relative;
-    overflow: hidden;
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-#slider-section .panel img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-#slider-section .panel:hover, 
-#slider-section .panel.active {
-    flex: 2;
-    opacity: 1;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-#slider-section .panel.active {
-    border: 2px solid #20c997;
-    border-radius: 8px;
-}
-
-#slider-section .panel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 14px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-#slider-section .panel:hover .panel-caption,
-#slider-section .panel.active .panel-caption {
-    opacity: 1;
-}
-
-#slider-section .slider-nav {
-    text-align: right;
-    padding: 10px 30px;
-}
-
-#slider-section .slider-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* Hidden content sections */
-#video, #front-wall, #back-wall, #right-wall {
-    display: none;
-    transition: opacity 0.3s ease;
-}
-
-/* Silhouettes Section */
-#silhouettes {
-    padding: 0;
-    margin: 0;
-}
-
-#silhouettes img {
-    width: 100%;
-}
-
-/* Video Section styling */
-#video {
-    background-color: transparent;
-    padding: 3rem 0;
-}
-
-#video .container {
-    max-width: 90%;
-}
-
-#video .row {
-    display: flex;
-    align-items: flex-start; /* Aligns the top of both videos */
-}
-
-#video .col-md-6 {
-    padding: 0 15px;
-}
-
-#video h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-#video .video-container {
-    margin-top: 0;
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#video .video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    border-radius: 8px;
-}
-
-@media (max-width: 767px) {
-    #video .row {
-        flex-direction: column;
-    }
-    
-    #video .col-md-6:first-child {
-        margin-bottom: 2rem;
-    }
-}
-
-/* Silhouette animation */
-.silhouette {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.silhouette.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Navigation buttons */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.prev {
-    left: 450px;
-}
-
-.next {
-    right: 450px;
-}
-
-/* Explore button */
-.explore-btn {
-    margin: 20px 0;
-    padding: 12px 24px;
-    background-color: #52b69a;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    position: relative;
-}
-
-/* Slider components */
-.slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    overflow-x: auto;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
-    transition: transform 0.1s ease-in-out;
-}
-
-.slide-image {
-    flex: 0 0 auto;
-    opacity: 0.5;
-    transform: scale(0.8);
-    transition: all 0.3s ease-in-out;
-    scroll-snap-align: center;
-    margin: 0;
-}
-
-.slide-image img {
-    height: 150px;
-    width: auto;
-    transition: all 0.1s ease-in-out;
-}
-
-.slide-image.active {
-    transform: scale(1.2);
-    opacity: 1;
-}
-
-.slide-image.active img {
-    height: 250px;
-}
-
-/* Image accordion */
-#image-accordion {
-    width: 100%;
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    background-color: var(--bs-secondary-bg);
-}
-
-.accordion {
-    display: flex;
-    width: 90%;
-    max-width: 1000px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 20px;
-    gap: 5px;
-}
-
-.accordion .panel {
-    flex: 2;
-    min-width: 80px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: flex 0.5s ease-in-out;
-    position: relative;
-    border-radius: 20px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.accordion .panel img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    object-position: center center;
-    background-color: white;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 20px;
-}
-
-.accordion .panel:hover,
-.accordion .panel.active {
-    flex: 4;
-}
-
-/* Silhouette container */
-.silhouette-container {
-    display: none;
-}
-
-.silhouette-container.active {
-    display: block;
-}
-
-/* Pop-up section */
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-    box-sizing: border-box;
-}
-
-.popup-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-image {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100vh - 80px);
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-}
-
-.close {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    color: black;
-    border: none;
-    font-size: 1rem;
-    padding: 0.2rem 0.6rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.close:hover {
-    background-color: #eee;
-}
-
-/* Main index page styles */
-/* Landing Section */
-#landing-section {
     padding: 7rem 0 6rem;
     background-color: #f8f9fa;
     border-bottom: 1px solid #e9ecef;
@@ -597,21 +169,208 @@ map area:hover {
     color: white;
 }
 
-/* 3D Environment Section */
-#environment-3d {
-    padding: 4rem 0;
+/*───────────────────────────────────────────────────────────────────────────────
+  3. LANDING CAROUSEL (INSIDE HERO)
+───────────────────────────────────────────────────────────────────────────────*/
+
+#landingCarousel {
+    position: relative;
 }
 
-.section-title {
-    font-size: 2rem;
+/* hide pagination dots */
+#landingCarousel .carousel-indicators {
+    display: none;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.landing-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;       
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* make video/img fill the wrapper */
+.landing-carousel-wrapper video,
+.landing-carousel-wrapper img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Next/Prev arrows (leave defaults) */
+#landingCarousel .carousel-control-prev,
+#landingCarousel .carousel-control-next {
+    /* nothing custom here */
+}
+
+/* captions below each slide, hidden by default */
+.landing-carousel-caption {
+    position: absolute;
+    margin-top: 0.5rem;
+    font-size: 0.8em;
+    color: #555;
+    max-width: 800px;
+    line-height: 1.3;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+/* show only the active slide’s caption */
+#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(1)) 
+    .landing-carousel-caption[data-slide="0"],
+#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(2)) 
+    .landing-carousel-caption[data-slide="1"] {
+    display: block;
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+  4. “EXPLORE BY SUBJECT” SLIDER
+───────────────────────────────────────────────────────────────────────────────*/
+
+#explore-by-subject {
+    padding: 4rem 0 4rem;
+    border-bottom: 1px solid #e9ecef;
+    color: #fff;
+}
+
+#slider-section {
+    margin: 30px auto;
+    max-width: 1500px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#slider-section .slider-header {
+    text-align: left;
+    padding: 0 30px;
+    margin-bottom: 10px;
+}
+
+#slider-section .slider-header h2 {
+    font-size: 24px;
     font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#slider-section .slider-instructions {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#slider-section .slider-instructions::after {
+    content: '→';
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+#slider-section .accordion {
+    height: 250px;
+    max-width: 75%;
+    width: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#slider-section .panel {
+    flex: 0.3;
+    border-radius: 6px;
+    box-shadow: none;
+    transition: flex 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#slider-section .panel img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+#slider-section .panel:hover, 
+#slider-section .panel.active {
+    flex: 2;
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#slider-section .panel.active {
+    border: 2px solid #20c997;
+    border-radius: 8px;
+}
+
+#slider-section .panel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#slider-section .panel:hover .panel-caption,
+#slider-section .panel.active .panel-caption {
+    opacity: 1;
+}
+
+#slider-section .slider-nav {
+    text-align: right;
+    padding: 10px 30px;
+}
+
+#slider-section .slider-nav a {
     color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+  5. 3D EXHIBITION SECTION 
+───────────────────────────────────────────────────────────────────────────────*/
+
+#environment-3d-pane {
+    background-color: #f8f9fa;      
+    border-bottom: 1px solid #e9ecef;
+    padding: 4rem 0 4rem;          
+    color: #212529;           
+}
+
+#environment-3d-pane .section-title {
+    font-size: 2rem;
+    font-weight: 700;   
+    color: #212529;     
     margin-bottom: 2rem;
+    text-align: center;  
 }
 
 .environment-container {
     width: 60%;
-    margin: 0 auto;
+    max-width: 960px;             
+    margin: 0 auto 2rem;          
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -624,7 +383,6 @@ map area:hover {
     display: block;
     transition: transform 0.5s ease;
 }
-
 .environment-container:hover img {
     transform: scale(1.02);
 }
@@ -641,382 +399,78 @@ map area:hover {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    color: #212529 !important;  
 }
-
 .environment-container:hover .overlay {
     opacity: 1;
 }
 
-/* Position the pagination dots just above the captions */
-#landingCarousel .carousel-indicators {
-    display: none;
-}
-
-/* Base setup for captions */
-.landing-carousel-caption {
-    position: absolute;       
-}
-
-/* Hide all captions by default */
-#landingCarousel .landing-carousel-caption {
-    display: none;
-}
-
-/* Show caption 0 when the first slide is active */
-#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(1)) 
-    .landing-carousel-caption[data-slide="0"] {
-    display: block;           /* ↳ only this caption becomes visible */
-}
-
-/* Show caption 1 when the second slide is active */
-#landingCarousel:has(.carousel-inner .carousel-item.active:nth-child(2)) 
-    .landing-carousel-caption[data-slide="1"] {
-    display: block;           /* ↳ and so on for each slide… */
-}
-
-  
-  
-/* Exhibit Images Section */
-#exhibit-images {
-    padding: 5rem 0;
-    background-color: #fff;
-}
-
-.section-header {
-    margin-bottom: 2.5rem;
-}
-
-.section-instructions {
-    font-size: 0.8rem;
+.environment-container .overlay .btn {
+    background-color: #f8f9fa;   
+    color: #212529;               
+    border: 1px solid #212529;    
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 1.5rem;
-    color: #666;
-}
-
-.image-slider {
-    margin-bottom: 1.5rem;
-}
-
-.exhibit-image-carousel {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.exhibit-image-carousel .carousel-item img {
-    height: 400px;
-    object-fit: cover;
-}
-
-.thumbnail-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
-}
-
-.thumbnail {
-    cursor: pointer;
-    overflow: hidden;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
     border-radius: 4px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    opacity: 0.7;
-    border: 2px solid transparent;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.environment-container .overlay .btn:hover {
+    background-color: #e2e6ea;  
+    transform: scale(1.05);
 }
 
-.thumbnail.active {
-    opacity: 1;
-    border-color: #007a3d;
-}
-
-.thumbnail:hover {
-    opacity: 0.9;
-    transform: translateY(-3px);
-}
-
-/* Image caption */
-.image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px 20px;
-    font-size: 0.9em;
-    box-sizing: border-box;
-    margin: 0 10px;
-}
-
-.image-caption em {
-    font-style: italic;
-}
-
-/*==========================*/
-  /* Ceiling Panels (Normal)  */
-  /*==========================*/
-  
-  /* Proportions for ceiling panel cards */
-  .ceiling-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .ceiling-row {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-start;
-  }
-  
-  .ceiling-panel {
+#unityContainer {
+    display: none;                
+    margin: 0 auto;
+    max-width: 960px;
     position: relative;
-    perspective: 1500px;
-    border-radius: 15px;
-  }
-  
-  .ceiling-panel.tall {
-    width: 450px;
-    height: 450px;
-  }
-  
-  .ceiling-panel.short {
-    width: 450px;
-    height: 315px;
-  }
-  
-  /* The panel flips in place when user clicks */
-  .panel-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-  }
-  
-  /* This class is toggled to flip the card */
-  .ceiling-panel.flipped .panel-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .panel-front,
-  .panel-back {
+    margin-top: 2rem;
+}
+
+#unityContainer .close-unity {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  
-  .panel-back {
-    transform: rotateY(180deg);
-  }
-  
-  .top-row {
-    align-items: flex-start;
-    margin-bottom: -65px;
-  }
-  
-  .bottom-row {
-    align-items: flex-end;
-    margin-top: -65px;
-  }
-  
-  /* Zoom icon for enlarging the panel */
-  .zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-  }
-  
-  .zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  /* Adjust hover text to be bigger and centered */
-  .hover-flip-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
-  }
-  
-  .ceiling-panel:hover .hover-flip-text {
-    opacity: 1;
-  }
-  
-  /*==========================*/
-  /* Ceiling Panels (Modal)   */
-  /*==========================*/
-  
-  /* Modal overlay for enlarged panels */
-  .ceiling-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Fixed modal size for consistency */
-  .ceiling-modal-content {
-    width: 1200px;
-    height: 1200px;
-    max-width: 90vw;
-    max-height: 90vh;
-    background-color: #212529;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Close button */
-  .ceiling-modal-close {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    color: #000;
+    top: 10px;
+    right: 10px;
+    background: #ffffff;
+    color: #212529;
+    border: 1px solid #ccc;
     border-radius: 50%;
-    border: 2px solid #ccc;
-    font-size: 30px;
-    line-height: 46px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    line-height: 32px;
     text-align: center;
     cursor: pointer;
-    user-select: none;
-  }
-  
-  /* Navigation arrows */
-  .ceiling-modal-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    user-select: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    line-height: 46px;
+    transition: background-color 0.3s ease;
+}
+#unityContainer .close-unity:hover {
+    background-color: #f0f0f0;
+}
+
+#unityContainer iframe {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+  6. BACK‐WALL PANEL SECTION
+───────────────────────────────────────────────────────────────────────────────*/
+
+#back-wall {
+    padding: 3rem 0;
+}
+
+#back-wall .container {
+}
+
+#back-wall .container h2 {
     text-align: center;
-    z-index: 10;
-  }
-  
-  .ceiling-modal-nav-left {
-    left: 25px;
-  }
-  
-  .ceiling-modal-nav-right {
-    right: 25px;
-  }
-  
-  .ceiling-modal-nav:hover {
-    background-color: rgba(255, 255, 255, 1);
-  }
-  
-  /* Flip container inside the modal */
-  .flip-container {
-    position: relative;
-    bottom: 25px;
-    width: 80%;
-    max-width: 900px;
-    height: 80%;
-    max-height: 900px;
-    perspective: 1000px;
-  }
-  
-  .flip-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-  
-  .flip-front,
-  .flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    backface-visibility: hidden;
-    object-fit: contain;
-  }
-  
-  .flip-back {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-container.flipped .flip-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Flip button in modal */
-  .modal-flip-btn {
-    position: absolute;
-    bottom: 60px; /* Move this higher as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #20c997;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 11;
-  }
-  
-  .modal-flip-btn:hover {
-    background-color: #17a185;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 576px) {
-    .ceiling-modal-nav {
-      font-size: 30px;
-      width: 40px;
-      height: 40px;
-      line-height: 36px;
-    }
-  
-    .modal-flip-btn {
-      font-size: 16px;
-      padding: 8px 16px;
-    }
-  }
+    margin-bottom: 1.5rem;
+}
 
 .back-wall-grid {
     display: flex;
@@ -1047,7 +501,6 @@ map area:hover {
     width: 100%;
     height: auto;
     object-fit: contain;
-
 }
 
 .back-wall-panel .zoom-icon {
@@ -1067,33 +520,10 @@ map area:hover {
     object-fit: contain;
 }
 
-/* Style for the videos section */
-#video .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    height: 100%;
-}
+/*───────────────────────────────────────────────────────────────────────────────
+  7. RIGHT‐WALL PANEL SECTION
+───────────────────────────────────────────────────────────────────────────────*/
 
-#video .card:hover {
-    transform: translateY(-5px);
-}
-
-#video .card-body {
-    padding: 1.5rem;
-}
-
-#video video {
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-}
-
-/* Space between sections */
-.spacer {
-    height: 2rem;
-}
-
-/* Right Wall Panels Section */
 #right-wall {
     padding: 3rem 0;
     background-color: transparent;
@@ -1229,6 +659,11 @@ map area:hover {
 
 /* Make the right wall modal image container support zooming */
 .right-wall-modal-image-container {
+    width: 90%;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: auto;
     position: relative;
     cursor: grab;
@@ -1260,42 +695,99 @@ map area:hover {
     background-color: rgba(255, 255, 255, 1);
 }
 
-/* Use the existing ceiling-modal styles for the modal, but we'll add specific right wall modal styles */
-.right-wall-modal-image-container {
-    width: 90%;
-    max-height: 90vh;
+/*───────────────────────────────────────────────────────────────────────────────
+  8. VIDEO SECTIONS
+───────────────────────────────────────────────────────────────────────────────*/
+
+/* Hidden content sections */
+#video,
+#front-wall,
+#back-wall,
+#right-wall {
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Video Section styling */
+#video {
+    background-color: transparent;
+    padding: 3rem 0;
+}
+
+#video .container {
+    max-width: 90%;
+}
+
+#video .row {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Aligns the top of both videos */
 }
 
-#right-wall-modal-image {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
+#video .col-md-6 {
+    padding: 0 15px;
 }
 
-/* For smaller screens, stack the panels vertically */
-@media (max-width: 992px) {
-    .right-wall-grid {
+#video h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+#video .video-container {
+    margin-top: 0;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#video .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+    #video .row {
         flex-direction: column;
-        align-items: center;
     }
     
-    .right-wall-panel-container {
-        width: 90%;
-        max-width: 500px;
+    #video .col-md-6:first-child {
+        margin-bottom: 2rem;
     }
 }
 
-.stand-title {
-    margin-top: 80px;
+/* Style for the videos section cards if used */
+#video .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+#video .card:hover {
+    transform: translateY(-5px);
+}
+
+#video .card-body {
+    padding: 1.5rem;
+}
+
+#video video {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
 }
 
 /* Stand Section */
 #stand-video-container {
     margin: 2rem auto;
-    padding: 1.5rem ;
+    padding: 1.5rem;
     display: flex;
     justify-content: center;
 }
@@ -1303,7 +795,6 @@ map area:hover {
 #stand-video-container video {
     width: 70%;
     height: 50%;
-    /*max-width: 800px; */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -1311,4 +802,404 @@ map area:hover {
     display: block;
 }
 
-/* back wall flippppp*/
+/*───────────────────────────────────────────────────────────────────────────────
+  9. SILHOUETTES & IMAGE ACCORDION
+───────────────────────────────────────────────────────────────────────────────*/
+
+#silhouettes {
+    padding: 0;
+    margin: 0;
+}
+
+#silhouettes img {
+    width: 100%;
+}
+
+/* Silhouette animation */
+.silhouette {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.silhouette.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image accordion section */
+#image-accordion {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bs-secondary-bg);
+}
+
+.accordion {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    gap: 5px;
+}
+
+.accordion .panel {
+    flex: 2;
+    min-width: 80px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: flex 0.5s ease-in-out;
+    position: relative;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion .panel img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: center center;
+    background-color: white;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 20px;
+}
+
+.accordion .panel:hover,
+.accordion .panel.active {
+    flex: 4;
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+ 10. CEILING PANELS (FLIP CARDS & MODAL)
+───────────────────────────────────────────────────────────────────────────────*/
+
+.ceiling-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.ceiling-row {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.ceiling-panel {
+    position: relative;
+    perspective: 1500px;
+    border-radius: 15px;
+}
+
+.ceiling-panel.tall {
+    width: 450px;
+    height: 450px;
+}
+
+.ceiling-panel.short {
+    width: 450px;
+    height: 315px;
+}
+
+/* The panel flips in place when user clicks */
+.panel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* This class is toggled to flip the card */
+.ceiling-panel.flipped .panel-inner {
+    transform: rotateY(180deg);
+}
+
+.panel-front,
+.panel-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.panel-back {
+    transform: rotateY(180deg);
+}
+
+.top-row {
+    align-items: flex-start;
+    margin-bottom: -65px;
+}
+
+.bottom-row {
+    align-items: flex-end;
+    margin-top: -65px;
+}
+
+/* Zoom icon for enlarging the panel */
+.zoom-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.zoom-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Adjust hover text to be bigger and centered */
+.hover-flip-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+}
+
+.ceiling-panel:hover .hover-flip-text {
+    opacity: 1;
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+ 11. CEILING PANELS MODAL OVERLAY
+───────────────────────────────────────────────────────────────────────────────*/
+
+.ceiling-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fixed modal size for consistency */
+.ceiling-modal-content {
+    width: 1200px;
+    height: 1200px;
+    max-width: 90vw;
+    max-height: 90vh;
+    background-color: #212529;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Close button */
+.ceiling-modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    font-size: 30px;
+    line-height: 46px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Navigation arrows */
+.ceiling-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 46px;
+    text-align: center;
+    z-index: 10;
+}
+
+.ceiling-modal-nav-left {
+    left: 25px;
+}
+
+.ceiling-modal-nav-right {
+    right: 25px;
+}
+
+.ceiling-modal-nav:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Flip container inside the modal */
+.flip-container {
+    position: relative;
+    bottom: 25px;
+    width: 80%;
+    max-width: 900px;
+    height: 80%;
+    max-height: 900px;
+    perspective: 1000px;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    object-fit: contain;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+.flip-container.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Flip button in modal */
+.modal-flip-btn {
+    position: absolute;
+    bottom: 60px; /* Move this higher as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #20c997;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.modal-flip-btn:hover {
+    background-color: #17a185;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .ceiling-modal-nav {
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+    }
+
+    .modal-flip-btn {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+ 12. POPUP OVERLAY FOR ANY “ENLARGED” IMAGES (BACK‐WALL/CEILING, ETC.)
+───────────────────────────────────────────────────────────────────────────────*/
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.popup-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 80px);
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.close {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.close:hover {
+    background-color: #eee;
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+ 13. MISCELLANEOUS / HELPERS
+───────────────────────────────────────────────────────────────────────────────*/
+
+/* Space between sections */
+.spacer {
+    height: 2rem;
+}
