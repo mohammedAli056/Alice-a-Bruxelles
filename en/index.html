@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <!-- Navbar Section -->
+  <!-- ===== 1) Navbar Section ===== -->
   <div class="nav container-fluid fixed-top">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
@@ -36,10 +36,10 @@
                 <a class="dropdown-item" href="#" onclick="triggerPanel(0)">The History of the Schools in 2 Videos</a>
                 <a class="dropdown-item" href="#" onclick="triggerPanel(2)">La Montesca School: A Story of Women</a>
                 <a class="dropdown-item" href="#" onclick="triggerPanel(5)">Photos and Alice’s Letters to Maria Pasqui</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(6)">Montessori and International Teaching Materials</a>
+                <a class="dropdown-item" href="#" onclick="triggerPanel(3)">Montessori and International Teaching Materials</a>
                 <a class="dropdown-item" href="#" onclick="triggerPanel(4)">The 1910 World Fair Exhibition</a>
                 <a class="dropdown-item" href="#" onclick="triggerPanel(1)">The Reconstructed Schools’ Stand</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(3)">Exhibition Project; Visitors’ Guide, Credits</a>
+                <a class="dropdown-item" href="#" onclick="triggerPanel(6)">Exhibition Project; Visitors’ Guide, Credits</a>
               </ul>
             </li>
 
@@ -82,19 +82,19 @@
   </div>
 
 
- <!-- Landing Section -->
+  <!-- ===== 2) Landing Section ===== -->
   <div class="container-fluid" id="landing-section">
     <div class="container">
       <div class="row align-items-center">
 
-        <!-- 1) LEFT COLUMN: Title + Subtitle + PHOTO beneath it -->
+        <!-- 2.1) LEFT COLUMN: Title + Subtitle + Photo -->
         <div class="col-lg-6 text-left">
           <h1 class="landing-title">
             The Hallgarten-Franchetti Schools at the 1910 Universal and International Exposition
           </h1>
           <p class="landing-subtitle">From their Origins to Maria Montessori</p>
 
-          <!-- PHOTO BLOCK -->
+          <!-- Photo Block -->
           <div class="landing-media-wrapper">
             <img
               src="../assets/img/1910-exibition.jpg"
@@ -111,10 +111,8 @@
           </div>
         </div>
 
-        <!-- 2) RIGHT COLUMN: VIDEO + BUTTONS under it -->
+        <!-- 2.2) RIGHT COLUMN: Embedded Video + Buttons -->
         <div class="col-lg-6 text-center">
-
-          <!-- VIDEO BLOCK -->
           <div class="landing-media-wrapper">
             <video
               class="landing-media-video"
@@ -129,14 +127,12 @@
             <em>ALICE IN BRUSSELS: An Introduction to the Exhibition</em>
           </div>
 
-          <!-- BUTTONS (directly under the video) -->
           <div class="landing-buttons">
             <a href="#explore-by-subject" class="btn btn-success">EXPLORE THE EXHIBITION</a>
             <a href="#" class="btn btn-outline-secondary" onclick="triggerVideosPanel()">WATCH THE VIDEOS</a>
             <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOG</a>
             <a href="about-us.html" class="btn btn-outline-success">ABOUT US</a>
           </div>
-
         </div>
 
       </div>
@@ -144,8 +140,7 @@
   </div>
 
 
-  <!-- EXPLORE BY SUBJECT Section -->
-
+  <!-- ===== 3) Explore By Subject (Slider) ===== -->
   <div class="container-fluid" id="explore-by-subject">
     <div class="container text-center mb-4">
       <div class="slider-header mx-auto" style="max-width: 960px;">
@@ -188,12 +183,12 @@
     </div>
   </div>
 
-  <!-- 1) YouTube‐embedded Video Section -->
+
+  <!-- ===== 4) Video Section (“The History of the Schools in 2 Videos”) ===== -->
   <div class="container-fluid" id="video" style="display: none;">
     <div class="container">
       <div class="row align-items-start">
-
-        <!-- Video 1 -->
+        <!-- 4.1) Video: The Baroness and the Barefoot Children -->
         <div id="video2-container" class="col-md-6 mb-4">
           <h3 class="text-center mb-3">The Baroness and the Barefoot Children</h3>
           <div class="ratio ratio-16x9">
@@ -207,7 +202,7 @@
           </div>
         </div>
 
-        <!-- Video 2 -->
+        <!-- 4.2) Video: The Montesca Schools at the 1910 World Fair -->
         <div id="video3-container" class="col-md-6 mb-4">
           <h3 class="text-center mb-3">The Montesca Schools at the 1910 World Fair</h3>
           <div class="ratio ratio-16x9">
@@ -220,81 +215,168 @@
             </iframe>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
 
-  <!-- 2) Video Stand Section -->
+  <!-- ===== 5) Montessori and International Teaching Materials (“Stand”) ===== -->
   <div id="stand" class="panel-section" style="display: none;">
-    <div class="container md-6">
-      <h3 class="text-center mb-3 stand-title">
-        Montessori Material, Multilingual Learning Resources, World Fair Documents
-      </h3>
-      <p class="text-center mb-4"><em>The Display</em></p>
+    <div class="container-fluid py-5">
+      <div class="container">
+        <!-- 5.1) Flip‐card Grid (moved here) -->
+        <div class="ceiling-grid">
+          <div class="ceiling-row top-row">
+            <!-- Panel 4 (tall) -->
+            <div class="ceiling-panel tall" data-panel="4">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-4f.png"
+                  class="panel-front"
+                  alt="Panel 4 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-4r-en.png"
+                  class="panel-back"
+                  alt="Panel 4 Back"
+                />
+              </div>
+            </div>
 
-      <div style="max-width: 750px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
-        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-          <iframe
-            src="https://www.youtube.com/embed/----"
-            title="The Display - Exhibition Video"
-            frameborder="0"
-            allowfullscreen
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          </iframe>
+            <!-- Panel 1 (short) -->
+            <div class="ceiling-panel short" data-panel="1">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-1f.png"
+                  class="panel-front"
+                  alt="Panel 1 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-1r-en.png"
+                  class="panel-back"
+                  alt="Panel 1 Back"
+                />
+              </div>
+            </div>
+
+            <!-- Panel 5 (tall) -->
+            <div class="ceiling-panel tall" data-panel="5">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-5f.png"
+                  class="panel-front"
+                  alt="Panel 5 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-5r-en.png"
+                  class="panel-back"
+                  alt="Panel 5 Back"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="ceiling-row bottom-row">
+            <!-- Panel 2 (short) -->
+            <div class="ceiling-panel short" data-panel="2">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-2f.png"
+                  class="panel-front"
+                  alt="Panel 2 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-2r-en.png"
+                  class="panel-back"
+                  alt="Panel 2 Back"
+                />
+              </div>
+            </div>
+
+            <!-- Panel 6 (tall) -->
+            <div class="ceiling-panel tall" data-panel="6">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-6f.png"
+                  class="panel-front"
+                  alt="Panel 6 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-6r-en.png"
+                  class="panel-back"
+                  alt="Panel 6 Back"
+                />
+              </div>
+            </div>
+
+            <!-- Panel 3 (short) -->
+            <div class="ceiling-panel short" data-panel="3">
+              <div class="zoom-icon">
+                <img src="../assets/img/zoom.png" alt="Zoom" />
+              </div>
+              <div class="hover-flip-text">Click to flip</div>
+              <div class="panel-inner">
+                <img
+                  src="../assets/img/ceiling-3f.png"
+                  class="panel-front"
+                  alt="Panel 3 Front"
+                />
+                <img
+                  src="../assets/img/ceiling-3r-en.png"
+                  class="panel-back"
+                  alt="Panel 3 Back"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- End of Flip‐card Grid -->
       </div>
     </div>
   </div>
 
 
-  <!-- 3) Back Wall Image Section -->
+  <!-- ===== 6) “Photos and Alice’s Letters to Maria Pasqui” (Back Wall) ===== -->
   <div id="back-wall" class="container-fluid py-5" style="display: none;">
     <div class="container">
       <h2 class="text-center mb-4">Photos and Alice’s letters to Maria Pasqui</h2>
-      <div class="row justify-content-center">
+
+      <div class="row justify-content-center mb-5">
         <div class="col-12" style="max-width: 80%; margin: 0 auto;">
           <div class="card shadow">
-            <img id="back-wall-image" src="../assets/img/carousel-3.jpeg"
-                 class="d-block w-100 rounded" alt="Back Wall"
-                 usemap="#back-wall-map" loading="eager">
+            <img id="back-wall-image"
+                 src="../assets/img/carousel-3.jpeg"
+                 class="d-block w-100 rounded"
+                 alt="Back Wall"
+                 usemap="#back-wall-map"
+                 loading="eager">
             <div class="card-body text-center">
-              <p class="card-text">
-                Interactive display...
-              </p>
+              <p class="card-text">Interactive display… click any frame to enlarge.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-
-  <!-- 4) Front Wall Section -->
-  <div id="front-wall" class="container-fluid" style="display: none;">
-    <div class="row justify-content-center mt-5">
-      <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-        <h2 class="text-center mb-4">The 1910 Exhibition</h2>
-        <img src="../assets/img/front-wall.png" class="d-block w-100 rounded"
-             style="border-radius: 15px;" alt="Front Wall">
-        <p class="text-left mt-3">
-          Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
-        </p>
-        <!-- Embedded PDF Catalogue -->
-        <div class="mt-5">
-          <h3 class="text-center">View the Full Catalogue</h3>
-          <iframe src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
-                  width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- 5) Back Wall Image Panels Section -->
-  <div id="back-wall-panels" class="container-fluid py-3" style="display: none;">
-    <div class="container">
       <h2 class="text-center mb-4">Explore the Frames</h2>
       <div class="back-wall-grid">
         <div class="back-wall-panel" data-panel="1">
@@ -356,55 +438,246 @@
     </div>
   </div>
 
+  <!-- ===== 7) Image Map for Back Wall ===== -->
+  <map name="back-wall-map">
+    <area
+      alt="Frame 1" title="Frame 1" href="#"
+      coords="1022,1070,1613,1067,1608,1576,1026,1572"
+      shape="poly"
+      onclick="showPopup('popup-frame1'); return false;"
+    >
+    <area
+      alt="Frame 2" title="Frame 2" href="#"
+      coords="1141,530,1485,525,1485,1025,1133,1025"
+      shape="poly"
+      onclick="showPopup('popup-frame2'); return false;"
+    >
+    <area
+      alt="Frame 3" title="Frame 3" href="#"
+      coords="735,659,1119,659,1125,1011,743,1006"
+      shape="poly"
+      onclick="showPopup('popup-frame3'); return false;"
+    >
+    <area
+      alt="Frame 4" title="Frame 4" href="#"
+      coords="1501,649,1818,647,1818,1020,1501,1023"
+      shape="poly"
+      onclick="showPopup('popup-frame4'); return false;"
+    >
+    <area
+      alt="Frame 5" title="Frame 5" href="#"
+      coords="2049,1705,2352,1697,2379,1904,2076,1910"
+      shape="poly"
+      onclick="showPopup('popup-frame5'); return false;"
+    >
+    <area
+      alt="Frame 6" title="Frame 6" href="#"
+      coords="2000,1145,2253,1153,2258,1483,2000,1489"
+      shape="poly"
+      onclick="showPopup('popup-frame6'); return false;"
+    >
+    <area
+      alt="Frame 7" title="Frame 7" href="#"
+      coords="1904,632,2269,635,2258,1119,1904,1119"
+      shape="poly"
+      onclick="showPopup('popup-frame7'); return false;"
+    >
+    <area
+      alt="Frame 8" title="Frame 8" href="#"
+      coords="1694,1154,1917,1156,1928,1519,1689,1514"
+      shape="poly"
+      onclick="showPopup('popup-frame8'); return false;"
+    >
+    <area
+      alt="Frame 9" title="Frame 9" href="#"
+      coords="324,1122,630,1114,628,1579,327,1571"
+      shape="poly"
+      onclick="showPopup('popup-frame9'); return false;"
+    >
+    <area
+      alt="Frame 10" title="Frame 10" href="#"
+      coords="1452,1593,1756,1576,1786,1931,1458,1931"
+      shape="poly"
+      onclick="showPopup('popup-frame10'); return false;"
+    >
+    <area
+      alt="Frame 11" title="Frame 11" href="#"
+      coords="437,1600,665,1610,660,1796,429,1793"
+      shape="poly"
+      onclick="showPopup('popup-frame11'); return false;"
+    >
+  </map>
 
-  <!-- 6) Right Wall Section -->
-  <div id="right-wall" class="container-fluid py-5" style="display: none;">
-    <div class="container">
-      <div class="right-wall-grid">
-        <!-- Introduction Panel -->
-        <div class="right-wall-panel-container">
-          <h3 class="panel-title">Introduction</h3>
-          <div class="right-wall-panel" data-panel="1">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <img src="../assets/img/panel-1-en.png" alt="Introduction Panel" />
-          </div>
-        </div>
+  <!-- ===== 8) Popups for Each Back Wall Frame ===== -->
+  <div id="popup-frame1" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
+      <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame2" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
+      <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame3" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
+      <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame4" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
+      <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame5" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
+      <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame6" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
+      <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame7" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-7.jpeg" class="popup-image" alt="Frame 7">
+      <button class="close" onclick="closePopup('popup-frame7')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame8" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-8.png" class="popup-image" alt="Frame 8">
+      <button class="close" onclick="closePopup('popup-frame8')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame9" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-9.JPG" class="popup-image" alt="Frame 9">
+      <button class="close" onclick="closePopup('popup-frame9')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame10" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-10.png" class="popup-image" alt="Frame 10">
+      <button class="close" onclick="closePopup('popup-frame10')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame11" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-11.png" class="popup-image" alt="Frame 11">
+      <button class="close" onclick="closePopup('popup-frame11')">✖</button>
+    </div>
+  </div>
 
-        <!-- Visitor Guide Panel -->
-        <div class="right-wall-panel-container">
-          <h3 class="panel-title">Visitor Guide</h3>
-          <div class="right-wall-panel" data-panel="2">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <img src="../assets/img/panel-2-en.png" alt="Visitor Guide Panel" />
-          </div>
-        </div>
 
-        <!-- Credits Panel -->
-        <div class="right-wall-panel-container">
-          <h3 class="panel-title">Credits</h3>
-          <div class="right-wall-panel" data-panel="3">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <img src="../assets/img/credits.png" alt="Credits Panel" />
-          </div>
+  <!-- ===== 9) Front Wall Section (“The 1910 World Fair Stand”) ===== -->
+  <div id="front-wall" class="container-fluid" style="display: none;">
+    <div class="row justify-content-center mt-5">
+      <div class="col-12" style="max-width: 60%; margin: 0 auto;">
+        <h2 class="text-center mb-4">The 1910 Exhibition</h2>
+        <img src="../assets/img/front-wall.png" class="d-block w-100 rounded"
+             style="border-radius: 15px;" alt="Front Wall">
+        <p class="text-left mt-3">
+          Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
+        </p>
+        <!-- 9.1) Embedded PDF Catalogue -->
+        <div class="mt-5">
+          <h3 class="text-center">View the Full Catalogue</h3>
+          <iframe src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                  width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- 7) Right Wall Modal (Enlarged View) -->
+  <!-- ===== 10) “The Reconstructed Schools’ Stand” (Back Wall Panels) ===== -->
+  <div id="back-wall-panels" class="container-fluid py-3" style="display: none;">
+    <div class="container md-6">
+      <h3 class="text-center mb-3 stand-title">
+        Montessori Material, Multilingual Learning Resources, World Fair Documents
+      </h3>
+      <p class="text-center mb-4"><em>The Display</em></p>
+
+      <div style="max-width: 750px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+          <iframe
+            src="https://www.youtube.com/embed/----"
+            title="The Display - Exhibition Video"
+            frameborder="0"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 11) Right Wall Section (“Exhibition Project; Visitors’ Guide, Credits”) ===== -->
+  <div id="right-wall" class="container-fluid py-5" style="display: none;">
+    <div class="container">
+
+      <!-- 11.1) Headings: Introduction / Visitor Guide / Credits -->
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-4 text-center">
+          <h3 class="panel-title">Introduction</h3>
+        </div>
+        <div class="col-md-4 text-center">
+          <h3 class="panel-title">Visitor Guide</h3>
+        </div>
+        <div class="col-md-4 text-center">
+          <h3 class="panel-title">Credits</h3>
+        </div>
+      </div>
+
+      <!-- 11.2) Three Click‐to‐Flip Images -->
+      <div class="row justify-content-center">
+        <!-- Introduction Panel -->
+        <div class="col-md-4 mb-4 text-center">
+          <div class="zoom-icon">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
+          </div>
+          <div class="hover-flip-text">Click to flip</div>
+          <img src="../assets/img/panel-1-en.png" class="img-fluid rounded" alt="Introduction Panel" />
+        </div>
+
+        <!-- Visitor Guide Panel -->
+        <div class="col-md-4 mb-4 text-center">
+          <div class="zoom-icon">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
+          </div>
+          <div class="hover-flip-text">Click to flip</div>
+          <img src="../assets/img/panel-2-en.png" class="img-fluid rounded" alt="Visitor Guide Panel" />
+        </div>
+
+        <!-- Credits Panel -->
+        <div class="col-md-4 mb-4 text-center">
+          <div class="zoom-icon">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
+          </div>
+          <div class="hover-flip-text">Click to flip</div>
+          <img src="../assets/img/credits.png" class="img-fluid rounded" alt="Credits Panel" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 12) Right Wall Modal (Enlarged View) ===== -->
   <div id="right-wall-modal" class="ceiling-modal">
     <div class="ceiling-modal-content">
       <!-- Close button -->
       <span class="right-wall-modal-close">&times;</span>
 
-      <!-- Left/Right arrows -->
+      <!-- Left/Right navigation arrows -->
       <div id="right-wall-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
       <div id="right-wall-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
 
@@ -424,45 +697,7 @@
   </div>
 
 
-  <!-- 8) Image Map for Back Wall -->
-  <map name="back-wall-map">
-    <area target="" alt="Frame 1" title="Frame 1" href="#"
-          coords="1022,1070,1613,1067,1608,1576,1026,1572" shape="poly"
-          onclick="showEnlargedFrame(1); return false;">
-    <area target="" alt="Frame 2" title="Frame 2" href="#"
-          coords="1141,530,1485,525,1485,1025,1133,1025" shape="poly"
-          onclick="showEnlargedFrame(2); return false;">
-    <area target="" alt="Frame 3" title="Frame 3" href="#"
-          coords="735,659,1119,659,1125,1011,743,1006" shape="poly"
-          onclick="showEnlargedFrame(3); return false;">
-    <area target="" alt="Frame 4" title="Frame 4" href="#"
-          coords="1501,649,1818,647,1818,1020,1501,1023" shape="poly"
-          onclick="showEnlargedFrame(4); return false;">
-    <area target="" alt="Frame 5" title="Frame 5" href="#"
-          coords="2049,1705,2352,1697,2379,1904,2076,1910" shape="poly"
-          onclick="showEnlargedFrame(5); return false;">
-    <area target="" alt="Frame 6" title="Frame 6" href="#"
-          coords="2000,1145,2253,1153,2258,1483,2000,1489" shape="poly"
-          onclick="showEnlargedFrame(6); return false;">
-    <area target="" alt="Frame 7" title="Frame 7" href="#"
-          coords="1904,632,2269,635,2258,1119,1904,1119" shape="poly"
-          onclick="showEnlargedFrame(7); return false;">
-    <area target="" alt="Frame 8" title="Frame 8" href="#"
-          coords="1694,1154,1917,1156,1928,1519,1689,1514" shape="poly"
-          onclick="showEnlargedFrame(8); return false;">
-    <area target="" alt="Frame 9" title="Frame 9" href="#"
-          coords="324,1122,630,1114,628,1579,327,1571" shape="poly"
-          onclick="showEnlargedFrame(9); return false;">
-    <area target="" alt="Frame 10" title="Frame 10" href="#"
-          coords="1452,1593,1756,1576,1786,1931,1458,1931" shape="poly"
-          onclick="showEnlargedFrame(10); return false;">
-    <area target="" alt="Frame 11" title="Frame 11" href="#"
-          coords="437,1600,665,1610,660,1796,429,1793" shape="poly"
-          onclick="showEnlargedFrame(11); return false;">
-  </map>
-
-
-  <!-- 9) Image Accordion Section -->
+  <!-- ===== 13) Image Accordion Section (“La Montesca School”) ===== -->
   <div class="container-fluid" id="image-accordion" style="display: none;">
     <div class="container accordion">
       <div class="panel"><img src="../assets/img/silhouette-only-1.png" alt=""></div>
@@ -476,7 +711,7 @@
   </div>
 
 
-  <!-- 10) Silhouettes Section -->
+  <!-- ===== 14) Silhouettes Section (“La Montesca School: A Story of Women”) ===== -->
   <div class="container-fluid" id="silhouettes" style="display: none;">
     <div class="container-fluid silhouette-container" id="silhouette-1" style="background: linear-gradient(315deg, #F7E6A5, var(--bs-secondary-bg))">
       <div class="container">
@@ -516,113 +751,12 @@
   </div>
 
 
-  <!-- 11) Ceiling Panels Section -->
-  <div class="container-fluid component-section" id="ceiling" style="display: none;">
-    <div class="container">
-      <div class="ceiling-grid">
-        <!-- Row 1 -->
-        <div class="ceiling-row top-row">
-          <div class="ceiling-panel tall" data-panel="4">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <div class="hover-flip-text">Click to flip</div>
-            <div class="panel-inner">
-              <img src="../assets/img/ceiling-4f.png" class="panel-front" alt="Panel 4 Front" />
-              <img src="../assets/img/ceiling-4r-en.png" class="panel-back" alt="Panel 4 Back" />
-            </div>
-          </div>
-          <div class="ceiling-panel short" data-panel="1">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <div class="hover-flip-text">Click to flip</div>
-            <div class="panel-inner">
-              <img src="../assets/img/ceiling-1f.png" class="panel-front" alt="Panel 1 Front" />
-              <img src="../assets/img/ceiling-1r-en.png" class="panel-back" alt="Panel 1 Back" />
-            </div>
-          </div>
-          <div class="ceiling-panel tall" data-panel="5">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <div class="hover-flip-text">Click to flip</div>
-            <div class="panel-inner">
-              <img src="../assets/img/ceiling-5f.png" class="panel-front" alt="Panel 5 Front" />
-              <img src="../assets/img/ceiling-5r-en.png" class="panel-back" alt="Panel 5 Back" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2 -->
-        <div class="ceiling-row bottom-row">
-          <div class="ceiling-panel short" data-panel="2">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <div class="hover-flip-text">Click to flip</div>
-            <div class="panel-inner">
-              <img src="../assets/img/ceiling-2f.png" class="panel-front" alt="Panel 2 Front" />
-              <img src="../assets/img/ceiling-2r-en.png" class="panel-back" alt="Panel 2 Back" />
-            </div>
-          </div>
-          <div class="ceiling-panel tall" data-panel="6">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <div class="hover-flip-text">Click to flip</div>
-            <div class="panel-inner">
-              <img src="../assets/img/ceiling-6f.png" class="panel-front" alt="Panel 6 Front" />
-              <img src="../assets/img/ceiling-6r-en.png" class="panel-back" alt="Panel 6 Back" />
-            </div>
-          </div>
-          <div class="ceiling-panel short" data-panel="3">
-            <div class="zoom-icon">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
-            <div class="hover-flip-text">Click to flip</div>
-            <div class="panel-inner">
-              <img src="../assets/img/ceiling-3f.png" class="panel-front" alt="Panel 3 Front" />
-              <img src="../assets/img/ceiling-3r-en.png" class="panel-back" alt="Panel 3 Back" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- 12) Ceiling Panels Modal Overlay -->
-  <div id="ceiling-modal" class="ceiling-modal">
-    <div class="ceiling-modal-content">
-      <!-- Close button -->
-      <span class="ceiling-modal-close" id="ceiling-modal-close">&times;</span>
-
-      <!-- Left/Right arrows -->
-      <div id="ceiling-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
-      <div id="ceiling-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
-
-      <!-- Flip container -->
-      <div id="modal-flip-container" class="flip-container">
-        <div class="flip-inner">
-          <img id="ceiling-modal-image-front" class="flip-front" src="" alt="Ceiling Panel Front" />
-          <img id="ceiling-modal-image-back" class="flip-back" src="" alt="Ceiling Panel Back" />
-        </div>
-      </div>
-    </div>
-    <!-- Flip button in modal -->
-    <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
-  </div>
-  <!-- End Modal -->
-
-
-  <!-- 3D EXHIBITION Section -->
-
+  <!-- ===== 15) 3D Exhibition Section ===== -->
   <div id="environment-3d-pane">
     <div class="container">
       <h2 class="section-title">3D Exhibition</h2>
 
-      <!-- Unity 3D Interactive Preview Container -->
+      <!-- 15.1) Unity 3D Preview -->
       <div class="environment-container" id="env-preview">
         <img src="../assets/img/slider-1.jpeg" alt="3D Environment Preview">
         <div class="overlay">
@@ -630,7 +764,7 @@
         </div>
       </div>
 
-      <!-- Unity Iframe (hidden by default) -->
+      <!-- 15.2) Unity Iframe (hidden by default) -->
       <div id="unityContainer">
         <button class="close-unity" onclick="hideUnity()">✖</button>
         <iframe
@@ -646,7 +780,7 @@
   </div>
 
 
-  <!-- Footer Section (unchanged) -->
+  <!-- ===== 16) Footer Section ===== -->
   <div class="container" id="footer">
     <footer class="py-5">
       <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
@@ -654,23 +788,17 @@
         <ul class="list-unstyled d-flex">
           <li class="ms-3">
             <a class="link-body-emphasis" href="#">
-              <svg class="bi" width="24" height="24">
-                <use xlink:href="#twitter"/>
-              </svg>
+              <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg>
             </a>
           </li>
           <li class="ms-3">
             <a class="link-body-emphasis" href="#">
-              <svg class="bi" width="24" height="24">
-                <use xlink:href="#instagram"/>
-              </svg>
+              <svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg>
             </a>
           </li>
           <li class="ms-3">
             <a class="link-body-emphasis" href="#">
-              <svg class="bi" width="24" height="24">
-                <use xlink:href="#facebook"/>
-              </svg>
+              <svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg>
             </a>
           </li>
         </ul>
@@ -678,10 +806,10 @@
     </footer>
   </div>
 
-  <!-- Back to Top Button -->
+  <!-- ===== 17) Back to Top Button ===== -->
   <div id="back-to-top" class="back-to-top">&#8679;</div>
 
-  <!-- Scripts -->
+  <!-- ===== Scripts ===== -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
@@ -689,20 +817,19 @@
   <script src="../js/theme.js"></script>
 
   <script>
-    // Wait until DOM is fully loaded
     document.addEventListener("DOMContentLoaded", function() {
       // 1) Grab all slider panels
       const panels = document.querySelectorAll("#slider-section .panel");
 
-      // 2) Map each panel index → ID of its content pane
+      // 2) Map each panel index → ID of its target content pane
       const panelToContentId = [
-        "video",            // panel 0 → #video
-        "silhouettes",      // panel 1 → #silhouettes
-        "back-wall",        // panel 2 → #back-wall
-        "stand",            // panel 3 → #stand
-        "front-wall",       // panel 4 → #front-wall
-        "back-wall-panels", // panel 5 → #back-wall-panels
-        "right-wall"        // panel 6 → #right-wall
+        "video",            // panel index 0: “The History of the Schools in 2 Videos”
+        "silhouettes",      // panel index 1: “La Montesca School: A Story of Women”
+        "back-wall",        // panel index 2: “Photos and Alice’s Letters to Maria Pasqui”
+        "stand",            // panel index 3: “Montessori and International Teaching Materials”
+        "front-wall",       // panel index 4: “The 1910 World Fair Stand”
+        "back-wall-panels", // panel index 5: “The Reconstructed Schools’ Stand”
+        "right-wall"        // panel index 6: “Exhibition Project; Visitors’ Guide, Credits”
       ];
 
       // 3) Hide all content panes initially
@@ -711,25 +838,57 @@
           const el = document.getElementById(id);
           if (el) el.style.display = "none";
         });
+        // Also always hide #image-accordion (we only show it for index 1)
+        const accordion = document.getElementById("image-accordion");
+        if (accordion) accordion.style.display = "none";
       }
       hideAllContentPanes();
 
+      // 4) When a panel is clicked, hide everything, then show exactly the one mapped
       panels.forEach((panelEl, idx) => {
         panelEl.addEventListener("click", () => {
+          // Remove “active” from every panel (optional styling)
           panels.forEach(p => p.classList.remove("active"));
           panelEl.classList.add("active");
+
+          // Hide all sections
           hideAllContentPanes();
 
-          const contentId = panelToContentId[idx];
-          if (contentId) {
-            const contentEl = document.getElementById(contentId);
-            if (contentEl) {
-              contentEl.style.display = "block";
-              contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          // If index === 1 (La Montesca School), show #image-accordion + #silhouettes
+          if (idx === 1) {
+            const accordion = document.getElementById("image-accordion");
+            const silhouettes = document.getElementById("silhouettes");
+            if (accordion) {
+              accordion.style.display = "block";
+              accordion.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+            if (silhouettes) {
+              silhouettes.style.display = "block";
+            }
+          }
+          // Otherwise, show whichever single pane is mapped:
+          else {
+            const contentId = panelToContentId[idx];
+            if (contentId) {
+              const contentEl = document.getElementById(contentId);
+              if (contentEl) {
+                contentEl.style.display = "block";
+                contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             }
           }
         });
       });
+
+      // 5) Wire up each ceiling-panel to toggle “flipped” on click
+      document.querySelectorAll(".ceiling-panel").forEach(panel => {
+        panel.addEventListener("click", function(e) {
+          // Prevent the click from bubbling and re-triggering panel-switch logic
+          e.stopPropagation();
+          this.classList.toggle("flipped");
+        });
+      });
+
     });
 
     // Language switcher (unchanged)
