@@ -33,13 +33,13 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
               <ul class="dropdown-menu">
-                <a class="dropdown-item" href="#" onclick="triggerPanel(0)">The History of the Schools in 2 Videos</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(2)">La Montesca School: A Story of Women</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(5)">Photos and Alice’s Letters to Maria Pasqui</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(3)">Montessori and International Teaching Materials</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(4)">The 1910 World Fair Exhibition</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(1)">The Reconstructed Schools’ Stand</a>
-                <a class="dropdown-item" href="#" onclick="triggerPanel(6)">Exhibition Project; Visitors’ Guide, Credits</a>
+                <a class="dropdown-item" href="#" data-panel-index="0">The History of the Schools in 2 Videos</a>
+                <a class="dropdown-item" href="#" data-panel-index="2">La Montesca School: A Story of Women</a>
+                <a class="dropdown-item" href="#" data-panel-index="5">Photos and Alice’s Letters to Maria Pasqui</a>
+                <a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a>
+                <a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a>
+                <a class="dropdown-item" href="#" data-panel-index="1">The Reconstructed Schools’ Stand</a>
+                <a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a>
               </ul>
             </li>
 
@@ -817,6 +817,25 @@
   <script src="../js/theme.js"></script>
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  // Existing code...
+
+  // New: Add click listeners to navbar items with data-panel-index
+  document.querySelectorAll('[data-panel-index]').forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const idx = parseInt(this.dataset.panelIndex);
+      const targetPanel = document.querySelectorAll("#slider-section .panel")[idx];
+      if (targetPanel) {
+        targetPanel.click(); // simulate the panel click
+      }
+    });
+  });
+});
+
+
+
+
     document.addEventListener("DOMContentLoaded", function() {
       // 1) Grab all slider panels
       const panels = document.querySelectorAll("#slider-section .panel");
