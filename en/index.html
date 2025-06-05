@@ -38,7 +38,7 @@
                 <a class="dropdown-item" href="#" data-panel-index="2">Photos and Alice’s Letters to Maria Pasqui</a>
                 <a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a>
                 <a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a>
-                <a class="dropdown-item" href="#" data-panel-index="5">The Reconstructed Schools’ Stand</a>
+                <a class="dropdown-item" href="#" data-panel-index="5">The Reconstruction of the Schools’ Stand</a>
                 <a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a>
               </ul>
             </li>
@@ -223,7 +223,7 @@
   <div id="stand" class="panel-section content-start" style="display: none;">
     <div class="container-fluid">
       <div class="container">
-        <!-- 5.1) Flip‐card Grid (moved here) -->
+        <!-- 5.1) Flip‐card Grid -->
         <div class="ceiling-grid">
           <div class="ceiling-row top-row">
             <!-- Panel 4 (tall) -->
@@ -355,11 +355,9 @@
   </div>
 
 
-  <!-- ===== 6) “Photos and Alice’s Letters to Maria Pasqui” (Back Wall) ===== -->
+  <!-- ===== 6) “The Reconstruction of the Schools’ Stand” (Back Wall) ===== -->
   <div id="back-wall" class="container-fluid content-start" style="display: none;">
     <div class="container">
-      <h2 class="text-center mb-4">Photos and Alice’s Letters to Maria Pasqui</h2>
-
       <div class="row justify-content-center mb-5">
         <div class="col-12" style="max-width: 80%; margin: 0 auto;">
           <div class="card shadow">
@@ -838,13 +836,13 @@
 
       // 2) Map each panel index → ID of its target content pane
       const panelToContentId = [
-        "video",            // panel index 0: “The History of the Schools in 2 Videos”
-        "silhouettes",      // panel index 1: “La Montesca School: A Story of Women”
-        "back-wall",        // panel index 2: “Photos and Alice’s Letters to Maria Pasqui”
-        "stand",            // panel index 3: “Montessori and International Teaching Materials”
-        "front-wall",       // panel index 4: “The 1910 World Fair Stand”
-        "back-wall-panels", // panel index 5: “The Reconstructed Schools’ Stand”
-        "right-wall"        // panel index 6: “Exhibition Project; Visitors’ Guide, Credits”
+        "video",            // index 0 → “The History of the Schools in 2 Videos”
+        "silhouettes",      // index 1 → “La Montesca School: A Story of Women”
+        "stand",            // index 3 → “Reconstructed Schools’ Stand”
+        "back-wall-panels", // index 2 →  “Montessori and International Teaching Materials”
+        "front-wall",       // index 4 → “The 1910 World Fair Stand”
+        "back-wall",        // index 5 → “Photos & Letters”
+        "right-wall"        // index 6 → “Exhibition Project; Visitors’ Guide, Credits”
       ];
 
       // 3) Hide all content panes initially
@@ -853,23 +851,23 @@
           const el = document.getElementById(id);
           if (el) el.style.display = "none";
         });
-        // Also hide the “Image Accordion” container, which only shows up for index 1
+        // Always hide the “Image Accordion” container by default (only shows for index 1)
         const accordion = document.getElementById("image-accordion");
         if (accordion) accordion.style.display = "none";
       }
       hideAllContentPanes();
 
-      // 4) When a panel is clicked, hide everything, then show exactly the one mapped
+      // 4) When a slider panel is clicked, hide everything, then show exactly the one mapped
       panels.forEach((panelEl, idx) => {
         panelEl.addEventListener("click", () => {
-          // Remove “active” from every panel (optional styling)
+          // Remove “active” class from every panel (optional styling)
           panels.forEach(p => p.classList.remove("active"));
           panelEl.classList.add("active");
 
-          // Hide all sections again
+          // Hide all sections
           hideAllContentPanes();
 
-          // If index === 1 (La Montesca School), show both image accordion + silhouettes
+          // If idx === 1 (La Montesca School), show both #image-accordion + #silhouettes
           if (idx === 1) {
             const accordion = document.getElementById("image-accordion");
             const silhouettes = document.getElementById("silhouettes");
@@ -882,7 +880,7 @@
             }
           }
           else {
-            // Otherwise show the single pane from panelToContentId
+            // Otherwise, show exactly the content pane mapped by panelToContentId[idx]
             const contentId = panelToContentId[idx];
             if (contentId) {
               const contentEl = document.getElementById(contentId);
@@ -898,7 +896,7 @@
       // 5) Wire up each .ceiling-panel flip‐card
       document.querySelectorAll(".ceiling-panel").forEach(panel => {
         panel.addEventListener("click", function(e) {
-          e.stopPropagation(); // prevent bubbling up to panel-switch logic
+          e.stopPropagation(); // Prevent bubbling up to slider‐click logic
           this.classList.toggle("flipped");
         });
       });
