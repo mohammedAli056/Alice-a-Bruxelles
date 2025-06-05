@@ -369,9 +369,6 @@ map area:hover {
     padding: 3rem 0;
 }
 
-#back-wall .container {
-}
-
 #back-wall .container h2 {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -473,13 +470,6 @@ map area:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.panel-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-weight: 500;
 }
 
 .right-wall-panel {
@@ -1107,4 +1097,17 @@ map area:hover {
 /* Space between sections */
 .spacer {
     height: 2rem;
+}
+
+/*───────────────────────────────────────────────────────────────────────────────
+  13. UNIFIED PADDING FOR ALL “HIDDEN” PANELS
+───────────────────────────────────────────────────────────────────────────────*/
+
+#front-wall,
+#stand,
+#back-wall-panels,
+#image-accordion,
+#image-accordion,
+#silhouettes {
+    padding: 3rem 0;
 }
