@@ -49,6 +49,11 @@ map area:hover {
     margin-bottom: 2rem;
 }
 
+/* on the landing page only, kill any zoom‐icon */
+#landing-section .zoom-icon { 
+    display: none !important;
+  }  
+
 /* Title & subtitle */
 .landing-title {
     font-size: 2.5rem;
