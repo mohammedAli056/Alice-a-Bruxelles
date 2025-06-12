@@ -177,7 +177,8 @@ map area:hover {
 ───────────────────────────────────────────────────────────────────────────────*/
 
 #explore-by-subject {
-    padding: 4rem 0 4rem;
+    scroll-margin-top: 40px;
+    padding: 2rem 0 3rem;
     border-bottom: 1px solid #e9ecef;
     color: #fff;
 }
