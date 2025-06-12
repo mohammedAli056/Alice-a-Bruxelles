@@ -239,19 +239,10 @@
               </div>
               <div class="hover-flip-text">Click to flip</div>
               <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-4f.png"
-                  class="panel-front"
-                  alt="Panel 4 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-4r-en.png"
-                  class="panel-back"
-                  alt="Panel 4 Back"
-                />
+                <img src="../assets/img/ceiling-4f.png" class="panel-front" alt="Panel 4 Front" />
+                <img src="../assets/img/ceiling-4r-en.png" class="panel-back"  alt="Panel 4 Back" />
               </div>
             </div>
-
             <!-- Panel 1 (short) -->
             <div class="ceiling-panel short" data-panel="1">
               <div class="zoom-icon">
@@ -259,19 +250,10 @@
               </div>
               <div class="hover-flip-text">Click to flip</div>
               <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-1f.png"
-                  class="panel-front"
-                  alt="Panel 1 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-1r-en.png"
-                  class="panel-back"
-                  alt="Panel 1 Back"
-                />
+                <img src="../assets/img/ceiling-1f.png" class="panel-front" alt="Panel 1 Front" />
+                <img src="../assets/img/ceiling-1r-en.png" class="panel-back"  alt="Panel 1 Back" />
               </div>
             </div>
-
             <!-- Panel 5 (tall) -->
             <div class="ceiling-panel tall" data-panel="5">
               <div class="zoom-icon">
@@ -279,20 +261,11 @@
               </div>
               <div class="hover-flip-text">Click to flip</div>
               <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-5f.png"
-                  class="panel-front"
-                  alt="Panel 5 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-5r-en.png"
-                  class="panel-back"
-                  alt="Panel 5 Back"
-                />
+                <img src="../assets/img/ceiling-5f.png" class="panel-front" alt="Panel 5 Front" />
+                <img src="../assets/img/ceiling-5r-en.png" class="panel-back"  alt="Panel 5 Back" />
               </div>
             </div>
           </div>
-
           <div class="ceiling-row bottom-row">
             <!-- Panel 2 (short) -->
             <div class="ceiling-panel short" data-panel="2">
@@ -301,19 +274,10 @@
               </div>
               <div class="hover-flip-text">Click to flip</div>
               <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-2f.png"
-                  class="panel-front"
-                  alt="Panel 2 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-2r-en.png"
-                  class="panel-back"
-                  alt="Panel 2 Back"
-                />
+                <img src="../assets/img/ceiling-2f.png" class="panel-front" alt="Panel 2 Front" />
+                <img src="../assets/img/ceiling-2r-en.png" class="panel-back"  alt="Panel 2 Back" />
               </div>
             </div>
-
             <!-- Panel 6 (tall) -->
             <div class="ceiling-panel tall" data-panel="6">
               <div class="zoom-icon">
@@ -321,19 +285,10 @@
               </div>
               <div class="hover-flip-text">Click to flip</div>
               <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-6f.png"
-                  class="panel-front"
-                  alt="Panel 6 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-6r-en.png"
-                  class="panel-back"
-                  alt="Panel 6 Back"
-                />
+                <img src="../assets/img/ceiling-6f.png" class="panel-front" alt="Panel 6 Front" />
+                <img src="../assets/img/ceiling-6r-en.png" class="panel-back"  alt="Panel 6 Back" />
               </div>
             </div>
-
             <!-- Panel 3 (short) -->
             <div class="ceiling-panel short" data-panel="3">
               <div class="zoom-icon">
@@ -341,16 +296,8 @@
               </div>
               <div class="hover-flip-text">Click to flip</div>
               <div class="panel-inner">
-                <img
-                  src="../assets/img/ceiling-3f.png"
-                  class="panel-front"
-                  alt="Panel 3 Front"
-                />
-                <img
-                  src="../assets/img/ceiling-3r-en.png"
-                  class="panel-back"
-                  alt="Panel 3 Back"
-                />
+                <img src="../assets/img/ceiling-3f.png" class="panel-front" alt="Panel 3 Front" />
+                <img src="../assets/img/ceiling-3r-en.png" class="panel-back"  alt="Panel 3 Back" />
               </div>
             </div>
           </div>
@@ -358,6 +305,26 @@
         <!-- End of Flip‐card Grid -->
       </div>
     </div>
+  </div>
+
+  <!-- ===== Modal Overlay for Ceiling Panels ===== -->
+  <div id="ceiling-modal" class="ceiling-modal">
+    <div class="ceiling-modal-content">
+      <!-- Close button -->
+      <span class="ceiling-modal-close" id="ceiling-modal-close">&times;</span>
+      <!-- Left/Right arrows -->
+      <div id="ceiling-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
+      <div id="ceiling-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
+      <!-- Flip container -->
+      <div id="modal-flip-container" class="flip-container">
+        <div class="flip-inner">
+          <img id="ceiling-modal-image-front" class="flip-front" src="" alt="Ceiling Panel Front"/>
+          <img id="ceiling-modal-image-back" class="flip-back" src="" alt="Ceiling Panel Back"/>
+        </div>
+      </div>
+    </div>
+    <!-- Flip button in modal -->
+    <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
   </div>
 
 
@@ -832,15 +799,14 @@
       // 2) Slider panels → content panes
       const panels = document.querySelectorAll("#slider-section .panel");
       const panelToContentId = [
-        "video",            
-        "silhouettes",      
-        "back-wall-panels", 
-        "stand",            
-        "front-wall",       
-        "back-wall",        
-        "right-wall"        
+        "video",
+        "silhouettes",
+        "back-wall-panels",
+        "stand",
+        "front-wall",
+        "back-wall",
+        "right-wall"
       ];
-  
       function hideAllContentPanes() {
         panelToContentId.forEach(id => {
           const el = document.getElementById(id);
@@ -848,7 +814,6 @@
         });
         const accordion = document.getElementById("image-accordion");
         if (accordion) accordion.style.display = "none";
-        // also hide all silhouettes
         document.querySelectorAll("#silhouettes .silhouette-container").forEach(el => {
           el.style.display = "none";
         });
@@ -862,7 +827,6 @@
           hideAllContentPanes();
   
           if (idx === 1) {
-            // show accordion + first silhouette by default
             const accordion = document.getElementById("image-accordion");
             const silhouettes = document.getElementById("silhouettes");
             if (accordion) accordion.style.display = "flex";
@@ -893,16 +857,59 @@
           }
         });
       });
-  
-      // 4) Ceiling flip‐cards
+
+      // 4) Ceiling flip‐cards (in-place)
       document.querySelectorAll(".ceiling-panel").forEach(panel => {
-        panel.addEventListener("click", function (e) {
-          e.stopPropagation();
+        panel.addEventListener("click", function(e) {
+          // if they clicked the zoom icon, do nothing here
+          if (e.target.closest(".zoom-icon")) return;
+          // otherwise toggle the flipped state
           this.classList.toggle("flipped");
         });
       });
+
+      // 4b) Also flip when clicking the grey "Click to flip" label
+      document.querySelectorAll(".hover-flip-text").forEach(label => {
+        label.addEventListener("click", function(e) {
+          e.stopPropagation();                             // prevent the panel’s click-listener from swallowing it
+          const panel = this.closest(".ceiling-panel");
+          panel.classList.toggle("flipped");
+        });
+      });
+
+      // 5) Zoom-icon popups and modal flip inside the modal:
+      const modal    = document.getElementById("ceiling-modal");
+      const closeBtn = document.getElementById("ceiling-modal-close");
+      const flipBtn  = document.getElementById("ceiling-modal-flip-btn");
+      const inner    = document.querySelector("#modal-flip-container .flip-inner");
+      const imgF     = document.getElementById("ceiling-modal-image-front");
+      const imgB     = document.getElementById("ceiling-modal-image-back");
+
+      document.querySelectorAll(".ceiling-panel .zoom-icon").forEach(icon => {
+        icon.addEventListener("click", e => {
+          e.stopPropagation();
+          const panel = icon.closest(".ceiling-panel");
+          imgF.src = panel.querySelector(".panel-front").src;
+          imgB.src = panel.querySelector(".panel-back").src;
+          inner.classList.remove("flipped");
+          modal.style.display = "flex";
+        });
+      });
+
+      flipBtn.addEventListener("click", () => inner.classList.toggle("flipped"));
+      closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+      // 6) Modal flip button
+      flipBtn.addEventListener('click', () => {
+        inner.classList.toggle('flipped');
+      });
   
-      // 5) Misc utilities
+      // 7) Modal close
+      closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+  
+      // 8) Misc utilities
       document.getElementById('back-to-top')?.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
@@ -943,6 +950,6 @@
     function closePopup(id) {
       document.getElementById(id).style.display = 'none';
     }
-  </script>  
+  </script>   
 </body>
 </html>

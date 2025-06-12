@@ -899,6 +899,7 @@ map area:hover {
     position: absolute;
     top: 50%;
     left: 50%;
+    cursor: pointer;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
@@ -1036,7 +1037,7 @@ map area:hover {
 /* Flip button in modal */
 .modal-flip-btn {
     position: absolute;
-    bottom: 60px; /* Move this higher as needed */
+    bottom: 70px; 
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
