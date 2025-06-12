@@ -611,58 +611,53 @@
         </div>
       </div>
 
-      <!-- 11.2) Images -->
+      <!-- 11.2) Images + zoom icons -->
       <div class="row justify-content-center">
-        <!-- Introduction Panel -->
-        <div class="col-md-4 mb-4 text-center">
-          <img src="../assets/img/panel-1-en.png"
-              class="img-fluid rounded"
-              alt="Introduction Panel" />
+        <div class="col-md-4 mb-4 text-center position-relative">
+          <img src="../assets/img/panel-1-en.png" class="img-fluid rounded" alt="Introduction Panel" />
+          <div class="zoom-icon" onclick="showPopup('popup-right-1')">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
+          </div>
         </div>
-
-        <!-- Visitor Guide Panel -->
-        <div class="col-md-4 mb-4 text-center">
-          <img src="../assets/img/panel-2-en.png"
-              class="img-fluid rounded"
-              alt="Visitor Guide Panel" />
+        <div class="col-md-4 mb-4 text-center position-relative">
+          <img src="../assets/img/panel-2-en.png" class="img-fluid rounded" alt="Visitor Guide Panel" />
+          <div class="zoom-icon" onclick="showPopup('popup-right-2')">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
+          </div>
         </div>
-
-        <!-- Credits Panel -->
-        <div class="col-md-4 mb-4 text-center">
-          <img src="../assets/img/credits.png"
-              class="img-fluid rounded"
-              alt="Credits Panel" />
+        <div class="col-md-4 mb-4 text-center position-relative">
+          <img src="../assets/img/credits.png" class="img-fluid rounded" alt="Credits Panel" />
+          <div class="zoom-icon" onclick="showPopup('popup-right-3')">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- ===== 12) Right Wall Modal (Enlarged View) ===== -->
-  <div id="right-wall-modal" class="ceiling-modal">
-    <div class="ceiling-modal-content">
-      <!-- Close button -->
-      <span class="right-wall-modal-close">&times;</span>
-
-      <!-- Left/Right navigation arrows -->
-      <div id="right-wall-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
-      <div id="right-wall-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
-
-      <!-- Image container -->
-      <div class="right-wall-modal-image-container">
-        <img id="right-wall-modal-image" src="" alt="Right Wall Panel" />
-      </div>
-
-      <!-- Zoom controls -->
-      <div class="right-wall-zoom-controls">
-        <div class="zoom-btn zoom-out">−</div>
-        <div class="zoom-level">100%</div>
-        <div class="zoom-btn zoom-in">+</div>
-        <div class="zoom-reset">Reset</div>
-      </div>
+  <!-- ===== 12) Popups for Right Wall Panels ===== -->
+  <div id="popup-right-1" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/panel-1-en.png" class="popup-image" alt="Introduction Panel Enlarged" />
+      <button class="close" onclick="closePopup('popup-right-1')">✖</button>
     </div>
   </div>
-
+  
+  <div id="popup-right-2" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/panel-2-en.png" class="popup-image" alt="Visitor Guide Panel Enlarged" />
+      <button class="close" onclick="closePopup('popup-right-2')">✖</button>
+    </div>
+  </div>
+  
+  <div id="popup-right-3" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/credits.png" class="popup-image" alt="Credits Panel Enlarged" />
+      <button class="close" onclick="closePopup('popup-right-3')">✖</button>
+    </div>
+  </div>
+  
 
   <!-- ===== 13) Image Accordion Section (“La Montesca School: A Story of Women”) ===== -->
   <div class="container-fluid content-start" id="image-accordion" style="display: none;">
