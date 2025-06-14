@@ -471,6 +471,18 @@ map area:hover {
     max-width: 90%;
 }
 
+#right-wall .right-wall-photos {
+    display: flex;             
+    justify-content: center;   
+    column-gap: 8rem;         
+}
+
+#right-wall .container > .row:first-of-type {
+    display: flex;           
+    justify-content: center;
+    column-gap: 8rem;       
+}
+
 #right-wall-selector {
     margin-bottom: 20px;
     padding: 12px 20px;
