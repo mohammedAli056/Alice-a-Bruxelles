@@ -84,14 +84,16 @@
   <!-- ===== 2) Landing Section ===== -->
   <div class="container-fluid position-relative" id="landing-section">
     <div class="container">
+      
+      <!-- 2-Column Layout -->
       <div class="row align-items-center">
-
-        <!-- 2.1) LEFT COLUMN: Title + Subtitle + Photo -->
-        <div class="col-lg-6 text-left">
+        <!-- LEFT -->
+        <div class="col-lg-6 text-center">
           <h1 class="landing-title">MONTESCA & ROVIGLIANO SCHOOLS EXHIBITIONS</h1>
           <p class="landing-subtitle">Brussels 1910 — Città di Castello 2024</p>
-
-          <!-- Photo Block -->
+        </div>
+        <!-- RIGHT -->
+        <div class="col-lg-6 text-center">
           <div class="landing-media-wrapper">
             <img
               src="../assets/img/1910-exibition.jpg"
@@ -106,40 +108,50 @@
             (Cr. Biblioteca Ariostea, Ferrara)
           </div>
         </div>
+      </div>
 
-        <!-- 2.2) RIGHT COLUMN: Embedded Video + Buttons -->
-        <div class="col-lg-6 text-center">
-          <div class="landing-media-wrapper">
-            <video
-              class="landing-media-video"
-              controls
-              src="../assets/video/Video4.mp4"
-              poster="../assets/img/AB2.jpg"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="landing-media-caption video-caption">
-            <em>ALICE IN BRUSSELS: A Video Introduction</em>
-          </div>
-
-          <div class="landing-buttons">
-            <a href="#explore-by-subject" class="btn btn-success">EXPLORE THE EXHIBITION</a>
-            <a href="#" class="btn btn-outline-secondary" onclick="triggerVideosPanel()">WATCH THE VIDEOS</a>
-            <a href="#" onclick="openPDF()" class="btn btn-dark">ACCESS THE CATALOGUE</a>
-            <a href="about-us.html" class="btn btn-outline-success">ABOUT US</a>
+      <!-- BUTTON SECTION -->
+      <div class="row align-items-center">
+        <!-- LEFT -->
+        <div class="col-lg-6 text-left">
+          <div class="landing-buttons justify-content-center mt-3">
+            <a href="#explore-by-subject" class="btn btn-success btn-explore">EXPLORE THE EXHIBITION</a>
           </div>
         </div>
-
+        <!-- RIGHT -->
+        <div class="col-lg-6 text-center">
+          <div class="landing-buttons justify-content-center">
+            <a href="#" class="btn btn-outline-secondary">WATCH THE VIDEOS</a>
+            <a href="#" class="btn btn-dark">ACCESS THE CATALOGUE</a>
+          </div>
+        </div>
+      </div>
+    
+    <!-- VIDEO SECTION -->
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-10 text-center">
+        <div class="landing-media-wrapper">
+          <video
+            class="landing-media-video"
+            controls
+            src="../assets/video/Video4.mp4"
+            poster="../assets/img/AB2_2.jpg"
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="landing-media-caption video-caption">
+          <em>ALICE IN BRUSSELS: A Video Introduction</em>
+        </div>
       </div>
     </div>
+  </div>
 
     <!-- ↓↓↓ Scroll-down cue ↓↓↓ -->
     <div class="scroll-down">
       <span class="chevron">⌄</span>
     </div>
   </div>
-
 
 
   <!-- ===== 3) Explore By Subject (Slider) ===== -->
