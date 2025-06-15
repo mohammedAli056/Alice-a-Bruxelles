@@ -1,4 +1,6 @@
-/* 1. GLOBAL HOVER/TRANSITION FOR BACK-TO-TOP BUTTON */
+/*───────────────────────────────────────────────────────────────────────────────
+    1. GLOBAL HOVER/TRANSITION FOR BACK-TO-TOP BUTTON
+───────────────────────────────────────────────────────────────────────────────*/
 .back-to-top {
     transition: transform 0.4s;
 }
@@ -7,19 +9,19 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* 2. LANDING SECTION (HERO) */
+/*───────────────────────────────────────────────────────────────────────────────
+    2. LANDING SECTION (HERO)
+───────────────────────────────────────────────────────────────────────────────*/
 #landing-section {
     background-color: #f8f9fa;
     border-bottom: 1px solid #e9ecef;
     color: #212529;
-    margin-top: 3.5rem;
-    padding-top: 2.5rem;
+    padding-top: 6rem;    
     padding-bottom: 3rem;
 }
 .landing-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #212529;
     line-height: 1.2;
     margin-bottom: 0.75rem;
 }
@@ -29,12 +31,13 @@
     margin-bottom: 2rem;
     font-weight: 400;
 }
-/* landing buttons container */
+/* side-by-side landing buttons */
 .landing-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1rem;
     margin-top: 2rem;
 }
 .landing-buttons .btn {
@@ -46,17 +49,27 @@
     border-radius: 4px;
     transition: all 0.2s ease;
 }
-    .btn-explore {
+.btn-explore {
     font-size: 1.15rem !important;
     padding: 1rem 2rem !important;
     font-weight: 700 !important;
 }
-.landing-buttons-row {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+
+/* full-bleed, centered video wrapper */
+.landing-media-wrapper {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;
+    border-radius: 0;
 }
-/* caption under the hero image */
+.landing-media-video {
+    margin-top: -1.5rem;
+    display: block;
+    width: 100%;
+    height: auto;
+}
 .landing-media-caption {
     margin-top: 0.6rem;
     text-align: center;
@@ -65,7 +78,12 @@
     color: #555;
 }
 
-/* 3. “CHOOSE YOUR VIEW” CARDS */
+/*───────────────────────────────────────────────────────────────────────────────
+    3. “CHOOSE YOUR VIEW” CARDS
+───────────────────────────────────────────────────────────────────────────────*/
+#choose-view {
+    scroll-margin-top: 3rem;
+}
 .view-card {
     position: relative;
     overflow: hidden;
@@ -91,7 +109,9 @@
     pointer-events: none;
 }
 
-/* 4. FOOTER */
+/*───────────────────────────────────────────────────────────────────────────────
+    4. FOOTER
+───────────────────────────────────────────────────────────────────────────────*/
 #footer {
     margin-top: 4rem;
     color: #6c757d;
@@ -107,7 +127,9 @@
     color: #000;
 }
 
-/* 5. BACK-TO-TOP POSITIONING */
+/*───────────────────────────────────────────────────────────────────────────────
+    5. BACK-TO-TOP POSITIONING
+───────────────────────────────────────────────────────────────────────────────*/
 #back-to-top {
     position: fixed;
     right: 1.5rem;
