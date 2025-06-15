@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Browse by Subject | Alice in Brussels</title>
+  <title>3D Walkthrough | Alice in Brussels</title>
   <link href="../css/theme.css" rel="stylesheet">
-  <link href="../css/pages/index.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/pages/videos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -78,99 +77,113 @@
     </div>
   </div>
 
-
-  <!-- ===== Landing Section ===== -->
-  <div class="container-fluid position-relative" id="landing-section" style="padding-top:6rem;">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Text & Buttons -->
-        <div class="col-lg-6 text-center">
-          <h1 class="landing-title">MONTESCA & ROVIGLIANO SCHOOLS EXHIBITIONS</h1>
-          <p class="landing-subtitle">Brussels 1910 — Città di Castello 2024</p>
-          <div class="landing-buttons d-flex flex-column align-items-center">
-            <a href="by-subject.html" class="btn btn-success btn-explore">EXPLORE THE EXHIBITION</a>
-            <div class="landing-buttons-row mt-3">
-              <a href="#" class="btn btn-outline-secondary">WATCH THE VIDEOS</a>
-              <a href="#" class="btn btn-dark">ACCESS THE CATALOGUE</a>
-            </div>
-          </div>
+  <!-- 3D Section -->
+  <div id="environment-3d-pane" style="padding-top:6rem;">
+    <div class="container text-center">
+      <h3 class="section-title mb-4">Explore the 3D Exhibition</h3>
+      <div class="environment-container position-relative" id="env-preview">
+        <img src="../assets/img/slider-1.jpeg" alt="3D Preview" class="w-100 rounded">
+        <div class="overlay">
+          <button class="btn explore-btn" onclick="showUnity()">Explore 3D Environment</button>
         </div>
-        <!-- Hero Image -->
-        <div class="col-lg-6 text-center">
-          <img src="../assets/img/1910-exibition.jpg" alt="1910 exhibition" class="img-fluid rounded">
-          <div class="landing-media-caption mt-2">
-            <em>Partecipazione Ufficiale dell’Italia all’Esposizione Universale e Internazionale di Bruxelles, 1910.</em><br>
-            (Cr. Biblioteca Ariostea, Ferrara)
-          </div>
-        </div>
+      </div>
+      <div id="unityContainer" style="display:none; margin-top:2rem;">
+        <button class="btn btn-outline-secondary mb-2" onclick="hideUnity()">✖ Close</button>
+        <iframe src="../WebGLBuild/index.html"
+                width="960" height="720" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-
-  <!-- ===== 3) Choose Your View ===== -->
-  <div id="choose-view" class="container text-center my-5">
-    <h2 class="mb-5">Explore the Exhibition</h2>
-    <div class="row g-4">
-
-      <!-- By Subject -->
-      <div class="col-sm-6">
-        <a href="by-subject.html" class="card view-card text-decoration-none">
-          <img src="../assets/img/slider-6.jpeg" alt="By Subject Thumbnail">
-          <div class="card-img-overlay">
-            <h5 class="card-title">By Subject</h5>
-            <p class="card-text">Browse the exhibition by subject</p>
-          </div>
-        </a>
-      </div>
-
-      <!-- 3D Walkthrough -->
-      <div class="col-sm-6">
-        <a href="3d-walkthrough.html" class="card view-card text-decoration-none">
-          <img src="../assets/img/slider-1.jpeg" alt="3D Walkthrough Thumbnail">
-          <i class="bi bi-play-circle-fill"></i>
-          <div class="card-img-overlay">
-            <h5 class="card-title">3D Walkthrough</h5>
-            <p class="card-text">Step inside the exhibition</p>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- ===== Footer ===== -->
+  <!-- ===== 16) Footer Section ===== -->
   <div class="container" id="footer">
-    <footer class="py-5 border-top">
-      <div class="d-flex flex-column flex-sm-row justify-content-between">
+    <footer class="py-5">
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
         <p>&copy; 2024 Company, Inc. All rights reserved.</p>
-        <ul class="list-unstyled d-flex mb-0">
-          <li class="ms-3"><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-          <li class="ms-3"><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-          <li class="ms-3"><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg>
+            </a>
+          </li>
         </ul>
       </div>
     </footer>
   </div>
 
-  <!-- ===== Back to Top ===== -->
+  <!-- ===== 17) Back to Top Button ===== -->
   <div id="back-to-top" class="back-to-top">&#8679;</div>
 
   <!-- ===== Scripts ===== -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
+  <script src="../js/script.js"></script>
   <script src="../js/theme.js"></script>
+
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1) Navbar items → slider panels
+      document.querySelectorAll('[data-panel-index]').forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const idx = parseInt(this.dataset.panelIndex, 10);
+          const targetPanel = document.querySelectorAll("#slider-section .panel")[idx];
+          if (targetPanel) targetPanel.click();
+        });
+      });
+  
+      // 8) Misc utilities
+      document.getElementById('back-to-top')?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  
+    // Language switcher
     function setLanguage(lang) {
-      document.getElementById('currentLanguageFlag').src = lang==='it'?'../assets/img/it.svg':'../assets/img/en.svg';
-      window.location.href = lang==='it'?'../it/index1.html':'../en/index.html';
+      const flag = document.getElementById('currentLanguageFlag');
+      flag.src = lang === 'it' ? '../assets/img/it.svg' : '../assets/img/en.svg';
+      window.location.href = lang === 'it' ? '../it/index1.html' : '../en/index.html';
     }
+  
+    // Unity toggle
+    function showUnity() {
+      document.getElementById('env-preview').style.display = 'none';
+      document.getElementById('unityContainer').style.display = 'block';
+    }
+    function hideUnity() {
+      document.getElementById('unityContainer').style.display = 'none';
+      document.getElementById('env-preview').style.display = 'block';
+    }
+  
+    // Video panel trigger
+    function triggerVideosPanel() {
+      const panel = document.getElementById('videos-panel');
+      if (panel) panel.click();
+    }
+  
+    // Open PDF
     function openPDF() {
-      window.open('../assets/document/CATALOGUE.pdf','_blank');
+      window.open('../assets/document/CATALOGUE.pdf', '_blank');
     }
-    document.getElementById('back-to-top').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
-  </script>
+  
+    // Popup open/close
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>   
 </body>
 </html>
