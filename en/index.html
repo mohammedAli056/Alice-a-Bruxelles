@@ -115,16 +115,14 @@
   <!-- ===== Choose Your View ===== -->
   <div id="choose-view" class="container text-center my-5">
     <h2 class="mb-5 text-white">Explore the Exhibition</h2>
-    <div class="row g-7">
+    <div class="row g-4">
 
-      <!-- By Subject (carousel with thumbnails) -->
+      <!-- By Components Carousel -->
       <div class="col-sm-6">
-        <div class="card view-card h-100 p-0 overflow-hidden">
-          <div
-            id="bySubjectCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
+        <a href="by-subject.html"
+          class="card view-card h-100 p-0 overflow-hidden text-decoration-none"
+        >
+          <div id="byComponentsCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="../assets/img/slider-7.jpeg" class="d-block w-100" alt="">
@@ -148,70 +146,57 @@
                 <img src="../assets/img/slider-5.jpeg" class="d-block w-100" alt="">
               </div>
             </div>
-      
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#bySubjectCarousel"
-              data-bs-slide="prev"
-            >
+            <button class="carousel-control-prev" type="button"
+                    data-bs-target="#byComponentsCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon"></span>
             </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#bySubjectCarousel"
-              data-bs-slide="next"
-            >
+            <button class="carousel-control-next" type="button"
+                    data-bs-target="#byComponentsCarousel" data-bs-slide="next">
               <span class="carousel-control-next-icon"></span>
             </button>
-      
             <div class="carousel-indicators thumbnails">
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="0" class="active">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="0" class="active">
                 <img src="../assets/img/slider-7.jpeg" alt="">
               </button>
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="1">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="1">
                 <img src="../assets/img/slider-1.jpeg" alt="">
               </button>
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="2">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="2">
                 <img src="../assets/img/slider-2.jpeg" alt="">
               </button>
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="3">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="3">
                 <img src="../assets/img/slider-6.jpeg" alt="">
               </button>
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="4">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="4">
                 <img src="../assets/img/slider-3.jpeg" alt="">
               </button>
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="5">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="5">
                 <img src="../assets/img/slider-4.jpeg" alt="">
               </button>
-              <button data-bs-target="#bySubjectCarousel" data-bs-slide-to="6">
+              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="6">
                 <img src="../assets/img/slider-5.jpeg" alt="">
               </button>
             </div>
           </div>
-      
+
           <div class="card-body bg-transparent text-center">
-            <h5 class="card-title mb-1 text-white">By Components</h5>
+            <h5 class="card-title text-white">By Components</h5>
             <p class="card-text small text-white">A slider of images by components</p>
           </div>
-        </div>
+        </a>
       </div>
-      
-      <!-- 3D Walkthrough -->
+
+      <!-- 3D Exhibition -->
       <div class="col-sm-6">
-        <a
-          href="3d-walkthrough.html"
+        <a href="3d-exhibition.html"
           class="card view-card h-100 text-decoration-none position-relative overflow-hidden"
         >
-          <img
-            src="../assets/img/slider-1.jpeg"
-            class="card-img-top"
-            alt="3D Walkthrough Thumbnail"
-          >
+          <img src="../assets/img/slider-1.jpeg"
+              class="card-img-top"
+              alt="3D Exhibition Thumbnail">
           <i class="bi bi-play-circle-fill play-overlay"></i>
           <div class="card-body bg-transparent text-center">
-            <h5 class="card-title text-white">3D Walkthrough</h5>
+            <h5 class="card-title text-white">3D Exhibition</h5>
             <p class="card-text text-white">Step inside the exhibition</p>
           </div>
         </a>
@@ -220,17 +205,11 @@
     </div>
   </div>
 
-
   <!-- ===== Footer ===== -->
-  <div class="container" id="footer">
+  <div id="footer" class="container text-center my-5">
     <footer class="py-5 border-top">
       <div class="d-flex flex-column flex-sm-row justify-content-between">
         <p>&copy; 2024 Company, Inc. All rights reserved.</p>
-        <ul class="list-unstyled d-flex mb-0">
-          <li class="ms-3"><a href="#"><svg class="bi" width="24"><use xlink:href="#twitter"/></svg></a></li>
-          <li class="ms-3"><a href="#"><svg class="bi" width="24"><use xlink:href="#instagram"/></svg></a></li>
-          <li class="ms-3"><a href="#"><svg class="bi" width="24"><use xlink:href="#facebook"/></svg></a></li>
-        </ul>
       </div>
     </footer>
   </div>
