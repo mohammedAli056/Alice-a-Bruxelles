@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exhibition Catalogues | Alice in Brussels</title>
+  <link href="../css/theme.css" rel="stylesheet">
+  <link href="../css/pages/catalogues.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== 1) Navbar Section ===== -->
+  <div class="nav container-fluid fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/img/website-icon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+          ALICE IN BRUSSELS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html#landing-section">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="#environment-3d-pane">EXHIBITION IN 3D</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
+              <ul class="dropdown-menu">
+                <a class="dropdown-item" href="#" data-panel-index="0">The History of the Schools in 2 Videos</a>
+                <a class="dropdown-item" href="#" data-panel-index="1">La Montesca School: A Story of Women</a>
+                <a class="dropdown-item" href="#" data-panel-index="2">Photos and Alice’s Letters to Maria Pasqui</a>
+                <a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a>
+                <a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a>
+                <a class="dropdown-item" href="#" data-panel-index="5">The Reconstruction of the Schools’ Stand</a>
+                <a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">VIDEOS</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="scrollToVideo(); return false;">Alice in Brussels: An Introduction to the Exhibit</a></li>
+                <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">The Baroness and the Barefoot Children</a></li>
+                <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">The Montesca Schools at the 1910 World Fair</a></li>
+                <li><a class="dropdown-item" href="#">Symposium - Excerpts</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#" onclick="openPDF()">CATALOGUE</a></li>
+            <li class="nav-item"><a class="nav-link" href="../en/about-us.html">CREDITS</a></li>
+
+            <!-- Language Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <img src="../assets/img/en.svg" alt="English" width="20" id="currentLanguageFlag">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                    <img src="../assets/img/en.svg" width="20" class="me-2"> English
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                    <img src="../assets/img/it.svg" width="20" class="me-2"> Italiano
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Catalogue Section -->
+  <div id="catalogues" style="padding-top:6rem;">
+    <div class="container text-center">
+      <h3 class="section-title mb-4">Exhibition Catalogues</h3>
+  
+      <!-- Two-column flex layout -->
+      <div class="d-flex flex-column flex-md-row gap-4">
+        
+        <!-- Left PDF -->
+        <div class="flex-fill">
+          <h5 class="text-center text-white mb-3">Full Exhibition Catalogue</h5>
+          <iframe
+            src="../assets/document/CATALOGUE.pdf#toolbar=0&navpanes=0&scrollbar=1"
+            width="100%"
+            height="600"
+            style="border: none;"
+          ></iframe>
+        </div>
+  
+        <!-- Right PDF -->
+        <div class="flex-fill">
+          <h5 class="text-center text-white mb-3">1910 World Fair Catalogue</h5>
+          <iframe
+            src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
+            width="100%"
+            height="600"
+            style="border: none;"
+          ></iframe>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 16) Footer Section ===== -->
+  <div class="container" id="footer">
+    <footer class="py-5">
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p>&copy; 2024 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== 17) Back to Top Button ===== -->
+  <div id="back-to-top" class="back-to-top">&#8679;</div>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/imageMapResizer.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/theme.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1) Navbar items → slider panels
+      document.querySelectorAll('[data-panel-index]').forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const idx = parseInt(this.dataset.panelIndex, 10);
+          const targetPanel = document.querySelectorAll("#slider-section .panel")[idx];
+          if (targetPanel) targetPanel.click();
+        });
+      });
+  
+      // 8) Misc utilities
+      document.getElementById('back-to-top')?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  
+    // Language switcher
+    function setLanguage(lang) {
+      const flag = document.getElementById('currentLanguageFlag');
+      flag.src = lang === 'it' ? '../assets/img/it.svg' : '../assets/img/en.svg';
+      window.location.href = lang === 'it' ? '../it/index1.html' : '../en/index.html';
+    }
+  
+    // Unity toggle
+    function showUnity() {
+      document.getElementById('env-preview').style.display = 'none';
+      document.getElementById('unityContainer').style.display = 'block';
+    }
+    function hideUnity() {
+      document.getElementById('unityContainer').style.display = 'none';
+      document.getElementById('env-preview').style.display = 'block';
+    }
+  
+    // Video panel trigger
+    function triggerVideosPanel() {
+      const panel = document.getElementById('videos-panel');
+      if (panel) panel.click();
+    }
+  
+    // Open PDF
+    function openPDF() {
+      window.open('../assets/document/CATALOGUE.pdf', '_blank');
+    }
+  
+    // Popup open/close
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>   
+</body>
+</html>
