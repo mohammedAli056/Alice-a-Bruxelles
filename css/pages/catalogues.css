@@ -52,7 +52,7 @@
 }
 
 /* Adding to fix the dropdown menu on mobile */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   .dropdown-menu {
     left: 0 !important;
     right: 0 !important;
@@ -60,4 +60,4 @@
     margin: 0 auto !important;
     border-radius: 0 !important; /* Optional: make it flush with screen edge */
   }
-}
+} */
