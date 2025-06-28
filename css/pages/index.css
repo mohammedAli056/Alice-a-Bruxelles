@@ -31,29 +31,6 @@
     margin-bottom: 2rem;
     font-weight: 400;
 }
-/* side-by-side landing buttons */
-.landing-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-.landing-buttons .btn {
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
-.btn-explore {
-    font-size: 1.15rem !important;
-    padding: 1rem 2rem !important;
-    font-weight: 700 !important;
-}
 
 /* full-bleed, centered video wrapper */
 .landing-media-wrapper {
@@ -67,7 +44,7 @@
 .landing-media-video {
     margin-top: -1.5rem;
     display: block;
-    width: 100%;
+    width: 60%;
     height: auto;
 }
 .landing-media-caption {
@@ -77,6 +54,34 @@
     font-size: 0.75rem;
     color: #555;
 }
+
+
+
+/*───────────────────────────────────────────────────────────────────────────────
+   SCROLL-DOWN INDICATOR
+───────────────────────────────────────────────────────────────────────────────*/
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  
+  .scroll-down .chevron {
+    display: block;
+    font-size: 2rem;
+    color: rgba(0,0,0,0.5);
+    animation: scroll-bounce 2s infinite;
+  }
+  
+  @keyframes scroll-bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40%                  { transform: translateY(8px) translateX(-50%); }
+    60%                  { transform: translateY(4px) translateX(-50%); }
+  }  
+
 
 /*───────────────────────────────────────────────────────────────────────────────
     3. “CHOOSE YOUR VIEW” CARDS
