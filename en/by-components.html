@@ -8,8 +8,8 @@
   <link href="../css/pages/by-components.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body>
 
+<body>
   <!-- ===== 1) Navbar Section ===== -->
   <div class="nav container-fluid fixed-top">
     <div class="container">
@@ -79,44 +79,45 @@
   </div>
   
   <!-- ===== 3) Explore By Components (Slider) ===== -->
-  <div class="container-fluid" id="explore-by-components">
+  <div id="explore-by-components" style="padding-top:6rem;">
     <div class="container text-center mb-4">
-      <div class="slider-header mx-auto" style="max-width: 960px;">
-        <h2>Explore the Exhibition by Components</h2>
-        <div class="slider-instructions">
-          CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION
-        </div>
+      <div class="slider-header mx-auto">
+        <h1>Explore the Exhibition by Components</h1>
+        <h5>CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION</h5>
       </div>
     </div>
 
-    <div class="accordion container-fluid" id="slider-section">
-      <div id="videos-panel" class="panel">
-        <img src="../assets/img/slider-7.jpeg" alt="Videos">
-        <div class="panel-caption">The History of the Schools in 2 Videos</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
-        <div class="panel-caption">La Montesca School: A Story of Women</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-2.jpeg" alt="Photos & Letters">
-        <div class="panel-caption">Photos and Alice’s Letters to Maria Pasqui</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-6.jpeg" alt="Montessori Materials">
-        <div class="panel-caption">Montessori and International Teaching Materials</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
-        <div class="panel-caption">The 1910 World Fair Exhibition & Catalogue Raisonné</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
-        <div class="panel-caption">The Reconstruction of the Schools’ Stand</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-5.jpeg" alt="Visitors’ Guide">
-        <div class="panel-caption">Exhibition Project; Visitors’ Guide, Credits</div>
+    <!-- slider‐section now separates from accordion -->
+    <div id="slider-section" class="container-fluid">
+      <div class="accordion">
+        <div id="videos-panel" class="panel">
+          <img src="../assets/img/slider-7.jpeg" alt="Videos">
+          <div class="panel-caption">The History of the Schools in 2 Videos</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
+          <div class="panel-caption">La Montesca School: A Story of Women</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-2.jpeg" alt="Photos & Letters">
+          <div class="panel-caption">Photos and Alice’s Letters to Maria Pasqui</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-6.jpeg" alt="Montessori Materials">
+          <div class="panel-caption">Montessori and International Teaching Materials</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
+          <div class="panel-caption">The 1910 World Fair Exhibition & Catalogue Raisonné</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
+          <div class="panel-caption">The Reconstruction of the Schools’ Stand</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-5.jpeg" alt="Visitors’ Guide">
+          <div class="panel-caption">Exhibition Project; Visitors’ Guide, Credits</div>
+        </div>
       </div>
     </div>
   </div>
@@ -128,7 +129,7 @@
       <div class="row align-items-start">
         <!-- 4.1) Video: The Baroness and the Barefoot Children -->
         <div id="video2-container" class="col-md-6 mb-4">
-          <h3 class="text-center mb-4">The Baroness and the Barefoot Children</h3>
+          <h1 class="text-center mb-4">The Baroness and the Barefoot Children</h1>
           <div class="ratio ratio-16x9">
             <iframe
               src="https://www.youtube.com/embed/8Q7N5qP0Yc4?si=J1uHctloucfDXAEp"
@@ -142,7 +143,7 @@
 
         <!-- 4.2) Video: The Montesca Schools at the 1910 World Fair -->
         <div id="video3-container" class="col-md-6 mb-4">
-          <h3 class="text-center mb-4">The Montesca Schools at the 1910 World Fair</h3>
+          <h1 class="text-center mb-4">The Montesca Schools at the 1910 World Fair</h1>
           <div class="ratio ratio-16x9">
             <iframe
               src="https://www.youtube.com/embed/OnbyfdafI-k?si=iIsB9aQI8DR8CALN"
@@ -274,7 +275,7 @@
                 usemap="#back-wall-map"
                 loading="eager">
             <div class="card-body text-center">
-              <h3 class="card-text">Click any Frame to Enlarge</h3>
+              <h1 class="card-text">Click any Frame to Enlarge</h1>
             </div>
           </div>
         </div>
@@ -426,7 +427,7 @@
   <div id="front-wall" class="container-fluid content-start" style="display: none;">
     <div class="row justify-content-center">
       <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-        <h3 class="text-center mb-4">The 1910 Exhibition</h3>
+        <h1 class="text-center mb-4">The 1910 Exhibition</h1>
         <img src="../assets/img/front-wall.png" class="d-block w-100 rounded"
               style="border-radius: 15px;" alt="Front Wall">
         <p class="text-left mt-3">
@@ -436,7 +437,7 @@
         </p>
         <!-- 9.1) Embedded PDF Catalogue -->
         <div class="mt-5">
-          <h3 class="text-center">1910 Catalogue</h3>
+          <h1 class="text-center">1910 Catalogue</h1>
           <iframe src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
                   width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
         </div>
@@ -448,9 +449,9 @@
   <!-- ===== 10) The Reconstructed Schools’ Stand ===== -->
   <div id="stand" class="container-fluid content-start" style="display: none;">
     <div class="container md-6">
-      <h3 class="text-center mb-4 stand-title">
+      <h1 class="text-center mb-4 stand-title">
         Montessori Material, Multilingual Learning Resources, World Fair Documents
-      </h3>
+      </h1>
       <p class="text-center mb-4"><em>The Display</em></p>
 
       <div style="max-width: 750px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
@@ -475,10 +476,10 @@
       <!-- 11.1) Headings: Introduction / Visitor Guide -->
       <div class="row justify-content-center">
         <div class="col-md-4 text-center">
-          <h3 class="panel-title mb-4">Introduction</h3>
+          <h1 class="panel-title mb-4">Introduction</h1>
         </div>
         <div class="col-md-4 text-center">
-          <h3 class="panel-title mb-4">Visitor Guide</h3>
+          <h1 class="panel-title mb-4">Visitor Guide</h1>
         </div>
       </div>
 
@@ -589,12 +590,20 @@
 
   <!-- ===== 17) Back to Top Button ===== -->
   <div id="back-to-top" class="back-to-top">&#8679;</div>
-
+  
   <!-- ===== Scripts ===== -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
   <script src="../js/script.js"></script>
+
+  <!-- disable browser scroll-restoration (so you always start at the top) -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
+
   <script src="../js/theme.js"></script>
 
   <script>
@@ -649,7 +658,6 @@
             const contentEl = document.getElementById(contentId);
             if (contentEl) {
               contentEl.style.display = "block";
-              contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           }
         });
@@ -666,7 +674,6 @@
           const target = document.getElementById(`silhouette-${idx}`);
           if (target) {
             target.style.display = 'block';
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });
@@ -721,11 +728,7 @@
       closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
       });
-  
-      // 8) Misc utilities
-      document.getElementById('back-to-top')?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+
     });
   
     // Language switcher
@@ -754,6 +757,6 @@
       document.getElementById(id).style.display = 'none';
     }
 
-  </script>   
+  </script>
 </body>
 </html>

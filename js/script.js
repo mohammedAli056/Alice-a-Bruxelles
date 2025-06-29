@@ -52,89 +52,65 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleCentering();
     window.addEventListener('resize', toggleCentering);
 
-    // SLIDER SECTION INTERACTION
     const sliderPanels = document.querySelectorAll('#slider-section .panel');
+    const sectionMap = {
+        0: 'video',
+        1: 'right-wall',
+        2: 'silhouettes-accordion',
+        3: 'stand',
+        4: 'front-wall',
+        5: 'back-wall',
+        6: 'ceiling'
+    };
 
-    if (sliderPanels.length > 0) {
-        const sectionMap = {
-            0: 'video',
-            1: 'right-wall',
-            2: 'silhouettes-accordion',
-            3: 'stand', // Right Wall Panels
-            4: 'front-wall',
-            5: 'back-wall',
-            6: 'ceiling'
-        };
-
-        function hideAllSections() {
-            ['video', 'stand', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
-                const section = document.getElementById(id);
-                if (section) section.style.display = 'none';
-            });
-        }
-
-        hideAllSections();
-
-        sliderPanels.forEach((panel, index) => {
-            panel.addEventListener('click', function (e) {
-                e.stopPropagation();
-                sliderPanels.forEach(p => p.classList.remove('active'));
-                this.classList.add('active');
-                hideAllSections();
-
-                const sectionId = sectionMap[index];
-
-                if (sectionId === 'silhouettes-accordion') {
-                    const imageAccordion = document.getElementById('image-accordion');
-                    const silhouettesSection = document.getElementById('silhouettes');
-
-                    if (imageAccordion) imageAccordion.style.display = 'flex';
-                    if (silhouettesSection) silhouettesSection.style.display = 'block';
-
-                    document.querySelectorAll('.silhouette-container').forEach(s => s.classList.remove('active'));
-                    document.getElementById('silhouette-1')?.classList.add('active');
-
-                    document.querySelectorAll('#image-accordion .panel').forEach(p => p.classList.remove('active'));
-                    document.querySelector('#image-accordion .panel')?.classList.add('active');
-
-                    imageAccordion?.scrollIntoView({behavior: 'smooth'});
-                } else if (sectionId === 'back-wall') {
-                const backWall = document.getElementById('back-wall');
-                const backWallPanels = document.getElementById('back-wall-panels');
-
-                if (backWall) backWall.style.display = 'block';
-                if (backWallPanels) backWallPanels.style.display = 'block';
-
-                // Fix: Reinitialize image map after display change
-                setTimeout(() => {
-                    initImageMap();
-                }, 100);
-
-                backWall?.scrollIntoView({ behavior: 'smooth' });
-                } else if (sectionId === 'right-wall') {
-                    const rightWall = document.getElementById('right-wall');
-                    if (rightWall) {
-                        rightWall.style.display = 'block';
-                        rightWall.scrollIntoView({behavior: 'smooth'});
-                    }
-                } else if (sectionId) {
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                        section.style.display = 'block';
-                        section.scrollIntoView({behavior: 'smooth'});
-                    }
-                }
-            });
+    function hideAllSections() {
+        [
+            'video','stand','front-wall','back-wall',
+            'back-wall-panels','image-accordion','silhouettes',
+            'ceiling','right-wall'
+        ].forEach(id => {
+            const sec = document.getElementById(id);
+            if (sec) sec.style.display = 'none';
         });
-        window.scrollTo({top: 0, behavior: 'smooth'});
-
-        // Activate "Right Wall Panels" by default (index 3)
-        const rightWallPanel = sliderPanels[3];
-        if (rightWallPanel) {
-            rightWallPanel.click();
-        }
-
     }
+    hideAllSections();
+
+    sliderPanels.forEach((panel, idx) => {
+        panel.addEventListener('click', e => {
+            e.stopPropagation();
+            sliderPanels.forEach(p => p.classList.remove('active'));
+            panel.classList.add('active');
+
+            hideAllSections();
+            const sectionId = sectionMap[idx];
+
+            if (sectionId === 'silhouettes-accordion') {
+            document.getElementById('image-accordion').style.display = 'flex';
+            document.getElementById('silhouettes').style.display = 'block';
+
+            document.querySelectorAll('.silhouette-container')
+                .forEach(s => s.classList.remove('active'));
+            document.getElementById('silhouette-1').classList.add('active');
+
+            document.querySelectorAll('#image-accordion .panel')
+                .forEach(p => p.classList.remove('active'));
+            document.querySelector('#image-accordion .panel')
+                .classList.add('active');
+
+            } else if (sectionId === 'back-wall') {
+            document.getElementById('back-wall').style.display = 'block';
+            document.getElementById('back-wall-panels').style.display = 'block';
+            setTimeout(initImageMap, 100);
+
+            } else if (sectionId === 'right-wall') {
+            document.getElementById('right-wall').style.display = 'block';
+
+            } else if (sectionId) {
+            document.getElementById(sectionId).style.display = 'block';
+            }
+        });
+    });
+
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
     const imageAccordionPanels = document.querySelectorAll('#image-accordion .panel');

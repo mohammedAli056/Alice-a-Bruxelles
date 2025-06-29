@@ -36,7 +36,8 @@ map area:hover {
 ───────────────────────────────────────────────────────────────────────────────*/
 
 #explore-by-components {
-    padding: 4rem 0 4rem;
+    min-height: 100vh;
+    box-sizing: border-box;
     border-bottom: 1px solid #e9ecef;
     color: #fff;
 }
@@ -48,37 +49,9 @@ map area:hover {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-#slider-section .slider-header {
-    text-align: left;
-    padding: 0 30px;
-    margin-bottom: 10px;
-}
-
-#slider-section .slider-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-#slider-section .slider-instructions {
-    font-size: 14px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#slider-section .slider-instructions::after {
-    content: '→';
-    margin-left: 5px;
-    font-size: 18px;
-}
-
 #slider-section .accordion {
-    height: 250px;
-    max-width: 75%;
+    height: 550px;
+    max-width: 80%;
     width: 100%;
     margin: 0 auto;
     background-color: transparent;
