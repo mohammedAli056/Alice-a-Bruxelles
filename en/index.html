@@ -129,73 +129,35 @@
     <h1 class="mb-5 text-white">Visit the Exhibition</h1>
     <div class="row g-4">
 
-      <!-- By Components Carousel -->
+      <!-- By Components Static Card -->
       <div class="col-sm-4">
         <a href="by-components.html"
-          class="card view-card h-100 p-0 overflow-hidden text-decoration-none"
-        >
-          <div id="byComponentsCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../assets/img/slider-7.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-1.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-2.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/display.jpg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-3.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-4.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-5.jpeg" class="d-block w-100" alt="">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button"
-                    data-bs-target="#byComponentsCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button"
-                    data-bs-target="#byComponentsCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-            <div class="carousel-indicators thumbnails">
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="0" class="active">
-                <img src="../assets/img/slider-7.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="1">
-                <img src="../assets/img/slider-1.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="2">
-                <img src="../assets/img/slider-2.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="3">
-                <img src="../assets/img/display.jpg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="4">
-                <img src="../assets/img/slider-3.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="5">
-                <img src="../assets/img/slider-4.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="6">
-                <img src="../assets/img/slider-5.jpeg" alt="">
-              </button>
+          class="card view-card h-100 p-0 overflow-hidden text-decoration-none">
+
+          <!-- image container -->
+          <div class="image-stack">
+            <!-- Main image, full 450px tall -->
+            <img 
+              src="../assets/img/slider-7.jpeg" 
+              class="main-image" 
+              alt="Explore the Components"
+            >
+
+            <!-- Thumbnails overlaid on bottom of the main image -->
+            <div class="static-thumbs">
+              <img src="../assets/img/slider-7.jpeg" class="thumb" alt="">
+              <img src="../assets/img/slider-1.jpeg" class="thumb" alt="">
+              <img src="../assets/img/slider-2.jpeg" class="thumb" alt="">
+              <img src="../assets/img/display.jpg"   class="thumb" alt="">
             </div>
           </div>
 
+          <!-- Caption -->
           <div class="card-body bg-transparent text-center">
             <h5 class="card-title text-white">EXPLORE</h5>
             <h5 class="card-title text-white">THE COMPONENTS</h5>
-
           </div>
+
         </a>
       </div>
 
