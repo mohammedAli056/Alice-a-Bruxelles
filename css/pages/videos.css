@@ -31,6 +31,26 @@ map area:hover {
     outline: 2px solid rgba(255, 0, 0, 0.5);
 }
 
+/* Interactive display hover tooltip */
+.interactive-hover-tooltip {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.interactive-hover-tooltip img {
+    height: 200px;
+    width: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
 /*───────────────────────────────────────────────────────────────────────────────
   2. LANDING SECTION (HERO) 
 ───────────────────────────────────────────────────────────────────────────────*/
@@ -444,17 +464,49 @@ map area:hover {
     min-width: 90px;
     position: relative;
     border-radius: 13px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.back-wall-panel:hover {
-    transform: scale(1.05);
+/* Hover effect for back-wall panels */
+.back-wall-panel .small {
+    display: block;
+    height: 100px !important;
+    width: auto !important;
+    cursor: pointer;
+    object-fit: contain;
 }
 
-.back-wall-panel img {
+.back-wall-panel .large img {
+    display: block;
+    height: 200px !important;
+    width: auto !important;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 3px rgba(127, 127, 127, 0.15);
+    object-fit: contain;
+}
+
+.back-wall-panel .large {
+    position: absolute;
+    left: -9999px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.back-wall-panel:hover .large {
+    left: 20px;
+    top: -140px;
+}
+
+/* Disable the scale transform when we have the hover effect */
+.back-wall-panel:hover {
+    transform: none;
+}
+
+/* General image styling for back-wall panels */
+.back-wall-panel img:not(.small):not(.large img) {
     display: block;
     width: 100%;
     height: auto;

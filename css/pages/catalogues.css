@@ -1,46 +1,63 @@
-/* 5. CATALOGUES SECTION */
+/* Section background & spacing */
 #catalogues {
-  background-color: #fff;   
-  padding: 4rem 0;
-  color: #212529;            
+    padding: 3rem 0;
 }
-
-/* Two-col flex layout */
+  
+/* Centered heading */
+#catalogues h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+  
+/* Flex container: stacks on mobile, two-col on md+ */
 #catalogues .d-flex {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
-@media (min-width: 768px) {
-  #catalogues .d-flex {
-    flex-direction: row;
-  }
+  @media (min-width: 768px) {
+    #catalogues .d-flex {
+      flex-direction: row;
+    }
 }
-
-/* PDF cards */
+  
+/* Each column grows equally */
 #catalogues .flex-fill {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  height: 600px;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
-
-/* Titles above each PDF */
+  
+/* Sub-titles above each PDF */
 #catalogues h5 {
-  margin: 1rem 0;
-  color: #212529;
-  font-size: 1.25rem;
-  font-weight: 500;
-  text-align: center;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1rem;
 }
-
-/* Make the iframe fill its card */
+  
+/* Iframe styling */
 #catalogues iframe {
     flex-grow: 1;
     width: 100%;
-    height: 100%;
+    height: 600px;
     border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
 }
+
+/* Adding to fix the dropdown menu on mobile */
+/*@media (max-width: 768px) {
+  .dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-radius: 0 !important; /* Optional: make it flush with screen edge */
+  }
+} */

@@ -19,7 +19,6 @@
 /* Ensure image map areas are always interactive */
 #back-wall-image {
     pointer-events: auto !important;
-    max-height: calc(100vh - 15rem);
 }
 
 map area {
@@ -32,13 +31,32 @@ map area:hover {
     outline: 2px solid rgba(255, 0, 0, 0.5);
 }
 
+/* Interactive display hover tooltip */
+.interactive-hover-tooltip {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.interactive-hover-tooltip img {
+    height: 200px;
+    width: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
 /*───────────────────────────────────────────────────────────────────────────────
   3. “EXPLORE BY COMPONENENTS" SLIDER
 ───────────────────────────────────────────────────────────────────────────────*/
 
 #explore-by-components {
-    min-height: 100vh;
-    box-sizing: border-box;
+    padding: 4rem 0 4rem;
     border-bottom: 1px solid #e9ecef;
     color: #fff;
 }
@@ -50,9 +68,37 @@ map area:hover {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+#slider-section .slider-header {
+    text-align: left;
+    padding: 0 30px;
+    margin-bottom: 10px;
+}
+
+#slider-section .slider-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#slider-section .slider-instructions {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#slider-section .slider-instructions::after {
+    content: '→';
+    margin-left: 5px;
+    font-size: 18px;
+}
+
 #slider-section .accordion {
-    height: 550px;
-    max-width: 80%;
+    height: 250px;
+    max-width: 75%;
     width: 100%;
     margin: 0 auto;
     background-color: transparent;
@@ -125,6 +171,10 @@ map area:hover {
   5. BACK‐WALL PANEL SECTION
 ───────────────────────────────────────────────────────────────────────────────*/
 
+#back-wall {
+    padding: 3rem 0;
+}
+
 #back-wall .container h2 {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -144,17 +194,49 @@ map area:hover {
     min-width: 90px;
     position: relative;
     border-radius: 13px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.back-wall-panel:hover {
-    transform: scale(1.05);
+/* Hover effect for back-wall panels */
+.back-wall-panel .small {
+    display: block;
+    height: 100px !important;
+    width: auto !important;
+    cursor: pointer;
+    object-fit: contain;
 }
 
-.back-wall-panel img {
+.back-wall-panel .large img {
+    display: block;
+    height: 200px !important;
+    width: auto !important;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 3px rgba(127, 127, 127, 0.15);
+    object-fit: contain;
+}
+
+.back-wall-panel .large {
+    position: absolute;
+    left: -9999px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.back-wall-panel:hover .large {
+    left: 20px;
+    top: -140px;
+}
+
+/* Disable the scale transform when we have the hover effect */
+.back-wall-panel:hover {
+    transform: none;
+}
+
+/* General image styling for back-wall panels */
+.back-wall-panel img:not(.small):not(.large img) {
     display: block;
     width: 100%;
     height: auto;
@@ -182,20 +264,19 @@ map area:hover {
   6. RIGHT WALL PANEL SECTION
 ───────────────────────────────────────────────────────────────────────────────*/
 
-#right-wall .right-wall-photos {
-    display: flex;
-    justify-content: center;
-    column-gap: 8rem;
-    align-items: flex-start;
-    max-height: calc(100vh - 6rem);
-    overflow: hidden;
+#right-wall {
+    padding: 3rem 0;
+    background-color: transparent;
 }
 
-/* ensure each img inside scales down to fit that max-height */
-#right-wall .right-wall-photos img {
-    max-height: 100%;
-    width: auto;
-    object-fit: contain;
+#right-wall .container {
+    max-width: 90%;
+}
+
+#right-wall .right-wall-photos {
+    display: flex;             
+    justify-content: center;   
+    column-gap: 8rem;         
 }
 
 #right-wall .container > .row:first-of-type {
@@ -228,7 +309,9 @@ map area:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;}
+    gap: 2rem;
+    padding: 2rem 0;
+}
 
 .right-wall-panel-container {
     flex: 1;
@@ -363,13 +446,17 @@ map area:hover {
 
 /* Hidden content sections */
 #video,
-#image-accordion,
-#silhouettes,
 #front-wall,
 #back-wall,
 #right-wall {
     display: none;
     transition: opacity 0.3s ease;
+}
+
+/* Video Section styling */
+#video {
+    background-color: transparent;
+    padding: 3rem 0;
 }
 
 #video .container {
@@ -420,24 +507,6 @@ map area:hover {
         margin-bottom: 2rem;
     }
 }
-
-#video .ratio {
-  position: relative !important;
-  padding-bottom: 0 !important;
-  width: 70%;
-  max-width: 750px;
-  margin: 0 auto 2rem;
-  aspect-ratio: 16/9;
-}
-
-#video .ratio iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 
 /* Style for the videos section cards if used */
 #video .card {
@@ -506,21 +575,20 @@ map area:hover {
 /* Image accordion section */
 #image-accordion {
     width: 100%;
-    padding: 3rem 0 1rem 0;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
+    background-color: var(--bs-secondary-bg);
 }
 
 .accordion {
     display: flex;
     width: 90%;
     max-width: 1000px;
-    height: 665px;
+    height: 400px;
     overflow: hidden;
     border-radius: 20px;
     gap: 5px;
-    margin: 0 auto;         
-    justify-content: center;
 }
 
 .accordion .panel {
@@ -886,37 +954,34 @@ map area:hover {
   13. UNIFIED PADDING FOR ALL “HIDDEN” PANELS
 ───────────────────────────────────────────────────────────────────────────────*/
 
-#video,
-#silhouettes,
-#back-wall-panels,
-#stand,
 #front-wall,
-#back-wall,
-#right-wall {
-    padding: 3rem ;
+#stand,
+#back-wall-panels,
+#image-accordion,
+#image-accordion,
+#silhouettes {
+    padding: 3rem 0;
 }
 
-
-/* in by-components.css or your custom css */
-#front-wall .front-media {
-  width: 100%;
-  /* leave room for your <h1> + <p> captions */
-  max-height: calc(100vh - 8rem);
-  object-fit: contain;
+/* Hybrid hover pin effect for interactive display */
+.frame-pin .large {
+  position: absolute;
+  left: 20px;
+  top: -140px;
+  z-index: 10;
+  display: none;
 }
-#front-wall .front-inner {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+.frame-pin:hover .large {
+  display: block;
 }
-#front-wall .front-title {
-  margin-bottom: 1rem;
+.frame-pin .small {
+  height: 100px;
+  width: auto;
+  cursor: pointer;
 }
-#front-wall .front-media {
-  flex: 1;
-  object-fit: contain;
-  width: 100%;
-}
-#front-wall .front-caption {
-  margin: 1rem 0;
+.frame-pin .large img {
+  height: 200px;
+  width: auto;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 3px rgba(127, 127, 127, 0.15);
 }
