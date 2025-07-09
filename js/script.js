@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.querySelector('.navbar-toggler');
     const dropdowns = document.querySelectorAll('.nav-item.dropdown');
     const navbarCollapse = document.querySelector('.navbar-collapse');
+    const backWallImage = document.getElementById('back-wall-image');
 
     // Check page scroll for navbar style changes
     const checkScroll = () => {
@@ -22,6 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
             backToTopButton.style.display = "none";
         }
     };
+
+    // Initialize back wall hotspots when image loads
+    if (backWallImage) {
+        if (backWallImage.complete && backWallImage.naturalWidth > 0) {
+            window.requestAnimationFrame(initBackWallHotspotsOnce);
+        } else {
+            backWallImage.addEventListener('load', () => {
+                window.requestAnimationFrame(initBackWallHotspotsOnce);
+            });
+        }
+    }
 
     backToTopButton.onclick = function () {
         document.body.scrollTop = 0;
@@ -52,89 +64,105 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleCentering();
     window.addEventListener('resize', toggleCentering);
 
-    // SLIDER SECTION INTERACTION
-    const sliderPanels = document.querySelectorAll('#slider-section .panel');
+    // FIXED SLIDER SECTION INTERACTION
+const sliderPanels = document.querySelectorAll('#slider-section .panel');
 
-    if (sliderPanels.length > 0) {
-        const sectionMap = {
-            0: 'video',
-            1: 'right-wall',
-            2: 'silhouettes-accordion',
-            3: 'stand', // Right Wall Panels
-            4: 'front-wall',
-            5: 'back-wall',
-            6: 'ceiling'
-        };
+if (sliderPanels.length > 0) {
+    // CORRECTED section mapping to match your HTML structure
+    const sectionMap = {
+        0: 'video',                    // Videos panel
+        1: 'silhouettes-accordion',    // La Montesca School
+        2: 'image-accordion',          // Photos & Letters (if you have this)
+        3: 'back-wall-panels',         // Montessori Materials (ceiling panels)
+        4: 'front-wall',               // 1910 Exhibition
+        5: 'back-wall',                // Back Wall - THE SECTION WITH HOTSPOTS
+        6: 'right-wall'                // Visitors' Guide
+    };
 
-        function hideAllSections() {
-            ['video', 'stand', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
-                const section = document.getElementById(id);
-                if (section) section.style.display = 'none';
-            });
-        }
-
-        hideAllSections();
-
-        sliderPanels.forEach((panel, index) => {
-            panel.addEventListener('click', function (e) {
-                e.stopPropagation();
-                sliderPanels.forEach(p => p.classList.remove('active'));
-                this.classList.add('active');
-                hideAllSections();
-
-                const sectionId = sectionMap[index];
-
-                if (sectionId === 'silhouettes-accordion') {
-                    const imageAccordion = document.getElementById('image-accordion');
-                    const silhouettesSection = document.getElementById('silhouettes');
-
-                    if (imageAccordion) imageAccordion.style.display = 'flex';
-                    if (silhouettesSection) silhouettesSection.style.display = 'block';
-
-                    document.querySelectorAll('.silhouette-container').forEach(s => s.classList.remove('active'));
-                    document.getElementById('silhouette-1')?.classList.add('active');
-
-                    document.querySelectorAll('#image-accordion .panel').forEach(p => p.classList.remove('active'));
-                    document.querySelector('#image-accordion .panel')?.classList.add('active');
-
-                    imageAccordion?.scrollIntoView({behavior: 'smooth'});
-                } else if (sectionId === 'back-wall') {
-                const backWall = document.getElementById('back-wall');
-                const backWallPanels = document.getElementById('back-wall-panels');
-
-                if (backWall) backWall.style.display = 'block';
-                if (backWallPanels) backWallPanels.style.display = 'block';
-
-                // Fix: Reinitialize image map after display change
-                setTimeout(() => {
-                    initImageMap();
-                }, 100);
-
-                backWall?.scrollIntoView({ behavior: 'smooth' });
-                } else if (sectionId === 'right-wall') {
-                    const rightWall = document.getElementById('right-wall');
-                    if (rightWall) {
-                        rightWall.style.display = 'block';
-                        rightWall.scrollIntoView({behavior: 'smooth'});
-                    }
-                } else if (sectionId) {
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                        section.style.display = 'block';
-                        section.scrollIntoView({behavior: 'smooth'});
-                    }
-                }
-            });
+    function hideAllSections() {
+        resetHotspots(); 
+        ['video', 'stand', 'front-wall', 'back-wall', 'back-wall-panels', 'image-accordion', 'silhouettes', 'ceiling', 'right-wall'].forEach(id => {
+            const section = document.getElementById(id);
+            if (section) section.style.display = 'none';
         });
-        window.scrollTo({top: 0, behavior: 'smooth'});
-
-        // Activate "Right Wall Panels" by default (index 3)
-        const rightWallPanel = sliderPanels[3];
-        if (rightWallPanel) {
-            rightWallPanel.click();
-        }
-
     }
+
+    hideAllSections();
+
+    sliderPanels.forEach((panel, index) => {
+        panel.addEventListener('click', function (e) {
+            e.stopPropagation();
+            sliderPanels.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+            hideAllSections();
+
+            const sectionId = sectionMap[index];
+            console.log(`Clicked panel ${index}, showing section: ${sectionId}`);
+
+            if (sectionId === 'silhouettes-accordion') {
+                const imageAccordion = document.getElementById('image-accordion');
+                const silhouettesSection = document.getElementById('silhouettes');
+
+                if (imageAccordion) imageAccordion.style.display = 'flex';
+                if (silhouettesSection) silhouettesSection.style.display = 'block';
+
+                document.querySelectorAll('.silhouette-container').forEach(s => s.classList.remove('active'));
+                document.getElementById('silhouette-1')?.classList.add('active');
+
+                document.querySelectorAll('#image-accordion .panel').forEach(p => p.classList.remove('active'));
+                document.querySelector('#image-accordion .panel')?.classList.add('active');
+
+                imageAccordion?.scrollIntoView({behavior: 'smooth'});
+            } 
+            else if (sectionId === 'back-wall') {
+                // THIS IS THE CORRECT SECTION - Back Wall with Hotspots
+                const backWall = document.getElementById('back-wall');
+                
+                if (backWall) {
+                    backWall.style.display = 'block';
+                    console.log('Back wall section made visible, initializing hotspots...');
+                    
+                    // Initialize hotspots after section is visible
+                    setTimeout(() => {
+                        initBackWallHotspotsOnce();
+                    }, 300); // Increased delay
+
+                    backWall.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            else if (sectionId === 'back-wall-panels') {
+                // Montessori Materials (ceiling panels)
+                const backWallPanels = document.getElementById('back-wall-panels');
+                if (backWallPanels) {
+                    backWallPanels.style.display = 'block';
+                    backWallPanels.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+            else if (sectionId === 'right-wall') {
+                const rightWall = document.getElementById('right-wall');
+                if (rightWall) {
+                    rightWall.style.display = 'block';
+                    rightWall.scrollIntoView({behavior: 'smooth'});
+                }
+            } 
+            else if (sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.style.display = 'block';
+                    section.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+        });
+    });
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
+    // CHANGED: Activate "Montessori Materials" by default (index 3) instead of right-wall
+    const defaultPanel = sliderPanels[3];
+    if (defaultPanel) {
+        defaultPanel.click();
+    }
+}
 
     // IMAGE ACCORDION AND SILHOUETTES INTERACTION
     const imageAccordionPanels = document.querySelectorAll('#image-accordion .panel');
@@ -253,12 +281,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
 
     function openCeilingModal(panelNumber) {
-        currentIndex = panelOrder.indexOf(panelNumber);
-        if (currentIndex < 0) currentIndex = 0;
-        flipContainer.classList.remove('flipped');
-        updateCeilingModal();
-        ceilingModal.style.display = 'flex';
-    }
+    currentIndex = panelOrder.indexOf(panelNumber);
+    if (currentIndex < 0) currentIndex = 0;
+    flipContainer.classList.remove('flipped');
+    updateCeilingModal();
+    document.body.classList.add('modal-open');
+    ceilingModal.style.display = 'flex';
+}
 
     function updateCeilingModal() {
         const panelNum = panelOrder[currentIndex];
@@ -267,8 +296,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function closeModal() {
-        ceilingModal.style.display = 'none';
-    }
+    ceilingModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+}
 
     function showNext() {
         currentIndex = (currentIndex + 1) % panelOrder.length;
@@ -551,15 +581,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // IMAGE MAP FUNCTIONS
 function initImageMap() {
-    if (typeof $ !== 'undefined' && $.fn.imageMapResize) {
+    if (window.jQuery && $.fn.imageMapResize) {
         $('map').imageMapResize();
-
-        // Modern event listeners for map areas
         document.querySelectorAll('area[coords]').forEach(area => {
-            area.addEventListener('click', (e) => {
+            area.addEventListener('click', e => {
                 e.preventDefault();
                 const frameNum = area.getAttribute('title').match(/\d+/)?.[0];
-                if (frameNum) showEnlargedFrame(parseInt(frameNum));
+                if (frameNum) openFrameModal(parseInt(frameNum) - 1); // Convert to 0-based index
             });
         });
     }
@@ -639,28 +667,31 @@ function scrollToVideo() {
     }
 }
 
-// ===== FRAME MODAL LOGIC (Carousel + Flip) =====
+
+// section 6 back wall hotspots
+
+// ──────────────────────────────────────────────────────────────────────────────
+// FRAME MODAL FUNCTIONS (Back Wall Frames)
+// ──────────────────────────────────────────────────────────────────────────────
 const frameModal = document.getElementById('frame-modal');
 const frameModalClose = document.getElementById('frame-modal-close');
 const frameModalPrev = document.getElementById('frame-modal-prev');
 const frameModalNext = document.getElementById('frame-modal-next');
 const frameModalFlipBtn = document.getElementById('frame-modal-flip-btn');
 const frameFlipContainer = document.getElementById('frame-modal-flip-container');
-const frameFlipInner = frameFlipContainer?.querySelector('.flip-inner');
 const frameModalImageFront = document.getElementById('frame-modal-image-front');
 const frameModalImageBack = document.getElementById('frame-modal-image-back');
 
-// Frame data: front image and description
 const frameData = [
-  { front: '../assets/img/enlarged-frame-1.png', description: 'Description for Frame 1' },
-  { front: '../assets/img/enlarged-frame-2.png', description: 'Description for Frame 2' },
-  { front: '../assets/img/enlarged-frame-3.png', description: 'Description for Frame 3' },
-  { front: '../assets/img/enlarged-frame-4.png', description: 'Description for Frame 4' },
-  { front: '../assets/img/enlarged-frame-5.png', description: 'Description for Frame 5' },
+  { front: '../assets/img/enlarged-frame-1.png',  description: 'Description for Frame 1' },
+  { front: '../assets/img/enlarged-frame-2.png',  description: 'Description for Frame 2' },
+  { front: '../assets/img/enlarged-frame-3.png',  description: 'Description for Frame 3' },
+  { front: '../assets/img/enlarged-frame-4.png',  description: 'Description for Frame 4' },
+  { front: '../assets/img/enlarged-frame-5.png',  description: 'Description for Frame 5' },
   { front: '../assets/img/enlarged-frame-6.jpeg', description: 'Description for Frame 6' },
   { front: '../assets/img/enlarged-frame-7.jpeg', description: 'Description for Frame 7' },
-  { front: '../assets/img/enlarged-frame-8.png', description: 'Description for Frame 8' },
-  { front: '../assets/img/enlarged-frame-9.JPG', description: 'Description for Frame 9' },
+  { front: '../assets/img/enlarged-frame-8.png',  description: 'Description for Frame 8' },
+  { front: '../assets/img/enlarged-frame-9.JPG',  description: 'Description for Frame 9' },
   { front: '../assets/img/enlarged-frame-10.png', description: 'Description for Frame 10' },
   { front: '../assets/img/enlarged-frame-11.png', description: 'Description for Frame 11' },
 ];
@@ -669,49 +700,263 @@ let currentFrameIndex = 0;
 function openFrameModal(idx) {
   currentFrameIndex = idx;
   updateFrameModal();
-  frameModal.style.display = 'flex';
-  frameFlipContainer.classList.remove('flipped');
+  if (frameModal) {
+    document.body.classList.add('modal-open');
+    frameModal.style.display = 'flex';
+    if (frameFlipContainer) frameFlipContainer.classList.remove('flipped');
+  }
 }
 
 function closeFrameModal() {
-  frameModal.style.display = 'none';
+  if (frameModal) frameModal.style.display = 'none';
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
 }
 
 function showPrevFrame() {
   currentFrameIndex = (currentFrameIndex - 1 + frameData.length) % frameData.length;
   updateFrameModal();
-  frameFlipContainer.classList.remove('flipped');
+  if (frameFlipContainer) frameFlipContainer.classList.remove('flipped');
 }
 
 function showNextFrame() {
   currentFrameIndex = (currentFrameIndex + 1) % frameData.length;
   updateFrameModal();
-  frameFlipContainer.classList.remove('flipped');
+  if (frameFlipContainer) frameFlipContainer.classList.remove('flipped');
 }
 
 function updateFrameModal() {
   const data = frameData[currentFrameIndex];
-  frameModalImageFront.src = data.front;
-  document.getElementById('frame-modal-description').textContent = data.description;
-  frameModalFlipBtn.style.display = 'block';
+  if (frameModalImageFront) frameModalImageFront.src = data.front;
+  const description = document.getElementById('frame-modal-description');
+  if (description) description.textContent = data.description;
+  if (frameModalFlipBtn) frameModalFlipBtn.style.display = 'block';
 }
 
+// Add event listeners if elements exist
 if (frameModal) {
-  frameModalClose.addEventListener('click', closeFrameModal);
-  frameModal.addEventListener('click', (e) => { if (e.target === frameModal) closeFrameModal(); });
-  frameModalPrev.addEventListener('click', showPrevFrame);
-  frameModalNext.addEventListener('click', showNextFrame);
-  frameModalFlipBtn.addEventListener('click', () => frameFlipContainer.classList.toggle('flipped'));
+  if (frameModalClose) frameModalClose.addEventListener('click', closeFrameModal);
+  frameModal.addEventListener('click', e => {
+    if (e.target === frameModal) closeFrameModal();
+  });
+  if (frameModalPrev) frameModalPrev.addEventListener('click', showPrevFrame);
+  if (frameModalNext) frameModalNext.addEventListener('click', showNextFrame);
+  if (frameModalFlipBtn) frameModalFlipBtn.addEventListener('click', () => {
+    if (frameFlipContainer) frameFlipContainer.classList.toggle('flipped');
+  });
 }
 
-// Update frame zoom icon click handlers
-const backWallPanels = document.querySelectorAll('.back-wall-panel');
-backWallPanels.forEach((panel, idx) => {
-  const zoomIcon = panel.querySelector('.zoom-icon');
-  if (zoomIcon) {
-    zoomIcon.addEventListener('click', (event) => {
-      event.stopPropagation();
-      openFrameModal(idx);
+// ──────────────────────────────────────────────────────────────────────────────
+// BACK WALL HOTSPOTS
+// ──────────────────────────────────────────────────────────────────────────────
+let hotspotsInitialized = false; // Flag to prevent re-initialization
+
+function initBackWallHotspots() {
+  // IMPORTANT: Only initialize if we're in the correct section
+  const backWallSection = document.getElementById('back-wall');
+  if (!backWallSection || backWallSection.style.display === 'none') {
+    console.log('Back wall section not visible, skipping hotspot initialization');
+    return;
+  }
+
+  // Exit if already initialized
+  if (hotspotsInitialized) {
+    console.log('Hotspots already initialized, skipping...');
+    return;
+  }
+
+  const img = document.getElementById('back-wall-image');
+  const container = img?.closest('.image-map-container');
+  
+  if (!container || !img || !img.naturalWidth || !img.naturalHeight) {
+    console.log('Back wall hotspots: waiting for image to load...');
+    return;
+  }
+
+  // Additional check: make sure image has actual displayed dimensions
+  if (img.offsetWidth === 0 || img.offsetHeight === 0) {
+    console.log('Back wall image not properly displayed, retrying...');
+    setTimeout(() => {
+      initBackWallHotspots();
+    }, 200);
+    return;
+  }
+
+  // Clear any existing hotspots
+  container.querySelectorAll('.frame-hotspot').forEach(h => h.remove());
+
+  const mapName = img.useMap?.slice(1);
+  if (!mapName) {
+    console.log('Back wall hotspots: no map found');
+    return;
+  }
+
+  const mapElement = document.querySelector(`map[name="${mapName}"]`);
+  if (!mapElement) {
+    console.log(`Back wall hotspots: map "${mapName}" not found`);
+    return;
+  }
+
+  // Get image positioning and scaling info
+  const imgRect = img.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+  
+  const displayedWidth = img.offsetWidth;
+  const displayedHeight = img.offsetHeight;
+  
+  const scaleX = displayedWidth / img.naturalWidth;
+  const scaleY = displayedHeight / img.naturalHeight;
+  
+  const imgLeft = imgRect.left - containerRect.left;
+  const imgTop = imgRect.top - containerRect.top;
+
+  console.log('Initializing hotspots with image info:', {
+    naturalWidth: img.naturalWidth,
+    naturalHeight: img.naturalHeight,
+    displayedWidth,
+    displayedHeight,
+    scaleX,
+    scaleY,
+    imgLeft,
+    imgTop,
+    sectionVisible: backWallSection.style.display
+  });
+
+  // Process each area in the map
+  const areas = mapElement.querySelectorAll('area');
+  areas.forEach((area, idx) => {
+    const coords = area.coords.split(',').map(Number);
+    
+    if (area.shape === 'poly') {
+      const xs = coords.filter((_, i) => i % 2 === 0);
+      const ys = coords.filter((_, i) => i % 2 === 1);
+      
+      const minX = Math.min(...xs);
+      const minY = Math.min(...ys);
+      const maxX = Math.max(...xs);
+      const maxY = Math.max(...ys);
+      
+      const sliceW = maxX - minX;
+      const sliceH = maxY - minY;
+
+      // Calculate the position relative to the displayed image
+      const cssLeft = imgLeft + (minX * scaleX);
+      const cssTop = imgTop + (minY * scaleY);
+      const cssWidth = sliceW * scaleX;
+      const cssHeight = sliceH * scaleY;
+
+      // Create canvas to draw the image slice
+      const canvas = document.createElement('canvas');
+      canvas.className = 'frame-hotspot';
+      canvas.setAttribute('data-frame', idx + 1);
+      canvas.width = sliceW;   // Natural pixels for crisp rendering
+      canvas.height = sliceH;  // Natural pixels for crisp rendering
+      
+      // Style the canvas hotspot
+      Object.assign(canvas.style, {
+        position: 'absolute',
+        left: `${cssLeft}px`,
+        top: `${cssTop}px`,
+        width: `${cssWidth}px`,
+        height: `${cssHeight}px`,
+        cursor: 'pointer',
+        borderRadius: '8px',
+        boxSizing: 'border-box',
+        transition: 'all 0.3s ease',
+        pointerEvents: 'auto',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+        border: '3px solid rgba(255, 255, 255, 0.8)'
+      });
+
+      // Draw the actual image slice onto the canvas
+      const ctx = canvas.getContext('2d');
+      try {
+        // Wait for image to be fully loaded before drawing
+        if (img.complete) {
+          ctx.drawImage(
+            img,
+            minX, minY, sliceW, sliceH,  // Source rectangle (natural coordinates)
+            0, 0, sliceW, sliceH         // Destination rectangle (canvas coordinates)
+          );
+        } else {
+          img.addEventListener('load', () => {
+            ctx.drawImage(
+              img,
+              minX, minY, sliceW, sliceH,
+              0, 0, sliceW, sliceH
+            );
+          });
+        }
+      } catch (e) {
+        console.error('Error drawing image slice:', e);
+      }
+
+      // Add hover effects
+      canvas.addEventListener('mouseenter', () => {
+        canvas.style.transform = 'scale(1.1)';
+        canvas.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
+        canvas.style.border = '3px solid rgba(32, 201, 151, 0.9)'; // Green border
+        canvas.style.zIndex = '1'; // Bring to front
+      });
+      
+      canvas.addEventListener('mouseleave', () => {
+        canvas.style.transform = 'scale(1)';
+        canvas.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+        canvas.style.border = '3px solid rgba(255, 255, 255, 0.8)';
+        canvas.style.zIndex = 'auto'; // Reset z-index
+      });
+
+      // Add click handler
+      canvas.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log(`Clicked frame ${idx + 1}`);
+        openFrameModal(idx);
+      });
+
+      container.appendChild(canvas);
+    }
+  });
+
+  // Mark as initialized to prevent future recalculations
+  hotspotsInitialized = true;
+  console.log(`Back wall hotspots: Created ${areas.length} presentable image slice hotspots - LOCKED`);
+}
+
+// Updated initialization - only runs once
+function initBackWallHotspotsOnce() {
+  const img = document.getElementById('back-wall-image');
+  const backWallSection = document.getElementById('back-wall');
+  
+  if (!img || !backWallSection) {
+    console.log('Back wall image or section not found');
+    return;
+  }
+
+  // Check if back wall section is actually visible
+  if (backWallSection.style.display === 'none') {
+    console.log('Back wall section not visible, not initializing hotspots');
+    return;
+  }
+
+  if (img.complete && img.naturalWidth > 0) {
+    setTimeout(() => {
+      initBackWallHotspots();
+    }, 200); // Increased delay to ensure layout is settled
+  } else {
+    img.addEventListener('load', () => {
+      setTimeout(() => {
+        initBackWallHotspots();
+      }, 200);
     });
   }
-});
+}
+
+// Reset hotspots when switching sections
+function resetHotspots() {
+  hotspotsInitialized = false;
+  // Clear any existing hotspots from all containers
+  document.querySelectorAll('.frame-hotspot').forEach(h => h.remove());
+  console.log('Hotspots reset');
+}
+
