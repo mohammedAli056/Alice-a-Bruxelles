@@ -73,44 +73,57 @@
     </div>
   </div>
 
+
   <!-- ===== Landing Section ===== -->
-  <div class="container-fluid position-relative" id="landing-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div id="landing-text" class="col-lg-8 text-center">
-          <h1 class="landing-title">MONTESCA &amp; ROVIGLIANO SCHOOLS EXHIBITIONS</h1>
-          <p class="landing-subtitle">Brussels 1910 — Città di Castello 2024</p>
-        </div>
-      </div>
+  <div id="landing-section" class="position-relative pt-2 pb-5">
+    <!-- 1) Title (less bottom‐margin) -->
+    <div class="container text-center mb-3">
+      <h1 class="landing-title">ALICE IN BRUSSELS</h1>
     </div>
 
-    <!-- Full-bleed, centered video -->
-    <div class="landing-media-wrapper">
+    <!-- 2) Full-width video + caption -->
+    <div class="container-fluid px-0">
       <video
-        id="landing-video"
-        class="landing-media-video"
+        class="d-block w-100"
+        autoplay
+        muted
+        playsinline
         controls
         src="../assets/video/Video4.mp4"
         poster="../assets/img/AB2_2.jpg"
-      >Your browser does not support the video tag.</video>
-      <div class="video-caption landing-media-caption">
+      >
+        Your browser does not support the video tag.
+      </video>
+      <div class="text-center mt-2">
         <em>ALICE IN BRUSSELS: A Video Introduction</em>
       </div>
     </div>
 
-    <!-- Buttons row -->
-    <div class="container">
+    <!-- 3) Description card centered below video -->
+    <div class="container mt-4">
       <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <div class="landing-buttons">
-            <a href="#" class="btn btn-outline-secondary">WATCH THE VIDEOS</a>
-            <a href="#choose-view" class="btn btn-success btn-explore">EXPLORE THE EXHIBITION</a>
-            <a href="#" class="btn btn-dark">ACCESS THE CATALOGUE</a>
+        <div class="col-lg">
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <p class="mb-3">
+                In 1910, the rural schools of Montesca and Rovigliano, founded by Alice Hallgarten-Franchetti, 
+                presented their innovative educational work at the Universal and International Exposition in Brussels.
+              </p>
+              <p class="mb-0">
+                The 2024 exhibition “Alice in Brussels” celebrates their award-winning, progressive model of rural education.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 4) Scroll-down cue -->
+    <div class="scroll-down">
+      <span class="chevron">⌄</span>
+    </div>
   </div>
+
 
   <!-- ===== Choose Your View ===== -->
   <div id="choose-view" class="container text-center my-5">
