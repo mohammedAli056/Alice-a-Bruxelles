@@ -73,40 +73,30 @@
     </div>
   </div>
 
-
   <!-- ===== Landing Section ===== -->
-  <div id="landing-section" class="position-relative pt-2 pb-5">
-    <!-- 1) Title (less bottom‐margin) -->
-    <div class="container text-center mb-3">
-      <h1 class="landing-title">ALICE IN BRUSSELS</h1>
+  <div id="landing-section" class="position-relative d-flex flex-column" style="height:100vh;">
+
+    <!-- 1) Banner with centered overlay title -->
+    <div class="banner position-relative flex-shrink-0" style="margin-top:56px; height:45%; overflow:hidden;">
+      <img src="../assets/img/AB2_2.jpg"
+          class="w-100 h-100"
+          style="object-fit:cover; object-position:top center;"
+          alt="Alice in Brussels Banner">
+      <h1 class="banner-title position-absolute top-50 start-50 translate-middle" style="color:black; font-size:3rem; font-weight:bold;">
+        ALICE IN BRUSSELS
+      </h1>
     </div>
 
-    <!-- 2) Full-width video + caption -->
-    <div class="container-fluid px-0">
-      <video
-        class="d-block w-100"
-        autoplay
-        muted
-        playsinline
-        controls
-        src="../assets/video/Video4.mp4"
-        poster="../assets/img/AB2_2.jpg"
-      >
-        Your browser does not support the video tag.
-      </video>
-      <div class="text-center mt-2">
-        <em>ALICE IN BRUSSELS: A Video Introduction</em>
-      </div>
-    </div>
+    <!-- 2) Two-column layout: description on the left, YouTube video on the right -->
+    <div class="container my-4 flex-grow-1" style="height:60%;">
+      <div class="row align-items-center g-4 h-100">
 
-    <!-- 3) Description card centered below video -->
-    <div class="container mt-4">
-      <div class="row justify-content-center">
-        <div class="col-lg">
-          <div class="card shadow-sm">
-            <div class="card-body text-center">
+        <!-- Description card -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body d-flex flex-column justify-content-center h-100">
               <p class="mb-3">
-                In 1910, the rural schools of Montesca and Rovigliano, founded by Alice Hallgarten-Franchetti, 
+                In 1910, the rural schools of Montesca and Rovigliano, founded by Alice Hallgarten-Franchetti,
                 presented their innovative educational work at the Universal and International Exposition in Brussels.
               </p>
               <p class="mb-0">
@@ -115,15 +105,30 @@
             </div>
           </div>
         </div>
+
+        <!-- YouTube embed -->
+        <div class="col-md-6" style="height:100%;">
+          <div style="height:100%; border-radius:10px; overflow:hidden;">
+            <iframe
+              src="https://www.youtube.com/embed/bvgiVHAeGOc?autoplay=1&mute=1"
+              title="Alice in Brussels Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
+              allowfullscreen
+              style="width:100%; height:100%; border:0;"
+            ></iframe>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- 4) Scroll-down cue -->
+    <!-- 3) Scroll-down cue -->
     <div class="scroll-down">
       <span class="chevron">⌄</span>
     </div>
-  </div>
 
+  </div>
 
   <!-- ===== Choose Your View ===== -->
   <div id="choose-view" class="container text-center my-5">
