@@ -7,10 +7,23 @@
   <link href="../css/theme.css" rel="stylesheet">
   <link href="../css/pages/by-components.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Footer styling for each panel */
+    .panel-footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid #dee2e6;
+      background-color: var(--bs-body-bg);
+    }
+    
+    /* Ensure content sections have proper spacing */
+    .content-start {
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
-<body>
 
-  <!-- ===== 1) Navbar Section ===== -->
+<body>
   <div class="nav container-fluid fixed-top">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
@@ -29,21 +42,20 @@
             <li class="nav-item"><a class="nav-link" href="#environment-3d-pane">EXHIBITION IN 3D</a></li>
 
             <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    EXHIBITION BY COMPONENTS
-  </a>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><a class="dropdown-item" href="#" data-panel-index="0">The History of the Schools in 2 Videos</a></li>
-    <li><a class="dropdown-item" href="#" data-panel-index="1">La Montesca School: A Story of Women</a></li>
-    <li><a class="dropdown-item" href="#" data-panel-index="2">Photos and Alice’s Letters to Maria Pasqui</a></li>
-    <li><a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a></li>
-    <li><a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a></li>
-    <li><a class="dropdown-item" href="#" data-panel-index="5">The Reconstruction of the Schools’ Stand</a></li>
-    <li><a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a></li>
-  </ul>
-</li>
 
-
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                EXHIBITION BY COMPONENTS
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#" data-panel-index="0">The History of the Schools in 2 Videos</a></li>
+                <li><a class="dropdown-item" href="#" data-panel-index="1">La Montesca School: A Story of Women</a></li>
+                <li><a class="dropdown-item" href="#" data-panel-index="2">Photos and Alice’s Letters to Maria Pasqui</a></li>
+                <li><a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a></li>
+                <li><a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a></li>
+                <li><a class="dropdown-item" href="#" data-panel-index="5">The Reconstruction of the Schools’ Stand</a></li>
+                <li><a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a></li>
+              </ul>
+            </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">VIDEOS</a>
@@ -58,7 +70,6 @@
             <li class="nav-item"><a class="nav-link" href="#" onclick="openPDF()">CATALOGUE</a></li>
             <li class="nav-item"><a class="nav-link" href="../en/about-us.html">CREDITS</a></li>
 
-            <!-- Language Dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                 <img src="../assets/img/en.svg" alt="English" width="20" id="currentLanguageFlag">
@@ -83,93 +94,94 @@
   </div>
   
   <!-- ===== 3) Explore By Components (Slider) ===== -->
-  <div class="container-fluid" id="explore-by-components">
+  <div id="explore-by-components" style="padding-top:6rem;">
     <div class="container text-center mb-4">
-      <div class="slider-header mx-auto" style="max-width: 960px;">
-        <h2>Explore the Exhibition by Components</h2>
-        <div class="slider-instructions">
-          CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION
-        </div>
+      <div class="slider-header mx-auto">
+        <h1>Explore the Exhibition by Components</h1>
+        <h5>CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION</h5>
       </div>
     </div>
 
-    <div class="accordion container-fluid" id="slider-section">
-      <div id="videos-panel" class="panel">
-        <img src="../assets/img/slider-7.jpeg" alt="Videos">
-        <div class="panel-caption">The History of the Schools in 2 Videos</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
-        <div class="panel-caption">La Montesca School: A Story of Women</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-2.jpeg" alt="Photos & Letters">
-        <div class="panel-caption">Photos and Alice’s Letters to Maria Pasqui</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-6.jpeg" alt="Montessori Materials">
-        <div class="panel-caption">Montessori and International Teaching Materials</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
-        <div class="panel-caption">The 1910 World Fair Exhibition & Catalogue Raisonné</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
-        <div class="panel-caption">The Reconstruction of the Schools’ Stand</div>
-      </div>
-      <div class="panel">
-        <img src="../assets/img/slider-5.jpeg" alt="Visitors’ Guide">
-        <div class="panel-caption">Exhibition Project; Visitors’ Guide, Credits</div>
+    <div id="slider-section" class="container-fluid">
+      <div class="accordion">
+        <div id="videos-panel" class="panel">
+          <img src="../assets/img/slider-7.jpeg" alt="Videos">
+          <div class="panel-caption">The History of the Schools in 2 Videos</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-1.jpeg" alt="Silhouettes">
+          <div class="panel-caption">La Montesca School: A Story of Women</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/ceiling.jpg" alt="Photos & Letters">
+          <div class="panel-caption">Photos and Alice's Letters to Maria Pasqui</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/display.jpg" alt="Montessori Materials">
+          <div class="panel-caption">Montessori and International Teaching Materials</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
+          <div class="panel-caption">The 1910 World Fair Exhibition & Catalogue Raisonné</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-4.jpeg" alt="Back Wall">
+          <div class="panel-caption">The Reconstruction of the Schools' Stand</div>
+        </div>
+        <div class="panel">
+          <img src="../assets/img/slider-5.jpeg" alt="Visitors' Guide">
+          <div class="panel-caption">Exhibition Project; Visitors' Guide, Credits</div>
+        </div>
       </div>
     </div>
   </div>
 
-
-  <!-- ===== 4) Video Section (“The History of the Schools in 2 Videos”) ===== -->
   <div id="video" class="container-fluid content-start" style="display: none;">
     <div class="container">
-      <div class="row align-items-start">
-        <!-- 4.1) Video: The Baroness and the Barefoot Children -->
-        <div id="video2-container" class="col-md-6 mb-4">
-          <h3 class="text-center mb-4">The Baroness and the Barefoot Children</h3>
-          <div class="ratio ratio-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/8Q7N5qP0Yc4?si=J1uHctloucfDXAEp"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+      <div class="row">
+        <div id="video2-container" class="col-12 mb-5">
+          <h1 class="text-center mb-4">The Baroness and the Barefoot Children</h1>
+          <div style="max-width: 1030px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+              <iframe
+                src="https://www.youtube.com/embed/8Q7N5qP0Yc4?si=J1uHctloucfDXAEp"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              </iframe>
+            </div>
           </div>
         </div>
 
-        <!-- 4.2) Video: The Montesca Schools at the 1910 World Fair -->
-        <div id="video3-container" class="col-md-6 mb-4">
-          <h3 class="text-center mb-4">The Montesca Schools at the 1910 World Fair</h3>
-          <div class="ratio ratio-16x9">
-            <iframe
-              src="https://www.youtube.com/embed/OnbyfdafI-k?si=iIsB9aQI8DR8CALN"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+        <div id="video3-container" class="col-12 mb-4">
+          <h1 class="text-center mb-4">The Montesca Schools at the 1910 World Fair</h1>
+          <div style="max-width: 1030px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+              <iframe
+                src="https://www.youtube.com/embed/OnbyfdafI-k?si=iIsB9aQI8DR8CALN"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              </iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
   </div>
 
-
-  <!-- ===== 5) Montessori and International Teaching Materials (Back Wall Panels) ===== -->
   <div id="back-wall-panels" class="panel-section content-start" style="display: none;">
     <div class="container-fluid">
       <div class="container">
-        <!-- 5.1) Flip‐card Grid -->
         <div class="ceiling-grid">
           <div class="ceiling-row top-row">
-            <!-- Panel 4 (tall) -->
             <div class="ceiling-panel tall" data-panel="4">
               <div class="zoom-icon">
                 <img src="../assets/img/zoom.png" alt="Zoom" />
@@ -180,7 +192,6 @@
                 <img src="../assets/img/ceiling-4r-en.png" class="panel-back"  alt="Panel 4 Back" />
               </div>
             </div>
-            <!-- Panel 1 (short) -->
             <div class="ceiling-panel short" data-panel="1">
               <div class="zoom-icon">
                 <img src="../assets/img/zoom.png" alt="Zoom" />
@@ -191,7 +202,6 @@
                 <img src="../assets/img/ceiling-1r-en.png" class="panel-back"  alt="Panel 1 Back" />
               </div>
             </div>
-            <!-- Panel 5 (tall) -->
             <div class="ceiling-panel tall" data-panel="5">
               <div class="zoom-icon">
                 <img src="../assets/img/zoom.png" alt="Zoom" />
@@ -204,7 +214,6 @@
             </div>
           </div>
           <div class="ceiling-row bottom-row">
-            <!-- Panel 2 (short) -->
             <div class="ceiling-panel short" data-panel="2">
               <div class="zoom-icon">
                 <img src="../assets/img/zoom.png" alt="Zoom" />
@@ -215,7 +224,6 @@
                 <img src="../assets/img/ceiling-2r-en.png" class="panel-back"  alt="Panel 2 Back" />
               </div>
             </div>
-            <!-- Panel 6 (tall) -->
             <div class="ceiling-panel tall" data-panel="6">
               <div class="zoom-icon">
                 <img src="../assets/img/zoom.png" alt="Zoom" />
@@ -226,7 +234,6 @@
                 <img src="../assets/img/ceiling-6r-en.png" class="panel-back"  alt="Panel 6 Back" />
               </div>
             </div>
-            <!-- Panel 3 (short) -->
             <div class="ceiling-panel short" data-panel="3">
               <div class="zoom-icon">
                 <img src="../assets/img/zoom.png" alt="Zoom" />
@@ -239,20 +246,18 @@
             </div>
           </div>
         </div>
-        <!-- End of Flip‐card Grid -->
       </div>
     </div>
+
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
   </div>
 
-  <!-- ===== Modal Overlay for Ceiling Panels ===== -->
   <div id="ceiling-modal" class="ceiling-modal">
     <div class="ceiling-modal-content">
-      <!-- Close button -->
       <span class="ceiling-modal-close" id="ceiling-modal-close">&times;</span>
-      <!-- Left/Right arrows -->
       <div id="ceiling-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
       <div id="ceiling-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
-      <!-- Flip container -->
       <div id="modal-flip-container" class="flip-container">
         <div class="flip-inner">
           <img id="ceiling-modal-image-front" class="flip-front" src="" alt="Ceiling Panel Front"/>
@@ -260,172 +265,206 @@
         </div>
       </div>
     </div>
-    <!-- Flip button in modal -->
     <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
   </div>
 
-
-<!-- ===== 6) Back Wall Section ===== -->
   <div id="back-wall" class="container-fluid content-start" style="display: none;">
     <div class="container">
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center">
         <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-
-          <!-- *** Edited: allow hotspots on top *** -->
-          <div class="card shadow image-map-container"
-               style="position: relative; pointer-events: auto; overflow: visible;">
+          <div class="card shadow">
             <img id="back-wall-image"
-                 usemap="#back-wall-map"
-                 src="../assets/img/edited_half_title_stand.jpg"
-                 class="d-block w-100 rounded"
-                 alt="Back Wall"
-                 loading="eager">
+                src="../assets/img/carousel-3.jpeg"
+                class="d-block w-100 rounded"
+                alt="Back Wall"
+                usemap="#back-wall-map"
+                loading="eager">
             <div class="card-body text-center">
-              <h4 class="card-text">
-                Click on the frames to enlarge
-              </h4>
+              <h1 class="card-text">Click any frame to enlarge</h1>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- ===== 7) Image Map for Back Wall ===== -->
-<map name="back-wall-map">
-  <!-- Frame 1: Large bottom-center frame -->
-  <area
-    alt="Frame 1" title="Frame 1" href="#"
-    coords="484,499,750,499,755,732,479,735"
-    shape="poly"
-  >
-  
-  <!-- Frame 2: Upper-center frame -->
-  <area
-    alt="Frame 2" title="Frame 2" href="#"
-    coords="538,248,701,246,696,474,538,471"
-    shape="poly"
-  >
-  
-  <!-- Frame 3: Middle-left frame -->
-  <area
-    alt="Frame 3" title="Frame 3" href="#"
-    coords="349,305,528,305,528,471,347,471"
-    shape="poly"
-  >
-  
-  <!-- Frame 4: Upper-right area -->
-  <area
-    alt="Frame 4" title="Frame 4" href="#"
-    coords="706,298,856,298,856,474,704,474"
-    shape="poly"
-  >
-  
-  <!-- Frame 5: Bottom-right frame -->
-  <area
-    alt="Frame 5" title="Frame 5" href="#"
-    coords="960,802,1099,792,1115,893,975,893"
-    shape="poly"
-  >
-  
-  <!-- Frame 6: Right side middle frame -->
-  <area
-    alt="Frame 6" title="Frame 6" href="#"
-    coords="942,545,1055,537,1055,687,942,693"
-    shape="poly"
-  >
-  
-  <!-- Frame 7: Large right panel -->
-  <area
-    alt="Frame 7" title="Frame 7" href="#"
-    coords="896,300,1061,296,1063,520,896,524"
-    shape="poly"
-  >
-  
-  <!-- Frame 8: Right side frame -->
-  <area
-    alt="Frame 8" title="Frame 8" href="#"
-    coords="795,541,904,543,898,708,796,710"
-    shape="poly"
-  >
-  
-  <!-- Frame 9: Left side middle frame -->
-  <area
-    alt="Frame 9" title="Frame 9" href="#"
-    coords="154,524,292,526,296,729,153,729"
-    shape="poly"
-  >
-  
-  <!-- Frame 10: Bottom-center right frame -->
-  <area
-    alt="Frame 10" title="Frame 10" href="#"
-    coords="683,737,825,740,841,898,687,898"
-    shape="poly"
-  >
-  
-  <!-- Frame 11: Bottom-left small frame -->
-  <area
-    alt="Frame 11" title="Frame 11" href="#"
-    coords="210,760,310,760,308,830,208,830"
-    shape="poly"
-  >
-</map>
 
-  <!-- ===== 8) Popups for Each Back Wall Frame ===== -->
-  <!-- Remove all the <div id="popup-frameX" class="popup"> ... </div> blocks for frames 1-11 -->
-  
-  <!-- ===== Frame Modal Overlay (Carousel + Flip) ===== -->
-  <div id="frame-modal" class="ceiling-modal">
-    <div class="ceiling-modal-content">
-      <!-- Close button -->
-      <span class="ceiling-modal-close" id="frame-modal-close">&times;</span>
-      <!-- Left/Right arrows -->
-      <div id="frame-modal-prev" class="ceiling-modal-nav ceiling-modal-nav-left">&#10094;</div>
-      <div id="frame-modal-next" class="ceiling-modal-nav ceiling-modal-nav-right">&#10095;</div>
-      <!-- Flip container -->
-      <div id="frame-modal-flip-container" class="flip-container">
-        <div class="flip-inner">
-          <img id="frame-modal-image-front" class="flip-front" src="" alt="Frame Front"/>
-          <div id="frame-modal-description" class="flip-back frame-description"></div>
-        </div>
-      </div>
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
+  </div>
+
+  <map name="back-wall-map">
+    <area
+      alt="Frame 1" title="Frame 1" href="#"
+      coords="1022,1070,1613,1067,1608,1576,1026,1572"
+      shape="poly"
+      onclick="showPopup('popup-frame1'); return false;"
+    >
+    <area
+      alt="Frame 2" title="Frame 2" href="#"
+      coords="1141,530,1485,525,1485,1025,1133,1025"
+      shape="poly"
+      onclick="showPopup('popup-frame2'); return false;"
+    >
+    <area
+      alt="Frame 3" title="Frame 3" href="#"
+      coords="735,659,1119,659,1125,1011,743,1006"
+      shape="poly"
+      onclick="showPopup('popup-frame3'); return false;"
+    >
+    <area
+      alt="Frame 4" title="Frame 4" href="#"
+      coords="1501,649,1818,647,1818,1020,1501,1023"
+      shape="poly"
+      onclick="showPopup('popup-frame4'); return false;"
+    >
+    <area
+      alt="Frame 5" title="Frame 5" href="#"
+      coords="2049,1705,2352,1697,2379,1904,2076,1910"
+      shape="poly"
+      onclick="showPopup('popup-frame5'); return false;"
+    >
+    <area
+      alt="Frame 6" title="Frame 6" href="#"
+      coords="2000,1145,2253,1153,2258,1483,2000,1489"
+      shape="poly"
+      onclick="showPopup('popup-frame6'); return false;"
+    >
+    <area
+      alt="Frame 7" title="Frame 7" href="#"
+      coords="1904,632,2269,635,2258,1119,1904,1119"
+      shape="poly"
+      onclick="showPopup('popup-frame7'); return false;"
+    >
+    <area
+      alt="Frame 8" title="Frame 8" href="#"
+      coords="1694,1154,1917,1156,1928,1519,1689,1514"
+      shape="poly"
+      onclick="showPopup('popup-frame8'); return false;"
+    >
+    <area
+      alt="Frame 9" title="Frame 9" href="#"
+      coords="324,1122,630,1114,628,1579,327,1571"
+      shape="poly"
+      onclick="showPopup('popup-frame9'); return false;"
+    >
+    <area
+      alt="Frame 10" title="Frame 10" href="#"
+      coords="1452,1593,1756,1576,1786,1931,1458,1931"
+      shape="poly"
+      onclick="showPopup('popup-frame10'); return false;"
+    >
+    <area
+      alt="Frame 11" title="Frame 11" href="#"
+      coords="437,1600,665,1610,660,1796,429,1793"
+      shape="poly"
+      onclick="showPopup('popup-frame11'); return false;"
+    >
+  </map>
+
+  <div id="popup-frame1" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
+      <button class="close" onclick="closePopup('popup-frame1')">✖</button>
     </div>
-    <!-- Flip button in modal -->
-    <button id="frame-modal-flip-btn" class="modal-flip-btn">Flip</button>
+  </div>
+  <div id="popup-frame2" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
+      <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame3" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
+      <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame4" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
+      <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame5" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
+      <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame6" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
+      <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame7" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-7.jpeg" class="popup-image" alt="Frame 7">
+      <button class="close" onclick="closePopup('popup-frame7')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame8" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-8.png" class="popup-image" alt="Frame 8">
+      <button class="close" onclick="closePopup('popup-frame8')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame9" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-9.JPG" class="popup-image" alt="Frame 9">
+      <button class="close" onclick="closePopup('popup-frame9')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame10" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-10.png" class="popup-image" alt="Frame 10">
+      <button class="close" onclick="closePopup('popup-frame10')">✖</button>
+    </div>
+  </div>
+  <div id="popup-frame11" class="popup">
+    <div class="popup-content">
+      <img src="../assets/img/enlarged-frame-11.png" class="popup-image" alt="Frame 11">
+      <button class="close" onclick="closePopup('popup-frame11')">✖</button>
+    </div>
   </div>
 
-
-  <!-- ===== 9) Front Wall Section (“The 1910 World Fair Exhibition & Catalogue Raisonné”) ===== -->
   <div id="front-wall" class="container-fluid content-start" style="display: none;">
     <div class="row justify-content-center">
       <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-        <h3 class="text-center mb-4">The 1910 Exhibition</h3>
-        <img src="../assets/img/front-wall.png" class="d-block w-100 rounded"
-              style="border-radius: 15px;" alt="Front Wall">
-        <p class="text-left mt-3">
-          Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano,
-          Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale
+        <h1 class="text-center front-title">The 1910 Exhibition</h1>
+        <img
+          src="../assets/img/front-wall.png"
+          class="d-block w-100 rounded shadow front-media"
+          alt="Front Wall"
+        >
+        <p class="text-center front-caption mb-5">
+          Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, 
+          Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale 
           di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
-        </p>
-        <!-- 9.1) Embedded PDF Catalogue -->
-        <div class="mt-5">
-          <h3 class="text-center">1910 Catalogue</h3>
-          <iframe src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
-                  width="100%" height="800px" style="border: none; border-radius: 8px;"></iframe>
+      </p>
+        <div class="mb-0">
+          <h1 class="text-center mb-4">1910 Catalogue</h1>
+          <iframe
+            src="../assets/document/catalogueOLD.pdf#toolbar=0&navpanes=0&scrollbar=1"
+            class="d-block w-100 rounded shadow"
+            style="border: none; border-radius: 15px; height: 600px;"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
+
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
   </div>
 
-
-  <!-- ===== 10) The Reconstructed Schools’ Stand ===== -->
   <div id="stand" class="container-fluid content-start" style="display: none;">
     <div class="container md-6">
-      <h3 class="text-center mb-4 stand-title">
+      <h1 class="text-center mb-4 stand-title">
         Montessori Material, Multilingual Learning Resources, World Fair Documents
-      </h3>
-      <p class="text-center mb-4"><em>The Display</em></p>
+      </h1>
+      <h5 class="text-center mb-4"><em>The Display</em></h5>
 
-      <div style="max-width: 750px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
+      <div style="max-width: 900px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
           <iframe
             src="https://www.youtube.com/embed/----"
@@ -437,47 +476,46 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
   </div>
 
-
-  <!-- ===== 11) Right Wall Section (“Exhibition Project; Visitors’ Guide, Credits”) ===== -->
   <div id="right-wall" class="container-fluid content-start" style="display: none;">
     <div class="container">
-
-      <!-- 11.1) Headings: Introduction / Visitor Guide -->
       <div class="row justify-content-center">
         <div class="col-md-4 text-center">
-          <h3 class="panel-title mb-4">Introduction</h3>
+          <h1 class="panel-title mb-4">Introduction</h1>
         </div>
         <div class="col-md-4 text-center">
-          <h3 class="panel-title mb-4">Visitor Guide</h3>
+          <h1 class="panel-title mb-4">Visitor Guide</h1>
         </div>
       </div>
 
-      <!-- 11.2) Images + zoom icons -->
-      <div class="row justify-content-center right-wall-photos">
-        <div class="col-md-4 mb-4 text-center">
-          <div class="img-wrapper position-relative d-inline-block">
-            <img src="../assets/img/panel-1-en.png" class="img-fluid rounded" alt="Introduction Panel" />
-            <div class="zoom-icon" onclick="showPopup('popup-right-1')">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
+      <div class="row justify-content-center right-wall-photos" style="max-height: calc(100vh - 6rem); overflow: hidden;">
+      <div class="col-md-4 text-center">
+        <div class="img-wrapper position-relative d-inline-block">
+          <img src="../assets/img/panel-1-en.png" class="img-fluid rounded" alt="Introduction Panel" />
+          <div class="zoom-icon" onclick="showPopup('popup-right-1')">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
           </div>
         </div>
-        <div class="col-md-4 mb-4 text-center">
-          <div class="img-wrapper position-relative d-inline-block">
-            <img src="../assets/img/panel-2-en.png" class="img-fluid rounded" alt="Visitor Guide Panel" />
-            <div class="zoom-icon" onclick="showPopup('popup-right-2')">
-              <img src="../assets/img/zoom.png" alt="Zoom" />
-            </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="img-wrapper position-relative d-inline-block">
+          <img src="../assets/img/panel-2-en.png" class="img-fluid rounded" alt="Visitor Guide Panel" />
+          <div class="zoom-icon" onclick="showPopup('popup-right-2')">
+            <img src="../assets/img/zoom.png" alt="Zoom" />
           </div>
         </div>
       </div>
     </div>
   </div>
 
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
+  </div>
 
-  <!-- ===== 12) Popups for Right Wall Panels ===== -->
   <div id="popup-right-1" class="popup">
     <div class="popup-content">
       <img src="../assets/img/panel-1-en.png" class="popup-image" alt="Introduction Panel Enlarged" />
@@ -491,185 +529,94 @@
       <button class="close" onclick="closePopup('popup-right-2')">✖</button>
     </div>
   </div>
-  
 
-  <!-- ===== 13) Image Accordion Section (“La Montesca School: A Story of Women”) ===== -->
-  <div id="image-accordion" class="container-fluid content-start" style="display: none;">
-    <div class="container accordion">
-      <div class="panel" data-index="1"><img src="../assets/img/silhouette-only-1.png" alt=""></div>
-      <div class="panel" data-index="2"><img src="../assets/img/silhouette-only-2.png" alt=""></div>
-      <div class="panel" data-index="3"><img src="../assets/img/silhouette-only-3.png" alt=""></div>
-      <div class="panel" data-index="4"><img src="../assets/img/silhouette-only-4.png" alt=""></div>
-      <div class="panel" data-index="5"><img src="../assets/img/silhouette-only-5.png" alt=""></div>
-      <div class="panel" data-index="6"><img src="../assets/img/silhouette-only-6.png" alt=""></div>
-      <div class="panel" data-index="7"><img src="../assets/img/silhouette-only-7.png" alt=""></div>
+  <!-- ===== 13) Image Accordion Section ("La Montesca School: A Story of Women") ===== -->
+  <div id="image-accordion" class="container-fluid content-start">
+    <div class="container">
+      <div class="accordion">
+        <div class="panel" data-index="1"><img src="../assets/img/silhouette-only-1.png" alt="Silhouette 1"></div>
+        <div class="panel" data-index="2"><img src="../assets/img/silhouette-only-2.png" alt="Silhouette 2"></div>
+        <div class="panel" data-index="3"><img src="../assets/img/silhouette-only-3.png" alt="Silhouette 3"></div>
+        <div class="panel" data-index="4"><img src="../assets/img/silhouette-only-4.png" alt="Silhouette 4"></div>
+        <div class="panel" data-index="5"><img src="../assets/img/silhouette-only-5.png" alt="Silhouette 5"></div>
+        <div class="panel" data-index="6"><img src="../assets/img/silhouette-only-6.png" alt="Silhouette 6"></div>
+        <div class="panel" data-index="7"><img src="../assets/img/silhouette-only-7.png" alt="Silhouette 7"></div>
+      </div>
     </div>
   </div>
 
-  <!-- ===== 14) Silhouettes Section (“La Montesca School: A Story of Women”) ===== -->
-  <div id="silhouettes" class="container-fluid content-start" style="display: none;">
+  <!-- ===== 14) Silhouettes Section ("La Montesca School: A Story of Women") ===== -->
+  <div id="silhouettes" class="container-fluid content-start">
     <div class="container-fluid silhouette-container" id="silhouette-1" style="background: linear-gradient(315deg, #F7E6A5, var(--bs-secondary-bg))">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-1.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-1.png" alt="Silhouette 1">
       </div>
     </div>
     <div class="container-fluid silhouette-container" id="silhouette-2" style="background: linear-gradient(45deg, #A3C1D4, var(--bs-secondary-bg));">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-2.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-2.png" alt="Silhouette 2">
       </div>
     </div>
     <div class="container-fluid silhouette-container" id="silhouette-3" style="background: linear-gradient(315deg, #FFB3C1, var(--bs-secondary-bg))">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-3.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-3.png" alt="Silhouette 3">
       </div>
     </div>
     <div class="container-fluid silhouette-container" id="silhouette-4" style="background: linear-gradient(45deg, #FFDAB9, var(--bs-secondary-bg))">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-4.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-4.png" alt="Silhouette 4">
       </div>
     </div>
     <div class="container-fluid silhouette-container" id="silhouette-5" style="background: linear-gradient(315deg, #B2E2D7, var(--bs-secondary-bg))">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-5.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-5.png" alt="Silhouette 5">
       </div>
     </div>
     <div class="container-fluid silhouette-container" id="silhouette-6" style="background: linear-gradient(45deg, #E6C5E5, var(--bs-secondary-bg))">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-6.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-6.png" alt="Silhouette 6">
       </div>
     </div>
     <div class="container-fluid silhouette-container" id="silhouette-7" style="background: linear-gradient(45deg, #D9E7D9, var(--bs-secondary-bg));">
       <div class="container">
-        <img class="silhouette" src="../assets/img/silhouette-7.png" alt="">
+        <img class="silhouette" src="../assets/img/silhouette-7.png" alt="Silhouette 7">
       </div>
     </div>
-  </div>
- 
-  <!-- ===== 4) Footer ===== -->
-  <div class="container" id="footer">
-    <footer class="py-5 border-top">
-      <div class="d-flex flex-column flex-sm-row justify-content-between">
-        <p>&copy; 2024 Company, Inc.</p>
-        <ul class="list-unstyled d-flex mb-0">
-          <li class="ms-3"><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-          <li class="ms-3"><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-          <li class="ms-3"><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-        </ul>
-      </div>
-    </footer>
+
+    <!-- Footer will be inserted here by JavaScript -->
+    <div class="footer-placeholder"></div>
   </div>
 
-  <!-- ===== 17) Back to Top Button ===== -->
+  <!-- ===== 16) Back to Top Button ===== -->
   <div id="back-to-top" class="back-to-top">&#8679;</div>
-
+  
   <!-- ===== Scripts ===== -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
   <script src="../js/script.js"></script>
-
-
   <script src="../js/theme.js"></script>
-
-    <script>
-      // 3) Image-accordion → silhouettes
-      document.querySelectorAll('#image-accordion .panel').forEach(panel => {
-        panel.addEventListener('click', () => {
-          const idx = panel.dataset.index;
-          if (!idx) return;
-          document.querySelectorAll('#silhouettes .silhouette-container').forEach(el => {
-            el.style.display = 'none';
-          });
-          const target = document.getElementById(`silhouette-${idx}`);
-          if (target) {
-            target.style.display = 'block';
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-      // 4) Ceiling flip‐cards (in-place)
-      document.querySelectorAll(".ceiling-panel").forEach(panel => {
-        panel.addEventListener("click", function(e) {
-          // if they clicked the zoom icon, do nothing here
-          if (e.target.closest(".zoom-icon")) return;
-          // otherwise toggle the flipped state
-          this.classList.toggle("flipped");
-        });
-      });
-
-      // 4b) Also flip when clicking the grey "Click to flip" label
-      document.querySelectorAll(".hover-flip-text").forEach(label => {
-        label.addEventListener("click", function(e) {
-          e.stopPropagation();                             // prevent the panel’s click-listener from swallowing it
-          const panel = this.closest(".ceiling-panel");
-          panel.classList.toggle("flipped");
-        });
-      });
-
-      // 5) Zoom-icon popups and modal flip inside the modal:
-      const modal    = document.getElementById("ceiling-modal");
-      const closeBtn = document.getElementById("ceiling-modal-close");
-      const flipBtn  = document.getElementById("ceiling-modal-flip-btn");
-      const inner    = document.querySelector("#modal-flip-container .flip-inner");
-      const imgF     = document.getElementById("ceiling-modal-image-front");
-      const imgB     = document.getElementById("ceiling-modal-image-back");
-
-      document.querySelectorAll(".ceiling-panel .zoom-icon").forEach(icon => {
-        icon.addEventListener("click", e => {
-          e.stopPropagation();
-          const panel = icon.closest(".ceiling-panel");
-          imgF.src = panel.querySelector(".panel-front").src;
-          imgB.src = panel.querySelector(".panel-back").src;
-          inner.classList.remove("flipped");
-          modal.style.display = "flex";
-        });
-      });
-
-      flipBtn.addEventListener("click", () => inner.classList.toggle("flipped"));
-      closeBtn.addEventListener("click", () => modal.style.display = "none");
-
-      // 6) Modal flip button
-      flipBtn.addEventListener('click', () => {
-        inner.classList.toggle('flipped');
-      });
   
-      // 7) Modal close
-      closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-  
-      // 8) Misc utilities
-      document.getElementById('back-to-top')?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-  
-    // Language switcher
-    function setLanguage(lang) {
-      const flag = document.getElementById('currentLanguageFlag');
-      flag.src = lang === 'it' ? '../assets/img/it.svg' : '../assets/img/en.svg';
-      window.location.href = lang === 'it' ? '../it/index1.html' : '../en/index.html';
-    }
-  
-    // Video panel trigger
-    function triggerVideosPanel() {
-      const panel = document.getElementById('videos-panel');
-      if (panel) panel.click();
-    }
-  
-    // Open PDF
-    function openPDF() {
-      window.open('../assets/document/CATALOGUE.pdf', '_blank');
-    }
-  
-    // Popup open/close
-    function showPopup(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-    function closePopup(id) {
-      document.getElementById(id).style.display = 'none';
+  <script>
+    // Function to create and insert footer
+    function createFooter() {
+      return `
+        <div class="container panel-footer">
+          <footer class="d-flex flex-column flex-sm-row justify-content-between">
+            <p>&copy; 2024 Alice in Brussels Exhibition. All rights reserved.</p>
+          </footer>
+        </div>
+      `;
     }
 
-  </script>   
+    // Insert footer into all placeholder divs when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const footerPlaceholders = document.querySelectorAll('.footer-placeholder');
+      footerPlaceholders.forEach(placeholder => {
+        placeholder.innerHTML = createFooter();
+      });
+    });
+  </script>
+
 </body>
 </html>
