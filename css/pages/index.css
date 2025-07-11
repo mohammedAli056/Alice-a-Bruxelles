@@ -146,7 +146,7 @@
 .view-card .image-stack {
   position: relative;
   width: 100%;
-  height: 450px;      /* match your other cards' image height */
+  height: 450px;     
   overflow: hidden;
 }
 
@@ -161,7 +161,7 @@
 /* thumbnail strip, overlaid */
 .view-card .static-thumbs {
   position: absolute;
-  bottom: 8px;        /* how far up from the bottom edge */
+  bottom: 8px;        
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -174,7 +174,7 @@
 /* each little thumb */
 .view-card .static-thumbs .thumb {
   width: 60px;
-  height: 45px;        /* keeps same aspect ratio block */
+  height: 45px;        
   object-fit: cover;
   border: 2px solid white;
   border-radius: 2px;
