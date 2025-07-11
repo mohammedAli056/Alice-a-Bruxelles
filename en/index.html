@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html#landing-section">HOME</a></li>
-            <li class="nav-item"><a class="nav-link" href="#environment-3d-pane">EXHIBITION IN 3D</a></li>
+            <li class="nav-item"><a class="nav-link" href="3d-exhibition.html">EXHIBITION IN 3D</a></li>
             <!-- Exhibition by Components dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
@@ -73,56 +73,60 @@
     </div>
   </div>
 
-
   <!-- ===== Landing Section ===== -->
-  <div id="landing-section" class="position-relative pt-2 pb-5">
-    <!-- 1) Title (less bottom‐margin) -->
-    <div class="container text-center mb-3">
-      <h1 class="landing-title">ALICE IN BRUSSELS</h1>
-    </div>
-
-    <!-- 2) Full-width video + caption -->
-    <div class="container-fluid px-0">
-      <video
-        class="d-block w-100"
-        autoplay
-        muted
-        playsinline
-        controls
-        src="../assets/video/Video4.mp4"
-        poster="../assets/img/AB2_2.jpg"
+  <section id="landing" class="landing">
+    <!-- 1) Banner with centered overlay title -->    
+    <div class="landing__banner">
+      <img
+        src="../assets/img/AB2_2.jpg"
+        alt="Alice in Brussels Banner"
+        class="landing__banner-img"
       >
-        Your browser does not support the video tag.
-      </video>
-      <div class="text-center mt-2">
-        <em>ALICE IN BRUSSELS: A Video Introduction</em>
-      </div>
+      <h1 class="landing__banner-title">
+        The Schools of Montesca and Rovigliano<br>
+        at the Universal Exposition of 1910
+      </h1>
     </div>
 
-    <!-- 3) Description card centered below video -->
-    <div class="container mt-4">
-      <div class="row justify-content-center">
-        <div class="col-lg">
-          <div class="card shadow-sm">
-            <div class="card-body text-center">
-              <p class="mb-3">
-                In 1910, the rural schools of Montesca and Rovigliano, founded by Alice Hallgarten-Franchetti, 
-                presented their innovative educational work at the Universal and International Exposition in Brussels.
-              </p>
-              <p class="mb-0">
-                The 2024 exhibition “Alice in Brussels” celebrates their award-winning, progressive model of rural education.
-              </p>
-            </div>
+    <!-- 2) Two-column layout: description on the left, YouTube video on the right -->
+    <div class="landing__content container my-4">
+      <div class="row g-4 h-100">
+
+        <!-- Description card -->
+        <div class="col-md-6">
+          <div class="landing__card shadow-sm p-4">
+            <p class="mb-3">
+              In 1910, the rural schools of Montesca and Rovigliano, founded by Alice Hallgarten-Franchetti,
+              presented their innovative educational work at the Universal and International Exposition in Brussels.
+            </p>
+            <p class="mb-0">
+              The 2024 exhibition “Alice in Brussels” celebrates their award-winning, progressive model of rural education.
+            </p>
           </div>
         </div>
+
+        <!-- YouTube embed -->
+        <div class="col-md-6">
+          <div class="landing__video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/bvgiVHAeGOc?autoplay=1&mute=1"
+              title="Alice in Brussels Video"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen
+              class="landing__video-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- 3) Scroll-down cue -->
+      <div class="scroll-down">
+        <span class="chevron">⌄</span>
       </div>
     </div>
+  </section>
 
-    <!-- 4) Scroll-down cue -->
-    <div class="scroll-down">
-      <span class="chevron">⌄</span>
-    </div>
-  </div>
 
 
   <!-- ===== Choose Your View ===== -->
