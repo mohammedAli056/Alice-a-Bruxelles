@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html#landing-section">HOME</a></li>
-            <li class="nav-item"><a class="nav-link" href="#environment-3d-pane">EXHIBITION IN 3D</a></li>
+            <li class="nav-item"><a class="nav-link" href="3d-exhibition.html">EXHIBITION IN 3D</a></li>
             <!-- Exhibition by Components dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
@@ -74,133 +74,128 @@
   </div>
 
   <!-- ===== Landing Section ===== -->
-  <div class="container-fluid position-relative" id="landing-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div id="landing-text" class="col-lg-8 text-center">
-          <h1 class="landing-title">MONTESCA &amp; ROVIGLIANO SCHOOLS EXHIBITIONS</h1>
-          <p class="landing-subtitle">Brussels 1910 — Città di Castello 2024</p>
-        </div>
-      </div>
+  <section id="landing" class="landing">
+    <!-- 1) Banner with centered overlay title -->    
+    <div class="landing__banner">
+      <img
+        src="../assets/img/AB2_2.jpg"
+        alt="Alice in Brussels Banner"
+        class="landing__banner-img"
+      >
+      <h1 class="landing__banner-title">
+        The Schools of Montesca and Rovigliano<br>
+        at the Universal Exposition of 1910
+      </h1>
     </div>
 
-    <!-- Full-bleed, centered video -->
-    <div class="landing-media-wrapper">
-      <video
-        id="landing-video"
-        class="landing-media-video"
-        controls
-        src="../assets/video/Video4.mp4"
-        poster="../assets/img/AB2_2.jpg"
-      >Your browser does not support the video tag.</video>
-      <div class="video-caption landing-media-caption">
-        <em>ALICE IN BRUSSELS: A Video Introduction</em>
-      </div>
-    </div>
+    <!-- 2) Two-column layout: description on the left, YouTube video on the right -->
+    <div class="landing__content container my-4">
+      <div class="row g-4 h-100">
 
-    <!-- Buttons row -->
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <div class="landing-buttons">
-            <a href="#" class="btn btn-outline-secondary">WATCH THE VIDEOS</a>
-            <a href="#choose-view" class="btn btn-success btn-explore">EXPLORE THE EXHIBITION</a>
-            <a href="#" class="btn btn-dark">ACCESS THE CATALOGUE</a>
+        <!-- Description card -->
+        <div class="col-md-6">
+          <div class="landing__card shadow-sm p-4">
+            <p class="mb-3">
+              In 1910, the rural schools of Montesca and Rovigliano, founded by Alice Hallgarten-Franchetti,
+              presented their innovative educational work at the Universal and International Exposition in Brussels.
+            </p>
+            <p class="mb-0">
+              The 2024 exhibition “Alice in Brussels” celebrates their award-winning, progressive model of rural education.
+            </p>
           </div>
         </div>
+
+        <!-- YouTube embed -->
+        <div class="col-md-6">
+          <div class="landing__video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/bvgiVHAeGOc?autoplay=1&mute=1"
+              title="Alice in Brussels Video"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen
+              class="landing__video-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- 3) Scroll-down cue -->
+      <div class="scroll-down">
+        <span class="chevron">⌄</span>
       </div>
     </div>
-  </div>
+  </section>
+
+
 
   <!-- ===== Choose Your View ===== -->
   <div id="choose-view" class="container text-center my-5">
-    <h2 class="mb-5 text-white">Explore the Exhibition</h2>
+    
+    <h1 class="mb-5 text-white">Visit the Exhibition</h1>
     <div class="row g-4">
 
-      <!-- By Components Carousel -->
-      <div class="col-sm-6">
-        <a href="by-subject.html"
-          class="card view-card h-100 p-0 overflow-hidden text-decoration-none"
-        >
-          <div id="byComponentsCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../assets/img/slider-7.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-1.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-2.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-6.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-3.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-4.jpeg" class="d-block w-100" alt="">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/img/slider-5.jpeg" class="d-block w-100" alt="">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button"
-                    data-bs-target="#byComponentsCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button"
-                    data-bs-target="#byComponentsCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-            <div class="carousel-indicators thumbnails">
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="0" class="active">
-                <img src="../assets/img/slider-7.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="1">
-                <img src="../assets/img/slider-1.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="2">
-                <img src="../assets/img/slider-2.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="3">
-                <img src="../assets/img/slider-6.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="4">
-                <img src="../assets/img/slider-3.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="5">
-                <img src="../assets/img/slider-4.jpeg" alt="">
-              </button>
-              <button type="button" data-bs-target="#byComponentsCarousel" data-bs-slide-to="6">
-                <img src="../assets/img/slider-5.jpeg" alt="">
-              </button>
+      <!-- By Components Static Card -->
+      <div class="col-sm-4">
+        <a href="by-components.html"
+          class="card view-card h-100 p-0 overflow-hidden text-decoration-none">
+
+          <!-- image container -->
+          <div class="image-stack">
+            <!-- Main image, full 450px tall -->
+            <img 
+              src="../assets/img/slider-7.jpeg" 
+              class="main-image" 
+              alt="Explore the Components"
+            >
+
+            <!-- Thumbnails overlaid on bottom of the main image -->
+            <div class="static-thumbs">
+              <img src="../assets/img/slider-7.jpeg" class="thumb" alt="">
+              <img src="../assets/img/slider-1.jpeg" class="thumb" alt="">
+              <img src="../assets/img/ceiling.jpg" class="thumb" alt="">
+              <img src="../assets/img/display.jpg"   class="thumb" alt="">
             </div>
           </div>
 
+          <!-- Caption -->
           <div class="card-body bg-transparent text-center">
-            <h5 class="card-title text-white">By Components</h5>
-            <p class="card-text small text-white">A slider of images by components</p>
+            <h5 class="card-title text-white">EXPLORE</h5>
+            <h5 class="card-title text-white">THE COMPONENTS</h5>
           </div>
+
         </a>
       </div>
 
       <!-- 3D Exhibition -->
       <div class="col-sm-6">
         <a href="3d-exhibition.html"
-          class="card view-card h-100 text-decoration-none position-relative overflow-hidden"
-        >
+          class="card view-card h-100 text-decoration-none position-relative overflow-hidden">
           <img src="../assets/img/slider-1.jpeg"
               class="card-img-top"
               alt="3D Exhibition Thumbnail">
-          <i class="bi bi-play-circle-fill play-overlay"></i>
           <div class="card-body bg-transparent text-center">
-            <h5 class="card-title text-white">3D Exhibition</h5>
-            <p class="card-text text-white">Step inside the exhibition</p>
+            <h5 class="card-title text-white">STEP INSIDE</h5>
+            <h5 class="card-title text-white">THE VIRTUAL EXPERIENCE</h5>
           </div>
         </a>
       </div>
+
+      <!-- Catalogues -->
+      <div class="col-sm-4">
+        <a href="catalogues.html"
+          class="card view-card h-100 text-decoration-none position-relative overflow-hidden"
+        >
+          <img src="../assets/img/catalogue.jpg"
+              class="card-img-top"
+              alt="3D Exhibition Thumbnail">
+          <div class="card-body bg-transparent text-center">
+            <h5 class="card-title text-white">BROWSE</h5>
+            <h5 class="card-title text-white">THE CATALOGUES</h5>
+          </div>
+        </a>
+      </div>
+
     </div>
   </div>
 

@@ -19,6 +19,7 @@
 /* Ensure image map areas are always interactive */
 #back-wall-image {
     pointer-events: auto !important;
+    max-height: calc(100vh - 15rem);
 }
 
 map area {
@@ -31,32 +32,13 @@ map area:hover {
     outline: 2px solid rgba(255, 0, 0, 0.5);
 }
 
-/* Interactive display hover tooltip */
-.interactive-hover-tooltip {
-    position: absolute;
-    z-index: 1000;
-    pointer-events: none;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-
-.interactive-hover-tooltip img {
-    height: 200px;
-    width: auto;
-    display: block;
-    border-radius: 4px;
-    object-fit: contain;
-}
-
 /*───────────────────────────────────────────────────────────────────────────────
-  3. “EXPLORE BY COMPONENTS" SLIDER
+  3. “EXPLORE BY COMPONENENTS" SLIDER
 ───────────────────────────────────────────────────────────────────────────────*/
 
 #explore-by-components {
-    padding: 4rem 0 4rem;
+    min-height: 100vh;
+    box-sizing: border-box;
     border-bottom: 1px solid #e9ecef;
     color: #fff;
 }
@@ -68,37 +50,9 @@ map area:hover {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-#slider-section .slider-header {
-    text-align: left;
-    padding: 0 30px;
-    margin-bottom: 10px;
-}
-
-#slider-section .slider-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-#slider-section .slider-instructions {
-    font-size: 14px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#slider-section .slider-instructions::after {
-    content: '→';
-    margin-left: 5px;
-    font-size: 18px;
-}
-
 #slider-section .accordion {
-    height: 250px;
-    max-width: 75%;
+    height: 550px;
+    max-width: 80%;
     width: 100%;
     margin: 0 auto;
     background-color: transparent;
@@ -125,7 +79,7 @@ map area:hover {
     border-radius: 6px;
 }
 
-#slider-section .panel:hover,
+#slider-section .panel:hover, 
 #slider-section .panel.active {
     flex: 2;
     opacity: 1;
@@ -168,12 +122,8 @@ map area:hover {
 }
 
 /*───────────────────────────────────────────────────────────────────────────────
-  5. BACK-WALL PANEL SECTION
+  5. BACK‐WALL PANEL SECTION
 ───────────────────────────────────────────────────────────────────────────────*/
-
-#back-wall {
-    padding: 3rem 0;
-}
 
 #back-wall .container h2 {
     text-align: center;
@@ -194,49 +144,17 @@ map area:hover {
     min-width: 90px;
     position: relative;
     border-radius: 13px;
-    overflow: visible;
+    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-/* Hover effect for back-wall panels */
-.back-wall-panel .small {
-    display: block;
-    height: 100px !important;
-    width: auto !important;
-    cursor: pointer;
-    object-fit: contain;
-}
-
-.back-wall-panel .large img {
-    display: block;
-    height: 200px !important;
-    width: auto !important;
-    border-radius: 4px;
-    box-shadow: 1px 1px 1px 3px rgba(127, 127, 127, 0.15);
-    object-fit: contain;
-}
-
-.back-wall-panel .large {
-    position: absolute;
-    left: -9999px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.back-wall-panel:hover .large {
-    left: 20px;
-    top: -140px;
-}
-
-/* Disable the scale transform when we have the hover effect */
 .back-wall-panel:hover {
-    transform: none;
+    transform: scale(1.05);
 }
 
-/* General image styling for back-wall panels */
-.back-wall-panel img:not(.small):not(.large img) {
+.back-wall-panel img {
     display: block;
     width: 100%;
     height: auto;
@@ -264,19 +182,20 @@ map area:hover {
   6. RIGHT WALL PANEL SECTION
 ───────────────────────────────────────────────────────────────────────────────*/
 
-#right-wall {
-    padding: 3rem 0;
-    background-color: transparent;
-}
-
-#right-wall .container {
-    max-width: 90%;
-}
-
 #right-wall .right-wall-photos {
-    display: flex;             
-    justify-content: center;   
-    column-gap: 8rem;         
+    display: flex;
+    justify-content: center;
+    column-gap: 8rem;
+    align-items: flex-start;
+    max-height: calc(100vh - 6rem);
+    overflow: hidden;
+}
+
+/* ensure each img inside scales down to fit that max-height */
+#right-wall .right-wall-photos img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 #right-wall .container > .row:first-of-type {
@@ -309,9 +228,7 @@ map area:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem 0;
-}
+    gap: 2rem;}
 
 .right-wall-panel-container {
     flex: 1;
@@ -360,23 +277,99 @@ map area:hover {
     object-fit: contain;
 }
 
+/* Add zoom controls for right wall panels */
+.right-wall-zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.zoom-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+.zoom-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+.zoom-level {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+}
+
+/* Make the right wall modal image container support zooming */
+.right-wall-modal-image-container {
+    width: 90%;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    position: relative;
+    cursor: grab;
+}
+
+.right-wall-modal-image-container:active {
+    cursor: grabbing;
+}
+
+/* Add transition for smooth zooming */
+#right-wall-modal-image {
+    transition: transform 0.2s ease;
+    transform-origin: 0 0;
+}
+
+/* Reset button for zoom */
+.zoom-reset {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+.zoom-reset:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
 /*───────────────────────────────────────────────────────────────────────────────
   7. VIDEO SECTIONS
 ───────────────────────────────────────────────────────────────────────────────*/
 
 /* Hidden content sections */
 #video,
+#image-accordion,
+#silhouettes,
 #front-wall,
 #back-wall,
 #right-wall {
     display: none;
     transition: opacity 0.3s ease;
-}
-
-/* Video Section styling */
-#video {
-    background-color: transparent;
-    padding: 3rem 0;
 }
 
 #video .container {
@@ -428,1048 +421,23 @@ map area:hover {
     }
 }
 
-/* Style for the videos section cards if used */
-#video .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    height: 100%;
+#video .ratio {
+  position: relative !important;
+  padding-bottom: 0 !important;
+  width: 70%;
+  max-width: 750px;
+  margin: 0 auto 2rem;
+  aspect-ratio: 16/9;
 }
 
-#video .card:hover {
-    transform: translateY(-5px);
-}
-
-#video .card-body {
-    padding: 1.5rem;
-}
-
-#video video {
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-}
-
-/* Stand Section */
-#stand-video-container {
-    margin: 2rem auto;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-#stand-video-container video {
-    width: 70%;
-    height: 50%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    background-color: #000;
-    display: block;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  8. SILHOUETTES & IMAGE ACCORDION
-───────────────────────────────────────────────────────────────────────────────*/
-
-#silhouettes {
-    padding: 0;
-    margin: 0;
-}
-
-#silhouettes img {
-    width: 100%;
-}
-
-/* Silhouette animation */
-.silhouette {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.silhouette.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Image accordion section */
-#image-accordion {
-    width: 100%;
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    background-color: var(--bs-secondary-bg);
-}
-
-.accordion {
-    display: flex;
-    width: 90%;
-    max-width: 1000px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 20px;
-    gap: 5px;
-}
-
-.accordion .panel {
-    flex: 2;
-    min-width: 80px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: flex 0.5s ease-in-out;
-    position: relative;
-    border-radius: 20px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.accordion .panel img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    object-position: center center;
-    background-color: white;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 20px;
-}
-
-.accordion .panel:hover,
-.accordion .panel.active {
-    flex: 4;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 9. CEILING PANELS (FLIP CARDS & MODAL)
-───────────────────────────────────────────────────────────────────────────────*/
-
-.ceiling-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-
-.ceiling-row {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-start;
-}
-
-.ceiling-panel {
-    position: relative;
-    perspective: 1500px;
-    border-radius: 15px;
-}
-
-.ceiling-panel.tall {
-    width: 450px;
-    height: 450px;
-}
-
-.ceiling-panel.short {
-    width: 450px;
-    height: 315px;
-}
-
-/* The panel flips in place when user clicks */
-.panel-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-}
-
-/* This class is toggled to flip the card */
-.ceiling-panel.flipped .panel-inner {
-    transform: rotateY(180deg);
-}
-
-.panel-front,
-.panel-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.panel-back {
-    transform: rotateY(180deg);
-}
-
-.top-row {
-    align-items: flex-start;
-    margin-bottom: -65px;
-}
-
-.bottom-row {
-    align-items: flex-end;
-    margin-top: -65px;
-}
-
-/* Zoom icon for enlarging the panel */
-.zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Adjust hover text to be bigger and centered */
-.hover-flip-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    cursor: pointer;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
-}
-
-.ceiling-panel:hover .hover-flip-text {
-    opacity: 1;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 10. CEILING PANELS MODAL OVERLAY
-───────────────────────────────────────────────────────────────────────────────*/
-
-.ceiling-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Fixed modal size for consistency */
-.ceiling-modal-content {
-    width: 1200px;
-    height: 1200px;
-    max-width: 90vw;
-    max-height: 90vh;
-    background-color: #212529;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Close button */
-.ceiling-modal-close {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    color: #000;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    font-size: 30px;
-    line-height: 46px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Navigation arrows */
-.ceiling-modal-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    user-select: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    line-height: 46px;
-    text-align: center;
-    z-index: 10;
-}
-
-.ceiling-modal-nav-left {
-    left: 25px;
-}
-
-.ceiling-modal-nav-right {
-    right: 25px;
-}
-
-.ceiling-modal-nav:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-/* Flip container inside the modal */
-.flip-container {
-    position: relative;
-    bottom: 25px;
-    width: 80%;
-    max-width: 900px;
-    height: 80%;
-    max-height: 900px;
-    perspective: 1000px;
-}
-
-.flip-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.flip-front,
-.flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    backface-visibility: hidden;
-    object-fit: contain;
-}
-
-.flip-back {
-    transform: rotateY(180deg);
-}
-
-.flip-container.flipped .flip-inner {
-    transform: rotateY(180deg);
-}
-
-/* Flip button in modal */
-.modal-flip-btn {
-    position: absolute;
-    bottom: 70px; 
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #20c997;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 11;
-}
-
-.modal-flip-btn:hover {
-    background-color: #17a185;
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-    .ceiling-modal-nav {
-        font-size: 30px;
-        width: 40px;
-        height: 40px;
-        line-height: 36px;
-    }
-
-    .modal-flip-btn {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 11. POPUP OVERLAY FOR ANY “ENLARGED” IMAGES (BACK‐WALL/CEILING, ETC.)
-───────────────────────────────────────────────────────────────────────────────*/
-
-.popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-    box-sizing: border-box;
-}
-
-.popup-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-image {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100vh - 80px);
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-}
-
-.close {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    color: black;
-    border: none;
-    font-size: 1rem;
-    padding: 0.2rem 0.6rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.close:hover {
-    background-color: #eee;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 12. MISCELLANEOUS / HELPERS
-───────────────────────────────────────────────────────────────────────────────*/
-
-/* Space between sections */
-.spacer {
-    height: 2rem;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  13. UNIFIED PADDING FOR ALL “HIDDEN” PANELS
-───────────────────────────────────────────────────────────────────────────────*/
-
-#front-wall,
-#stand,
-#back-wall-panels,
-#image-accordion,
-#image-accordion,
-#silhouettes {
-    padding: 3rem 0;
-}
-
-/* Hybrid hover pin effect for interactive display */
-.frame-pin .large {
+#video .ratio iframe {
   position: absolute;
-  left: 20px;
-  top: -140px;
-  z-index: 10;
-  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-.frame-pin:hover .large {
-  display: block;
-}
-.frame-pin .small {
-  height: 100px;
-  width: auto;
-  cursor: pointer;
-}
-.frame-pin .large img {
-  height: 200px;
-  width: auto;
-  border-radius: 4px;
-  box-shadow: 1px 1px 1px 3px rgba(127, 127, 127, 0.15);
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-   PRESENTABLE BACK WALL HOTSPOTS
-───────────────────────────────────────────────────────────────────────────────*/
-
-.image-map-container {
-    position: relative;
-    pointer-events: auto;
-    overflow: visible;
-}
-
-/* Presentable frame hotspots - FIXED Z-INDEX */
-.frame-hotspot {
-    position: absolute;
-    pointer-events: auto;
-    z-index: 100; /* REDUCED from 10000 to stay below navbar */
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    border: 3px solid rgba(255, 255, 255, 0.8);
-    overflow: hidden;
-}
-
-.frame-hotspot:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    border: 3px solid rgba(32, 201, 151, 0.9);
-    z-index: 101; /* Slightly higher on hover, but still below navbar */
-}
-
-/* Add a subtle glow effect on hover */
-.frame-hotspot:hover::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, 
-        rgba(32, 201, 151, 0.3), 
-        rgba(32, 201, 151, 0.1), 
-        rgba(32, 201, 151, 0.3));
-    border-radius: 10px;
-    z-index: -1;
-    filter: blur(4px);
-}
-
-/* Smooth scaling animation */
-@keyframes frameHover {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1.1); }
-}
-
-.frame-hotspot:hover {
-    animation: frameHover 0.3s ease-out forwards;
-}
-
-/* Make sure the image underneath doesn't interfere */
-#back-wall-image {
-    pointer-events: none;
-    user-select: none;
-}
-
-/* Re-enable pointer events on the container */
-.image-map-container {
-    pointer-events: auto;
-}
-
-/* Optional: Add a subtle tooltip for better UX */
-.frame-hotspot::after {
-    content: 'Click to view details';
-    position: absolute;
-    bottom: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 102;
-}
-
-.frame-hotspot:hover::after {
-    opacity: 1;
-}
-
-/* HIDE HOTSPOTS WHEN MODAL IS OPEN */
-body.modal-open .frame-hotspot {
-    display: none !important;
-}
-
-/* NAVBAR Z-INDEX - ENSURE IT STAYS ON TOP */
-.nav {
-    z-index: 1030 !important; /* Bootstrap navbar default, ensures it stays above hotspots */
-}
-
-/* MODAL Z-INDEX - ENSURE IT STAYS ABOVE EVERYTHING */
-.ceiling-modal {
-    z-index: 9999 !important; /* High z-index for modals */
-}
-
-
-
-/*───────────────────────────────────────────────────────────────────────────────
-  1. GLOBAL TRANSITIONS & POINTER‐EVENTS
-───────────────────────────────────────────────────────────────────────────────*/
-
-/* Global transitions and hover effects */
-.btn.btn-primary,
-.back-to-top,
-.explore-btn {
-    transition: transform 0.4s;
-}
-
-.btn.btn-primary:hover,
-.back-to-top:hover,
-.explore-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Ensure image map areas are always interactive */
-#back-wall-image {
-    pointer-events: auto !important;
-}
-
-map area {
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-}
-
-map area:hover {
-    outline: 2px solid rgba(255, 0, 0, 0.5);
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  3. “EXPLORE BY COMPONENENTS" SLIDER
-───────────────────────────────────────────────────────────────────────────────*/
-
-#explore-by-components {
-    padding: 4rem 0 4rem;
-    border-bottom: 1px solid #e9ecef;
-    color: #fff;
-}
-
-#slider-section {
-    margin: 30px auto;
-    max-width: 1500px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-#slider-section .slider-header {
-    text-align: left;
-    padding: 0 30px;
-    margin-bottom: 10px;
-}
-
-#slider-section .slider-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-#slider-section .slider-instructions {
-    font-size: 14px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#slider-section .slider-instructions::after {
-    content: '→';
-    margin-left: 5px;
-    font-size: 18px;
-}
-
-#slider-section .accordion {
-    height: 250px;
-    max-width: 75%;
-    width: 100%;
-    margin: 0 auto;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-}
-
-#slider-section .panel {
-    flex: 0.3;
-    border-radius: 6px;
-    box-shadow: none;
-    transition: flex 0.4s ease-in-out;
-    position: relative;
-    overflow: hidden;
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-#slider-section .panel img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-#slider-section .panel:hover, 
-#slider-section .panel.active {
-    flex: 2;
-    opacity: 1;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-#slider-section .panel.active {
-    border: 2px solid #20c997;
-    border-radius: 8px;
-}
-
-#slider-section .panel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 14px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-#slider-section .panel:hover .panel-caption,
-#slider-section .panel.active .panel-caption {
-    opacity: 1;
-}
-
-#slider-section .slider-nav {
-    text-align: right;
-    padding: 10px 30px;
-}
-
-#slider-section .slider-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  5. BACK‐WALL PANEL SECTION
-───────────────────────────────────────────────────────────────────────────────*/
-
-#back-wall {
-    padding: 3rem 0;
-}
 
-#back-wall .container h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.back-wall-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding-top: 20px;
-}
-
-.back-wall-panel {
-    width: 22%;
-    height: 90%;
-    min-width: 90px;
-    position: relative;
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.back-wall-panel:hover {
-    transform: scale(1.05);
-}
-
-.back-wall-panel img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.back-wall-panel .zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.back-wall-panel .zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  6. RIGHT WALL PANEL SECTION
-───────────────────────────────────────────────────────────────────────────────*/
-
-#right-wall {
-    padding: 3rem 0;
-    background-color: transparent;
-}
-
-#right-wall .container {
-    max-width: 90%;
-}
-
-#right-wall .right-wall-photos {
-    display: flex;             
-    justify-content: center;   
-    column-gap: 8rem;         
-}
-
-#right-wall .container > .row:first-of-type {
-    display: flex;           
-    justify-content: center;
-    column-gap: 8rem;       
-}
-
-#right-wall-selector {
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    border-radius: 4px;
-    border: 1px solid #007a3d;
-    background-color: white;
-    color: #007a3d;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    width: 100%;
-    text-align: center;
-}
-
-#right-wall-selector:hover {
-    background-color: #f8f8f8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.right-wall-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem 0;
-}
-
-.right-wall-panel-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.right-wall-panel {
-    width: 100%;
-    position: relative;
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.right-wall-panel:hover {
-    transform: scale(1.05);
-}
-
-.right-wall-panel img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.right-wall-panel .zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.right-wall-panel .zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Add zoom controls for right wall panels */
-.right-wall-zoom-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.zoom-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    transition: all 0.2s ease;
-}
-
-.zoom-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
-}
-
-.zoom-level {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-}
-
-/* Make the right wall modal image container support zooming */
-.right-wall-modal-image-container {
-    width: 90%;
-    max-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    position: relative;
-    cursor: grab;
-}
-
-.right-wall-modal-image-container:active {
-    cursor: grabbing;
-}
-
-/* Add transition for smooth zooming */
-#right-wall-modal-image {
-    transition: transform 0.2s ease;
-    transform-origin: 0 0;
-}
-
-/* Reset button for zoom */
-.zoom-reset {
-    font-size: 14px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    transition: all 0.2s ease;
-}
-
-.zoom-reset:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  7. VIDEO SECTIONS
-───────────────────────────────────────────────────────────────────────────────*/
-
-/* Hidden content sections */
-#video,
-#front-wall,
-#back-wall,
-#right-wall {
-    display: none;
-    transition: opacity 0.3s ease;
-}
-
-/* Video Section styling */
-#video {
-    background-color: transparent;
-    padding: 3rem 0;
-}
-
-#video .container {
-    max-width: 90%;
-}
-
-#video .row {
-    display: flex;
-    align-items: flex-start; /* Aligns the top of both videos */
-}
-
-#video .col-md-6 {
-    padding: 0 15px;
-}
-
-#video h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-#video .video-container {
-    margin-top: 0;
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#video .video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    border-radius: 8px;
-}
-
-@media (max-width: 767px) {
-    #video .row {
-        flex-direction: column;
-    }
-    
-    #video .col-md-6:first-child {
-        margin-bottom: 2rem;
-    }
-}
 
 /* Style for the videos section cards if used */
 #video .card {
@@ -1538,20 +506,21 @@ map area:hover {
 /* Image accordion section */
 #image-accordion {
     width: 100%;
-    padding: 20px 0;
+    padding: 3rem 0 1rem 0;
     display: flex;
     justify-content: center;
-    background-color: var(--bs-secondary-bg);
 }
 
 .accordion {
     display: flex;
     width: 90%;
     max-width: 1000px;
-    height: 400px;
+    height: 665px;
     overflow: hidden;
     border-radius: 20px;
     gap: 5px;
+    margin: 0 auto;         
+    justify-content: center;
 }
 
 .accordion .panel {
@@ -1917,922 +886,37 @@ map area:hover {
   13. UNIFIED PADDING FOR ALL “HIDDEN” PANELS
 ───────────────────────────────────────────────────────────────────────────────*/
 
-#front-wall,
-#stand,
-#back-wall-panels,
-#image-accordion,
-#image-accordion,
-#silhouettes {
-    padding: 3rem 0;
-}/*───────────────────────────────────────────────────────────────────────────────
-  1. GLOBAL TRANSITIONS & POINTER‐EVENTS
-───────────────────────────────────────────────────────────────────────────────*/
-
-/* Global transitions and hover effects */
-.btn.btn-primary,
-.back-to-top,
-.explore-btn {
-    transition: transform 0.4s;
-}
-
-.btn.btn-primary:hover,
-.back-to-top:hover,
-.explore-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Ensure image map areas are always interactive */
-#back-wall-image {
-    pointer-events: auto !important;
-}
-
-map area {
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-}
-
-map area:hover {
-    outline: 2px solid rgba(255, 0, 0, 0.5);
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  3. “EXPLORE BY COMPONENENTS" SLIDER
-───────────────────────────────────────────────────────────────────────────────*/
-
-#explore-by-components {
-    padding: 4rem 0 4rem;
-    border-bottom: 1px solid #e9ecef;
-    color: #fff;
-}
-
-#slider-section {
-    margin: 30px auto;
-    max-width: 1500px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-#slider-section .slider-header {
-    text-align: left;
-    padding: 0 30px;
-    margin-bottom: 10px;
-}
-
-#slider-section .slider-header h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-#slider-section .slider-instructions {
-    font-size: 14px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#slider-section .slider-instructions::after {
-    content: '→';
-    margin-left: 5px;
-    font-size: 18px;
-}
-
-#slider-section .accordion {
-    height: 250px;
-    max-width: 75%;
-    width: 100%;
-    margin: 0 auto;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-}
-
-#slider-section .panel {
-    flex: 0.3;
-    border-radius: 6px;
-    box-shadow: none;
-    transition: flex 0.4s ease-in-out;
-    position: relative;
-    overflow: hidden;
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-#slider-section .panel img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-#slider-section .panel:hover, 
-#slider-section .panel.active {
-    flex: 2;
-    opacity: 1;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-#slider-section .panel.active {
-    border: 2px solid #20c997;
-    border-radius: 8px;
-}
-
-#slider-section .panel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 14px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-#slider-section .panel:hover .panel-caption,
-#slider-section .panel.active .panel-caption {
-    opacity: 1;
-}
-
-#slider-section .slider-nav {
-    text-align: right;
-    padding: 10px 30px;
-}
-
-#slider-section .slider-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  5. BACK‐WALL PANEL SECTION
-───────────────────────────────────────────────────────────────────────────────*/
-
-#back-wall {
-    padding: 3rem 0;
-}
-
-#back-wall .container h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.back-wall-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding-top: 20px;
-}
-
-.back-wall-panel {
-    width: 22%;
-    height: 90%;
-    min-width: 90px;
-    position: relative;
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.back-wall-panel:hover {
-    transform: scale(1.05);
-}
-
-.back-wall-panel img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.back-wall-panel .zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.back-wall-panel .zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  6. RIGHT WALL PANEL SECTION
-───────────────────────────────────────────────────────────────────────────────*/
-
-#right-wall {
-    padding: 3rem 0;
-    background-color: transparent;
-}
-
-#right-wall .container {
-    max-width: 90%;
-}
-
-#right-wall .right-wall-photos {
-    display: flex;             
-    justify-content: center;   
-    column-gap: 8rem;         
-}
-
-#right-wall .container > .row:first-of-type {
-    display: flex;           
-    justify-content: center;
-    column-gap: 8rem;       
-}
-
-#right-wall-selector {
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    border-radius: 4px;
-    border: 1px solid #007a3d;
-    background-color: white;
-    color: #007a3d;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    width: 100%;
-    text-align: center;
-}
-
-#right-wall-selector:hover {
-    background-color: #f8f8f8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.right-wall-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem 0;
-}
-
-.right-wall-panel-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.right-wall-panel {
-    width: 100%;
-    position: relative;
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.right-wall-panel:hover {
-    transform: scale(1.05);
-}
-
-.right-wall-panel img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.right-wall-panel .zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.right-wall-panel .zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Add zoom controls for right wall panels */
-.right-wall-zoom-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.zoom-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    transition: all 0.2s ease;
-}
-
-.zoom-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
-}
-
-.zoom-level {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-}
-
-/* Make the right wall modal image container support zooming */
-.right-wall-modal-image-container {
-    width: 90%;
-    max-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    position: relative;
-    cursor: grab;
-}
-
-.right-wall-modal-image-container:active {
-    cursor: grabbing;
-}
-
-/* Add transition for smooth zooming */
-#right-wall-modal-image {
-    transition: transform 0.2s ease;
-    transform-origin: 0 0;
-}
-
-/* Reset button for zoom */
-.zoom-reset {
-    font-size: 14px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    transition: all 0.2s ease;
-}
-
-.zoom-reset:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  7. VIDEO SECTIONS
-───────────────────────────────────────────────────────────────────────────────*/
-
-/* Hidden content sections */
 #video,
+#silhouettes,
+#back-wall-panels,
+#stand,
 #front-wall,
 #back-wall,
 #right-wall {
-    display: none;
-    transition: opacity 0.3s ease;
+    padding: 3rem ;
 }
 
-/* Video Section styling */
-#video {
-    background-color: transparent;
-    padding: 3rem 0;
+
+/* in by-components.css or your custom css */
+#front-wall .front-media {
+  width: 100%;
+  /* leave room for your <h1> + <p> captions */
+  max-height: calc(100vh - 8rem);
+  object-fit: contain;
 }
-
-#video .container {
-    max-width: 90%;
+#front-wall .front-inner {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
-#video .row {
-    display: flex;
-    align-items: flex-start; /* Aligns the top of both videos */
+#front-wall .front-title {
+  margin-bottom: 1rem;
 }
-
-#video .col-md-6 {
-    padding: 0 15px;
+#front-wall .front-media {
+  flex: 1;
+  object-fit: contain;
+  width: 100%;
 }
-
-#video h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-#video .video-container {
-    margin-top: 0;
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#video .video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    border-radius: 8px;
-}
-
-@media (max-width: 767px) {
-    #video .row {
-        flex-direction: column;
-    }
-    
-    #video .col-md-6:first-child {
-        margin-bottom: 2rem;
-    }
-}
-
-/* Style for the videos section cards if used */
-#video .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    height: 100%;
-}
-
-#video .card:hover {
-    transform: translateY(-5px);
-}
-
-#video .card-body {
-    padding: 1.5rem;
-}
-
-#video video {
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-}
-
-/* Stand Section */
-#stand-video-container {
-    margin: 2rem auto;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-#stand-video-container video {
-    width: 70%;
-    height: 50%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    background-color: #000;
-    display: block;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  8. SILHOUETTES & IMAGE ACCORDION
-───────────────────────────────────────────────────────────────────────────────*/
-
-#silhouettes {
-    padding: 0;
-    margin: 0;
-}
-
-#silhouettes img {
-    width: 100%;
-}
-
-/* Silhouette animation */
-.silhouette {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.silhouette.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Image accordion section */
-#image-accordion {
-    width: 100%;
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    background-color: var(--bs-secondary-bg);
-}
-
-.accordion {
-    display: flex;
-    width: 90%;
-    max-width: 1000px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 20px;
-    gap: 5px;
-}
-
-.accordion .panel {
-    flex: 2;
-    min-width: 80px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: flex 0.5s ease-in-out;
-    position: relative;
-    border-radius: 20px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.accordion .panel img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    object-position: center center;
-    background-color: white;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 20px;
-}
-
-.accordion .panel:hover,
-.accordion .panel.active {
-    flex: 4;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 9. CEILING PANELS (FLIP CARDS & MODAL)
-───────────────────────────────────────────────────────────────────────────────*/
-
-.ceiling-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-
-.ceiling-row {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-start;
-}
-
-.ceiling-panel {
-    position: relative;
-    perspective: 1500px;
-    border-radius: 15px;
-}
-
-.ceiling-panel.tall {
-    width: 450px;
-    height: 450px;
-}
-
-.ceiling-panel.short {
-    width: 450px;
-    height: 315px;
-}
-
-/* The panel flips in place when user clicks */
-.panel-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-}
-
-/* This class is toggled to flip the card */
-.ceiling-panel.flipped .panel-inner {
-    transform: rotateY(180deg);
-}
-
-.panel-front,
-.panel-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.panel-back {
-    transform: rotateY(180deg);
-}
-
-.top-row {
-    align-items: flex-start;
-    margin-bottom: -65px;
-}
-
-.bottom-row {
-    align-items: flex-end;
-    margin-top: -65px;
-}
-
-/* Zoom icon for enlarging the panel */
-.zoom-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.zoom-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Adjust hover text to be bigger and centered */
-.hover-flip-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    cursor: pointer;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
-}
-
-.ceiling-panel:hover .hover-flip-text {
-    opacity: 1;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 10. CEILING PANELS MODAL OVERLAY
-───────────────────────────────────────────────────────────────────────────────*/
-
-.ceiling-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Fixed modal size for consistency */
-.ceiling-modal-content {
-    width: 1200px;
-    height: 1200px;
-    max-width: 90vw;
-    max-height: 90vh;
-    background-color: #212529;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Close button */
-.ceiling-modal-close {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    color: #000;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    font-size: 30px;
-    line-height: 46px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Navigation arrows */
-.ceiling-modal-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    user-select: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    line-height: 46px;
-    text-align: center;
-    z-index: 10;
-}
-
-.ceiling-modal-nav-left {
-    left: 25px;
-}
-
-.ceiling-modal-nav-right {
-    right: 25px;
-}
-
-.ceiling-modal-nav:hover {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-/* Flip container inside the modal */
-.flip-container {
-    position: relative;
-    bottom: 25px;
-    width: 80%;
-    max-width: 900px;
-    height: 80%;
-    max-height: 900px;
-    perspective: 1000px;
-}
-
-.flip-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.flip-front,
-.flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    backface-visibility: hidden;
-    object-fit: contain;
-}
-
-.flip-back {
-    transform: rotateY(180deg);
-}
-
-.flip-container.flipped .flip-inner {
-    transform: rotateY(180deg);
-}
-
-/* Flip button in modal */
-.modal-flip-btn {
-    position: absolute;
-    bottom: 70px; 
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #20c997;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 11;
-}
-
-.modal-flip-btn:hover {
-    background-color: #17a185;
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-    .ceiling-modal-nav {
-        font-size: 30px;
-        width: 40px;
-        height: 40px;
-        line-height: 36px;
-    }
-
-    .modal-flip-btn {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 11. POPUP OVERLAY FOR ANY “ENLARGED” IMAGES (BACK‐WALL/CEILING, ETC.)
-───────────────────────────────────────────────────────────────────────────────*/
-
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-    box-sizing: border-box;
-}
-
-.popup-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-image {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100vh - 80px);
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-}
-
-.close {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    color: black;
-    border: none;
-    font-size: 1rem;
-    padding: 0.2rem 0.6rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.close:hover {
-    background-color: #eee;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
- 12. MISCELLANEOUS / HELPERS
-───────────────────────────────────────────────────────────────────────────────*/
-
-/* Space between sections */
-.spacer {
-    height: 2rem;
-}
-
-/*───────────────────────────────────────────────────────────────────────────────
-  13. UNIFIED PADDING FOR ALL “HIDDEN” PANELS
-───────────────────────────────────────────────────────────────────────────────*/
-
-#front-wall,
-#stand,
-#back-wall-panels,
-#image-accordion,
-#image-accordion,
-#silhouettes {
-    padding: 3rem 0;
+#front-wall .front-caption {
+  margin: 1rem 0;
 }
