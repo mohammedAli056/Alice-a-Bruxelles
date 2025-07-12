@@ -145,7 +145,7 @@
                 width: 400px; /* or use 100% for full width, or adjust to your liking */
                 text-align: center;
             }        
-    </style>
+        </style>
     </head>
     <body>
         <!-- Navbar Section -->
@@ -210,6 +210,9 @@
             src="../assets/img/exhibit-poster.png"
             alt="Middle Image"
             class="img-center"
+            id="exhibit-poster"
+            style="cursor: pointer;"
+            onclick="openPosterModal()"
           />
           <img
             src="../assets/img/stand.jpg"
@@ -225,7 +228,7 @@
           <p><strong>Art Director:</strong><br />
             Giacomo Pirazzoli</p>
           <p><strong>Website Developers:</strong><br />
-            Shahed Bitar, Akshita B, Sarah Chiang, Riad Chahla, Gayitha Dammiya, Maanya Joshi, 
+            Mohammed Ali Shah, Shahed Bitar, Akshita B, Sarah Chiang, Riad Chahla, Gayitha Dammiya, Maanya Joshi, 
             Ali Mohamed, Sabina Radhi, Yuting Pan, Karim Youssef
           </p>
         </div>
@@ -309,6 +312,30 @@
                     flagElement.src = '../assets/img/en.svg';
                 }
             }
+            // Modal logic for exhibit poster
+            function openPosterModal() {
+              document.getElementById('poster-modal').style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+            }
+            function closePosterModal() {
+              document.getElementById('poster-modal').style.display = 'none';
+              document.body.style.overflow = '';
+            }
+            // Optional: close modal when clicking outside the image
+            document.addEventListener('DOMContentLoaded', function() {
+              var posterModal = document.getElementById('poster-modal');
+              if (posterModal) {
+                posterModal.addEventListener('click', function(e) {
+                  if (e.target === posterModal) closePosterModal();
+                });
+              }
+            });
         </script>
     </body>
 </html>
+
+<!-- Modal for Enlarged Exhibit Poster -->
+<div id="poster-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
+  <span onclick="closePosterModal()" style="position:absolute; top:30px; right:50px; color:white; font-size:3rem; cursor:pointer; z-index:10001;">&times;</span>
+  <img src="../assets/img/exhibit-poster.png" alt="Exhibit Poster Enlarged" style="max-width:90vw; max-height:90vh; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.7); z-index:10000;" />
+</div>
