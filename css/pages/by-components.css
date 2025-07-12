@@ -1017,3 +1017,64 @@ body.modal-open .frame-hotspot {
         padding: 1px 4px;
     }
 }
+
+/*───────────────────────────────────────────────────────────────────────────────
+  14. VIDEO THUMBNAIL AND PLAY OVERLAY STYLES
+───────────────────────────────────────────────────────────────────────────────*/
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.expo-poster-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure both video containers have the same size */
+#video2-container,
+#video3-container {
+    height: 400px;
+}
+
+#video2-container .ratio,
+#video3-container .ratio {
+    height: 100%;
+}
+
+/* Ensure both thumbnails have consistent sizing */
+#baroness-poster-thumb,
+#expo-poster-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Video thumbnail hover effects */
+.expo-poster-thumb:hover {
+    opacity: 0.9;
+}
+
+.play-overlay svg {
+    transition: transform 0.3s ease;
+}
+
+.expo-poster-thumb:hover + .play-overlay svg {
+    transform: scale(1.1);
+}

@@ -136,38 +136,67 @@
     </div>
   </div>
 
+  <!-- ===== 4) Video Section ("The History of the Schools in 2 Videos") ===== -->
   <div id="video" class="container-fluid content-start" style="display: none;">
     <div class="container">
+      <h2 class="text-center mb-4">The History of the Schools in 2 Videos</h2>
       <div class="row">
-        <div id="video2-container" class="col-12 mb-5">
-          <h1 class="text-center mb-4">The Baroness and the Barefoot Children</h1>
-          <div style="max-width: 1030px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-              <iframe
-                src="https://www.youtube.com/embed/8Q7N5qP0Yc4?si=J1uHctloucfDXAEp"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              </iframe>
+        <!-- Titles Row -->
+        <div class="col-md-6 mb-0 d-flex flex-column align-items-center">
+          <div class="text-center mb-2" style="min-height: 4.5em; display: flex; flex-direction: column; justify-content: flex-end;">
+            <span style="font-size:1.4em;font-weight:bold;margin-bottom:2px;display:inline-block;">The Baroness and the Barefoot Children</span>
+            <em><span style="font-size:1em;">Philanthropy, Women and Rural Schools. From the Origins to Maria Montessori</span></em>
+          </div>
+        </div>
+        <div class="col-md-6 mb-0 d-flex flex-column align-items-center">
+          <div class="text-center mb-2" style="min-height: 4.5em; display: flex; flex-direction: column; justify-content: flex-end;">
+            <span style="font-size:1.4em;font-weight:bold;margin-bottom:2px;display:inline-block;">The Montesca Schools at the 1910 World Fair</span>
+            <em><span style="font-size:1em;">Alice Hallgarten Franchetti between Maria Montessori and Giuseppe Lombardo Radice</span></em>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-start" style="margin-top: 2rem;">
+        <!-- 4.1) Video: The Baroness and the Barefoot Children -->
+        <div id="video2-container" class="col-md-6 mb-4 d-flex flex-column align-items-center" style="height:100%;">
+          <div class="ratio ratio-16x9 position-relative w-100" style="background: #000;">
+            <img id="baroness-poster-thumb" src="../assets/img/ceiling-3f.png" alt="Baroness Video Thumbnail" class="expo-poster-thumb" onclick="this.style.display='none';document.getElementById('baroness-play-overlay').style.display='none';document.getElementById('baroness-iframe').style.display='block';">
+            <div id="baroness-play-overlay" class="play-overlay">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="38" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="4"/>
+                <polygon points="32,25 60,40 32,55" fill="white"/>
+              </svg>
             </div>
+            <iframe
+              id="baroness-iframe"
+              src="https://www.youtube.com/embed/8Q7N5qP0Yc4?si=J1uHctloucfDXAEp"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:none;">
+            </iframe>
           </div>
         </div>
 
-        <div id="video3-container" class="col-12 mb-4">
-          <h1 class="text-center mb-4">The Montesca Schools at the 1910 World Fair</h1>
-          <div style="max-width: 1030px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-              <iframe
-                src="https://www.youtube.com/embed/OnbyfdafI-k?si=iIsB9aQI8DR8CALN"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              </iframe>
+        <!-- 4.2) Video: The Montesca Schools at the 1910 World Fair -->
+        <div id="video3-container" class="col-md-6 mb-4 d-flex flex-column align-items-center" style="height:100%;">
+          <div class="ratio ratio-16x9 position-relative w-100" style="background: #000;">
+            <img id="expo-poster-thumb" src="../assets/img/expo_poster.jpg" alt="Expo Poster Thumbnail" class="expo-poster-thumb" onclick="this.style.display='none';document.getElementById('expo-play-overlay').style.display='none';document.getElementById('expo-iframe').style.display='block';">
+            <div id="expo-play-overlay" class="play-overlay">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="38" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="4"/>
+                <polygon points="32,25 60,40 32,55" fill="white"/>
+              </svg>
             </div>
+            <iframe
+              id="expo-iframe"
+              src="https://www.youtube.com/embed/OnbyfdafI-k?si=iIsB9aQI8DR8CALN"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:none;">
+            </iframe>
           </div>
         </div>
       </div>

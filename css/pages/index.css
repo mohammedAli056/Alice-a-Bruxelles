@@ -75,6 +75,63 @@
   height: 100%;
   border: none;
 }
+
+/* Video thumbnail overlay styles */
+.video-thumbnail-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail-overlay:hover {
+  transform: scale(1.02);
+}
+
+.video-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-thumbnail-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.play-button {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail-overlay:hover .play-button {
+  transform: scale(1.1);
+}
+
+.video-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.3;
+}
 .landing__card p {
   font-size: 1.4rem;
   line-height: 1.5;

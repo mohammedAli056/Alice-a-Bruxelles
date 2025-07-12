@@ -105,15 +105,32 @@
           </div>
         </div>
 
-        <!-- YouTube embed -->
+        <!-- YouTube embed with thumbnail -->
         <div class="col-md-6">
           <div class="landing__video-wrapper">
+            <!-- Thumbnail overlay -->
+            <div id="video-thumbnail" class="video-thumbnail-overlay">
+              <img 
+                src="../assets/img/LandingPageThumbnail.jpeg" 
+                alt="Alice in Brussels: Introduction to the Exhibition"
+                class="video-thumbnail-img"
+              >
+              <div class="video-thumbnail-overlay-content">
+                <div class="play-button">
+                  <i class="bi bi-play-circle-fill"></i>
+                </div>
+                <h3 class="video-title">Alice in Brussels: Introduction to the Exhibition</h3>
+              </div>
+            </div>
+            <!-- YouTube iframe (hidden initially) -->
             <iframe
+              id="video-iframe"
               src="https://www.youtube.com/embed/bvgiVHAeGOc?autoplay=1&mute=1"
-              title="Alice in Brussels Video"
+              title="Alice in Brussels: Introduction to the Exhibition"
               allow="autoplay; encrypted-media; picture-in-picture"
               allowfullscreen
               class="landing__video-iframe"
+              style="display: none;"
             ></iframe>
           </div>
         </div>
@@ -242,12 +259,30 @@
         }
       });
     });
+    // Video thumbnail click handler
+    const videoThumbnail = document.getElementById('video-thumbnail');
+    const videoIframe = document.getElementById('video-iframe');
+    
+    if (videoThumbnail && videoIframe) {
+      videoThumbnail.addEventListener('click', function() {
+        // Hide thumbnail
+        videoThumbnail.style.display = 'none';
+        // Show and load video
+        videoIframe.style.display = 'block';
+        // Update iframe src to trigger autoplay
+        const currentSrc = videoIframe.src;
+        videoIframe.src = currentSrc + '&autoplay=1';
+      });
+    }
+
     // Hide landing text when video plays
     const vid = document.getElementById('landing-video');
     const txt = document.getElementById('landing-text');
-    vid.addEventListener('play',  () => txt.style.display = 'none');
-    vid.addEventListener('pause', () => txt.style.display = '');
-    vid.addEventListener('ended', () => txt.style.display = '');
+    if (vid && txt) {
+      vid.addEventListener('play',  () => txt.style.display = 'none');
+      vid.addEventListener('pause', () => txt.style.display = '');
+      vid.addEventListener('ended', () => txt.style.display = '');
+    }
   </script>
 </body>
 </html>
