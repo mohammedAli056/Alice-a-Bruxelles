@@ -920,3 +920,100 @@ map area:hover {
 #front-wall .front-caption {
   margin: 1rem 0;
 }
+
+/* ===== INTERACTIVE FRAME HOTSPOTS FOR BACK WALL ===== */
+
+/* Container for image with hotspots */
+.image-map-container {
+    position: relative;
+    overflow: visible;
+}
+
+/* Interactive Frame Hotspots */
+.frame-hotspot {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(1px);
+    overflow: hidden;
+    opacity: 1; /* Professional: immediately visible */
+}
+
+.frame-hotspot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        rgba(0, 0, 0, 0.05) 100%);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.frame-hotspot:hover {
+    transform: scale(1.1);
+    z-index: 101;
+    border-color: #00ff88;
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.3);
+}
+
+.frame-hotspot:hover::before {
+    opacity: 0.7;
+}
+
+.frame-hotspot::after {
+    content: attr(data-frame);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.frame-hotspot:hover::after {
+    opacity: 1;
+}
+
+/* Hide hotspots when popup/modal is open */
+body.modal-open .frame-hotspot {
+    display: none !important;
+}
+
+/* Focus styles for accessibility */
+.frame-hotspot:focus {
+    outline: 3px solid #4facfe;
+    outline-offset: 2px;
+}
+
+/* Responsive design for hotspots */
+@media (max-width: 768px) {
+    .frame-hotspot {
+        border-width: 1px;
+    }
+    
+    .frame-hotspot:hover {
+        transform: scale(1.05);
+    }
+    
+    .frame-hotspot::after {
+        font-size: 8px;
+        padding: 1px 4px;
+    }
+}
