@@ -24,63 +24,92 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   function hideAllContentPanes() {
-    panelToContentId.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.style.display = "none";
-    });
-    // Hide individual content sections
-    document.getElementById("image-accordion")?.style.setProperty("display", "none");
-    document.getElementById("silhouettes")?.style.setProperty("display", "none");
-    // Hide all silhouette containers
-    document.querySelectorAll("#silhouettes .silhouette-container").forEach(el => {
-      el.style.display = "none";
-    });
+  // Reset hotspots when switching sections
+  if (typeof resetBackWallHotspots === 'function') {
+    resetBackWallHotspots();
   }
+  
+  panelToContentId.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+  // Hide individual content sections
+  document.getElementById("image-accordion")?.style.setProperty("display", "none");
+  document.getElementById("silhouettes")?.style.setProperty("display", "none");
+  // Hide all silhouette containers
+  document.querySelectorAll("#silhouettes .silhouette-container").forEach(el => {
+    el.style.display = "none";
+  });
+}
 
   hideAllContentPanes();
 
   panels.forEach((panelEl, idx) => {
-    panelEl.addEventListener("click", () => {
-      console.log(`Panel ${idx} clicked`); // Debug log
-      panels.forEach(p => p.classList.remove("active"));
-      panelEl.classList.add("active");
-      hideAllContentPanes();
+  panelEl.addEventListener("click", () => {
+    console.log(`Panel ${idx} clicked`);
+    panels.forEach(p => p.classList.remove("active"));
+    panelEl.classList.add("active");
+    
+    // IMPORTANT: Reset hotspots when switching sections
+    if (typeof resetBackWallHotspots === 'function') {
+      resetBackWallHotspots();
+    }
+    hideAllContentPanes();
 
-      if (idx === 1) {
-        // "La Montesca School: A Story of Women" - Show ONLY accordion initially
-        const accordion = document.getElementById("image-accordion");
+    if (idx === 1) {
+      // "La Montesca School: A Story of Women"
+      const accordion = document.getElementById("image-accordion");
+      console.log("Showing La Montesca section");
 
-        console.log("Showing La Montesca section"); // Debug log
-
-        if (accordion) {
-          accordion.style.display = "block";
-          console.log("Image accordion displayed");
-        }
-
-        // Do NOT show silhouettes section initially - it will be shown when accordion panel is clicked
-        // Do NOT show first silhouette by default
-
-        // Activate first accordion panel
-        const firstAccordionPanel = document.querySelector('#image-accordion .panel');
-        if (firstAccordionPanel) {
-          firstAccordionPanel.classList.add('active');
-          console.log("First accordion panel activated");
-        }
-
-        // Scroll to accordion
-        setTimeout(() => {
-          accordion?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
-      } else {
-        const contentId = panelToContentId[idx];
-        const contentEl = document.getElementById(contentId);
-        if (contentEl) {
-          contentEl.style.display = "block";
-          contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+      if (accordion) {
+        accordion.style.display = "block";
+        console.log("Image accordion displayed");
       }
-    });
+
+      const firstAccordionPanel = document.querySelector('#image-accordion .panel');
+      if (firstAccordionPanel) {
+        firstAccordionPanel.classList.add('active');
+        console.log("First accordion panel activated");
+      }
+
+      setTimeout(() => {
+        accordion?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+      
+    } else if (idx === 5) {
+      // *** BACK WALL SECTION - INITIALIZE HOTSPOTS ***
+      console.log("Back Wall panel clicked - initializing hotspots");
+      const contentEl = document.getElementById("back-wall");
+      if (contentEl) {
+        contentEl.style.display = "block";
+        
+        // Initialize hotspots with delay for back-wall section
+        setTimeout(() => {
+          console.log('Back wall section made visible, initializing hotspots...');
+          if (typeof initBackWallHotspotsOnce === 'function') {
+            initBackWallHotspotsOnce();
+          }
+        }, 500);
+        
+        contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      
+    } else {
+      // All other panels
+      const contentId = panelToContentId[idx];
+      const contentEl = document.getElementById(contentId);
+      if (contentEl) {
+        contentEl.style.display = "block";
+        contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
   });
+console.log('Page loaded - checking for hotspot functions...');
+  console.log('resetBackWallHotspots available:', typeof resetBackWallHotspots === 'function');
+  console.log('initBackWallHotspots available:', typeof initBackWallHotspots === 'function');
+  console.log('initBackWallHotspotsOnce available:', typeof initBackWallHotspotsOnce === 'function');
+  console.log('handleBackWallResize available:', typeof handleBackWallResize === 'function');
+});
 
   // 3) Image-accordion → silhouettes interaction
   document.querySelectorAll('#image-accordion .panel').forEach(panel => {
@@ -582,20 +611,28 @@ function showEnlargedFrame(frameNumber) {
 }
 
 function closePopup(popupId) {
-    const popup = document.getElementById(popupId);
-    if (popup) {
-        popup.style.display = 'none';
-        document.body.style.overflow = '';
-    }
+  console.log(`Closing popup: ${popupId}`);
+  const popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'none';
+    document.body.classList.remove('modal-open'); // Show hotspots
+    document.body.style.overflow = '';
+  }
 }
 
 // Close when clicking outside popup content
-document.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
+    // Check if the clicked element is a popup background (not the content)
     if (e.target.classList.contains('popup')) {
-        e.target.style.display = 'none';
-        document.body.style.overflow = '';
+      const popupId = e.target.id;
+      console.log(`Clicked outside popup: ${popupId} - closing and restoring hotspots`);
+      
+      // Close the popup and restore hotspots
+      e.target.style.display = 'none';
+      document.body.classList.remove('modal-open'); // ← This is the key fix!
+      document.body.style.overflow = '';
     }
-});
+  });
 
 // UTILITY FUNCTIONS
 function openPDF() {
@@ -661,5 +698,248 @@ function triggerVideosPanel() {
 
 // Popup open/close
 function showPopup(id) {
-  document.getElementById(id).style.display = 'flex';
+  console.log(`Opening popup: ${id}`);
+  const popup = document.getElementById(id);
+  if (popup) {
+    popup.style.display = 'flex';
+    document.body.classList.add('modal-open'); // Hide hotspots
+    document.body.style.overflow = 'hidden';
+  }
 }
+
+let hotspotsInitialized = false;
+
+// Reset hotspots function
+function resetBackWallHotspots() {
+  console.log('Resetting back wall hotspots...');
+  const existingHotspots = document.querySelectorAll('.frame-hotspot');
+  existingHotspots.forEach(hotspot => hotspot.remove());
+  hotspotsInitialized = false;
+}
+
+// Main hotspot initialization function
+function initBackWallHotspots() {
+  console.log('Starting back wall hotspot initialization...');
+  
+  const img = document.getElementById('back-wall-image');
+  const container = document.querySelector('.image-map-container');
+  const backWallSection = document.getElementById('back-wall');
+  
+  if (!img || !container || !backWallSection) {
+    console.error('Required back wall elements not found');
+    return false;
+  }
+  
+  // Check if back-wall section is actually visible
+  const sectionStyle = window.getComputedStyle(backWallSection);
+  if (sectionStyle.display === 'none') {
+    console.log('Back wall section not visible, skipping hotspot initialization');
+    return false;
+  }
+  
+  // Wait for image to be properly loaded and laid out
+  if (!img.complete || img.naturalHeight === 0 || img.offsetWidth === 0) {
+    console.log('Back wall image not ready, retrying...');
+    return false;
+  }
+
+  const imageInfo = {
+    naturalWidth: img.naturalWidth,
+    naturalHeight: img.naturalHeight,
+    displayedWidth: img.offsetWidth,
+    displayedHeight: img.offsetHeight,
+    scaleX: img.offsetWidth / img.naturalWidth,
+    scaleY: img.offsetHeight / img.naturalHeight
+  };
+
+  console.log('Back wall image info:', imageInfo);
+
+  if (imageInfo.displayedWidth === 0 || imageInfo.displayedHeight === 0) {
+    console.log('Back wall image dimensions not ready, retrying...');
+    return false;
+  }
+
+  // Get image position relative to container
+  const imgRect = img.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+  const imgOffsetX = imgRect.left - containerRect.left;
+  const imgOffsetY = imgRect.top - containerRect.top;
+
+  // Frame coordinates (your exact coordinates from the map)
+  const frameCoords = [
+    [484,499,750,499,755,732,479,735], // Frame 1
+    [538,248,701,246,696,474,538,471], // Frame 2
+    [349,305,528,305,528,471,347,471], // Frame 3
+    [706,298,856,298,856,474,704,474], // Frame 4
+    [960,802,1099,792,1115,893,975,893], // Frame 5
+    [942,545,1055,537,1055,687,942,693], // Frame 6
+    [896,300,1061,296,1063,520,896,524], // Frame 7
+    [795,541,904,543,898,708,796,710], // Frame 8
+    [154,524,292,526,296,729,153,729], // Frame 9
+    [683,737,825,740,841,898,687,898], // Frame 10
+    [210,754,310,754,308,831,208,831]  // Frame 11
+  ];
+
+  // Create hotspots for each frame
+  frameCoords.forEach((coords, index) => {
+    const polygon = [];
+    for (let i = 0; i < coords.length; i += 2) {
+      polygon.push({
+        x: coords[i],
+        y: coords[i + 1]
+      });
+    }
+
+    // Calculate bounding box
+    const xs = polygon.map(p => p.x);
+    const ys = polygon.map(p => p.y);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+
+    const natural = {
+      x: minX,
+      y: minY,
+      w: maxX - minX,
+      h: maxY - minY
+    };
+
+    const scaled = {
+      x: natural.x * imageInfo.scaleX,
+      y: natural.y * imageInfo.scaleY,
+      w: natural.w * imageInfo.scaleX,
+      h: natural.h * imageInfo.scaleY
+    };
+
+    console.log(`Frame ${index + 1}:`, { natural, scaled });
+
+    // Create hotspot element
+    const hotspot = document.createElement('div');
+    hotspot.className = 'frame-hotspot';
+    hotspot.setAttribute('data-frame', `Frame ${index + 1}`);
+    hotspot.style.position = 'absolute';
+    hotspot.style.left = `${imgOffsetX + scaled.x}px`;
+    hotspot.style.top = `${imgOffsetY + scaled.y}px`;
+    hotspot.style.width = `${scaled.w}px`;
+    hotspot.style.height = `${scaled.h}px`;
+    
+    // Create a clipped background showing the specific part of the image
+    const backgroundPosX = -scaled.x;
+    const backgroundPosY = -scaled.y;
+    const backgroundSizeW = imageInfo.displayedWidth;
+    const backgroundSizeH = imageInfo.displayedHeight;
+    
+    hotspot.style.backgroundImage = `url(${img.src})`;
+    hotspot.style.backgroundPosition = `${backgroundPosX}px ${backgroundPosY}px`;
+    hotspot.style.backgroundSize = `${backgroundSizeW}px ${backgroundSizeH}px`;
+    
+    // Add click handler - uses your existing showPopup function
+    hotspot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log(`Clicked frame ${index + 1}`);
+      if (typeof showPopup === 'function') {
+        showPopup(`popup-frame${index + 1}`);
+      }
+    });
+
+    // Add keyboard accessibility
+    hotspot.tabIndex = 0;
+    hotspot.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (typeof showPopup === 'function') {
+          showPopup(`popup-frame${index + 1}`);
+        }
+      }
+    });
+
+    container.appendChild(hotspot);
+  });
+
+  console.log(`Back wall hotspots: Created ${frameCoords.length} hotspots`);
+  return true;
+}
+
+// Hotspot initialization with retry
+function initBackWallHotspotsOnce() {
+  if (hotspotsInitialized) {
+    console.log('Back wall hotspots already initialized, skipping...');
+    return;
+  }
+
+  const backWallSection = document.getElementById('back-wall');
+  if (!backWallSection) {
+    console.error('Back wall section not found');
+    return;
+  }
+
+  const sectionStyle = window.getComputedStyle(backWallSection);
+  if (sectionStyle.display === 'none') {
+    console.log('Back wall section not visible, cannot initialize hotspots');
+    return;
+  }
+
+  let attempts = 0;
+  const maxAttempts = 10;
+  const retryDelay = 200;
+
+  function attemptInit() {
+    attempts++;
+    console.log(`Back wall hotspot initialization attempt ${attempts}/${maxAttempts}`);
+    
+    if (initBackWallHotspots()) {
+      hotspotsInitialized = true;
+      console.log('Back wall hotspots successfully initialized!');
+    } else if (attempts < maxAttempts) {
+      console.log(`Attempt ${attempts} failed, retrying in ${retryDelay}ms...`);
+      setTimeout(attemptInit, retryDelay);
+    } else {
+      console.error('Failed to initialize back wall hotspots after maximum attempts');
+    }
+  }
+
+  attemptInit();
+}
+
+// Enhanced popup functions with modal-open class management
+function showPopupWithHotspots(id) {
+  const popup = document.getElementById(id);
+  if (popup) {
+    popup.style.display = 'flex';
+    document.body.classList.add('modal-open'); // Hide hotspots
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closePopupWithHotspots(popupId) {
+  const popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'none';
+    document.body.classList.remove('modal-open'); // Show hotspots
+    document.body.style.overflow = '';
+  }
+}
+
+// Window resize handler for hotspots
+let hotspotsResizeTimeout;
+function handleBackWallResize() {
+  clearTimeout(hotspotsResizeTimeout);
+  hotspotsResizeTimeout = setTimeout(function() {
+    const backWallSection = document.getElementById('back-wall');
+    if (backWallSection && window.getComputedStyle(backWallSection).display !== 'none' && hotspotsInitialized) {
+      console.log('Window resized, reinitializing back wall hotspots...');
+      resetBackWallHotspots();
+      setTimeout(() => {
+        initBackWallHotspotsOnce();
+      }, 100);
+    }
+  }, 250);
+}
+
+window.addEventListener('resize', function() {
+  if (typeof handleBackWallResize === 'function') {
+    handleBackWallResize();
+  }
+});

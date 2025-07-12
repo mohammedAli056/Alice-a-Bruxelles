@@ -268,28 +268,45 @@
     <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
   </div>
 
+    <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
   <div id="back-wall" class="container-fluid content-start" style="display: none;">
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mb-5">
         <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-          <div class="card shadow">
+          <!-- Enhanced container for interactive hotspots -->
+          <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
             <img id="back-wall-image"
-                src="../assets/img/carousel-3.jpeg"
-                class="d-block w-100 rounded"
-                alt="Back Wall"
-                usemap="#back-wall-map"
-                loading="eager">
+                 usemap="#back-wall-map"
+                 src="../assets/img/edited_half_title_stand.jpg"
+                 class="d-block w-100 rounded"
+                 alt="Back Wall"
+                 loading="eager">
             <div class="card-body text-center">
-              <h1 class="card-text">Click any frame to enlarge</h1>
+              <p class="card-text">
+                Click on the frame to enlarge the image
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Footer will be inserted here by JavaScript -->
     <div class="footer-placeholder"></div>
   </div>
+
+  <!-- ===== Image Map with Corrected Coordinates ===== -->
+  <map name="back-wall-map">
+    <area alt="Frame 1" title="Frame 1" href="#" coords="484,499,750,499,755,732,479,735" shape="poly">
+    <area alt="Frame 2" title="Frame 2" href="#" coords="538,248,701,246,696,474,538,471" shape="poly">
+    <area alt="Frame 3" title="Frame 3" href="#" coords="349,305,528,305,528,471,347,471" shape="poly">
+    <area alt="Frame 4" title="Frame 4" href="#" coords="706,298,856,298,856,474,704,474" shape="poly">
+    <area alt="Frame 5" title="Frame 5" href="#" coords="960,802,1099,792,1115,893,975,893" shape="poly">
+    <area alt="Frame 6" title="Frame 6" href="#" coords="942,545,1055,537,1055,687,942,693" shape="poly">
+    <area alt="Frame 7" title="Frame 7" href="#" coords="896,300,1061,296,1063,520,896,524" shape="poly">
+    <area alt="Frame 8" title="Frame 8" href="#" coords="795,541,904,543,898,708,796,710" shape="poly">
+    <area alt="Frame 9" title="Frame 9" href="#" coords="154,524,292,526,296,729,153,729" shape="poly">
+    <area alt="Frame 10" title="Frame 10" href="#" coords="683,737,825,740,841,898,687,898" shape="poly">
+    <area alt="Frame 11" title="Frame 11" href="#" coords="210,754,310,754,308,831,208,831" shape="poly">
+  </map>
 
   <map name="back-wall-map">
     <area
