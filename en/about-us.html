@@ -200,20 +200,23 @@
         </p>
   
         <!-- 3 images row, center image truly in the center -->
-        <div class="image-row">
+        <div class="image-row" style="position: relative;">
           <img
             src="../assets/img/back-wall.png"
             alt="Left Image"
             class="img-side"
           />
-          <img
-            src="../assets/img/exhibit-poster.png"
-            alt="Middle Image"
-            class="img-center"
-            id="exhibit-poster"
-            style="cursor: pointer;"
-            onclick="openPosterModal()"
-          />
+          <div style="position: relative; display: inline-block;">
+            <img
+              src="../assets/img/exhibit-poster.png"
+              alt="Middle Image"
+              class="img-center"
+              id="exhibit-poster"
+              style="cursor: pointer;"
+              onclick="openPosterModal()"
+            />
+            <span style="position: absolute; top: 18px; left: 18px; background: rgba(32,201,151,0.85); color: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.15); pointer-events: none;">+</span>
+          </div>
           <img
             src="../assets/img/stand.jpg"
             alt="Right Image"
