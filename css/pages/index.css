@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  background-color: #121214;
 }
 
 /* hero section sits under a 56px navbar */
@@ -10,7 +11,7 @@ html, body {
   left: 0;
   width: 100%;
   height: calc(100vh - 56px);
-  background: url('../../assets/img/intro.jpg') center center no-repeat;
+  background: url('../../assets/img/opening-pg-fv.jpg') center center no-repeat;
   background-size: contain;
   z-index: 0;
 }

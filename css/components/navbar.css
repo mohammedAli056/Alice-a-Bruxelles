@@ -31,7 +31,7 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    white-space: nowrap;   <!-- to make the words on the navbar stay in one line -->   
+    white-space: nowrap;   /*<!-- to make the words on the navbar stay in one line -->*/   
 }
 
 .navbar-nav .nav-link:hover {
