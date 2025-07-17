@@ -29,25 +29,23 @@
             <!-- Exhibition by Components dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" data-panel-index="0">The History of the Schools in 2 Videos</a></li>
-                <li><a class="dropdown-item" href="#" data-panel-index="1">La Montesca School: A Story of Women</a></li>
-                <li><a class="dropdown-item" href="#" data-panel-index="2">Photos and Alice’s Letters to Maria Pasqui</a></li>
-                <li><a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a></li>
-                <li><a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a></li>
-                <li><a class="dropdown-item" href="#" data-panel-index="5">The Reconstruction of the Schools’ Stand</a></li>
-                <li><a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a></li>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="by-components.html?panel=0">The History of the Schools in 2 Videos</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=1">La Montesca School: A Story of Women</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=2">Photos and Alice’s Letters to Maria Pasqui</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=3">Montessori and International Teaching Materials</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=4">The 1910 World Fair Exhibition</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=5">The Reconstruction of the Schools’ Stand</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=6">Exhibition Project; Visitors’ Guide, Credits</a></li>
               </ul>
             </li>
             <!-- Videos dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">VIDEOS</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" onclick="scrollToVideo(); return false;">
-                  Alice in Brussels: Intro
-                </a></li>
-                <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">The Baroness…</a></li>
-                <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">Montesca Schools…</a></li>
+                <li><a class="dropdown-item" href="landingPage.html?autoplayVideo=1">Alice in Brussels: An Introduction to the Exhibit</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=0#video">The Baroness and the Barefoot Children</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=0#video">The Montesca Schools at the 1910 World Fair</a></li>
                 <li><a class="dropdown-item" href="#">Symposium – Excerpts</a></li>
               </ul>
             </li>
@@ -106,7 +104,9 @@
         </div>
 
         <!-- YouTube embed with thumbnail -->
-        <div class="col-md-6">
+
+        <!-- Anchor for scroll target -->
+        <div id="intro-video" class="col-md-6">
           <div class="landing__video-wrapper">
             <!-- Thumbnail overlay -->
             <div id="video-thumbnail" class="video-thumbnail-overlay">
@@ -233,56 +233,85 @@
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
   <!-- <script src="../js/theme.js"></script> -->
+
   <script>
     // Language switcher
     function setLanguage(lang) {
-      document.getElementById('currentLanguageFlag').src = lang==='it'
-        ? '../assets/img/it.svg'
-        : '../assets/img/en.svg';
-      window.location.href = lang==='it' ? '../it/index1.html' : '../en/landingPage.html';
+      document.getElementById('currentLanguageFlag').src =
+        lang === 'it' ? '../assets/img/it.svg' : '../assets/img/en.svg';
+      window.location.href = lang === 'it'
+        ? '../it/index1.html'
+        : '../en/landingPage.html';
     }
-    // Open PDF
+
+    // Open PDF in new tab
     function openPDF() {
-      window.open('../assets/document/CATALOGUE.pdf','_blank');
+      window.open('../assets/document/CATALOGUE.pdf', '_blank');
     }
-    // Back-to-top
-    document.getElementById('back-to-top').addEventListener('click', () => {
+
+    // Back-to-top smooth scroll
+    document.getElementById('back-to-top')?.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    // Smooth scroll for in-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
+
+    // Smooth scroll for in-page anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
-    // Video thumbnail click handler
+
+    // Video thumbnail click handler (manual interaction)
     const videoThumbnail = document.getElementById('video-thumbnail');
     const videoIframe = document.getElementById('video-iframe');
-    
+
     if (videoThumbnail && videoIframe) {
-      videoThumbnail.addEventListener('click', function() {
-        // Hide thumbnail
+      videoThumbnail.addEventListener('click', function () {
         videoThumbnail.style.display = 'none';
-        // Show and load video
         videoIframe.style.display = 'block';
-        // Update iframe src to trigger autoplay
-        const currentSrc = videoIframe.src;
-        videoIframe.src = currentSrc + '&autoplay=1';
+
+        // Add autoplay if not already there
+        if (!videoIframe.src.includes('autoplay=1')) {
+          videoIframe.src += '&autoplay=1';
+        }
       });
     }
 
-    // Hide landing text when video plays
+    // Hide landing text when video plays (optional elements)
     const vid = document.getElementById('landing-video');
     const txt = document.getElementById('landing-text');
     if (vid && txt) {
-      vid.addEventListener('play',  () => txt.style.display = 'none');
+      vid.addEventListener('play', () => txt.style.display = 'none');
       vid.addEventListener('pause', () => txt.style.display = '');
       vid.addEventListener('ended', () => txt.style.display = '');
     }
+
+    // Handle autoplay if ?autoplayVideo=1 in URL
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const autoplay = params.get('autoplayVideo');
+      if (autoplay === '1' && videoThumbnail && videoIframe) {
+        const videoSection = document.getElementById('intro-video');
+        if (videoSection) {
+          videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Delay for scroll animation before autoplay trigger
+          setTimeout(() => {
+            videoThumbnail.style.display = 'none';
+            videoIframe.style.display = 'block';
+
+            if (!videoIframe.src.includes('autoplay=1')) {
+              videoIframe.src += '&autoplay=1';
+            }
+          }, 600);
+        }
+      }
+    });
   </script>
+
 </body>
 </html>

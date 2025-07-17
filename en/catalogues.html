@@ -9,66 +9,59 @@
 </head>
 <body>
 
-  <!-- ===== 1) Navbar Section ===== -->
+  <!-- ===== Navbar ===== -->
   <div class="nav container-fluid fixed-top">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="index.html">
-          <img src="../assets/img/website-icon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        <a class="navbar-brand" href="landingPage.html">
+          <img src="../assets/img/website-icon.png" alt="Logo" width="30" height="24">
           ALICE IN BRUSSELS
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html#landing-section">HOME</a></li>
-            <li class="nav-item"><a class="nav-link" href="#environment-3d-pane">EXHIBITION IN 3D</a></li>
-
+            <li class="nav-item"><a class="nav-link" href="landingPage.html#landing-section">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="3d-exhibition.html">EXHIBITION IN 3D</a></li>
+            <!-- Exhibition by Components dropdown -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
-              <ul class="dropdown-menu">
-                <a class="dropdown-item" href="#" data-panel-index="0">The History of the Schools in 2 Videos</a>
-                <a class="dropdown-item" href="#" data-panel-index="1">La Montesca School: A Story of Women</a>
-                <a class="dropdown-item" href="#" data-panel-index="2">Photos and Alice’s Letters to Maria Pasqui</a>
-                <a class="dropdown-item" href="#" data-panel-index="3">Montessori and International Teaching Materials</a>
-                <a class="dropdown-item" href="#" data-panel-index="4">The 1910 World Fair Exhibition</a>
-                <a class="dropdown-item" href="#" data-panel-index="5">The Reconstruction of the Schools’ Stand</a>
-                <a class="dropdown-item" href="#" data-panel-index="6">Exhibition Project; Visitors’ Guide, Credits</a>
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="by-components.html?panel=0">The History of the Schools in 2 Videos</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=1">La Montesca School: A Story of Women</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=2">Photos and Alice’s Letters to Maria Pasqui</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=3">Montessori and International Teaching Materials</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=4">The 1910 World Fair Exhibition</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=5">The Reconstruction of the Schools’ Stand</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=6">Exhibition Project; Visitors’ Guide, Credits</a></li>
               </ul>
             </li>
-
+            <!-- Videos dropdown -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">VIDEOS</a>
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">VIDEOS</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" onclick="scrollToVideo(); return false;">Alice in Brussels: An Introduction to the Exhibit</a></li>
-                <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">The Baroness and the Barefoot Children</a></li>
-                <li><a class="dropdown-item" href="#" onclick="triggerVideosPanel()">The Montesca Schools at the 1910 World Fair</a></li>
-                <li><a class="dropdown-item" href="#">Symposium - Excerpts</a></li>
+                <li><a class="dropdown-item" href="landingPage.html?autoplayVideo=1">Alice in Brussels: An Introduction to the Exhibit</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=0#video">The Baroness and the Barefoot Children</a></li>
+                <li><a class="dropdown-item" href="by-components.html?panel=0#video">The Montesca Schools at the 1910 World Fair</a></li>
+                <li><a class="dropdown-item" href="#">Symposium – Excerpts</a></li>
               </ul>
             </li>
-
             <li class="nav-item"><a class="nav-link" href="catalogues.html">CATALOGUES</a></li>
-            <li class="nav-item"><a class="nav-link" href="../en/about-us.html">CREDITS</a></li>
-
-            <!-- Language Dropdown -->
+            <li class="nav-item"><a class="nav-link" href="../en/about-us.html">ABOUT US</a></li>
+            <!-- Language -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                <img src="../assets/img/en.svg" alt="English" width="20" id="currentLanguageFlag">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="English">
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li>
-                  <a class="dropdown-item" href="#" onclick="setLanguage('en')">
-                    <img src="../assets/img/en.svg" width="20" class="me-2"> English
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#" onclick="setLanguage('it')">
-                    <img src="../assets/img/it.svg" width="20" class="me-2"> Italiano
-                  </a>
-                </li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                  <img src="../assets/img/en.svg" width="20" class="me-2">English
+                </a></li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                  <img src="../assets/img/it.svg" width="20" class="me-2">Italiano
+                </a></li>
               </ul>
             </li>
           </ul>
