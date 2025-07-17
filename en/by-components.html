@@ -134,6 +134,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer for slider (visible only when no panel is selected) -->
+    <div id="slider-footer" class="footer-placeholder"></div>
   </div>
 
   <!-- ===== 4) Video Section ("The History of the Schools in 2 Videos") ===== -->
@@ -486,7 +489,7 @@
           Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, 
           Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale 
           di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
-      <!-- </p>
+        </p>
         <div class="mb-0">
           <h1 class="text-center mb-4">1910 Catalogue</h1>
           <iframe
@@ -496,7 +499,7 @@
             allowfullscreen
           ></iframe>
         </div>
-      </div> -->
+      </div> 
     </div>
 
     <!-- Footer will be inserted here by JavaScript -->
@@ -589,6 +592,9 @@
         <div class="panel" data-index="7"><img src="../assets/img/silhouette-only-7.png" alt="Silhouette 7"></div>
       </div>
     </div>
+
+    <!-- Footer for Accordion (visible only when no silhouette is selected) -->
+    <div id="accordion-footer" class="footer-placeholder"></div>
   </div>
 
   <!-- ===== 14) Silhouettes Section ("La Montesca School: A Story of Women") ===== -->
@@ -642,9 +648,8 @@
   <script src="../js/imageMapResizer.min.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/theme.js"></script>
-  
+
   <script>
-    // Function to create and insert footer
     function createFooter() {
       return `
         <div class="container panel-footer">
@@ -655,14 +660,126 @@
       `;
     }
 
-    // Insert footer into all placeholder divs when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      const footerPlaceholders = document.querySelectorAll('.footer-placeholder');
-      footerPlaceholders.forEach(placeholder => {
-        placeholder.innerHTML = createFooter();
+    document.addEventListener('DOMContentLoaded', () => {
+      const sliderFooter = document.getElementById('slider-footer');
+      const accordionFooter = document.getElementById('accordion-footer');
+      const exploreSection = document.getElementById('explore-by-components');
+      const accordionSection = document.getElementById('image-accordion');
+      const silhouettesContainer = document.getElementById('silhouettes');
+      const silhouettePanels = silhouettesContainer.querySelectorAll('.silhouette-container');
+      const contentSections = document.querySelectorAll('.content-start');
+
+      // Inject footers
+      document.querySelectorAll('.footer-placeholder').forEach(p => {
+        p.innerHTML = createFooter();
       });
+
+      function hideAllSections() {
+        contentSections.forEach(section => section.style.display = 'none');
+      }
+
+      function scrollToElement(el) {
+        if (!el) return;
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
+      function showSectionById(id) {
+        hideAllSections();
+        const section = document.getElementById(id);
+        if (!section) return;
+
+        section.style.display = 'block';
+        sliderFooter.style.display = 'none';
+        accordionFooter.style.display = 'none';
+
+        // Wait for heavy content (images, iframes) inside the section to load
+        const media = section.querySelectorAll('img, iframe, video');
+        const pending = Array.from(media).filter(
+          el => (el.tagName === 'IMG' && !el.complete) || el.tagName === 'IFRAME'
+        );
+
+        if (pending.length === 0) {
+          // No heavy media to wait for — scroll immediately after layout settles
+          requestAnimationFrame(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        } else {
+          // Wait for all media to load, then scroll
+          let loaded = 0;
+          pending.forEach(el => {
+            el.addEventListener('load', () => {
+              loaded++;
+              if (loaded === pending.length) {
+                requestAnimationFrame(() => {
+                  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+              }
+            }, { once: true });
+          });
+        }
+      }
+
+      // Slider panel click (footer hides only)
+      document.querySelectorAll('#slider-section .panel').forEach(panel => {
+        panel.addEventListener('click', () => {
+          sliderFooter.style.display = 'none';
+        });
+      });
+
+      // Restore slider view
+      document.querySelectorAll('a.nav-link').forEach(link => {
+        link.addEventListener('click', e => {
+          const href = link.getAttribute('href');
+          if (href && href.includes('#explore-by-components')) {
+            e.preventDefault();
+            hideAllSections();
+            exploreSection.style.display = 'block';
+            sliderFooter.style.display = 'block';
+            scrollToElement(exploreSection);
+          }
+        });
+      });
+
+      // Accordion stays visible; silhouette toggles below
+      document.querySelectorAll('#image-accordion .panel').forEach((panel, idx) => {
+        panel.addEventListener('click', () => {
+          accordionSection.style.display = 'block';
+          silhouettesContainer.style.display = 'block';
+          silhouettePanels.forEach(p => p.style.display = 'none');
+          const target = document.getElementById(`silhouette-${idx + 1}`);
+          if (target) {
+            target.style.display = 'block';
+            scrollToElement(target);
+          }
+          accordionFooter.style.display = 'none';
+        });
+      });
+
+      // Back to accordion from silhouette
+      window.showAccordionWithFooter = function () {
+        silhouettePanels.forEach(p => p.style.display = 'none');
+        silhouettesContainer.style.display = 'none';
+        accordionSection.style.display = 'block';
+        accordionFooter.style.display = 'block';
+        scrollToElement(accordionSection);
+      };
+
+      // Restore accordion footer if visible and no silhouette is open
+      new MutationObserver(() => {
+        const visible = Array.from(silhouettePanels).some(p => p.style.display !== 'none');
+        if (
+          getComputedStyle(accordionSection).display === 'block' &&
+          !visible
+        ) {
+          accordionFooter.style.display = 'block';
+        }
+      }).observe(accordionSection, { attributes: true, attributeFilter: ['style'] });
     });
   </script>
+
+
 
 </body>
 </html>

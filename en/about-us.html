@@ -215,7 +215,24 @@
               style="cursor: pointer;"
               onclick="openPosterModal()"
             />
-            <span style="position: absolute; top: 18px; left: 18px; background: rgba(32,201,151,0.85); color: white; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.15); pointer-events: none;">+</span>
+          <div
+            onclick="openPosterModal()"
+            style="
+              position: absolute;
+              top: 18px;
+              left: 18px;
+              width: 36px;
+              height: 36px;
+              cursor: pointer;
+              z-index: 10;
+            "
+          >
+            <img
+              src="../assets/img/zoom.png"
+              alt="Zoom"
+              style="width: 100%; height: 100%;"
+            />
+          </div>
           </div>
           <img
             src="../assets/img/stand.jpg"
