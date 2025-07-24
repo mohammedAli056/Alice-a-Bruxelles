@@ -495,9 +495,11 @@
     </div>
 
     <!-- Footer will be inserted here by JavaScript -->
+
     <div class="footer-placeholder"></div>
   </div>
 
+  <!--Montessori Material, Multilingual Learning Resources, World Fair Documents -->
   <div id="stand" class="container-fluid content-start" style="display: none;">
     <div class="container md-6">
       <h1 class="text-center mb-4 stand-title">
@@ -507,16 +509,37 @@
 
       <div style="max-width: 900px; margin: 0 auto; border-radius: 10px; overflow: hidden;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+            <!-- Thumbnail image overlay -->
+          <img id="display-thumbnail"
+               src="../assets/img/DisplayTN.jpeg"
+               alt="Display Video Thumbnail"
+               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; cursor: pointer; z-index: 2;"
+               onclick="this.style.display='none'; document.getElementById('play-button').style.display='none'; document.getElementById('display-iframe').style.display='block';" />
           <iframe
-            src="https://www.youtube.com/embed/----"
-            title="The Display - Exhibition Video"
-            frameborder="0"
-            allowfullscreen
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  id="display-iframe"
+                  src="https://www.youtube.com/embed/55w8NbbbDRY"
+                  title="The Display - Exhibition Video"
+                  frameborder="0"
+                  allowfullscreen
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;">
           </iframe>
+
+          <!-- Play button overlay -->
+            <div id="play-button"
+                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; cursor: pointer;"
+                 onclick="document.getElementById('display-thumbnail').style.display='none'; this.style.display='none'; document.getElementById('display-iframe').style.display='block';">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="38" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="4"/>
+                <polygon points="32,25 60,40 32,55" fill="white"/>
+              </svg>
+            </div>
+
+
         </div>
       </div>
     </div>
+
+
 
     <!-- Footer will be inserted here by JavaScript -->
     <div class="footer-placeholder"></div>
