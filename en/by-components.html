@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,22 +65,19 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="catalogues.html">CATALOGUES</a></li>
             <li class="nav-item"><a class="nav-link" href="../en/about-us.html">ABOUT US</a></li>
+
             <!-- Language -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                <img id="currentLanguageFlag" src="/Alice-a-Bruxelles/assets/img/en.svg" width="20" alt="Language Flag">
+                <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="">
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li>
-                  <a class="dropdown-item" href="#" onclick="setLanguage('en')">
-                    <img src="/Alice-a-Bruxelles/assets/img/en.svg" width="20" class="me-2">English
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#" onclick="setLanguage('it')">
-                    <img src="/Alice-a-Bruxelles/assets/img/it.svg" width="20" class="me-2">Italiano
-                  </a>
-                </li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                  <img src="../assets/img/en.svg" width="20" class="me-2">English
+                </a></li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                  <img src="../assets/img/it.svg" width="20" class="me-2">Italiano
+                </a></li>
               </ul>
             </li>
           </ul>
@@ -405,72 +402,213 @@
     >
   </map>
 
-  <div id="popup-frame1" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
-      <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+<!-- Frame 1 - Simple popup without flip functionality -->
+<div id="popup-frame1" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
+    <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 2 - Simple popup without flip functionality -->
+<div id="popup-frame2" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
+    <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 3 - Simple popup without flip functionality -->
+<div id="popup-frame3" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
+    <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 4 - Simple popup without flip functionality -->
+<div id="popup-frame4" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
+    <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 5 - Simple popup without flip functionality -->
+<div id="popup-frame5" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
+    <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 6 - Simple popup without flip functionality -->
+<div id="popup-frame6" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
+    <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+  </div>
+</div>
+
+<!-- Updated Frame 7 - Fixed title and added proper content -->
+<div id="popup-frame7" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-7.jpeg" alt="Frame 7">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Evergreen Leaves Collection</h3>
+            <p>Display case containing a collection of 'Evergreen leaves'. This piece represents the botanical studies conducted at the school, showcasing the diversity of local flora through carefully preserved specimens.</p>
+            <div class="artwork-details">
+              <h4>Collection Details</h4>
+              <ul>
+                <li>Institution: Tela Umbra Museum</li>
+                <li>Created: 1948–1949</li>
+                <li>Type: Botanical specimen collection</li>
+                <li>Note: Probably a copy of the original</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame7')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame7')">Close</button>
     </div>
   </div>
-  <div id="popup-frame2" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
-      <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+</div>
+
+<!-- Updated Frame 8 - Seeds Dispersed by Animals -->
+<div id="popup-frame8" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-8.png" alt="Frame 8">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Seeds Dispersed by Animals</h3>
+            <p>Display case containing 'Seeds dispersed by animals'. This educational exhibit demonstrates the various mechanisms by which animals contribute to plant reproduction and seed distribution in nature.</p>
+            <div class="artwork-details">
+              <h4>Collection Details</h4>
+              <ul>
+                <li>Reconstruction by: Giuseppina Benedetti</li>
+                <li>Year: 2024</li>
+                <li>Institution: Tela Umbra Museum</li>
+                <li>Type: Educational botanical display</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame8')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame8')">Close</button>
     </div>
   </div>
-  <div id="popup-frame3" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
-      <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+</div>
+
+<!-- Updated Frame 9 - The Cedar Display -->
+<div id="popup-frame9" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-9.JPG" alt="Frame 9">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>The Cedar</h3>
+            <p>Display case titled 'The Cedar'. This botanical collection focuses on cedar specimens, showcasing the characteristics and features of this significant tree species in Italian flora.</p>
+            <div class="artwork-details">
+              <h4>Collection Details</h4>
+              <ul>
+                <li>Created: 1924–25</li>
+                <li>Type: Botanical specimen display</li>
+                <li>Note: Copy of the original</li>
+                <li>Focus: Cedar tree specimens and parts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame9')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame9')">Close</button>
     </div>
   </div>
-  <div id="popup-frame4" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
-      <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+</div>
+
+<!-- Updated Frame 10 - Map of Umbria -->
+<div id="popup-frame10" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-10.png" alt="Frame 10">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Map of Umbria</h3>
+            <p>A handcrafted geographical map of the Umbria region, created as part of the school's educational curriculum. This three-dimensional relief map demonstrates the topographical features of the local region.</p>
+            <div class="artwork-details">
+              <h4>Artwork Details</h4>
+              <ul>
+                <li>Medium: Papier-mâché on wooden backing</li>
+                <li>Created: At school</li>
+                <li>Type: Educational geography project</li>
+                <li>Subject: Umbria region topography</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame10')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame10')">Close</button>
     </div>
   </div>
-  <div id="popup-frame5" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
-      <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+</div>
+
+<!-- Updated Frame 11 - Monte Santa Maria Excursion Map -->
+<div id="popup-frame11" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-11.png" alt="Frame 11">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Annual Ascension Excursion Map</h3>
+            <p>Map of the Monte Santa Maria trip, titled 'The Annual Excursion for the Feast of the Ascension'. This student work documents a school expedition, representing the integration of religious observance with educational outdoor activities.</p>
+            <div class="artwork-details">
+              <h4>Artwork Details</h4>
+              <ul>
+                <li>Student Artist: Vincenzo Pieggi</li>
+                <li>Grade: Class VI (Grade 6)</li>
+                <li>Year Created: 1909</li>
+                <li>Type: Student cartographic work</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame11')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame11')">Close</button>
     </div>
   </div>
-  <div id="popup-frame6" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
-      <button class="close" onclick="closePopup('popup-frame6')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame7" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-7.jpeg" class="popup-image" alt="Frame 7">
-      <button class="close" onclick="closePopup('popup-frame7')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame8" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-8.png" class="popup-image" alt="Frame 8">
-      <button class="close" onclick="closePopup('popup-frame8')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame9" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-9.JPG" class="popup-image" alt="Frame 9">
-      <button class="close" onclick="closePopup('popup-frame9')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame10" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-10.png" class="popup-image" alt="Frame 10">
-      <button class="close" onclick="closePopup('popup-frame10')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame11" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-11.png" class="popup-image" alt="Frame 11">
-      <button class="close" onclick="closePopup('popup-frame11')">✖</button>
-    </div>
-  </div>
+</div>
 
   <div id="front-wall" class="container-fluid content-start" style="display: none;">
     <div class="row justify-content-center">
@@ -672,7 +810,6 @@
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
   <script src="../js/script.js"></script>
-  <script src="../js/theme.js"></script>
 
   <script>
     function setLanguage(lang) {

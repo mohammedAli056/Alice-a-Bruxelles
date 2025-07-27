@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -192,18 +192,20 @@
               <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
 
                 <!-- Language -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
-                            <img src="/Alice-a-Bruxelles/assets/img/en.svg" width="20" class="me-2">English
-                        </a></li>
-                        <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
-                            <img src="/Alice-a-Bruxelles/assets/img/it.svg" width="20" class="me-2">Italiano
-                        </a></li>
-                    </ul>
+                <!-- Language -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                  <img src="../assets/img/en.svg" width="20" class="me-2">English
+                </a></li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                  <img src="../assets/img/it.svg" width="20" class="me-2">Italiano
+                </a></li>
+              </ul>
+            </li>
                 </li>
             </ul>
           </div>
@@ -324,7 +326,6 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/script.js"></script>
-        <script src="../js/theme.js"></script>
         <script>
             // Function to open PDF (catalog)
             function openPDF() {
