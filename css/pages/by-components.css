@@ -541,7 +541,7 @@ map area:hover {
     height: 100%;
     width: auto;
     object-fit: cover;
-    object-position: center right;
+    object-position: center center;
     background-color: white;
     transition: transform 0.5s ease-in-out;
     border-radius: 30px;
@@ -554,10 +554,10 @@ map area:hover {
 
 .panel-name{
     position: absolute;
-    left: 5px;
-    top: 255px;
+    left: 40px;
+    top: 32%;
     transform: rotate(-90deg);
-    transform-origin: left top;
+    transform-origin: bottom left;
     white-space: nowrap;
     color: #000;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
