@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Image accordion displayed");
       }
 
-      const firstAccordionPanel = document.querySelector('#image-accordion .panel');
-      if (firstAccordionPanel) {
-        firstAccordionPanel.classList.add('active');
-        console.log("First accordion panel activated");
-      }
+      // const firstAccordionPanel = document.querySelector('#image-accordion .panel');
+      // if (firstAccordionPanel) {
+      //   firstAccordionPanel.classList.add('active');
+      //   console.log("First accordion panel activated");
+      // }
 
       setTimeout(() => {
         accordion?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-console.log('Page loaded - checking for hotspot functions...');
+  console.log('Page loaded - checking for hotspot functions...');
   console.log('resetBackWallHotspots available:', typeof resetBackWallHotspots === 'function');
   console.log('initBackWallHotspots available:', typeof initBackWallHotspots === 'function');
   console.log('initBackWallHotspotsOnce available:', typeof initBackWallHotspotsOnce === 'function');
