@@ -293,31 +293,35 @@
     <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
   </div>
 
-    <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
-  <div id="back-wall" class="container-fluid content-start" style="display: none;">
-    <div class="container">
-      <h2 class="text-center mb-4">Reconstructed Schools' Stand</h2>
-      <div class="row justify-content-center mb-5">
-        <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-          <!-- Enhanced container for interactive hotspots -->
-          <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
-            <img id="back-wall-image"
-                 usemap="#back-wall-map"
-                 src="../assets/img/edited_half_title_stand.jpg"
-                 class="d-block w-100 rounded"
-                 alt="Back Wall"
-                 loading="eager">
-            <div class="card-body text-center">
-              <p class="card-text">
-                Click on the frame to enlarge the image
-              </p>
-            </div>
+<!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
+<div id="back-wall" class="container-fluid content-start" style="display: none;">
+  <div class="container">
+    <h2 class="text-center mb-4">Reconstructed Schools' Stand</h2>
+    <div class="row justify-content-center mb-5">
+      <div class="col-12" style="max-width: 80%; margin: 0 auto;">
+        <!-- Enhanced container for interactive hotspots -->
+        <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
+          <img id="back-wall-image"
+               usemap="#back-wall-map"
+               src="../assets/img/edited_half_title_stand.jpg"
+               class="d-block w-100 rounded"
+               alt="Back Wall"
+               loading="eager">
+          <div class="card-body text-center">
+            <p class="card-text mb-2">
+              Click on framed works to enlarge available images.
+            </p>
+            <p class="card-text">
+              Read more about the material on display in the 
+              <a href="../assets/document/CATALOGUE.pdf" target="_blank" class="text-decoration-none fw-bold">"Alice a Bruxelles" catalogue</a>.
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-placeholder"></div>
   </div>
+  <div class="footer-placeholder"></div>
+</div>
 
   <!-- ===== Image Map with Corrected Coordinates ===== -->
   <map name="back-wall-map">
@@ -443,11 +447,35 @@
   </div>
 </div>
 
-<!-- Frame 6 - Simple popup without flip functionality -->
+<!-- Updated Frame 6 - Now with flip functionality -->
 <div id="popup-frame6" class="popup">
   <div class="popup-content">
-    <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
-    <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-6.jpeg" alt="Frame 6">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Historical Reproduction</h3>
+            <p>This carefully crafted reproduction captures the essence of the original display, preserving the educational and historical significance of the collection for contemporary viewers.</p>
+            <div class="artwork-details">
+              <h4>Reproduction Details</h4>
+              <ul>
+                <li>Based on: 1910 photograph</li>
+                <li>Realized by: Giuseppina Benedetti</li>
+                <li>Year: 2024</li>
+                <li>Type: Historical reconstruction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame6')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame6')">Close</button>
+    </div>
   </div>
 </div>
 
