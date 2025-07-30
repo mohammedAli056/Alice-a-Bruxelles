@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,7 +144,94 @@
                 border-width: 2px;          /* Thicker border */
                 width: 400px; /* or use 100% for full width, or adjust to your liking */
                 text-align: center;
-            }        
+            }
+            
+            /******************************************************
+            * CREDITS IMAGE
+            ******************************************************/
+            .credits-image-container {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .credits-image {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            @media (max-width: 768px) {
+                .credits-image-container {
+                    margin-top: 20px;
+                }
+            }
+            
+            /******************************************************
+            * ZOOM ICON AND MODAL
+            ******************************************************/
+            .zoom-icon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                z-index: 2;
+                opacity: 0.8;
+                transition: opacity 0.3s ease;
+            }
+            .zoom-icon:hover {
+                opacity: 1;
+            }
+            .zoom-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            
+            /* Credits Modal */
+            .credits-modal {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(5px);
+            }
+            .credits-modal-content {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+            }
+            .credits-modal-close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                color: white;
+                font-size: 3rem;
+                font-weight: bold;
+                cursor: pointer;
+                z-index: 10001;
+                transition: color 0.3s ease;
+            }
+            .credits-modal-close:hover {
+                color: #ccc;
+            }
+            .credits-modal-image {
+                max-width: 90vw;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 10px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            }
         </style>
     </head>
     <body>
@@ -192,18 +279,20 @@
               <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
 
                 <!-- Language -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
-                            <img src="/Alice-a-Bruxelles/assets/img/en.svg" width="20" class="me-2">English
-                        </a></li>
-                        <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
-                            <img src="/Alice-a-Bruxelles/assets/img/it.svg" width="20" class="me-2">Italiano
-                        </a></li>
-                    </ul>
+                <!-- Language -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                  <img src="../assets/img/en.svg" width="20" class="me-2">English
+                </a></li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                  <img src="../assets/img/it.svg" width="20" class="me-2">Italiano
+                </a></li>
+              </ul>
+            </li>
                 </li>
             </ul>
           </div>
@@ -273,7 +362,7 @@
             Giacomo Pirazzoli</p>
           <p><strong>Website Developers:</strong><br />
             Mohammed Ali Shah, Shahed Bitar, Akshita B, Sarah Chiang, Riad Chahla, Gayitha Dammiya, Maanya Joshi, 
-            Ali Mohamed, Sabina Radhi, Yuting Pan, Karim Youssef
+            Ali Mohamed, Sabina Radhi, Yuting Pan, Karim Youssef, Hawra Abuzar
           </p>
         </div>
           <!-- Logos row (bigger spacing above, separate classes for each logo size) -->
@@ -292,39 +381,59 @@
       </div><!-- 1st about-card -->
   
       <div class="second-about-card">
-        <div class="about-text">
-          <p><strong>Organization of the Documentary Exhibition:</strong><br />
-            Hallgarten–Franchetti Foundation, Villa Montesca
-          </p>
-          <p><strong>Installation Project:</strong><br />
-            Giacomo Pirazzoli (Architect and Professor of Architectural and Urban 
-            Design, <br />Department of Architecture (DiDA), University of Florence),<br />
-            with the collaboration of Gaia Bartoli
-          </p>
-          <p><strong>Curator and Project Coordinator:</strong><br />
-            Cristina Caracchini (University of Western Ontario),<br />
-            with the collaboration of Lisa Viviani and Kaja Jovanovic,<br />
-            and with the support of the Social Sciences and Humanities Research Council of Canada (SSHRC)
-          </p>
-          <div class="credits-logos">
-            <img src="../assets/img/sshrc-logo.png" alt="SSHRC Logo" class="logo-sshrc">
-            <img src="../assets/img/montesca-logo.jpg" alt="Montesca Logo" class="logo-montesca">
-          </div>          
-          <a href="../assets/document/credits.pdf"
-            target="_blank"
-            class="btn btn-outline-success credits-button">
-            Complete Credits List
-          </a>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="about-text">
+              <p><strong>Organization of the Documentary Exhibition:</strong><br />
+                Hallgarten–Franchetti Foundation, Villa Montesca
+              </p>
+              <p><strong>Installation Project:</strong><br />
+                Giacomo Pirazzoli (Architect and Professor of Architectural and Urban 
+                Design, <br />Department of Architecture (DiDA), University of Florence),<br />
+                with the collaboration of Gaia Bartoli
+              </p>
+              <p><strong>Curator and Project Coordinator:</strong><br />
+                Cristina Caracchini (University of Western Ontario),<br />
+                with the collaboration of Lisa Viviani and Kaja Jovanovic,<br />
+                and with the support of the Social Sciences and Humanities Research Council of Canada (SSHRC)
+              </p>
+              <div class="credits-logos">
+                <img src="../assets/img/sshrc-logo.png" alt="SSHRC Logo" class="logo-sshrc">
+                <img src="../assets/img/montesca-logo.jpg" alt="Montesca Logo" class="logo-montesca">
+              </div>          
+              <a href="../assets/document/credits.pdf"
+                target="_blank"
+                class="btn btn-outline-success credits-button">
+                Complete Credits List
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="credits-image-container">
+              <div class="img-wrapper position-relative d-inline-block">
+                <img src="../assets/img/STpannellicredits.png" alt="Credits Panel" class="credits-image">
+                <div class="zoom-icon" onclick="showCreditsModal()">
+                  <img src="../assets/img/zoom.png" alt="Zoom" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div><!-- 2nd about-card -->
   
       <!-- If you want a back-to-top or not -->
       <div id="back-to-top" class="back-to-top">&#8679;</div>  
       
+      <!-- Modal for Credits Image -->
+      <div id="credits-modal" class="credits-modal">
+        <div class="credits-modal-content">
+          <span class="credits-modal-close" onclick="closeCreditsModal()">&times;</span>
+          <img src="../assets/img/STpannellicredits.png" alt="Credits Panel Enlarged" class="credits-modal-image">
+        </div>
+      </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/script.js"></script>
-        <script src="../js/theme.js"></script>
         <script>
             // Function to open PDF (catalog)
             function openPDF() {
@@ -373,6 +482,27 @@
               if (posterModal) {
                 posterModal.addEventListener('click', function(e) {
                   if (e.target === posterModal) closePosterModal();
+                });
+              }
+            });
+            
+            // Credits modal functions
+            function showCreditsModal() {
+              document.getElementById('credits-modal').style.display = 'block';
+              document.body.style.overflow = 'hidden';
+            }
+            
+            function closeCreditsModal() {
+              document.getElementById('credits-modal').style.display = 'none';
+              document.body.style.overflow = '';
+            }
+            
+            // Close credits modal when clicking outside the image
+            document.addEventListener('DOMContentLoaded', function() {
+              var creditsModal = document.getElementById('credits-modal');
+              if (creditsModal) {
+                creditsModal.addEventListener('click', function(e) {
+                  if (e.target === creditsModal) closeCreditsModal();
                 });
               }
             });

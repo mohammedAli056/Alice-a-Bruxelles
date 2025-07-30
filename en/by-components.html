@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,22 +65,19 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="catalogues.html">CATALOGUES</a></li>
             <li class="nav-item"><a class="nav-link" href="../en/about-us.html">ABOUT US</a></li>
+
             <!-- Language -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                <img id="currentLanguageFlag" src="/Alice-a-Bruxelles/assets/img/en.svg" width="20" alt="Language Flag">
+                <img id="currentLanguageFlag" src="../assets/img/en.svg" width="20" alt="">
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li>
-                  <a class="dropdown-item" href="#" onclick="setLanguage('en')">
-                    <img src="/Alice-a-Bruxelles/assets/img/en.svg" width="20" class="me-2">English
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#" onclick="setLanguage('it')">
-                    <img src="/Alice-a-Bruxelles/assets/img/it.svg" width="20" class="me-2">Italiano
-                  </a>
-                </li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">
+                  <img src="../assets/img/en.svg" width="20" class="me-2">English
+                </a></li>
+                <li><a class="dropdown-item" href="#" onclick="setLanguage('it')">
+                  <img src="../assets/img/it.svg" width="20" class="me-2">Italiano
+                </a></li>
               </ul>
             </li>
           </ul>
@@ -175,6 +172,11 @@
               style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:none;">
             </iframe>
           </div>
+          <div class="mt-3 text-center">
+            <p class="mb-0" style="font-size: 0.9em; color: #666; max-width: 400px;">
+              Alice Hallgarten—a New Yorker by birth who married Baron Leopoldo Franchetti—shared her Italian years between Rome and Città di Castello, dedicating herself to improving living conditions for underserved rural and urban communities. Her visionary philanthropy left a lasting local and international legacy. She founded the Montesca Rural School, from which educational theorist Giuseppe Lombardo Radice derived the model for the “Calendario della Montesca” and incorporated it into Italy’s national curriculum. The Franchettis also inspired Maria Montessori to put her Scientific Pedagogy Method to paper. In 1909, she was their guest at Villa La Montesca, where they hosted the opening and closing days of the first Montessori-led teacher-training course, held nearby in Città di Castello at their Palazzo Tomassini. 
+            </p>
+          </div>
         </div>
 
         <!-- 4.2) Video: The Montesca Schools at the 1910 World Fair -->
@@ -197,6 +199,11 @@
               style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:none;">
             </iframe>
           </div>
+          <div class="mt-3 text-center">
+            <p class="mb-0" style="font-size: 0.9em; color: #666; max-width: 400px;">
+              Giuseppe Lombardo Radice wrote of Alice Hallgarten Franchetti that “she worked on her school as if she were responsible for solving the educational problem of every school.” In her rural schools at Montesca and Rovigliano, she gave farmers’ children access to globally sourced teaching materials and to the most innovative pedagogical methods of the time. In 1910, these very institutions were awarded a Diplôme d’honneur and a gold medal at the Brussels Universal Exposition—a formal testament to Alice Hallgarten Franchetti’s tireless dedication. 
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -208,6 +215,7 @@
   <div id="back-wall-panels" class="panel-section content-start" style="display: none;">
     <div class="container-fluid">
       <div class="container">
+        <h2 class="text-center mb-4">Photos of the Pupils and Alice's Letters to Marietta</h2>
         <div class="ceiling-grid">
           <div class="ceiling-row top-row">
             <div class="ceiling-panel tall" data-panel="4">
@@ -274,12 +282,24 @@
             </div>
           </div>
         </div>
+        
+<!--
+         Back to Top Button for this section 
+        <div class="text-center mt-4">
+          <div class="back-to-top" style="display: block; position: static; margin: 0 auto;">&#8679;</div>
+        </div>
+-->
       </div>
+         
     </div>
 
     <!-- Footer will be inserted here by JavaScript -->
     <div class="footer-placeholder"></div>
+       <!-- ===== 16) Back to Top Button ===== -->
+
   </div>
+     <!-- ===== 16) Back to Top Button ===== -->
+  <div id="back-to-top" class="back-to-top">&#8679;</div>
 
   <div id="ceiling-modal" class="ceiling-modal">
     <div class="ceiling-modal-content">
@@ -296,30 +316,35 @@
     <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Flip</button>
   </div>
 
-    <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
-  <div id="back-wall" class="container-fluid content-start" style="display: none;">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-          <!-- Enhanced container for interactive hotspots -->
-          <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
-            <img id="back-wall-image"
-                 usemap="#back-wall-map"
-                 src="../assets/img/edited_half_title_stand.jpg"
-                 class="d-block w-100 rounded"
-                 alt="Back Wall"
-                 loading="eager">
-            <div class="card-body text-center">
-              <p class="card-text">
-                Click on the frame to enlarge the image
-              </p>
-            </div>
+<!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
+<div id="back-wall" class="container-fluid content-start" style="display: none;">
+  <div class="container">
+    <h2 class="text-center mb-4">Reconstructed Schools' Stand</h2>
+    <div class="row justify-content-center mb-5">
+      <div class="col-12" style="max-width: 80%; margin: 0 auto;">
+        <!-- Enhanced container for interactive hotspots -->
+        <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
+          <img id="back-wall-image"
+               usemap="#back-wall-map"
+               src="../assets/img/edited_half_title_stand.jpg"
+               class="d-block w-100 rounded"
+               alt="Back Wall"
+               loading="eager">
+          <div class="card-body text-center">
+            <p class="card-text mb-2">
+              Click on framed works to enlarge available images.
+            </p>
+            <p class="card-text">
+              Read more about the material on display in the 
+              <a href="../assets/document/CATALOGUE.pdf" target="_blank" class="text-decoration-none fw-bold">"Alice a Bruxelles" catalogue</a>.
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-placeholder"></div>
   </div>
+  <div class="footer-placeholder"></div>
+</div>
 
   <!-- ===== Image Map with Corrected Coordinates ===== -->
   <map name="back-wall-map">
@@ -405,72 +430,237 @@
     >
   </map>
 
-  <div id="popup-frame1" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
-      <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+<!-- Frame 1 - Simple popup without flip functionality -->
+<div id="popup-frame1" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
+    <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 2 - Simple popup without flip functionality -->
+<div id="popup-frame2" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
+    <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 3 - Simple popup without flip functionality -->
+<div id="popup-frame3" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
+    <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 4 - Simple popup without flip functionality -->
+<div id="popup-frame4" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
+    <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 5 - Simple popup without flip functionality -->
+<div id="popup-frame5" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
+    <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+  </div>
+</div>
+
+<!-- Updated Frame 6 - Now with flip functionality -->
+<div id="popup-frame6" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-6.jpeg" alt="Frame 6">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Historical Reproduction</h3>
+            <p>This carefully crafted reproduction captures the essence of the original display, preserving the educational and historical significance of the collection for contemporary viewers.</p>
+            <div class="artwork-details">
+              <h4>Reproduction Details</h4>
+              <ul>
+                <li>Based on: 1910 photograph</li>
+                <li>Realized by: Giuseppina Benedetti</li>
+                <li>Year: 2024</li>
+                <li>Type: Historical reconstruction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame6')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame6')">Close</button>
     </div>
   </div>
-  <div id="popup-frame2" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
-      <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+</div>
+
+<!-- Updated Frame 7 - Fixed title and added proper content -->
+<div id="popup-frame7" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-7.jpeg" alt="Frame 7">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Evergreen Leaves Collection</h3>
+            <p>Display case containing a collection of 'Evergreen leaves'. This piece represents the botanical studies conducted at the school, showcasing the diversity of local flora through carefully preserved specimens.</p>
+            <div class="artwork-details">
+              <h4>Collection Details</h4>
+              <ul>
+                <li>Institution: Tela Umbra Museum</li>
+                <li>Created: 1948–1949</li>
+                <li>Type: Botanical specimen collection</li>
+                <li>Note: Probably a copy of the original</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame7')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame7')">Close</button>
     </div>
   </div>
-  <div id="popup-frame3" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
-      <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+</div>
+
+<!-- Updated Frame 8 - Seeds Dispersed by Animals -->
+<div id="popup-frame8" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-8.png" alt="Frame 8">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Seeds Dispersed by Animals</h3>
+            <p>Display case containing 'Seeds dispersed by animals'. This educational exhibit demonstrates the various mechanisms by which animals contribute to plant reproduction and seed distribution in nature.</p>
+            <div class="artwork-details">
+              <h4>Collection Details</h4>
+              <ul>
+                <li>Reconstruction by: Giuseppina Benedetti</li>
+                <li>Year: 2024</li>
+                <li>Institution: Tela Umbra Museum</li>
+                <li>Type: Educational botanical display</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame8')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame8')">Close</button>
     </div>
   </div>
-  <div id="popup-frame4" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
-      <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+</div>
+
+<!-- Updated Frame 9 - The Cedar Display -->
+<div id="popup-frame9" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-9.JPG" alt="Frame 9">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>The Cedar</h3>
+            <p>Display case titled 'The Cedar'. This botanical collection focuses on cedar specimens, showcasing the characteristics and features of this significant tree species in Italian flora.</p>
+            <div class="artwork-details">
+              <h4>Collection Details</h4>
+              <ul>
+                <li>Created: 1924–25</li>
+                <li>Type: Botanical specimen display</li>
+                <li>Note: Copy of the original</li>
+                <li>Focus: Cedar tree specimens and parts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame9')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame9')">Close</button>
     </div>
   </div>
-  <div id="popup-frame5" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
-      <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+</div>
+
+<!-- Updated Frame 10 - Map of Umbria -->
+<div id="popup-frame10" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-10.png" alt="Frame 10">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Map of Umbria</h3>
+            <p>A handcrafted geographical map of the Umbria region, created as part of the school's educational curriculum. This three-dimensional relief map demonstrates the topographical features of the local region.</p>
+            <div class="artwork-details">
+              <h4>Artwork Details</h4>
+              <ul>
+                <li>Medium: Papier-mâché on wooden backing</li>
+                <li>Created: At school</li>
+                <li>Type: Educational geography project</li>
+                <li>Subject: Umbria region topography</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame10')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame10')">Close</button>
     </div>
   </div>
-  <div id="popup-frame6" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
-      <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+</div>
+
+<!-- Updated Frame 11 - Monte Santa Maria Excursion Map -->
+<div id="popup-frame11" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-11.png" alt="Frame 11">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Annual Ascension Excursion Map</h3>
+            <p>Map of the Monte Santa Maria trip, titled 'The Annual Excursion for the Feast of the Ascension'. This student work documents a school expedition, representing the integration of religious observance with educational outdoor activities.</p>
+            <div class="artwork-details">
+              <h4>Artwork Details</h4>
+              <ul>
+                <li>Student Artist: Vincenzo Pieggi</li>
+                <li>Grade: Class VI (Grade 6)</li>
+                <li>Year Created: 1909</li>
+                <li>Type: Student cartographic work</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame11')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame11')">Close</button>
     </div>
   </div>
-  <div id="popup-frame7" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-7.jpeg" class="popup-image" alt="Frame 7">
-      <button class="close" onclick="closePopup('popup-frame7')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame8" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-8.png" class="popup-image" alt="Frame 8">
-      <button class="close" onclick="closePopup('popup-frame8')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame9" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-9.JPG" class="popup-image" alt="Frame 9">
-      <button class="close" onclick="closePopup('popup-frame9')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame10" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-10.png" class="popup-image" alt="Frame 10">
-      <button class="close" onclick="closePopup('popup-frame10')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame11" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-11.png" class="popup-image" alt="Frame 11">
-      <button class="close" onclick="closePopup('popup-frame11')">✖</button>
-    </div>
-  </div>
+</div>
 
   <div id="front-wall" class="container-fluid content-start" style="display: none;">
     <div class="row justify-content-center">
@@ -588,7 +778,7 @@
 
   <div id="popup-right-1" class="popup">
     <div class="popup-content">
-      <img src="../assets/img/panel-1-en.png" class="popup-image" alt="Introduction Panel Enlarged" />
+      <img src="../assets/img/panel-1-engRev.jpg" class="popup-image" alt="Introduction Panel Enlarged" />
       <button class="close" onclick="closePopup('popup-right-1')">✖</button>
     </div>
   </div>
@@ -603,14 +793,18 @@
   <!-- ===== 13) Image Accordion Section ("La Montesca School: A Story of Women") ===== -->
   <div id="image-accordion" class="container-fluid content-start">
     <div class="container">
+      <h1 class="text-center mb-4"> - A Story of Women - </h1>
+      <h5 class="text-center mb-4">CLICK TO READ MORE</h5>
+      <div class="row">
       <div class="accordion">
-        <div class="panel" data-index="1"><img src="../assets/img/silhouette-only-1.png" alt="Silhouette 1"></div>
-        <div class="panel" data-index="2"><img src="../assets/img/silhouette-only-2.png" alt="Silhouette 2"></div>
-        <div class="panel" data-index="3"><img src="../assets/img/silhouette-only-3.png" alt="Silhouette 3"></div>
-        <div class="panel" data-index="4"><img src="../assets/img/silhouette-only-4.png" alt="Silhouette 4"></div>
-        <div class="panel" data-index="5"><img src="../assets/img/silhouette-only-5.png" alt="Silhouette 5"></div>
-        <div class="panel" data-index="6"><img src="../assets/img/silhouette-only-6.png" alt="Silhouette 6"></div>
-        <div class="panel" data-index="7"><img src="../assets/img/silhouette-only-7.png" alt="Silhouette 7"></div>
+        
+        <div class="panel" data-index="1"><img src="../assets/img/silhouette-only-1.png" alt="Silhouette 1"><div class="panel-name">Mary Douglas Hamilton</div></div>
+        <div class="panel" data-index="2"><img src="../assets/img/silhouette-only-2.png" alt="Silhouette 2"><div class="panel-name">Agar Del Citerna</div></div>
+        <div class="panel" data-index="3"><img src="../assets/img/silhouette-only-3.png" alt="Silhouette 3"><div class="panel-name">Dina Rinadi</div></div>
+        <div class="panel" data-index="4"><img src="../assets/img/silhouette-only-4.png" alt="Silhouette 4"><div class="panel-name">Alice Hallgarten</div></div>
+        <div class="panel" data-index="5"><img src="../assets/img/silhouette-only-5.png" alt="Silhouette 5"><div class="panel-name">Maria Montesori</div></div>
+        <div class="panel" data-index="6"><img src="../assets/img/silhouette-only-6.png" alt="Silhouette 6"><div class="panel-name">Maria Pasqui</div></div>
+        <div class="panel last-panel" data-index="7"><img src="../assets/img/silhouette-only-7.png" alt="Silhouette 7"><div class="panel-name">Local Farmer</div></div>
       </div>
     </div>
 
@@ -668,7 +862,6 @@
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/imageMapResizer.min.js"></script>
   <script src="../js/script.js"></script>
-  <script src="../js/theme.js"></script>
 
   <script>
     function setLanguage(lang) {
@@ -861,6 +1054,17 @@
       if (targetPanel) targetPanel.click();
     }
   });
+      
+      // for back to top button
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".back-to-top").forEach(button => {
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+});
+
+
 
   </script>
 
