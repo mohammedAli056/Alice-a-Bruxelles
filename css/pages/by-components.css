@@ -47,7 +47,8 @@ map area:hover {
     margin: 30px auto;
     max-width: 1500px;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+    
 }
 
 #slider-section .accordion {
@@ -423,7 +424,6 @@ map area:hover {
 
 #video .ratio {
   position: relative !important;
-  padding-bottom: 0 !important;
   width: 70%;
   max-width: 750px;
   margin: 0 auto 2rem;
