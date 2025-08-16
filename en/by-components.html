@@ -91,7 +91,7 @@
     <div class="container text-center mb-4">
       <div class="slider-header mx-auto">
         <h1>Explore the Exhibition by Components</h1>
-        <h5>CLICK ON AN IMAGE TO VIEW THE CORRESPONDING SECTION</h5>
+        <h5>CLICK ON ANY IMAGE TO VIEW THE CORRESPONDING SECTION</h5>
       </div>
     </div>
 
@@ -115,7 +115,7 @@
         </div>
         <div class="panel">
           <img src="../assets/img/slider-3.jpeg" alt="Front Wall">
-          <div class="panel-caption">The 1910 World Fair Exhibition & Catalogue Raisonné</div>
+          <div class="panel-caption">The 1910 World Fair Exhibition</div>
         </div>
         <div class="panel">
           <img src="../assets/img/edited_title_stand.png" alt="Back Wall">
@@ -133,7 +133,7 @@
   </div>
 
 <!-- ===== 4) Video Section ("The History of the Schools in 2 Videos") ===== -->
-<div id="video" class="container-fluid content-start" style="display: none; background-color:#0F2A3A;">
+<div id="video" class="container-fluid content-start" style="display: none;">
   <div class="container">
     <h2 class="text-center mb-5">The History of the Schools in 2 Videos</h2>
     <div class="row g-4" style="align-items: stretch;">
@@ -261,12 +261,14 @@
     <!-- Footer will be inserted here by JavaScript -->
     <div class="footer-placeholder"></div>
   </div>
-  </div>
+</div>
+
 
 
   <div id="back-wall-panels" class="panel-section content-start" style="background-color:#0F2A3A; display: none;">
     <div class="container-fluid">
       <div class="container">
+        <h2 class="text-center mb-4">Photos of the Pupils and Alice's Letters to Marietta</h2>
         <div class="ceiling-grid">
           <div class="ceiling-row top-row">
             <div class="ceiling-panel tall" data-panel="4">
@@ -333,12 +335,24 @@
             </div>
           </div>
         </div>
+        
+<!--
+         Back to Top Button for this section 
+        <div class="text-center mt-4">
+          <div class="back-to-top" style="display: block; position: static; margin: 0 auto;">&#8679;</div>
+        </div>
+-->
       </div>
+         
     </div>
 
     <!-- Footer will be inserted here by JavaScript -->
     <div class="footer-placeholder"></div>
+       <!-- ===== 16) Back to Top Button ===== -->
+
   </div>
+     <!-- ===== 16) Back to Top Button ===== -->
+  <div id="back-to-top" class="back-to-top">&#8679;</div>
 
   <div id="ceiling-modal" class="ceiling-modal">
     <div class="ceiling-modal-content">
@@ -356,13 +370,13 @@
   </div>
 
 <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
-<div id="back-wall" class="container-fluid content-start" style="background-color:#0F2A3A; display: none;">
+<div id="back-wall" class="container-fluid content-start" style="display: none;">
   <div class="container">
     <h2 class="text-center mb-4">Reconstructed Schools' Stand</h2>
     <div class="row justify-content-center mb-5">
       <div class="col-12" style="max-width: 80%; margin: 0 auto;">
         <!-- Enhanced container for interactive hotspots -->
-        <div class="card shadow image-map-container" style="background-color:#0F2A3A; position: relative; pointer-events: auto; overflow: visible;">
+        <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
           <img id="back-wall-image"
                usemap="#back-wall-map"
                src="../assets/img/edited_half_title_stand.jpg"
@@ -509,11 +523,35 @@
   </div>
 </div>
 
-<!-- Frame 6 - Simple popup without flip functionality -->
+<!-- Updated Frame 6 - Now with flip functionality -->
 <div id="popup-frame6" class="popup">
   <div class="popup-content">
-    <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
-    <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-6.jpeg" alt="Frame 6">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Historical Reproduction</h3>
+            <p>This carefully crafted reproduction captures the essence of the original display, preserving the educational and historical significance of the collection for contemporary viewers.</p>
+            <div class="artwork-details">
+              <h4>Reproduction Details</h4>
+              <ul>
+                <li>Based on: 1910 photograph</li>
+                <li>Realized by: Giuseppina Benedetti</li>
+                <li>Year: 2024</li>
+                <li>Type: Historical reconstruction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame6')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame6')">Close</button>
+    </div>
   </div>
 </div>
 
@@ -687,9 +725,7 @@
           alt="Front Wall"
         >
         <p class="text-center front-caption mb-5">
-          Original photo of the stand installed by the Private Rural Schools of Montesca and Rovigliano, 
-          Città di Castello — Italy at the 1910 Brussels's World Fair all'Esposizione Universale e Internazionale 
-          di Bruxelles del 1910. (Private Collection, Rosamund Bance – Mary Hamilton's Heirs)
+          Original photo of the stand of the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels'  World Fair. (Private Collection, R. Bance – Mary Hamilton's Heirs)
         </p>
         <!--
         <div class="mb-0">
@@ -778,7 +814,7 @@
       </div>
       <div class="col-md-4 text-center">
         <div class="img-wrapper position-relative d-inline-block">
-          <img src="../assets/img/panel-2-en.png" class="img-fluid rounded" alt="Visitor Guide Panel" />
+          <img src="../assets/img/Panel-2-EngRev.jpg" class="img-fluid rounded" alt="Visitor Guide Panel" />
           <div class="zoom-icon" onclick="showPopup('popup-right-2')">
             <img src="../assets/img/zoom.png" alt="Zoom" />
           </div>
@@ -800,7 +836,7 @@
   
   <div id="popup-right-2" class="popup">
     <div class="popup-content">
-      <img src="../assets/img/panel-2-en.png" class="popup-image" alt="Visitor Guide Panel Enlarged" />
+      <img src="../assets/img/Panel-2-EngRev.jpg" class="popup-image" alt="Visitor Guide Panel Enlarged" />
       <button class="close" onclick="closePopup('popup-right-2')">✖</button>
     </div>
   </div>
@@ -1069,6 +1105,17 @@
       if (targetPanel) targetPanel.click();
     }
   });
+      
+      // for back to top button
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".back-to-top").forEach(button => {
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+});
+
+
 
   </script>
 
