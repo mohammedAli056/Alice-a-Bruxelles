@@ -44,13 +44,13 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">MOSTRA PER COMPONENTI</a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="by-components.html?panel=0">La Storia delle Scuole in 2 Video</a></li>
-                <li><a class="dropdown-item" href="by-components.html?panel=1">La Scuola di Montesca: Una Storia di Donne</a></li>
-                <li><a class="dropdown-item" href="by-components.html?panel=2">Foto e Lettere di Alice a Maria Pasqui</a></li>
-                <li><a class="dropdown-item" href="by-components.html?panel=3">Materiale Montessori e Didattica Internazionale</a></li>
-                <li><a class="dropdown-item" href="by-components.html?panel=4">L’Esposizione Universale del 1910</a></li>
-                <li><a class="dropdown-item" href="by-components.html?panel=5">Lo Stand Ricostruito delle Scuole</a></li>
-                <li><a class="dropdown-item" href="by-components.html?panel=6">Progetto della Mostra; Guida per i Visitatori, Crediti</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=0">La Storia delle scuole in 2 Video</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=1">La Scuola della Montesca: Una Storia di donne</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=2">Foto e lettere di Alice a Maria Pasqui</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=3">Materiale Montessori e materiale didattico Internazionale</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=4">L’Esposizione Universale del 1910</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=5">Ricostruzione dello stand delle scuole</a></li>
+              <li><a class="dropdown-item" href="by-components.html?panel=6">Progetto della mostra; Guida per i visitatori, Crediti</a></li>
               </ul>
             </li>
             <!-- Videos dropdown -->
@@ -139,7 +139,7 @@
 <!-- ===== 4) Video Section ("The History of the Schools in 2 Videos") ===== -->
 <div id="video" class="container-fluid content-start" style="display: none;">
   <div class="container">
-    <h2 class="text-center mb-5">The History of the Schools in 2 Videos</h2>
+    <h2 class="text-center mb-5">La storia delle scuole in 2 video</h2>
     <div class="row g-4" style="align-items: stretch;">
       <!-- 4.1) Video Card: The Baroness and the Barefoot Children -->
       <div class="col-md-6 d-flex">
@@ -265,6 +265,7 @@
   </div>
 
   <div id="back-wall-panels" class="panel-section content-start" style="display: none;">
+    <h2 style="text-align: center; margin-bottom: 30px;">Foto degli alunni e lettere di Alice a Marietta</h2>
     <div class="container-fluid">
       <div class="container">
         <div class="ceiling-grid">
@@ -357,22 +358,29 @@
 
     <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
   <div id="back-wall" class="container-fluid content-start" style="display: none;">
+    <h1 style="text-align: center;  margin-bottom: 60px">Ricostruzione dello stand delle scuole</h1>
     <div class="container">
       <div class="row justify-content-center mb-5">
         <div class="col-12" style="max-width: 80%; margin: 0 auto;">
           <!-- Enhanced container for interactive hotspots -->
           <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
+            <div class="card-body text-center">
+              <p class="card-text">
+                Clicca sulla cornice per ingrandire l’immagine
+              </p>
+              <p>
+                Consultare il <a href="../assets/document/CATALOGUE.pdf" target="_blank" class="text-decoration-none fw-bold"> catalogo</a>.
+                per ulteriori informazioni sul materiale esposto
+
+              </p>
+            </div>
             <img id="back-wall-image"
                  usemap="#back-wall-map"
                  src="../assets/img/edited_half_title_stand.jpg"
                  class="d-block w-100 rounded"
                  alt="Back Wall"
-                 loading="eager">
-            <div class="card-body text-center">
-              <p class="card-text">
-                Clicca sulla cornice per ingrandire l’immagine
-              </p>
-            </div>
+                 loading="eager"
+                 >
           </div>
         </div>
       </div>
@@ -534,17 +542,17 @@
   <div id="front-wall" class="container-fluid content-start" style="display: none;">
     <div class="row justify-content-center">
       <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-        <h1 class="text-center front-title">La Mostra del 1910</h1>
-        <img
-          src="../assets/img/front-wall.png"
-          class="d-block w-100 rounded shadow front-media"
-          alt="Front Wall"
-        >
+        <h1 class="text-center front-title;" style="margin-bottom: 40px;">La Mostra del 1910</h1>
         <p class="text-center front-caption mb-5">
           Foto originale dello stand presentato dalle Scuole Rurali Private di Montesca e di Rovigliano presso,
           Città di Castello — Italia (come si legge nel pannello murale della parete centrale) all’Esposizione Universale e
           Internazionale di Bruxelles del 1910. (Collezione privata, R. Bance – Eredi Mary Hamilton)
         </p>
+        <img
+          src="../assets/img/front-wall.png"
+          class="d-block w-100 rounded shadow front-media"
+          alt="Front Wall"
+        >
 
         <!--
         <div class="mb-0">
@@ -662,6 +670,9 @@
 
   <!-- ===== 13) Image Accordion Section ("La Montesca School: A Story of Women") ===== -->
   <div id="image-accordion" class="container-fluid content-start">
+    <h2 class="text-center mb-4">Una Storia di donne </h2>
+    <h5 class="text-center mb-4">Leggi</h5>
+
     <div class="container">
       <div class="accordion">
         <div class="panel" data-index="1"><img src="../assets/img/silhouette-only-1.png" alt="Silhouette 1"><div class="panel-name">Mary Douglas Hamilton</div></div>
