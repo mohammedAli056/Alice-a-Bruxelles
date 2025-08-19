@@ -13,6 +13,25 @@
     2. LANDING SECTION (HERO)
 ───────────────────────────────────────────────────────────────────────────────*/
 
+.text-overlay {
+  position: absolute;
+  top: 50%; /* center vertically */
+  left: 50%; /* center horizontally */
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  z-index: 10;
+   background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  padding: 20px 30px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
 /* Root landing-section */
 .landing {
   display: flex;
