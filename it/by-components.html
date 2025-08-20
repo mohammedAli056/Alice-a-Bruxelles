@@ -356,37 +356,35 @@
     <button id="ceiling-modal-flip-btn" class="modal-flip-btn">Gira</button>
   </div>
 
-    <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
-  <div id="back-wall" class="container-fluid content-start" style="display: none;">
-    <h1 style="text-align: center;  margin-bottom: 60px">Ricostruzione dello stand delle scuole</h1>
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-12" style="max-width: 80%; margin: 0 auto;">
-          <!-- Enhanced container for interactive hotspots -->
-          <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
-            <div class="card-body text-center">
-              <p class="card-text">
-                Clicca sulla cornice per ingrandire l’immagine
-              </p>
-              <p>
-                Consultare il <a href="../assets/document/CATALOGUE.pdf" target="_blank" class="text-decoration-none fw-bold"> catalogo</a>.
-                per ulteriori informazioni sul materiale esposto
-
-              </p>
-            </div>
-            <img id="back-wall-image"
-                 usemap="#back-wall-map"
-                 src="../assets/img/edited_half_title_stand.jpg"
-                 class="d-block w-100 rounded"
-                 alt="Back Wall"
-                 loading="eager"
-                 >
+   <!-- ===== 6) Back Wall Section with Interactive Hotspots ===== -->
+<div id="back-wall" class="container-fluid content-start" style="display: none;">
+  <div class="container">
+    <h2 class="text-center mb-4">Reconstruction of the Schools' Stand</h2>
+    <div class="row justify-content-center mb-5">
+      <div class="col-12" style="max-width: 80%; margin: 0 auto;">
+        <!-- Enhanced container for interactive hotspots -->
+        <div class="card shadow image-map-container" style="position: relative; pointer-events: auto; overflow: visible;">
+          <div class="card-body text-center">
+            <p class="card-text mb-2">
+              Click on framed works to enlarge available images.
+            </p>
+            <p class="card-text">
+              Read more about the material on display in the 
+              <a href="../assets/document/CATALOGUE.pdf" target="_blank" class="text-decoration-none fw-bold">"Alice a Bruxelles" catalogue</a>.
+            </p>
           </div>
+          <img id="back-wall-image"
+               usemap="#back-wall-map"
+               src="../assets/img/edited_half_title_stand.jpg"
+               class="d-block w-100 rounded"
+               alt="Back Wall"
+               loading="eager">
         </div>
       </div>
     </div>
-    <div class="footer-placeholder"></div>
   </div>
+  <div class="footer-placeholder"></div>
+</div>
 
   <!-- ===== Image Map with Corrected Coordinates ===== -->
   <map name="back-wall-map">
@@ -472,88 +470,252 @@
     >
   </map>
 
-  <div id="popup-frame1" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
-      <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+<!-- Frame 1 - Simple popup without flip functionality -->
+<div id="popup-frame1" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-1.png" class="popup-image" alt="Frame 1">
+    <button class="close" onclick="closePopup('popup-frame1')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 2 - Simple popup without flip functionality -->
+<div id="popup-frame2" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
+    <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 3 - Simple popup without flip functionality -->
+<div id="popup-frame3" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
+    <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 4 - Simple popup without flip functionality -->
+<div id="popup-frame4" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
+    <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+  </div>
+</div>
+
+<!-- Frame 5 - Simple popup without flip functionality -->
+<div id="popup-frame5" class="popup">
+  <div class="popup-content">
+    <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
+    <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+  </div>
+</div>
+
+<!-- Updated Frame 6 - Now with flip functionality -->
+<div id="popup-frame6" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-6.jpeg" alt="Frame 6">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Riproduzione storica</h3>
+            <p>Collezione contenente “Semi dispersi dagli animali”. Questa riproduzione accuratamente realizzata preserva per i visitatori contemporanei il valore educativo e storico della collezione. </p>
+            <div class="artwork-details">
+              <h4>Dettagli della riproduzione</h4>
+              <ul>
+                <li>Basata su: fotografia del 1910</li>
+                <li>Realizzata da: Giuseppina Benedetti</li>
+                <li>Anno: 2024</li>
+                <li>Tipologia: Ricostruzione</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame6')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame6')">Close</button>
     </div>
   </div>
-  <div id="popup-frame2" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-2.png" class="popup-image" alt="Frame 2">
-      <button class="close" onclick="closePopup('popup-frame2')">✖</button>
+</div>
+
+<!-- Updated Frame 7 - Fixed title and added proper content -->
+<div id="popup-frame7" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-7.jpeg" alt="Frame 7">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Collezione di "Foglie sempreverdi".</h3>
+            <p>Esempio di studi botanici condotti presso la scuola. Gli esemplari accuratamente conservati rappresentano una campionatura della varietà della flora locale. </p>
+            <div class="artwork-details">
+              <h4>Dettagli della collezione </h4>
+              <ul>
+                <li>Institution: Tela Umbra Museum</li>
+                <li>Datazione: 1948–1949</li>
+                <li>Tipologia: Collezione di esemplari botanic</li>
+                <li>Nota: Probabile copia dell’originale del 1910 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame7')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame7')">Close</button>
     </div>
   </div>
-  <div id="popup-frame3" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-3.png" class="popup-image" alt="Frame 3">
-      <button class="close" onclick="closePopup('popup-frame3')">✖</button>
+</div>
+
+<!-- Updated Frame 8 - Seeds Dispersed by Animals -->
+<div id="popup-frame8" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-8.png" alt="Frame 8">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Il Cedro</h3>
+            <p>Collezione “Il Cedro”. Raccolta delle vare parti della pianta del cedro.</p>
+            <div class="artwork-details">
+              <h4>Dettagli della collezione</h4>
+              <ul>
+                <li>Datazione: 1924–1925</li>
+                <li>Tipologia: Raccolta di esemplari di flora locale.</li>
+                <li>Ente conservatore: Museo della Tela Umbra</li>
+                <li>Nota: Copia dell’originale del 1910</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame8')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame8')">Close</button>
     </div>
   </div>
-  <div id="popup-frame4" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-4.png" class="popup-image" alt="Frame 4">
-      <button class="close" onclick="closePopup('popup-frame4')">✖</button>
+</div>
+
+<!-- Updated Frame 9 - The Cedar Display -->
+<div id="popup-frame9" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-9.JPG" alt="Frame 9">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>collezione di semi dispersi in diverse maniere</h3>
+            <p>Teca contenente una collezioni di  semi dispersi in diverse maniere.</p>
+            <div class="artwork-details">
+              <h4>Dettagli della collezione</h4>
+              <ul>
+                <li>Ente conservatore: Museo della Tela Umbra</li>
+                <li>Datazione: 1919</li>
+                <li>Tipologia: Raccolta di esemplari di flora locale.</li>
+                <li>Nota: Copia dell’originale del 1910.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame9')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame9')">Close</button>
     </div>
   </div>
-  <div id="popup-frame5" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-5.png" class="popup-image" alt="Frame 5">
-      <button class="close" onclick="closePopup('popup-frame5')">✖</button>
+</div>
+
+<!-- Updated Frame 10 - Map of Umbria -->
+<div id="popup-frame10" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-10.png" alt="Frame 10">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Map of Umbria</h3>
+            <p>Cartina dell’Umbria a rilievo. Realizzata a scuola in cartapesta su supporto in legno. </p>
+            <div class="artwork-details">
+              <h4>Dettagli dell’opera:</h4>
+              <ul>
+                <li>Ente conservatore: Museo della Tela Umbra</li>
+                <li>Datazione: 1909</li>
+                <li>Tipologia: manufatto realizzato dalla scuola.</li>
+                <li>Soggetto: Regione Umbria</li>
+                <li>Nota: Originale.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame10')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame10')">Close</button>
     </div>
   </div>
-  <div id="popup-frame6" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-6.jpeg" class="popup-image" alt="Frame 6">
-      <button class="close" onclick="closePopup('popup-frame6')">✖</button>
+</div>
+
+<!-- Updated Frame 11 - Monte Santa Maria Excursion Map -->
+<div id="popup-frame11" class="popup">
+  <div class="popup-content">
+    <div class="popup-flip-container">
+      <div class="popup-flip-inner">
+        <div class="popup-flip-front">
+          <img src="../assets/img/enlarged-frame-11.png" alt="Frame 11">
+        </div>
+        <div class="popup-flip-back">
+          <div class="popup-description">
+            <h3>Gita annuale a Monte Santa Maria</h3>
+            <p>Cartina della gita a Monte Santa Maria, intitolata “L’escursione annuale per la Festa dell’Ascensione”. Questo elaborato studentesco documenta una gita scolastica annuale organizzata in occasione di una festività religiosa. </p>
+            <div class="artwork-details">
+              <h4>DETTAGLI DELL’OPERA</h4>
+              <ul>
+                <li>Ente Conservatore: Fondazione Opera Pia, fondo Hallgarten Franchetti.</li>
+                <li>Autore: Vincenzo Pieggi</li>
+                <li>Classe: VI (Sesta) </li>
+                <li>Anno di realizzazione: 1909</li>
+                <li>Tipologia: Elaborato cartografico studentesco</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-controls">
+      <button class="popup-flip-btn" onclick="togglePopupFlip('popup-frame11')">Show Info</button>
+      <button class="popup-close" onclick="closePopup('popup-frame11')">Close</button>
     </div>
   </div>
-  <div id="popup-frame7" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-7.jpeg" class="popup-image" alt="Frame 7">
-      <button class="close" onclick="closePopup('popup-frame7')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame8" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-8.png" class="popup-image" alt="Frame 8">
-      <button class="close" onclick="closePopup('popup-frame8')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame9" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-9.JPG" class="popup-image" alt="Frame 9">
-      <button class="close" onclick="closePopup('popup-frame9')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame10" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-10.png" class="popup-image" alt="Frame 10">
-      <button class="close" onclick="closePopup('popup-frame10')">✖</button>
-    </div>
-  </div>
-  <div id="popup-frame11" class="popup">
-    <div class="popup-content">
-      <img src="../assets/img/enlarged-frame-11.png" class="popup-image" alt="Frame 11">
-      <button class="close" onclick="closePopup('popup-frame11')">✖</button>
-    </div>
-  </div>
+</div>
 
   <div id="front-wall" class="container-fluid content-start" style="display: none;">
     <div class="row justify-content-center">
       <div class="col-12" style="max-width: 60%; margin: 0 auto;">
-        <h1 class="text-center front-title;" style="margin-bottom: 40px;">La Mostra del 1910</h1>
+        <h1 class="text-center front-title">The 1910 Exhibition</h1>
         <p class="text-center front-caption mb-5">
-          Foto originale dello stand presentato dalle Scuole Rurali Private di Montesca e di Rovigliano presso,
-          Città di Castello — Italia (come si legge nel pannello murale della parete centrale) all’Esposizione Universale e
-          Internazionale di Bruxelles del 1910. (Collezione privata, R. Bance – Eredi Mary Hamilton)
+          Original photo of the stand of the Private Rural Schools of Montesca and Rovigliano, Città di Castello — Italy at the 1910 Brussels'  World Fair. (Private Collection, R. Bance – Mary Hamilton's Heirs)
         </p>
         <img
           src="../assets/img/front-wall.png"
           class="d-block w-100 rounded shadow front-media"
           alt="Front Wall"
         >
-
         <!--
         <div class="mb-0">
           <h1 class="text-center mb-4">1910 Catalogue</h1>
