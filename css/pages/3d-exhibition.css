@@ -147,7 +147,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     text-shadow: none;
-    font-family: 'Times New Roman', serif;
+
 }
 
 .environment-container .overlay .btn:hover {

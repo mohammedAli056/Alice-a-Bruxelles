@@ -397,6 +397,8 @@ map area:hover {
     var(--bottle-green-medium) 30%,
     var(--bottle-green-primary) 30%) !important;
 
+    margin-bottom: 0 !important;
+
 }
 
 #video .container {
@@ -1278,6 +1280,8 @@ map area:hover {
     var(--bottle-green-primary) 30%,
     var(--bottle-green-medium) 30%,
     var(--bottle-green-primary) 30%) !important;
+
+    margin-bottom: 0 !important;
 }
 
 
