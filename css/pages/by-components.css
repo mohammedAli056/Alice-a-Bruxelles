@@ -1,3 +1,15 @@
+:root {
+  --bottle-green-primary: #093624;
+  --bottle-green-dark: #051D13;
+  --bottle-green-medium: #0F4B2E;
+  --bottle-green-light: #226248;
+  --bottle-green-accent: #35785D;
+  --sage-green: #68A58D;
+  --mint-green: #87BBA7;
+  --light-sage: #ABD2C2;
+  --very-light-green: #D3E8E0;
+}
+
 /*───────────────────────────────────────────────────────────────────────────────
   1. GLOBAL TRANSITIONS & POINTER‐EVENTS
 ───────────────────────────────────────────────────────────────────────────────*/
@@ -40,7 +52,13 @@ map area:hover {
     min-height: 90vh;
     box-sizing: border-box;
     border-bottom: 1px solid #e9ecef;
-    color: #fff;
+    
+    background: linear-gradient(135deg, 
+    var(--bottle-green-primary) 20%,
+    var(--bottle-green-medium) 10%, 
+    var(--bottle-green-primary) 60%,
+    var(--bottle-green-primary) 60%,
+    var(--bottle-green-dark) 90%) !important;
 }
 
 #slider-section {
@@ -371,10 +389,19 @@ map area:hover {
 #right-wall {
     display: none;
     transition: opacity 0.3s ease;
+
+    background: linear-gradient(135deg, 
+    var(--bottle-green-dark) 80%,
+    var(--bottle-green-primary) 30%,
+    var(--bottle-green-primary) 30%,
+    var(--bottle-green-medium) 30%,
+    var(--bottle-green-primary) 30%) !important;
+
 }
 
 #video .container {
     max-width: 90%;
+    background: transparent !important;
 }
 
 #video .row {
