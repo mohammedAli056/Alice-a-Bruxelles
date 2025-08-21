@@ -1272,6 +1272,12 @@ map area:hover {
 #back-wall,
 #right-wall {
     padding: 3rem ;
+    background: linear-gradient(135deg, 
+    var(--bottle-green-dark) 80%,
+    var(--bottle-green-primary) 30%,
+    var(--bottle-green-primary) 30%,
+    var(--bottle-green-medium) 30%,
+    var(--bottle-green-primary) 30%) !important;
 }
 
 
@@ -1305,6 +1311,7 @@ map area:hover {
 .image-map-container {
     position: relative;
     overflow: visible;
+    background: transparent;
 }
 
 /* Interactive Frame Hotspots */

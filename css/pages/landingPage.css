@@ -415,6 +415,7 @@ h2.text-center {
 #footer {
     border-top: 3px solid var( --bottle-green-accent);
     color: var(--light-sage);
+    background: transparent !important;
 
     margin-bottom: 0 !important;
 }
