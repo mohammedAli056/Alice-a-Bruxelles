@@ -10,6 +10,24 @@
         <link href="../css/pages/about.css" rel="stylesheet">
         <title>About Us | Alice a Bruxelles</title>
         <style>
+              :root {
+                  --bottle-green-primary: #093624;
+                  --bottle-green-dark: #051D13;
+                  --bottle-green-medium: #0F4B2E;
+                  --bottle-green-light: #226248;
+                  --bottle-green-accent: #35785D;
+              }
+
+              body {
+                  background: linear-gradient(135deg, 
+                    var(--bottle-green-dark) 80%,
+                    var(--bottle-green-primary) 30%,
+                    var(--bottle-green-primary) 30%,
+                    var(--bottle-green-medium) 30%,
+                    var(--bottle-green-primary) 30%) !important;
+                  min-height: 100vh;
+                  background-attachment: fixed;
+              }
             /******************************************************
             * CARD CONTAINER
             * Everything sits inside this narrower "card" with
