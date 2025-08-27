@@ -61,11 +61,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="landingPage.html#landing-section">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="landingPage.html#choose-view">HOME</a></li>
           <li class="nav-item"><a class="nav-link" href="3d-exhibition.html">MOSTRA IN 3D</a></li>
           <!-- Exhibition by Components dropdown -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">MOSTRA PER COMPONENTI</a>
+            <a class="nav-link" href="by-components.html">MOSTRA PER SEZIONI<span class="dropdown-toggle ms-1" data-bs-toggle="dropdown" aria-expanded="false"></span></a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="by-components.html?panel=0">La storia delle scuole in due video</a></li>
               <li><a class="dropdown-item" href="by-components.html?panel=1">La scuola della Montesca: una storia di donne</a></li>
@@ -281,7 +281,7 @@
     document.getElementById('currentLanguageFlag').src = lang==='it'
       ? '../assets/img/it.svg'
       : '../assets/img/en.svg';
-    window.location.href = lang==='it' ? '../it/index1.html' : '../en/index.html';
+    window.location.href = lang==='it' ? '../it/landingPage.html' : '../en/landingPage.html';
   }
   function openPDF() {
     window.open('../assets/document/CATALOGUE.pdf','_blank');
