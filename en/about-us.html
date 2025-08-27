@@ -269,11 +269,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="landingPage.html#landing-section">HOME</a></li>
+              <li class="nav-item"><a class="nav-link" href="landingPage.html#choose-view">HOME</a></li>
               <li class="nav-item"><a class="nav-link" href="3d-exhibition.html">EXHIBITION IN 3D</a></li>
               <!-- Exhibition by Components dropdown -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">EXHIBITION BY COMPONENTS</a>
+                <a class="nav-link" href="by-components.html">EXHIBITION BY COMPONENTS<span class="dropdown-toggle ms-1" data-bs-toggle="dropdown" aria-expanded="false"></span></a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="by-components.html?panel=0">The History of the Schools in 2 Videos</a></li>
                   <li><a class="dropdown-item" href="by-components.html?panel=1">La Montesca School: A Story of Women</a></li>
@@ -477,19 +477,25 @@
                 return false;
             });
 
-            function setLanguage(lang) {
-                const currentPath = window.location.pathname;
-                let filename = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-                if (filename === '' || filename === 'en' || filename === 'it') {
-                    filename = 'landingPage.html';
-                }
-
-                const newPath = lang === 'it'
-                    ? `/Alice-a-Bruxelles/it/${filename}`
-                    : `/Alice-a-Bruxelles/en/${filename}`;
-
-                window.location.href = newPath;
-            }
+//            function setLanguage(lang) {
+//                const currentPath = window.location.pathname;
+//                let filename = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+//                if (filename === '' || filename === 'en' || filename === 'it') {
+//                    filename = 'landingPage.html';
+//                }
+//
+//                const newPath = lang === 'it'
+//                    ? `Alice-a-Bruxelles/it/${filename}`
+//                    : `Alice-a-Bruxelles/en/${filename}`;
+//
+//                window.location.href = newPath;
+//            }
+              function setLanguage(lang) {
+    document.getElementById('currentLanguageFlag').src = lang==='it'
+      ? '../assets/img/it.svg'
+      : '../assets/img/en.svg';
+    window.location.href = lang==='it' ? '../it/about-us.html' : '../en/about-us.html';
+  }
             // Modal logic for exhibit poster
             function openPosterModal() {
               document.getElementById('poster-modal').style.display = 'flex';
