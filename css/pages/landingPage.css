@@ -212,19 +212,20 @@
 ───────────────────────────────────────────────────────────────────────────────*/
 
 .scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-  }
-  
-  .scroll-down .chevron {
-    display: block;
-    font-size: 2rem;
-    color: var(--bottle-green-accent);
-    animation: scroll-bounce 2s infinite;
-  }
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.scroll-down .chevron {
+  display: block;
+  font-size: 2rem;
+  color: var(--bottle-green-accent);
+  animation: scroll-bounce 2s infinite;
+}
   
   @keyframes scroll-bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
