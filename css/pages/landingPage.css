@@ -248,15 +248,16 @@
   border-radius: 0.5rem;
 }
 
+.about-section__content p {
+  font-weight: 500;
+  color: #111;
+  line-height: 1.6;
+}
+
 /* Enhanced section title */
 h2.text-center {
- background: linear-gradient(135deg,
-    var(--bottle-green-primary) 50%,
-    var(--bottle-green-medium) 80%,
-    var(--bottle-green-primary) 80%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  color: #000;
+  font-weight: 700;
 }
 
 /*───────────────────────────────────────────────────────────────────────────────
