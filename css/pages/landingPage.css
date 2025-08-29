@@ -236,15 +236,21 @@
     2.5. MID SECTION ENHANCEMENTS
 ───────────────────────────────────────────────────────────────────────────────*/
 #about-section {
-  background: linear-gradient(145deg, 
-    #ffffff 0%, 
-    rgba(211, 232, 224, 0.1) 50%, 
+  background: linear-gradient(145deg,
+    #ffffff 0%,
+    rgba(211, 232, 224, 0.1) 50%,
     #ffffff 100%) !important;
+}
+
+.about-section__content {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
 
 /* Enhanced section title */
 h2.text-center {
- background: linear-gradient(135deg, 
+ background: linear-gradient(135deg,
     var(--bottle-green-primary) 50%,
     var(--bottle-green-medium) 80%,
     var(--bottle-green-primary) 80%) !important;
